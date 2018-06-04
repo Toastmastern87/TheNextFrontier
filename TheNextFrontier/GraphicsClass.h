@@ -11,6 +11,7 @@ const float SCREENEAR = 0.1f;
 
 class GraphicsClass
 {
+public:
 	GraphicsClass();
 	GraphicsClass(const GraphicsClass&);
 	~GraphicsClass();

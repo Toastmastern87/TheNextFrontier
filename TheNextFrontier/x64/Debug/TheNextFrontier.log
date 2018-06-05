@@ -1,2 +1,8 @@
-﻿  SystemClass.cpp
+﻿  CameraClass.cpp
+  ColorShaderClass.cpp
+  GraphicsClass.cpp
+  ModelClass.cpp
+  SystemClass.cpp
+  TheNextFrontier.cpp
+  Generating Code...
   TheNextFrontier.vcxproj -> C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\x64\Debug\TheNextFrontier.exe

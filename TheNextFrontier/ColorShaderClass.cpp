@@ -20,7 +20,7 @@ bool ColorShaderClass::Initialize(ID3D11Device* device, HWND hwnd)
 {
 	bool result;
 
-	result = InitializeShader(device, hwnd, L"../TheNextFrontier/Color.vs", L"../TheNextFrontier/Color.ps");
+	result = InitializeShader(device, hwnd, (WCHAR*)L"../TheNextFrontier/Color.vs", (WCHAR*)L"../TheNextFrontier/Color.ps");
 	if (!result) 
 	{
 		return false;

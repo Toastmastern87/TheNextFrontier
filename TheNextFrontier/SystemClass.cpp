@@ -182,7 +182,7 @@ void SystemClass::InitializeWindows(int& screenWidth, int& screenHeight)
 		dmScreenSettings.dmBitsPerPel = 32;
 		dmScreenSettings.dmFields = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT;
 
-		ChangeDisplaySettings(&dmScreenSettings, CDS_FULLSCREEN);
+		ChangeDisplaySettings(&dmScreenSettings, CDS_FULLSCREEN);  
 
 		posX = posY = 0;
 	}

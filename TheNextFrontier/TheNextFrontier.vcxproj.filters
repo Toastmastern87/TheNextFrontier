@@ -44,5 +44,8 @@
     <ClInclude Include="D3DClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ApplicationClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

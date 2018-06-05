@@ -146,6 +146,7 @@
     <ClCompile Include="TheNextFrontier.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ApplicationClass.h" />
     <ClInclude Include="D3DClass.h" />
     <ClInclude Include="GraphicsClass.h" />
     <ClInclude Include="InputClass.h" />

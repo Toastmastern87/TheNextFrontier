@@ -20,7 +20,7 @@ public:
 	~GraphicsClass();
 
 	bool Initialize(int, int, HWND);
-	void Shutdown();
+	void Shutdown(); 
 	bool Frame();
 
 private:

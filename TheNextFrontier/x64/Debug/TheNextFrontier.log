@@ -1,7 +1,4 @@
-﻿  CameraClass.cpp
-  ColorShaderClass.cpp
-  GraphicsClass.cpp
-  ModelClass.cpp
+﻿  GraphicsClass.cpp
   SystemClass.cpp
   TheNextFrontier.cpp
   Generating Code...

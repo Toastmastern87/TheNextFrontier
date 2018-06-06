@@ -145,6 +145,7 @@
     <ClCompile Include="GraphicsClass.cpp" />
     <ClCompile Include="InputClass.cpp" />
     <ClCompile Include="ModelClass.cpp" />
+    <ClCompile Include="PositionClass.cpp" />
     <ClCompile Include="SystemClass.cpp" />
     <ClCompile Include="TheNextFrontier.cpp" />
   </ItemGroup>
@@ -156,6 +157,7 @@
     <ClInclude Include="GraphicsClass.h" />
     <ClInclude Include="InputClass.h" />
     <ClInclude Include="ModelClass.h" />
+    <ClInclude Include="PositionClass.h" />
     <ClInclude Include="SystemClass.h" />
   </ItemGroup>
   <ItemGroup>

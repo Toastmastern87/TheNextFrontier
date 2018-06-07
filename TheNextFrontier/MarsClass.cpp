@@ -1,20 +1,20 @@
-#include "ModelClass.h"
+#include "MarsClass.h"
 
-ModelClass::ModelClass() 
+MarsClass::MarsClass()
 {
 	mVertexBuffer = 0;
 	mIndexBuffer = 0;
 }
 
-ModelClass::ModelClass(const ModelClass& other) 
+MarsClass::MarsClass(const MarsClass& other)
 {
 }
 
-ModelClass::~ModelClass() 
+MarsClass::~MarsClass()
 {
 }
 
-bool ModelClass::Initialize(ID3D11Device* device) 
+bool MarsClass::Initialize(ID3D11Device* device)
 {
 	bool result;
 
@@ -27,26 +27,26 @@ bool ModelClass::Initialize(ID3D11Device* device)
 	return true;
 }
 
-void ModelClass::Shutdown() 
+void MarsClass::Shutdown()
 {
 	ShutdownBuffers();
 
 	return;
 }
 
-void ModelClass::Render(ID3D11DeviceContext* deviceContext)
+void MarsClass::Render(ID3D11DeviceContext* deviceContext)
 {
 	RenderBuffers(deviceContext);
 
 	return;
 }
 
-int ModelClass::GetIndexCount() 
+int MarsClass::GetIndexCount()
 {
 	return mIndexCount;
 }
 
-bool ModelClass::InitializeBuffers(ID3D11Device* device) 
+bool MarsClass::InitializeBuffers(ID3D11Device* device)
 {
 	VertexType* vertices;
 	unsigned long* indices;
@@ -126,7 +126,7 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
 	return true;
 }
 
-void ModelClass::ShutdownBuffers()
+void MarsClass::ShutdownBuffers()
 {
 	if (mIndexBuffer)
 	{
@@ -143,7 +143,7 @@ void ModelClass::ShutdownBuffers()
 	return;
 }
 
-void ModelClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
+void MarsClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 {
 	unsigned int stride;
 	unsigned int offset;

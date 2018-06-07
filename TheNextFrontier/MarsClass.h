@@ -1,12 +1,12 @@
-#ifndef _MODELCLASS_H_
+#ifndef _MARSCLASS_H_
 
-#define _MODELCLASS_H_
+#define _MARSCLASS_H_
 
 #include <d3d11.h>
 #include <DirectXMath.h>
 using namespace DirectX;
 
-class ModelClass
+class MarsClass
 {
 private:
 	struct VertexType 
@@ -16,9 +16,9 @@ private:
 	};
 
 public:
-	ModelClass();
-	ModelClass(const ModelClass&);
-	~ModelClass();
+	MarsClass();
+	MarsClass(const MarsClass&);
+	~MarsClass();
 
 	bool Initialize(ID3D11Device*);
 	void Shutdown();

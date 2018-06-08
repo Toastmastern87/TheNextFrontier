@@ -124,5 +124,11 @@
     <None Include="Color.ps">
       <Filter>Source Files\Shaders</Filter>
     </None>
+    <None Include="Font.ps">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="Font.vs">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

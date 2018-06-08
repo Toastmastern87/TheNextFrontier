@@ -65,12 +65,12 @@ void TextClass::Shutdown()
 	return;
 }
 
-//void TextClass::Render(ID3D11DeviceContext* deviceContext, ShaderManagerClass* shaderManager, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX orthoMatrix, ID3D11ShaderResourceView* fontTexture)
-//{
-//	RenderSentence(deviceContext, shaderManager, worldMatrix, viewMatrix, orthoMatrix, fontTexture);
-//
-//	return;
-//}
+void TextClass::Render(ID3D11DeviceContext* deviceContext, ShaderManagerClass* shaderManager, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX orthoMatrix, ID3D11ShaderResourceView* fontTexture)
+{
+	RenderSentence(deviceContext, shaderManager, worldMatrix, viewMatrix, orthoMatrix, fontTexture);
+
+	return;
+}
 
 bool TextClass::InitializeSentence(ID3D11Device* device, ID3D11DeviceContext* deviceContext, FontClass* font, char* text, int positionX, int positionY, float red, float green, float blue)
 {
@@ -238,30 +238,30 @@ bool TextClass::UpdateSentence(ID3D11DeviceContext* deviceContext, FontClass* fo
 	return true;
 }
 
-//void TextClass::RenderSentence(ID3D11DeviceContext* deviceContext, ShaderManagerClass* shaderManager, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX orthoMatrix, ID3D11ShaderResourceView* fontTexture)
-//{
-//	unsigned int stride, offset;
-//	XMFLOAT4 shadowColor;
-//
-//	stride = sizeof(VertexType);
-//	offset = 0;
-//
-//	if (mShadow)
-//	{
-//		shadowColor = XMFLOAT4(0.0f, 0.0f, 0.0f, 1.0f);
-//
-//		deviceContext->IASetVertexBuffers(0, 1, &mVertexBuffer2, &stride, &offset);
-//		deviceContext->IASetIndexBuffer(mIndexBuffer2, DXGI_FORMAT_R32_UINT, 0);
-//		deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-//		
-//		ShaderManager->RenderFontShader(deviceContext, mIndexCount, worldMatrix, viewMatrix, orthoMatrix, fontTexture, shadowColor);
-//	}
-//
-//	deviceContext->IASetVertexBuffers(0, 1, &mVertexBuffer, &stride, &offset);
-//	deviceContext->IASetIndexBuffer(mIndexBuffer, DXGI_FORMAT_R32_UINT, 0);
-//	deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-//
-//	ShaderManager->RenderFontShader(deviceContext, mIndexCount, worldMatrix, viewMatrix, orthoMatrix, fontTexture, mPixelColor);
-//
-//	return;
-//}
+void TextClass::RenderSentence(ID3D11DeviceContext* deviceContext, ShaderManagerClass* shaderManager, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX orthoMatrix, ID3D11ShaderResourceView* fontTexture)
+{
+	unsigned int stride, offset;
+	XMFLOAT4 shadowColor;
+
+	stride = sizeof(VertexType);
+	offset = 0;
+
+	if (mShadow)
+	{
+		shadowColor = XMFLOAT4(0.0f, 0.0f, 0.0f, 1.0f);
+
+		deviceContext->IASetVertexBuffers(0, 1, &mVertexBuffer2, &stride, &offset);
+		deviceContext->IASetIndexBuffer(mIndexBuffer2, DXGI_FORMAT_R32_UINT, 0);
+		deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+		
+		ShaderManager->RenderFontShader(deviceContext, mIndexCount, worldMatrix, viewMatrix, orthoMatrix, fontTexture, shadowColor);
+	}
+
+	deviceContext->IASetVertexBuffers(0, 1, &mVertexBuffer, &stride, &offset);
+	deviceContext->IASetIndexBuffer(mIndexBuffer, DXGI_FORMAT_R32_UINT, 0);
+	deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
+	ShaderManager->RenderFontShader(deviceContext, mIndexCount, worldMatrix, viewMatrix, orthoMatrix, fontTexture, mPixelColor);
+
+	return;
+}

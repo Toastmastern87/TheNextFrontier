@@ -69,6 +69,9 @@
     <ClCompile Include="UIClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UniverseClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SystemClass.h">
@@ -120,6 +123,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UIClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UniverseClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

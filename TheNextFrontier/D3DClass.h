@@ -32,6 +32,19 @@ public:
 
 	void GetVideoCardInfo(char*, int&);
 
+	void TurnZBufferOn();
+	void TurnZBufferOff();
+
+	void TurnOnCulling();
+	void TurnOffCulling();
+
+	void EnableAlphaBlending();
+	void EnableAlphaToCoverageBlending();
+	void DisableAlphaBlending();
+
+	void EnableWireframe();
+	void DisableWireframe();
+
 private:
 	bool mVSyncEnabled;
 	int mVideoCardMemory;
@@ -44,9 +57,15 @@ private:
 	ID3D11DepthStencilState* mDepthStencilState;
 	ID3D11DepthStencilView* mDepthStencilView;
 	ID3D11RasterizerState* mRasterState;
+	ID3D11RasterizerState* mRasterStateNoCulling;
+	ID3D11RasterizerState* mRasterStateWireframe;
 	XMMATRIX mProjectionMatrix;
 	XMMATRIX mWorldMatrix;
 	XMMATRIX mOrthoMatrix;
+	ID3D11DepthStencilState* mDepthDisabledStencilState;
+	ID3D11BlendState* mAlphaEnableBlendingState;
+	ID3D11BlendState* mAlphaDisableBlendingState;
+	ID3D11BlendState* mAlphaEnableBlendingState2;
 };
 
 #endif

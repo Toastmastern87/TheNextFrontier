@@ -1,10 +1,8 @@
 #ifndef _FONTCLASS_H_
-
 #define _FONTCLASS_H_
 
 #include <DirectXMath.h>
 #include <fstream>
-
 using namespace DirectX;
 using namespace std;
 

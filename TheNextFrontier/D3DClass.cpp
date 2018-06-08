@@ -10,6 +10,12 @@ D3DClass::D3DClass()
 	mDepthStencilState = 0;
 	mDepthStencilView = 0;
 	mRasterState = 0;
+	mRasterStateNoCulling = 0;
+	mRasterStateWireframe = 0;
+	mDepthDisabledStencilState = 0;
+	mAlphaEnableBlendingState = 0;
+	mAlphaDisableBlendingState = 0;
+	mAlphaEnableBlendingState2 = 0;
 }
 
 D3DClass::D3DClass(const D3DClass& other)
@@ -40,6 +46,8 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vSync, HWND hw
 	D3D11_RASTERIZER_DESC rasterDesc;
 	D3D11_VIEWPORT viewport;
 	float fieldOfView, screenAspect;
+	D3D11_DEPTH_STENCIL_DESC depthDisabledStencilDesc;
+	D3D11_BLEND_DESC blendStateDesc;
 
 	mVSyncEnabled = vSync;
 
@@ -264,6 +272,31 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vSync, HWND hw
 
 	mDeviceContext->RSSetState(mRasterState);
 
+	rasterDesc.CullMode = D3D11_CULL_NONE;
+
+	result = mDevice->CreateRasterizerState(&rasterDesc, &mRasterStateNoCulling);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	rasterDesc.AntialiasedLineEnable = false;
+	rasterDesc.CullMode = D3D11_CULL_BACK;
+	rasterDesc.DepthBias = 0;
+	rasterDesc.DepthBiasClamp = 0.0f;
+	rasterDesc.DepthClipEnable = true;
+	rasterDesc.FillMode = D3D11_FILL_WIREFRAME;
+	rasterDesc.FrontCounterClockwise = false;
+	rasterDesc.MultisampleEnable = false;
+	rasterDesc.ScissorEnable = false;
+	rasterDesc.SlopeScaledDepthBias = 0.0f;
+
+	result = mDevice->CreateRasterizerState(&rasterDesc, &mRasterStateWireframe);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
 	viewport.Width = (float)screenWidth;
 	viewport.Height = (float)screenHeight;
 	viewport.MinDepth = 0.0f;
@@ -282,6 +315,72 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vSync, HWND hw
 
 	mOrthoMatrix = XMMatrixOrthographicLH((float)screenWidth, (float)screenHeight, screenNear, screenDepth);
 
+	depthDisabledStencilDesc.DepthEnable = false;
+	depthDisabledStencilDesc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
+	depthDisabledStencilDesc.DepthFunc = D3D11_COMPARISON_LESS;
+	depthDisabledStencilDesc.StencilEnable = true;
+	depthDisabledStencilDesc.StencilReadMask = 0xFF;
+	depthDisabledStencilDesc.StencilWriteMask = 0xFF;
+	depthDisabledStencilDesc.FrontFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
+	depthDisabledStencilDesc.FrontFace.StencilDepthFailOp = D3D11_STENCIL_OP_INCR;
+	depthDisabledStencilDesc.FrontFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
+	depthDisabledStencilDesc.FrontFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
+	depthDisabledStencilDesc.BackFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
+	depthDisabledStencilDesc.BackFace.StencilDepthFailOp = D3D11_STENCIL_OP_DECR;
+	depthDisabledStencilDesc.BackFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
+	depthDisabledStencilDesc.BackFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
+
+	result = mDevice->CreateDepthStencilState(&depthDisabledStencilDesc, &mDepthDisabledStencilState);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	ZeroMemory(&blendStateDesc, sizeof(D3D11_BLEND_DESC));
+
+	blendStateDesc.AlphaToCoverageEnable = false;
+	blendStateDesc.IndependentBlendEnable = false;
+	blendStateDesc.RenderTarget[0].BlendEnable = true;
+	blendStateDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
+	blendStateDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
+	blendStateDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_ONE;
+	blendStateDesc.RenderTarget[0].DestBlend = D3D11_BLEND_ONE;
+	blendStateDesc.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;
+	blendStateDesc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;
+	blendStateDesc.RenderTarget[0].RenderTargetWriteMask = 0x0f;
+
+	result = mDevice->CreateBlendState(&blendStateDesc, &mAlphaEnableBlendingState);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	blendStateDesc.RenderTarget[0].BlendEnable = false;
+	blendStateDesc.AlphaToCoverageEnable = false;
+
+	result = mDevice->CreateBlendState(&blendStateDesc, &mAlphaDisableBlendingState);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	blendStateDesc.AlphaToCoverageEnable = true;
+	blendStateDesc.IndependentBlendEnable = false;
+	blendStateDesc.RenderTarget[0].BlendEnable = true;
+	blendStateDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
+	blendStateDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
+	blendStateDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_ONE;
+	blendStateDesc.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;
+	blendStateDesc.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;
+	blendStateDesc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;
+	blendStateDesc.RenderTarget[0].RenderTargetWriteMask = 0x0f;
+
+	result = mDevice->CreateBlendState(&blendStateDesc, &mAlphaEnableBlendingState2);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
 	return true;
 }
 
@@ -290,6 +389,42 @@ void D3DClass::Shutdown()
 	if (mSwapChain) 
 	{
 		mSwapChain->SetFullscreenState(false, NULL);
+	}
+
+	if (mAlphaEnableBlendingState2)
+	{
+		mAlphaEnableBlendingState2->Release();
+		mAlphaEnableBlendingState2 = 0;
+	}
+
+	if (mAlphaDisableBlendingState)
+	{
+		mAlphaDisableBlendingState->Release();
+		mAlphaDisableBlendingState = 0;
+	}
+
+	if (mAlphaEnableBlendingState)
+	{
+		mAlphaEnableBlendingState->Release();
+		mAlphaEnableBlendingState = 0;
+	}
+
+	if (mDepthDisabledStencilState)
+	{
+		mDepthDisabledStencilState->Release();
+		mDepthDisabledStencilState = 0;
+	}
+
+	if (mRasterStateWireframe)
+	{
+		mRasterStateWireframe->Release();
+		mRasterStateWireframe = 0;
+	}
+
+	if (mRasterStateNoCulling)
+	{
+		mRasterStateNoCulling->Release();
+		mRasterStateNoCulling = 0;
 	}
 
 	if (mRasterState) 
@@ -410,5 +545,89 @@ void D3DClass::GetVideoCardInfo(char* cardName, int& memory)
 	strcpy_s(cardName, 128, mVideoCardDescription);
 	memory = mVideoCardMemory;
 	
+	return;
+}
+
+void D3DClass::TurnZBufferOn() 
+{
+	mDeviceContext->OMSetDepthStencilState(mDepthStencilState, 1);
+
+	return;
+}
+
+void D3DClass::TurnZBufferOff()
+{
+	mDeviceContext->OMSetDepthStencilState(mDepthDisabledStencilState, 1);
+
+	return;
+}
+
+void D3DClass::EnableAlphaBlending() 
+{
+	float blendFactor[4];
+
+	blendFactor[0] = 0.0f;
+	blendFactor[1] = 0.0f;
+	blendFactor[2] = 0.0f;
+	blendFactor[3] = 0.0f;
+
+	mDeviceContext->OMSetBlendState(mAlphaEnableBlendingState, blendFactor, 0xffffffff);
+
+	return;
+}
+
+void D3DClass::DisableAlphaBlending()
+{
+	float blendFactor[4];
+
+	blendFactor[0] = 0.0f;
+	blendFactor[1] = 0.0f;
+	blendFactor[2] = 0.0f;
+	blendFactor[3] = 0.0f;
+
+	mDeviceContext->OMSetBlendState(mAlphaDisableBlendingState, blendFactor, 0xffffffff);
+
+	return;
+}
+
+void D3DClass::TurnOnCulling() 
+{
+	mDeviceContext->RSSetState(mRasterState);
+
+	return;
+}
+
+void D3DClass::TurnOffCulling()
+{
+	mDeviceContext->RSSetState(mRasterStateNoCulling);
+
+	return;
+}
+
+void D3DClass::EnableAlphaToCoverageBlending() 
+{
+	float blendFactor[4];
+
+	blendFactor[0] = 0.0f;
+	blendFactor[1] = 0.0f;
+	blendFactor[2] = 0.0f;
+	blendFactor[3] = 0.0f;
+
+	mDeviceContext->OMSetBlendState(mAlphaEnableBlendingState2, blendFactor, 0xffffffff);
+
+	return;
+}
+
+void D3DClass::EnableWireframe()
+{
+	mDeviceContext->RSSetState(mRasterStateWireframe);
+
+	return;
+}
+
+void D3DClass::DisableWireframe()
+{
+	mDeviceContext->RSSetState(mRasterState);
+
 	return;
 }

@@ -14,7 +14,7 @@ FontClass::~FontClass()
 {
 }
 
-bool FontClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceContext, char* fontFilename, char* textureFilename, float fontHeight, int spaceSize)
+bool FontClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceContext, char *fontFilename, char *textureFilename, float fontHeight, int spaceSize)
 {
 	bool result;
 

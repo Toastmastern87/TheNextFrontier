@@ -53,10 +53,18 @@ bool MarsClass::InitializeBuffers(ID3D11Device* device)
 	D3D11_BUFFER_DESC vertexBufferDesc, indexBufferDesc;
 	D3D11_SUBRESOURCE_DATA vertexData, indexData;
 	HRESULT result;
+	int i, j, terrainWidth, terrainHeight, index;
+	XMFLOAT4 color;
+	float positionX, positionZ;
 
-	mVertexCount = 3;
+	terrainWidth = 256;
+	terrainHeight = 256;
 
-	mIndexCount = 3;
+	color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+
+	mVertexCount = (terrainWidth - 1) * (terrainHeight - 1) * 8;
+
+	mIndexCount = mVertexCount;
 	
 	vertices = new VertexType[mVertexCount];
 	if (!vertices) 
@@ -70,18 +78,75 @@ bool MarsClass::InitializeBuffers(ID3D11Device* device)
 		return false;
 	}
 
-	vertices[0].position = XMFLOAT3(-1.0f, -1.0f, 0.0f);
-	vertices[0].color = XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f);
+	for(j = 0; j < (terrainHeight - 1); j++)
+	{
+		for (i = 0; i < (terrainHeight - 1); i++)
+		{
+			positionX = (float)i;
+			positionZ = (float)(j + 1);
 
-	vertices[1].position = XMFLOAT3(0.0f, 1.0f, 0.0f);
-	vertices[1].color = XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f);
+			vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
+			vertices[index].color = color;
+			indices[index] = index;
+			index++;
 
-	vertices[2].position = XMFLOAT3(1.0f, -1.0f, 0.0f);
-	vertices[2].color = XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f);
+			positionX = (float)(i + 1);
+			positionZ = (float)(j + 1);
 
-	indices[0] = 0;
-	indices[1] = 1;
-	indices[2] = 2;
+			vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
+			vertices[index].color = color;
+			indices[index] = index;
+			index++;
+
+			positionX = (float)(i + 1);
+			positionZ = (float)(j + 1);
+
+			vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
+			vertices[index].color = color;
+			indices[index] = index;
+			index++;
+
+			positionX = (float)(i + 1);
+			positionZ = (float)j;
+
+			vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
+			vertices[index].color = color;
+			indices[index] = index;
+			index++;
+
+			positionX = (float)(i + 1);
+			positionZ = (float)j;
+
+			vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
+			vertices[index].color = color;
+			indices[index] = index;
+			index++;
+
+			positionX = (float)i;
+			positionZ = (float)j;
+
+			vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
+			vertices[index].color = color;
+			indices[index] = index;
+			index++;
+
+			positionX = (float)i;
+			positionZ = (float)j;
+
+			vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
+			vertices[index].color = color;
+			indices[index] = index;
+			index++;
+
+			positionX = (float)i;
+			positionZ = (float)(j + 1);
+
+			vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
+			vertices[index].color = color;
+			indices[index] = index;
+			index++;
+		}
+	}
 
 	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	vertexBufferDesc.ByteWidth = sizeof(VertexType) * mVertexCount;
@@ -155,7 +220,7 @@ void MarsClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 
 	deviceContext->IASetIndexBuffer(mIndexBuffer, DXGI_FORMAT_R32_UINT, 0);
 
-	deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_LINELIST);
 
 	return;
 }

@@ -305,7 +305,7 @@ bool InputClass::IsF1Toggled()
 	}
 	else 
 	{
-		mF1Released = false;
+		mF1Released = true;
 	}
 
 	return false;
@@ -323,7 +323,7 @@ bool InputClass::IsF2Toggled()
 	}
 	else
 	{
-		mF2Released = false;
+		mF2Released = true;
 	}
 
 	return false;

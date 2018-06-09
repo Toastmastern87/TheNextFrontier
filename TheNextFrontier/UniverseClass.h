@@ -30,7 +30,7 @@ private:
 	CameraClass* mCamera;
 	PositionClass* mPosition;
 	MarsClass* mMars;
-	bool mDisplayUI;
+	bool mDisplayUI, mWireframe;
 };
 
 #endif

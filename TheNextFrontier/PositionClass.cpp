@@ -256,7 +256,7 @@ void PositionClass::LookUpward(bool keyDown)
 
 		if (mLookUpSpeed > (mFrameTime * 75.0f))
 		{
-			mLookUpSpeed = 75.0f;
+			mLookUpSpeed = mFrameTime * 75.0f;
 		}
 	}
 	else
@@ -287,7 +287,7 @@ void PositionClass::LookDownward(bool keyDown)
 
 		if (mLookDownSpeed > (mFrameTime * 75.0f))
 		{
-			mLookDownSpeed = 75.0f;
+			mLookDownSpeed = mFrameTime * 75.0f;
 		}
 	}
 	else

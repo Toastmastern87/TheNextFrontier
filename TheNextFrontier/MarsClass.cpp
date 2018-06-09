@@ -62,9 +62,9 @@ bool MarsClass::InitializeBuffers(ID3D11Device* device)
 
 	color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
 
-	mVertexCount = (terrainWidth - 1) * (terrainHeight - 1) * 8;
+	mVertexCount = 12;
 
-	mIndexCount = mVertexCount;
+	mIndexCount = 60;
 	
 	vertices = new VertexType[mVertexCount];
 	if (!vertices) 
@@ -80,75 +80,267 @@ bool MarsClass::InitializeBuffers(ID3D11Device* device)
 
 	index = 0;
 
-	for(j = 0; j < (terrainHeight - 1); j++)
-	{
-		for (i = 0; i < (terrainHeight - 1); i++)
-		{
-			positionX = (float)i;
-			positionZ = (float)(j + 1);
+	float t = (float)((1.0f + sqrt(5.0f)) / 2.0f);
 
-			vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
-			vertices[index].color = color;
-			indices[index] = index;
-			index++;
+	vertices[index].position = XMFLOAT3(-1.0f, t, 0.0f);
+	vertices[index].color = color;
+	index++;
 
-			positionX = (float)(i + 1);
-			positionZ = (float)(j + 1);
+	vertices[index].position = XMFLOAT3(1.0f, t, 0.0f);
+	vertices[index].color = color;
+	index++;
 
-			vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
-			vertices[index].color = color;
-			indices[index] = index;
-			index++;
+	vertices[index].position = XMFLOAT3(1.0f, t, 0.0f);
+	vertices[index].color = color;
+	index++;
 
-			positionX = (float)(i + 1);
-			positionZ = (float)(j + 1);
+	vertices[index].position = XMFLOAT3(-1.0f, -t, 0.0f);
+	vertices[index].color = color;
+	index++;
 
-			vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
-			vertices[index].color = color;
-			indices[index] = index;
-			index++;
+	vertices[index].position = XMFLOAT3(0.0f, -1.0f, t);
+	vertices[index].color = color;
+	index++;
 
-			positionX = (float)(i + 1);
-			positionZ = (float)j;
+	vertices[index].position = XMFLOAT3(0.0f, 1.0f, t);
+	vertices[index].color = color;
+	index++;
 
-			vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
-			vertices[index].color = color;
-			indices[index] = index;
-			index++;
+	vertices[index].position = XMFLOAT3(0.0f, -1.0f, -t);
+	vertices[index].color = color;
+	index++;
 
-			positionX = (float)(i + 1);
-			positionZ = (float)j;
+	vertices[index].position = XMFLOAT3(0.0f, 1.0f, -t);
+	vertices[index].color = color;
+	index++;
 
-			vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
-			vertices[index].color = color;
-			indices[index] = index;
-			index++;
+	vertices[index].position = XMFLOAT3(t, 0.0f, -1.0f);
+	vertices[index].color = color;
+	index++;
 
-			positionX = (float)i;
-			positionZ = (float)j;
+	vertices[index].position = XMFLOAT3(t, 0.0f, 1.0f);
+	vertices[index].color = color;
+	index++;
 
-			vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
-			vertices[index].color = color;
-			indices[index] = index;
-			index++;
+	vertices[index].position = XMFLOAT3(-t, 0.0f, -1.0f);
+	vertices[index].color = color;
+	index++;
 
-			positionX = (float)i;
-			positionZ = (float)j;
+	vertices[index].position = XMFLOAT3(-t, 0.0f, 1.0f);
+	vertices[index].color = color;
+	index++;
 
-			vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
-			vertices[index].color = color;
-			indices[index] = index;
-			index++;
+	index = 0;
 
-			positionX = (float)i;
-			positionZ = (float)(j + 1);
+	indices[index] = 0;
+	index++;
+	indices[index] = 11;
+	index++;
+	indices[index] = 5;
+	index++;
 
-			vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
-			vertices[index].color = color;
-			indices[index] = index;
-			index++;
-		}
-	}
+	indices[index] = 0;
+	index++;
+	indices[index] = 5;
+	index++;
+	indices[index] = 1;
+	index++;
+
+	indices[index] = 0;
+	index++;
+	indices[index] = 1;
+	index++;
+	indices[index] = 7;
+	index++;
+
+	indices[index] = 0;
+	index++;
+	indices[index] = 7;
+	index++;
+	indices[index] = 10;
+	index++;
+
+	indices[index] = 0;
+	index++;
+	indices[index] = 1;
+	index++;
+	indices[index] = 11;
+	index++;
+
+	indices[index] = 1;
+	index++;
+	indices[index] = 5;
+	index++;
+	indices[index] = 9;
+	index++;
+
+	indices[index] = 5;
+	index++;
+	indices[index] = 11;
+	index++;
+	indices[index] = 4;
+	index++;
+
+	indices[index] = 11;
+	index++;
+	indices[index] = 10;
+	index++;
+	indices[index] = 2;
+	index++;
+
+	indices[index] = 10;
+	index++;
+	indices[index] = 7;
+	index++;
+	indices[index] = 6;
+	index++;
+
+	indices[index] = 7;
+	index++;
+	indices[index] = 1;
+	index++;
+	indices[index] = 8;
+	index++;
+
+	indices[index] = 3;
+	index++;
+	indices[index] = 9;
+	index++;
+	indices[index] = 4;
+	index++;
+
+	indices[index] = 3;
+	index++;
+	indices[index] = 4;
+	index++;
+	indices[index] = 2;
+	index++;
+
+	indices[index] = 3;
+	index++;
+	indices[index] = 2;
+	index++;
+	indices[index] = 6;
+	index++;
+
+	indices[index] = 3;
+	index++;
+	indices[index] = 6;
+	index++;
+	indices[index] = 8;
+	index++;
+
+	indices[index] = 3;
+	index++;
+	indices[index] = 8;
+	index++;
+	indices[index] = 9;
+	index++;
+
+	indices[index] = 4;
+	index++;
+	indices[index] = 9;
+	index++;
+	indices[index] = 5;
+	index++;
+
+	indices[index] = 2;
+	index++;
+	indices[index] = 4;
+	index++;
+	indices[index] = 11;
+	index++;
+
+	indices[index] = 6;
+	index++;
+	indices[index] = 2;
+	index++;
+	indices[index] = 10;
+	index++;
+
+	indices[index] = 8;
+	index++;
+	indices[index] = 6;
+	index++;
+	indices[index] = 7;
+	index++;
+
+	indices[index] = 9;
+	index++;
+	indices[index] = 8;
+	index++;
+	indices[index] = 1;
+	index++;
+
+	//for(j = 0; j < (terrainHeight - 1); j++)
+	//{
+	//	for (i = 0; i < (terrainHeight - 1); i++)
+	//	{
+	//		positionX = (float)i;
+	//		positionZ = (float)(j + 1);
+
+	//		vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
+	//		vertices[index].color = color;
+	//		indices[index] = index;
+	//		index++;
+
+	//		positionX = (float)(i + 1);
+	//		positionZ = (float)(j + 1);
+
+	//		vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
+	//		vertices[index].color = color;
+	//		indices[index] = index;
+	//		index++;
+
+	//		positionX = (float)(i + 1);
+	//		positionZ = (float)(j + 1);
+
+	//		vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
+	//		vertices[index].color = color;
+	//		indices[index] = index;
+	//		index++;
+
+	//		positionX = (float)(i + 1);
+	//		positionZ = (float)j;
+
+	//		vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
+	//		vertices[index].color = color;
+	//		indices[index] = index;
+	//		index++;
+
+	//		positionX = (float)(i + 1);
+	//		positionZ = (float)j;
+
+	//		vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
+	//		vertices[index].color = color;
+	//		indices[index] = index;
+	//		index++;
+
+	//		positionX = (float)i;
+	//		positionZ = (float)j;
+
+	//		vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
+	//		vertices[index].color = color;
+	//		indices[index] = index;
+	//		index++;
+
+	//		positionX = (float)i;
+	//		positionZ = (float)j;
+
+	//		vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
+	//		vertices[index].color = color;
+	//		indices[index] = index;
+	//		index++;
+
+	//		positionX = (float)i;
+	//		positionZ = (float)(j + 1);
+
+	//		vertices[index].position = XMFLOAT3(positionX, 0.0f, positionZ);
+	//		vertices[index].color = color;
+	//		indices[index] = index;
+	//		index++;
+	//	}
+	//}
 
 	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	vertexBufferDesc.ByteWidth = sizeof(VertexType) * mVertexCount;
@@ -222,7 +414,7 @@ void MarsClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 
 	deviceContext->IASetIndexBuffer(mIndexBuffer, DXGI_FORMAT_R32_UINT, 0);
 
-	deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_LINELIST);
+	deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	return;
 }

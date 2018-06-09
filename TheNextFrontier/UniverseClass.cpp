@@ -48,8 +48,8 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 		return false;
 	}
 
-	mPosition->SetPosition(128.0f, 5.0f, -10.0f);
-	mPosition->SetRotation(0.0f, 0.0f, 0.0f);
+	mPosition->SetPosition(16.0f, 26.0f, 0.0f);
+	mPosition->SetRotation(56.0f, 269.0f, 16.0f);
 
 	mMars = new MarsClass;
 	if (!mMars)
@@ -66,6 +66,7 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 	}
 
 	mDisplayUI = true;
+	mWireframe = false;
 
 	return true;
 }
@@ -167,6 +168,11 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 		mDisplayUI = !mDisplayUI;
 	}
 
+	if (input->IsF2Toggled())
+	{
+		mWireframe = !mWireframe;
+	}
+
 	return;
 }
 
@@ -185,12 +191,22 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 
 	direct3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
 
+	if (mWireframe) 
+	{
+		direct3D->EnableWireframe();
+	}
+
 	mMars->Render(direct3D->GetDeviceContext());
 
 	result = shaderManager->RenderColorShader(direct3D->GetDeviceContext(), mMars->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix);
 	if (!result) 
 	{
 		return false;
+	}
+
+	if (mWireframe)
+	{
+		direct3D->DisableWireframe();
 	}
 
 	if (mDisplayUI) 

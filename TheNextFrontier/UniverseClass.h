@@ -14,12 +14,12 @@ class UniverseClass
 {
 public:
 	UniverseClass();
-	UniverseClass(const &UniverseClass other);
+	UniverseClass(const UniverseClass& other);
 	~UniverseClass();
 
 	bool Initialize(D3DClass*, HWND, int, int, float);
 	void Shutdown();
-	bool Frame(D3DClass*, InputClass*, ShaderManagerClass*, float, int);
+	bool Frame(HWND, D3DClass*, InputClass*, ShaderManagerClass*, float, int);
 
 private:
 	void HandleMovementInput(InputClass*, float);

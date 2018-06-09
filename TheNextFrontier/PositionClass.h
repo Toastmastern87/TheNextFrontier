@@ -8,7 +8,7 @@ class PositionClass
 {
 public:
 	PositionClass();
-	PositionClass(const PositionClas&);
+	PositionClass(const PositionClass&);
 	~PositionClass();
 
 	void SetPosition(float, float, float);

@@ -3,8 +3,7 @@
 #define _SYSTEMCLASS_H_
 #define WIN32_LEAN_AND_MEAN
 
-#include "InputClass.h"
-#include "GraphicsClass.h"
+#include "ApplicationClass.h"
 
 class SystemClass
 {
@@ -29,8 +28,7 @@ private:
 	HINSTANCE mHInstance;
 	HWND mHWND;
 
-	InputClass* mInput;
-	GraphicsClass* mGraphics;
+	ApplicationClass* mApplication;
 };
 
 static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);

@@ -82,7 +82,7 @@ void PositionClass::MoveForward(bool keyDown)
 
 		if (mForwardSpeed > (mFrameTime * 50.0f)) 
 		{
-			mForwardSpeed = 50.0f;
+			mForwardSpeed = mFrameTime * 50.0f;
 		}
 	}
 	else 
@@ -95,7 +95,7 @@ void PositionClass::MoveForward(bool keyDown)
 		}
 	}
 
-	radians = mRotationY * 0.0174532925;
+	radians = mRotationY * 0.0174532925f;
 
 	mPositionX += sinf(radians) * mForwardSpeed;
 	mPositionZ += cosf(radians) * mForwardSpeed;
@@ -113,7 +113,7 @@ void PositionClass::MoveBackward(bool keyDown)
 
 		if (mBackwardSpeed > (mFrameTime * 50.0f))
 		{
-			mBackwardSpeed = 50.0f;
+			mBackwardSpeed = mFrameTime * 50.0f;
 		}
 	}
 	else
@@ -126,7 +126,7 @@ void PositionClass::MoveBackward(bool keyDown)
 		}
 	}
 
-	radians = mRotationY * 0.0174532925;
+	radians = mRotationY * 0.0174532925f;
 
 	mPositionX -= sinf(radians) * mBackwardSpeed;
 	mPositionZ -= cosf(radians) * mBackwardSpeed;
@@ -136,15 +136,13 @@ void PositionClass::MoveBackward(bool keyDown)
 
 void PositionClass::MoveUpward(bool keyDown)
 {
-	float radians;
-
 	if (keyDown)
 	{
 		mUpwardSpeed += mFrameTime * 1.5f;
 
 		if (mUpwardSpeed > (mFrameTime * 15.0f))
 		{
-			mUpwardSpeed = 15.0f;
+			mUpwardSpeed = mFrameTime * 15.0f;
 		}
 	}
 	else
@@ -164,15 +162,13 @@ void PositionClass::MoveUpward(bool keyDown)
 
 void PositionClass::MoveDownward(bool keyDown)
 {
-	float radians;
-
 	if (keyDown)
 	{
 		mDownwardSpeed += mFrameTime * 1.5f;
 
 		if (mDownwardSpeed > (mFrameTime * 15.0f))
 		{
-			mDownwardSpeed = 15.0f;
+			mDownwardSpeed = mFrameTime * 15.0f;
 		}
 	}
 	else
@@ -192,15 +188,13 @@ void PositionClass::MoveDownward(bool keyDown)
 
 void PositionClass::TurnLeft(bool keyDown)
 {
-	float radians;
-
 	if (keyDown)
 	{
 		mLeftTurnSpeed += mFrameTime * 5.0f;
 
 		if (mLeftTurnSpeed > (mFrameTime * 150.0f))
 		{
-			mLeftTurnSpeed = 150.0f;
+			mLeftTurnSpeed = mFrameTime * 150.0f;
 		}
 	}
 	else
@@ -225,15 +219,13 @@ void PositionClass::TurnLeft(bool keyDown)
 
 void PositionClass::TurnRight(bool keyDown)
 {
-	float radians;
-
 	if (keyDown)
 	{
 		mRightTurnSpeed += mFrameTime * 5.0f;
 
 		if (mRightTurnSpeed > (mFrameTime * 150.0f))
 		{
-			mRightTurnSpeed = 150.0f;
+			mRightTurnSpeed = mFrameTime * 150.0f;
 		}
 	}
 	else
@@ -258,8 +250,6 @@ void PositionClass::TurnRight(bool keyDown)
 
 void PositionClass::LookUpward(bool keyDown)
 {
-	float radians;
-
 	if (keyDown)
 	{
 		mLookUpSpeed += mFrameTime * 7.5f;
@@ -291,8 +281,6 @@ void PositionClass::LookUpward(bool keyDown)
 
 void PositionClass::LookDownward(bool keyDown)
 {
-	float radians;
-
 	if (keyDown)
 	{
 		mLookDownSpeed += mFrameTime * 7.5f;

@@ -144,6 +144,8 @@ void FontClass::BuildVertexArray(void* vertices, char* sentence, float drawX, fl
 
 	numLetters = (int)strlen(sentence);
 
+	index = 0;
+
 	for (i = 0; i < numLetters; i++) 
 	{
 		letter = ((int)sentence[i]) - 32;

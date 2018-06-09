@@ -78,6 +78,8 @@ bool MarsClass::InitializeBuffers(ID3D11Device* device)
 		return false;
 	}
 
+	index = 0;
+
 	for(j = 0; j < (terrainHeight - 1); j++)
 	{
 		for (i = 0; i < (terrainHeight - 1); i++)

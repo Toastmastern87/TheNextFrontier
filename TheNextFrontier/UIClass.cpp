@@ -17,7 +17,7 @@ UIClass::~UIClass()
 }
 
 
-bool UIClass::Initialize(D3DClass* direct3D, int screenHeight, int screenWidth)
+bool UIClass::Initialize(HWND hwnd, D3DClass* direct3D, int screenHeight, int screenWidth)
 {
 	bool result;
 	char videoCard[128];
@@ -45,7 +45,7 @@ bool UIClass::Initialize(D3DClass* direct3D, int screenHeight, int screenWidth)
 		return false;
 	}
 
-	result = mFPSString->Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 16, false, mFont1, (char*)"FPS: 0", 10, 50, 0.0f, 1.0f, 0.0f);
+	result = mFPSString->Initialize(hwnd, direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 16, false, mFont1, (char*)"FPS: 0", 10, 50, 0.0f, 1.0f, 0.0f);
 	if (!result)
 	{
 		return false;
@@ -69,13 +69,13 @@ bool UIClass::Initialize(D3DClass* direct3D, int screenHeight, int screenWidth)
 		return false;
 	}
 
-	result = mVideoStrings[0].Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 256, false, mFont1, videoString, 10, 10, 1.0f, 1.0f, 1.0f);
+	result = mVideoStrings[0].Initialize(hwnd, direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 256, false, mFont1, videoString, 10, 10, 1.0f, 1.0f, 1.0f);
 	if (!result)
 	{
 		return false;
 	}
 
-	result = mVideoStrings[1].Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 32, false, mFont1, videoString, 10, 30, 1.0f, 1.0f, 1.0f);
+	result = mVideoStrings[1].Initialize(hwnd, direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 32, false, mFont1, memoryString, 10, 30, 1.0f, 1.0f, 1.0f);
 	if (!result)
 	{
 		return false;
@@ -87,37 +87,37 @@ bool UIClass::Initialize(D3DClass* direct3D, int screenHeight, int screenWidth)
 		return false;
 	}
 
-	result = mPositionStrings[0].Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 16, false, mFont1, (char*)"X: 0", 10, 310, 1.0f, 1.0f, 1.0f);
+	result = mPositionStrings[0].Initialize(hwnd, direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 16, false, mFont1, (char*)"X: 0", 10, 310, 1.0f, 1.0f, 1.0f);
 	if (!result)
 	{
 		return false;
 	}
 
-	result = mPositionStrings[1].Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 16, false, mFont1, (char*)"Y: 0", 10, 330, 1.0f, 1.0f, 1.0f);
+	result = mPositionStrings[1].Initialize(hwnd, direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 16, false, mFont1, (char*)"Y: 0", 10, 330, 1.0f, 1.0f, 1.0f);
 	if (!result)
 	{
 		return false;
 	}
 
-	result = mPositionStrings[2].Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 16, false, mFont1, (char*)"Z: 0", 10, 350, 1.0f, 1.0f, 1.0f);
+	result = mPositionStrings[2].Initialize(hwnd, direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 16, false, mFont1, (char*)"Z: 0", 10, 350, 1.0f, 1.0f, 1.0f);
 	if (!result)
 	{
 		return false;
 	}
 
-	result = mPositionStrings[3].Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 16, false, mFont1, (char*)"rX: 0", 10, 370, 1.0f, 1.0f, 1.0f);
+	result = mPositionStrings[3].Initialize(hwnd, direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 16, false, mFont1, (char*)"rX: 0", 10, 370, 1.0f, 1.0f, 1.0f);
 	if (!result)
 	{
 		return false;
 	}
 
-	result = mPositionStrings[4].Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 16, false, mFont1, (char*)"rY: 0", 10, 390, 1.0f, 1.0f, 1.0f);
+	result = mPositionStrings[4].Initialize(hwnd, direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 16, false, mFont1, (char*)"rY: 0", 10, 390, 1.0f, 1.0f, 1.0f);
 	if (!result)
 	{
 		return false;
 	}
 
-	result = mPositionStrings[5].Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 16, false, mFont1, (char*)"rZ: 0", 10, 410, 1.0f, 1.0f, 1.0f);
+	result = mPositionStrings[5].Initialize(hwnd, direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 16, false, mFont1, (char*)"rZ: 0", 10, 410, 1.0f, 1.0f, 1.0f);
 	if (!result)
 	{
 		return false;
@@ -127,6 +127,8 @@ bool UIClass::Initialize(D3DClass* direct3D, int screenHeight, int screenWidth)
 	{
 		mPreviousPosition[i] = -1;
 	}
+
+	return true;
 }
 
 void UIClass::Shutdown() 
@@ -169,17 +171,17 @@ void UIClass::Shutdown()
 	return;
 }
 
-bool UIClass::Frame(ID3D11DeviceContext* deviceContext, int fps, float posX, float posY, float posZ, float rotX, float rotY, float rotZ)
+bool UIClass::Frame(HWND hwnd, ID3D11DeviceContext* deviceContext, int fps, float posX, float posY, float posZ, float rotX, float rotY, float rotZ)
 {
 	bool result;
 
-	result = UpdateFPSString(deviceContext, fps);
+	result = UpdateFPSString(hwnd, deviceContext, fps);
 	if (!result)
 	{
 		return false;
 	}
 
-	result = UpdatePositionStrings(deviceContext, posX, posY, posZ, rotX, rotY, rotZ);
+	result = UpdatePositionStrings(hwnd, deviceContext, posX, posY, posZ, rotX, rotY, rotZ);
 	if (!result)
 	{
 		return false;
@@ -211,7 +213,7 @@ bool UIClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager, XMMA
 	return true;
 }
 
-bool UIClass::UpdateFPSString(ID3D11DeviceContext* deviceContext, int fps) 
+bool UIClass::UpdateFPSString(HWND hwnd, ID3D11DeviceContext* deviceContext, int fps) 
 {
 	char tempString[16];
 	char finalString[16];
@@ -256,7 +258,7 @@ bool UIClass::UpdateFPSString(ID3D11DeviceContext* deviceContext, int fps)
 		blue = 0.0f;
 	}
 
-	result = mFPSString->UpdateSentence(deviceContext, mFont1, finalString, 10, 50, red, green, blue);
+	result = mFPSString->UpdateSentence(hwnd, deviceContext, mFont1, finalString, 10, 50, red, green, blue);
 	if (!result)
 	{
 		return false;
@@ -265,7 +267,7 @@ bool UIClass::UpdateFPSString(ID3D11DeviceContext* deviceContext, int fps)
 	return true;
 }
 
-bool UIClass::UpdatePositionStrings(ID3D11DeviceContext* deviceContext, float posX, float posY, float posZ, float rotX, float rotY, float rotZ) 
+bool UIClass::UpdatePositionStrings(HWND hwnd, ID3D11DeviceContext* deviceContext, float posX, float posY, float posZ, float rotX, float rotY, float rotZ) 
 {
 	int positionX, positionY, positionZ, rotationX, rotationY, rotationZ;
 	char tempString[16];
@@ -286,7 +288,7 @@ bool UIClass::UpdatePositionStrings(ID3D11DeviceContext* deviceContext, float po
 		strcpy_s(finalString, "X: ");
 		strcat_s(finalString, tempString);
 
-		result = mPositionStrings[0].UpdateSentence(deviceContext, mFont1, finalString, 10, 100, 1.0f, 1.0f, 1.0f);
+		result = mPositionStrings[0].UpdateSentence(hwnd, deviceContext, mFont1, finalString, 10, 100, 1.0f, 1.0f, 1.0f);
 		if (!result) 
 		{
 			return false;
@@ -300,7 +302,7 @@ bool UIClass::UpdatePositionStrings(ID3D11DeviceContext* deviceContext, float po
 		strcpy_s(finalString, "Y: ");
 		strcat_s(finalString, tempString);
 
-		result = mPositionStrings[1].UpdateSentence(deviceContext, mFont1, finalString, 10, 120, 1.0f, 1.0f, 1.0f);
+		result = mPositionStrings[1].UpdateSentence(hwnd, deviceContext, mFont1, finalString, 10, 120, 1.0f, 1.0f, 1.0f);
 		if (!result)
 		{
 			return false;
@@ -314,7 +316,7 @@ bool UIClass::UpdatePositionStrings(ID3D11DeviceContext* deviceContext, float po
 		strcpy_s(finalString, "Z: ");
 		strcat_s(finalString, tempString);
 
-		result = mPositionStrings[2].UpdateSentence(deviceContext, mFont1, finalString, 10, 140, 1.0f, 1.0f, 1.0f);
+		result = mPositionStrings[2].UpdateSentence(hwnd, deviceContext, mFont1, finalString, 10, 140, 1.0f, 1.0f, 1.0f);
 		if (!result)
 		{
 			return false;
@@ -328,7 +330,7 @@ bool UIClass::UpdatePositionStrings(ID3D11DeviceContext* deviceContext, float po
 		strcpy_s(finalString, "rX: ");
 		strcat_s(finalString, tempString);
 
-		result = mPositionStrings[3].UpdateSentence(deviceContext, mFont1, finalString, 10, 180, 1.0f, 1.0f, 1.0f);
+		result = mPositionStrings[3].UpdateSentence(hwnd, deviceContext, mFont1, finalString, 10, 180, 1.0f, 1.0f, 1.0f);
 		if (!result)
 		{
 			return false;
@@ -342,7 +344,7 @@ bool UIClass::UpdatePositionStrings(ID3D11DeviceContext* deviceContext, float po
 		strcpy_s(finalString, "rY: ");
 		strcat_s(finalString, tempString);
 
-		result = mPositionStrings[4].UpdateSentence(deviceContext, mFont1, finalString, 10, 200, 1.0f, 1.0f, 1.0f);
+		result = mPositionStrings[4].UpdateSentence(hwnd, deviceContext, mFont1, finalString, 10, 200, 1.0f, 1.0f, 1.0f);
 		if (!result)
 		{
 			return false;
@@ -356,7 +358,7 @@ bool UIClass::UpdatePositionStrings(ID3D11DeviceContext* deviceContext, float po
 		strcpy_s(finalString, "rZ: ");
 		strcat_s(finalString, tempString);
 
-		result = mPositionStrings[5].UpdateSentence(deviceContext, mFont1, finalString, 10, 220, 1.0f, 1.0f, 1.0f);
+		result = mPositionStrings[5].UpdateSentence(hwnd, deviceContext, mFont1, finalString, 10, 220, 1.0f, 1.0f, 1.0f);
 		if (!result)
 		{
 			return false;

@@ -11,15 +11,15 @@ public:
 	UIClass(const UIClass&);
 	~UIClass();
 
-	bool Initialize(D3DClass*, int, int);
+	bool Initialize(HWND, D3DClass*, int, int);
 	void Shutdown();
 
-	bool Frame(ID3D11DeviceContext*, int, float, float, float, float, float, float);
+	bool Frame(HWND, ID3D11DeviceContext*, int, float, float, float, float, float, float);
 	bool Render(D3DClass*, ShaderManagerClass*, XMMATRIX, XMMATRIX, XMMATRIX);
 
 private:
-	bool UpdateFPSString(ID3D11DeviceContext*, int);
-	bool UpdatePositionStrings(ID3D11DeviceContext*, float, float, float, float, float, float);
+	bool UpdateFPSString(HWND, ID3D11DeviceContext*, int);
+	bool UpdatePositionStrings(HWND, ID3D11DeviceContext*, float, float, float, float, float, float);
 
 private:
 	FontClass* mFont1;

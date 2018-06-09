@@ -2,8 +2,7 @@
 
 SystemClass::SystemClass()
 {
-	mInput = 0;
-	mGraphics = 0;
+	mApplication = 0;
 }
 
 SystemClass::SystemClass(const SystemClass& other)
@@ -24,21 +23,13 @@ bool SystemClass::Initialize()
 
 	InitializeWindows(screenWidth, screenHeight);
 
-	mInput = new InputClass();
-	if (!mInput) 
+	mApplication = new ApplicationClass();
+	if (!mApplication) 
 	{
 		return false;
 	}
 
-	mInput->Initialize();
-
-	mGraphics = new GraphicsClass();
-	if (!mGraphics) 
-	{
-		return false;
-	}
-
-	result = mGraphics->Initialize(screenWidth, screenHeight, mHWND);
+	result = mApplication->Initialize(mHInstance, mHWND, screenWidth, screenHeight);
 	if (!result) 
 	{
 		return false;
@@ -49,17 +40,11 @@ bool SystemClass::Initialize()
 
 void SystemClass::Shutdown() 
 {
-	if (mGraphics) 
+	if (mApplication) 
 	{
-		mGraphics->Shutdown();
-		delete mGraphics;
-		mGraphics = 0;
-	}
-
-	if (mInput)
-	{
-		delete mInput;
-		mInput = 0;
+		mApplication->Shutdown();
+		delete mApplication;
+		mApplication = 0;
 	}
 
 	ShutdownWindows();
@@ -104,12 +89,7 @@ bool SystemClass::Frame()
 {
 	bool result;
 
-	if (mInput->IsKeyDown(VK_ESCAPE)) 
-	{
-		return false;
-	}
-
-	result = mGraphics->Frame();
+	result = mApplication->Frame(mHWND);
 	if (!result) 
 	{
 		return false;
@@ -120,27 +100,7 @@ bool SystemClass::Frame()
 
 LRESULT CALLBACK SystemClass::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam) 
 {
-	switch (umsg) 
-	{
-		case WM_KEYDOWN:
-		{
-			mInput->KeyDown((unsigned int)wparam);
-
-			return 0;
-		}
-		
-		case WM_KEYUP: 
-		{
-			mInput->KeyUp((unsigned int)wparam);
-
-			return 0;
-		}
-
-		default: 
-		{
-			return DefWindowProc(hwnd, umsg, wparam, lparam);
-		}
-	}
+	return DefWindowProc(hwnd, umsg, wparam, lparam);
 }
 
 void SystemClass::InitializeWindows(int& screenWidth, int& screenHeight) 

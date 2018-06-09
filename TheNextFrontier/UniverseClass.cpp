@@ -26,7 +26,7 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 		return false;
 	}
 
-	result = mUI->Initialize(direct3D, screenHeight, screenWidth);
+	result = mUI->Initialize(hwnd, direct3D, screenHeight, screenWidth);
 	if (!result) 
 	{
 		return false;
@@ -101,7 +101,7 @@ void UniverseClass::Shutdown()
 	return;
 }
 
-bool UniverseClass::Frame(D3DClass* direct3D, InputClass* input, ShaderManagerClass* shaderManager, float frameTime, int fps)
+bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, ShaderManagerClass* shaderManager, float frameTime, int fps)
 {
 	bool result;
 	float posX, posY, posZ, rotX, rotY, rotZ;
@@ -111,7 +111,7 @@ bool UniverseClass::Frame(D3DClass* direct3D, InputClass* input, ShaderManagerCl
 	mPosition->GetPosition(posX, posY, posZ);
 	mPosition->GetRotation(rotX, rotY, rotZ);
 
-	result = mUI->Frame(direct3D->GetDeviceContext(), fps, posX, posY, posZ, rotX, rotY, rotZ);
+	result = mUI->Frame(hwnd, direct3D->GetDeviceContext(), fps, posX, posY, posZ, rotX, rotY, rotZ);
 	if (!result) 
 	{
 		return false;
@@ -162,7 +162,7 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 	mCamera->SetPosition(posX, posY, posZ);
 	mCamera->SetRotation(rotX, rotY, rotZ);
 
-	if (input->IsF1Toggled)
+	if (input->IsF1Toggled())
 	{
 		mDisplayUI = !mDisplayUI;
 	}

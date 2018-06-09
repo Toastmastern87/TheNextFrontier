@@ -1,6 +1,6 @@
 cbuffer MatrixBuffer
 {
-	matrix worldBuffer;
+	matrix worldMatrix;
 	matrix viewMatrix;
 	matrix projectionMatrix;
 };
@@ -17,7 +17,7 @@ struct PixelInputType
 	float2 tex : TEXCOORD0;
 };
 
-PixelInputType FontVertexShader()
+PixelInputType FontVertexShader(VertexInputType input)
 {
 	PixelInputType output;
 
@@ -27,7 +27,7 @@ PixelInputType FontVertexShader()
 	output.position = mul(output.position, viewMatrix);
 	output.position = mul(output.position, projectionMatrix);
 
-	output.text = input.tex;
+	output.tex = input.tex;
 
 	return output;
 }

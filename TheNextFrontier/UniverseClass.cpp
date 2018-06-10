@@ -6,6 +6,7 @@ UniverseClass::UniverseClass()
 	mCamera = 0;
 	mPosition = 0;
 	mMars = 0;
+	mFrustum = 0;
 }
 
 UniverseClass::UniverseClass(const UniverseClass& other) 
@@ -19,6 +20,8 @@ UniverseClass::~UniverseClass()
 bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, int screenHeight, float screenDepth)
 {
 	bool result;
+
+	mScreenDepth = screenDepth;
 
 	mUI = new UIClass;
 	if (!mUI) 
@@ -51,13 +54,19 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 	mPosition->SetPosition(16.0f, 26.0f, 0.0f);
 	mPosition->SetRotation(56.0f, 269.0f, 16.0f);
 
+	mFrustum = new FrustumClass;
+	if (!mFrustum)
+	{
+		return false;
+	}
+
 	mMars = new MarsClass;
 	if (!mMars)
 	{
 		return false;
 	}
 
-	result = mMars->Initialize(direct3D->GetDevice());
+	result = mMars->Initialize(direct3D->GetDevice(), mFrustum);
 	if (!result)
 	{
 		MessageBox(hwnd, L"Could not initialize the Mars object.", L"Error", MB_OK);
@@ -66,7 +75,7 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 	}
 
 	mDisplayUI = true;
-	mWireframe = false;
+	mWireframe = true;
 
 	return true;
 }
@@ -184,10 +193,13 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 	mCamera->Render();
 
 	direct3D->GetWorldMatrix(worldMatrix);
-	mCamera->GetViewMatrix(viewMatrix);
-	direct3D->GetProjectionMatrix(projectionMatrix);
+	viewMatrix = mCamera->GetViewMatrix();
+	projectionMatrix = direct3D->GetProjectionMatrix();
 	mCamera->GetBaseViewMatrix(baseViewMatrix);
 	direct3D->GetOrthoMatrix(orthoMatrix);
+
+	mFrustum->ConstructFrustum(mScreenDepth, projectionMatrix, viewMatrix);
+	mMars->Initialize(direct3D->GetDevice(), mFrustum);
 
 	direct3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
 

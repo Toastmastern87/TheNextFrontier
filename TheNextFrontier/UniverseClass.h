@@ -9,6 +9,7 @@
 #include "CameraClass.h"
 #include "PositionClass.h"
 #include "MarsClass.h"
+#include "FrustumClass.h"
 
 class UniverseClass 
 {
@@ -30,7 +31,9 @@ private:
 	CameraClass* mCamera;
 	PositionClass* mPosition;
 	MarsClass* mMars;
+	FrustumClass* mFrustum;
 	bool mDisplayUI, mWireframe;
+	float mScreenDepth;
 };
 
 #endif

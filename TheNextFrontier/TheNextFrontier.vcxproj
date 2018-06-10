@@ -146,6 +146,7 @@
     <ClCompile Include="FontShaderClass.cpp" />
     <ClCompile Include="FPSClass.cpp" />
     <ClCompile Include="ApplicationClass.cpp" />
+    <ClCompile Include="FrustumClass.cpp" />
     <ClCompile Include="InputClass.cpp" />
     <ClCompile Include="MarsClass.cpp" />
     <ClCompile Include="PositionClass.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="FontShaderClass.h" />
     <ClInclude Include="FPSClass.h" />
     <ClInclude Include="ApplicationClass.h" />
+    <ClInclude Include="FrustumClass.h" />
     <ClInclude Include="InputClass.h" />
     <ClInclude Include="MarsClass.h" />
     <ClInclude Include="PositionClass.h" />

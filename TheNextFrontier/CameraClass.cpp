@@ -66,7 +66,7 @@ void CameraClass::Render()
 	lookAt.y = 0.0f;
 	lookAt.z = 1.0f;
 
-	lookAtVector = XMLoadFloat3(&lookAt);
+	mLookAt = XMLoadFloat3(&lookAt);
 
 	pitch = mRotationX * 0.0174532925f;
 	yaw = mRotationY * 0.0174532925f;
@@ -74,21 +74,20 @@ void CameraClass::Render()
 
 	rotationMatrix = XMMatrixRotationRollPitchYaw(pitch, yaw, roll);
 
-	lookAtVector = XMVector3TransformCoord(lookAtVector, rotationMatrix);
+	mLookAt = XMVector3TransformCoord(mLookAt, rotationMatrix);
 	upVector = XMVector3TransformCoord(upVector, rotationMatrix);
 
-	lookAtVector = XMVectorAdd(positionVector, lookAtVector);
+	mLookAt = XMVectorAdd(positionVector, mLookAt);
 
-	mViewMatrix = XMMatrixLookAtLH(positionVector, lookAtVector, upVector);
+	mViewMatrix = XMMatrixLookAtLH(positionVector, mLookAt, upVector);
 
 	return;
 }
 
-void CameraClass::GetViewMatrix(XMMATRIX& viewMatrix)
+XMMATRIX CameraClass::GetViewMatrix()
 {
-	viewMatrix = mViewMatrix;
+	return mViewMatrix;
 
-	return;
 }
 
 void CameraClass::RenderBaseViewMatrix()
@@ -114,7 +113,7 @@ void CameraClass::RenderBaseViewMatrix()
 	lookAt.y = 0.0f;
 	lookAt.z = 1.0f;
 
-	lookAtVector = XMLoadFloat3(&lookAt);
+	mLookAt = XMLoadFloat3(&lookAt);
 
 	pitch = mRotationX * 0.0174532925f;
 	yaw = mRotationY * 0.0174532925f;
@@ -122,12 +121,12 @@ void CameraClass::RenderBaseViewMatrix()
 
 	rotationMatrix = XMMatrixRotationRollPitchYaw(pitch, yaw, roll);
 
-	lookAtVector = XMVector3TransformCoord(lookAtVector, rotationMatrix);
+	mLookAt = XMVector3TransformCoord(mLookAt, rotationMatrix);
 	upVector = XMVector3TransformCoord(upVector, rotationMatrix);
 
-	lookAtVector = XMVectorAdd(positionVector, lookAtVector);
+	mLookAt = XMVectorAdd(positionVector, mLookAt);
 
-	mBaseViewMatrix = XMMatrixLookAtLH(positionVector, lookAtVector, upVector);
+	mBaseViewMatrix = XMMatrixLookAtLH(positionVector, mLookAt, upVector);
 
 	return;
 }
@@ -137,4 +136,9 @@ void CameraClass::GetBaseViewMatrix(XMMATRIX& baseViewMatrix)
 	baseViewMatrix = mBaseViewMatrix;
 
 	return;
+}
+
+XMVECTOR CameraClass::GetLookAtVector() 
+{
+	return mLookAt;
 }

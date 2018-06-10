@@ -5,6 +5,7 @@
 #include <DirectXMath.h>
 #include <vector>
 #include <fstream>
+#include "FrustumClass.h"
 using namespace DirectX;
 using namespace std;
 
@@ -65,7 +66,7 @@ public:
 	MarsClass(const MarsClass&);
 	~MarsClass();
 
-	bool Initialize(ID3D11Device*);
+	bool Initialize(ID3D11Device*, FrustumClass*);
 	void Shutdown();
 	void Render(ID3D11DeviceContext*);
 
@@ -82,6 +83,7 @@ private:
 private:
 	ID3D11Buffer * mVertexBuffer, *mIndexBuffer;
 	MeshGeometry3D mMarsMesh;
+	FrustumClass* mFrustum;
 };
 
 #endif 

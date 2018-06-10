@@ -1,5 +1,4 @@
 #ifndef _CAMERACLASS_H_
-
 #define _CAMERACLASS_H_
 
 #include <DirectXMath.h>
@@ -17,9 +16,10 @@ public:
 
 	XMFLOAT3 GetPosition();
 	XMFLOAT3 GetRotation();
+	XMVECTOR GetLookAtVector();
 
 	void Render();
-	void GetViewMatrix(XMMATRIX&);
+	XMMATRIX GetViewMatrix();
 
 	void RenderBaseViewMatrix();
 	void GetBaseViewMatrix(XMMATRIX&);
@@ -28,6 +28,7 @@ private:
 	float mPositionX, mPositionY, mPositionZ;
 	float mRotationX, mRotationY, mRotationZ;
 	XMMATRIX mViewMatrix, mBaseViewMatrix;
+	XMVECTOR mLookAt;
 };
 
 #endif

@@ -4,6 +4,7 @@ MarsClass::MarsClass()
 {
 	mVertexBuffer = 0;
 	mIndexBuffer = 0;
+	mFrustum = 0;
 }
 
 MarsClass::MarsClass(const MarsClass& other)
@@ -14,9 +15,11 @@ MarsClass::~MarsClass()
 {
 }
 
-bool MarsClass::Initialize(ID3D11Device* device)
+bool MarsClass::Initialize(ID3D11Device* device, FrustumClass* frustum)
 {
 	bool result;
+
+	mFrustum = frustum;
 
 	result = InitializeBuffers(device);
 	if (!result) 
@@ -58,6 +61,9 @@ bool MarsClass::InitializeBuffers(ID3D11Device* device)
 	D3D11_SUBRESOURCE_DATA vertexData, indexData;
 	HRESULT result;
 	XMFLOAT4 color;
+
+	mMarsMesh.vertices.clear();
+	mMarsMesh.indices.clear();
 
 	color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
 
@@ -105,7 +111,6 @@ bool MarsClass::InitializeBuffers(ID3D11Device* device)
 	RecursiveTriangle(icosphere[3], icosphere[4], icosphere[9], 0);
 	RecursiveTriangle(icosphere[2], icosphere[6], icosphere[10], 0);
 	RecursiveTriangle(icosphere[2], icosphere[4], icosphere[11], 0);
-
 
 	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	vertexBufferDesc.ByteWidth = sizeof(VertexType) * (int)mMarsMesh.vertices.size();
@@ -182,7 +187,10 @@ void MarsClass::RecursiveTriangle(VertexType a, VertexType b, VertexType c, shor
 {
 	bool visible;
 
-	visible = true;
+	//Check if the triangle is inside the frustum
+	visible = mFrustum->CheckTriangle(XMFLOAT3(a.position.x, a.position.y, a.position.z), XMFLOAT3(b.position.x, b.position.y, b.position.z), XMFLOAT3(c.position.x, c.position.y, c.position.z));
+
+	//visible = true;
 
 	if (visible)
 	{

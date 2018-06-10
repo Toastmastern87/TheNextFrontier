@@ -1,2 +1,5 @@
-﻿  UIClass.cpp
+﻿  MarsClass.cpp
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsclass.cpp(220): warning C4267: 'argument': conversion from 'size_t' to 'unsigned long', possible loss of data
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsclass.cpp(223): warning C4267: 'argument': conversion from 'size_t' to 'unsigned long', possible loss of data
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsclass.cpp(226): warning C4267: 'argument': conversion from 'size_t' to 'unsigned long', possible loss of data
   TheNextFrontier.vcxproj -> C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\x64\Debug\TheNextFrontier.exe

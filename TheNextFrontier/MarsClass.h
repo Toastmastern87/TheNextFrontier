@@ -70,6 +70,7 @@ public:
 	void Render(ID3D11DeviceContext*);
 
 	int GetIndexCount();
+	int GetVerticesCount();
 
 private:
 	bool InitializeBuffers(ID3D11Device*);

@@ -6,6 +6,7 @@ UIClass::UIClass()
 	mFPSString = 0;
 	mVideoStrings = 0;
 	mPositionStrings = 0;
+	mVerticesString = 0;
 }
 
 UIClass::UIClass(const UIClass& other) 
@@ -15,7 +16,6 @@ UIClass::UIClass(const UIClass& other)
 UIClass::~UIClass() 
 {
 }
-
 
 bool UIClass::Initialize(HWND hwnd, D3DClass* direct3D, int screenHeight, int screenWidth)
 {
@@ -128,11 +128,26 @@ bool UIClass::Initialize(HWND hwnd, D3DClass* direct3D, int screenHeight, int sc
 		mPreviousPosition[i] = -1;
 	}
 
+	mVerticesString = new TextClass;
+
+	result = mVerticesString->Initialize(hwnd, direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 40, false, mFont1, (char*)"Vertices rendered: 0", 10, 440, 1.0f, 1.0f, 1.0f);
+	if (!result)
+	{
+		return false;
+	}
+
 	return true;
 }
 
 void UIClass::Shutdown() 
 {
+	if (mVerticesString)
+	{
+		mVerticesString->Shutdown();
+		delete mVerticesString;
+		mVerticesString = 0;
+	}
+
 	if (mPositionStrings) 
 	{
 		mPositionStrings[0].Shutdown();
@@ -171,7 +186,7 @@ void UIClass::Shutdown()
 	return;
 }
 
-bool UIClass::Frame(HWND hwnd, ID3D11DeviceContext* deviceContext, int fps, float posX, float posY, float posZ, float rotX, float rotY, float rotZ)
+bool UIClass::Frame(HWND hwnd, ID3D11DeviceContext* deviceContext, int fps, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, int verticesNr)
 {
 	bool result;
 
@@ -182,6 +197,12 @@ bool UIClass::Frame(HWND hwnd, ID3D11DeviceContext* deviceContext, int fps, floa
 	}
 
 	result = UpdatePositionStrings(hwnd, deviceContext, posX, posY, posZ, rotX, rotY, rotZ);
+	if (!result)
+	{
+		return false;
+	}
+
+	result = UpdateVerticesString(hwnd, deviceContext, verticesNr);
 	if (!result)
 	{
 		return false;
@@ -206,6 +227,8 @@ bool UIClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager, XMMA
 	{
 		mPositionStrings[i].Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
 	}
+
+	mVerticesString->Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
 
 	direct3D->DisableAlphaBlending();
 	direct3D->TurnZBufferOn();
@@ -363,6 +386,26 @@ bool UIClass::UpdatePositionStrings(HWND hwnd, ID3D11DeviceContext* deviceContex
 		{
 			return false;
 		}
+	}
+
+	return true;
+}
+
+bool UIClass::UpdateVerticesString(HWND hwnd, ID3D11DeviceContext* deviceContext, int verticesNr)
+{
+	bool result;
+	char tempString[40];
+	char finalString[40];
+
+	_itoa_s(verticesNr, tempString, 10);
+
+	strcpy_s(finalString, "Vertices rendered: ");
+	strcat_s(finalString, tempString);
+
+	result = mVerticesString->UpdateSentence(hwnd, deviceContext, mFont1, finalString, 10, 260, 1.0f, 1.0f, 1.0f);
+	if (!result)
+	{
+		return false;
 	}
 
 	return true;

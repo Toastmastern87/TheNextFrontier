@@ -46,6 +46,11 @@ int MarsClass::GetIndexCount()
 	return (int)mMarsMesh.indices.size();
 }
 
+int MarsClass::GetVerticesCount()
+{
+	return (int)mMarsMesh.vertices.size();
+}
+
 bool MarsClass::InitializeBuffers(ID3D11Device* device)
 {
 	vector<VertexType> icosphere;

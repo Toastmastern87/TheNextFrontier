@@ -112,38 +112,42 @@ bool MarsClass::InitializeBuffers(ID3D11Device* device)
 	RecursiveTriangle(icosphere[2], icosphere[6], icosphere[10], 0);
 	RecursiveTriangle(icosphere[2], icosphere[4], icosphere[11], 0);
 
-	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-	vertexBufferDesc.ByteWidth = sizeof(VertexType) * (int)mMarsMesh.vertices.size();
-	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-	vertexBufferDesc.CPUAccessFlags = 0;
-	vertexBufferDesc.MiscFlags = 0;
-	vertexBufferDesc.StructureByteStride = 0;
-
-	vertexData.pSysMem = &mMarsMesh.vertices[0];
-	vertexData.SysMemPitch = 0;
-	vertexData.SysMemSlicePitch = 0;
-
-	result = device->CreateBuffer(&vertexBufferDesc, &vertexData, &mVertexBuffer);
-	if (FAILED(result)) 
+	if ((int)mMarsMesh.vertices.size() > 0)
 	{
-		return false;
-	}
 
-	indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-	indexBufferDesc.ByteWidth = sizeof(unsigned long) * (int)mMarsMesh.indices.size();
-	indexBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
-	indexBufferDesc.CPUAccessFlags = 0;
-	indexBufferDesc.MiscFlags = 0;
-	indexBufferDesc.StructureByteStride = 0;
+		vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
+		vertexBufferDesc.ByteWidth = sizeof(VertexType) * (int)mMarsMesh.vertices.size();
+		vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+		vertexBufferDesc.CPUAccessFlags = 0;
+		vertexBufferDesc.MiscFlags = 0;
+		vertexBufferDesc.StructureByteStride = 0;
 
-	indexData.pSysMem = &mMarsMesh.indices[0];
-	indexData.SysMemPitch = 0;
-	indexData.SysMemSlicePitch = 0;
+		vertexData.pSysMem = &mMarsMesh.vertices[0];
+		vertexData.SysMemPitch = 0;
+		vertexData.SysMemSlicePitch = 0;
 
-	result = device->CreateBuffer(&indexBufferDesc, &indexData, &mIndexBuffer);
-	if (FAILED(result))
-	{
-		return false;
+		result = device->CreateBuffer(&vertexBufferDesc, &vertexData, &mVertexBuffer);
+		if (FAILED(result))
+		{
+			return false;
+		}
+
+		indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
+		indexBufferDesc.ByteWidth = sizeof(unsigned long) * (int)mMarsMesh.indices.size();
+		indexBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
+		indexBufferDesc.CPUAccessFlags = 0;
+		indexBufferDesc.MiscFlags = 0;
+		indexBufferDesc.StructureByteStride = 0;
+
+		indexData.pSysMem = &mMarsMesh.indices[0];
+		indexData.SysMemPitch = 0;
+		indexData.SysMemSlicePitch = 0;
+
+		result = device->CreateBuffer(&indexBufferDesc, &indexData, &mIndexBuffer);
+		if (FAILED(result))
+		{
+			return false;
+		}
 	}
 
 	return true;

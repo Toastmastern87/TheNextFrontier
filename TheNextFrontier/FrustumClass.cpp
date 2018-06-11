@@ -42,10 +42,10 @@ bool FrustumClass::ConstructFrustum(float screenDepth, XMMATRIX projectionMatrix
 	mPlane[0].w = matrixXMFLOAT._44 + matrixXMFLOAT._43;
 	XMStoreFloat4(&mPlane[0], XMPlaneNormalize(XMLoadFloat4(&mPlane[0])));
 
-	mPlane[1].x = matrixXMFLOAT._14 + matrixXMFLOAT._13;
-	mPlane[1].y = matrixXMFLOAT._24 + matrixXMFLOAT._23;
-	mPlane[1].z = matrixXMFLOAT._34 + matrixXMFLOAT._33;
-	mPlane[1].w = matrixXMFLOAT._44 + matrixXMFLOAT._43;
+	mPlane[1].x = matrixXMFLOAT._14 - matrixXMFLOAT._13;
+	mPlane[1].y = matrixXMFLOAT._24 - matrixXMFLOAT._23;
+	mPlane[1].z = matrixXMFLOAT._34 - matrixXMFLOAT._33;
+	mPlane[1].w = matrixXMFLOAT._44 - matrixXMFLOAT._43;
 	XMStoreFloat4(&mPlane[1], XMPlaneNormalize(XMLoadFloat4(&mPlane[1])));
 
 	mPlane[2].x = matrixXMFLOAT._14 + matrixXMFLOAT._11;
@@ -54,16 +54,16 @@ bool FrustumClass::ConstructFrustum(float screenDepth, XMMATRIX projectionMatrix
 	mPlane[2].w = matrixXMFLOAT._44 + matrixXMFLOAT._41;
 	XMStoreFloat4(&mPlane[2], XMPlaneNormalize(XMLoadFloat4(&mPlane[2])));
 
-	mPlane[3].x = matrixXMFLOAT._14 + matrixXMFLOAT._11;
-	mPlane[3].y = matrixXMFLOAT._24 + matrixXMFLOAT._21;
-	mPlane[3].z = matrixXMFLOAT._34 + matrixXMFLOAT._31;
-	mPlane[3].w = matrixXMFLOAT._44 + matrixXMFLOAT._41;
+	mPlane[3].x = matrixXMFLOAT._14 - matrixXMFLOAT._11;
+	mPlane[3].y = matrixXMFLOAT._24 - matrixXMFLOAT._21;
+	mPlane[3].z = matrixXMFLOAT._34 - matrixXMFLOAT._31;
+	mPlane[3].w = matrixXMFLOAT._44 - matrixXMFLOAT._41;
 	XMStoreFloat4(&mPlane[3], XMPlaneNormalize(XMLoadFloat4(&mPlane[3])));
 
-	mPlane[4].x = matrixXMFLOAT._14 + matrixXMFLOAT._12;
-	mPlane[4].y = matrixXMFLOAT._24 + matrixXMFLOAT._22;
-	mPlane[4].z = matrixXMFLOAT._34 + matrixXMFLOAT._32;
-	mPlane[4].w = matrixXMFLOAT._44 + matrixXMFLOAT._42;
+	mPlane[4].x = matrixXMFLOAT._14 - matrixXMFLOAT._12;
+	mPlane[4].y = matrixXMFLOAT._24 - matrixXMFLOAT._22;
+	mPlane[4].z = matrixXMFLOAT._34 - matrixXMFLOAT._32;
+	mPlane[4].w = matrixXMFLOAT._44 - matrixXMFLOAT._42;
 	XMStoreFloat4(&mPlane[4], XMPlaneNormalize(XMLoadFloat4(&mPlane[4])));
 
 	mPlane[5].x = matrixXMFLOAT._14 + matrixXMFLOAT._12;

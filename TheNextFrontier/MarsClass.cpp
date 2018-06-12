@@ -61,9 +61,6 @@ bool MarsClass::InitializeBuffers(ID3D11Device* device)
 	HRESULT result;
 	XMFLOAT4 color;
 
-	mMarsMesh.vertices.clear();
-	mMarsMesh.indices.clear();
-
 	color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
 
 	float ratio = (float)((1.0f + sqrt(5.0f)) / 2.0f);
@@ -111,42 +108,30 @@ bool MarsClass::InitializeBuffers(ID3D11Device* device)
 	RecursiveTriangle(mIcosphere[2], mIcosphere[6], mIcosphere[10], 0);
 	RecursiveTriangle(mIcosphere[2], mIcosphere[4], mIcosphere[11], 0);
 
-	if ((int)mMarsMesh.vertices.size() > 0)
+	vertexBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+	vertexBufferDesc.ByteWidth = (sizeof(VertexType) * mMarsMesh.vertices.size()*10);
+	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	vertexBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	vertexBufferDesc.MiscFlags = 0;
+	vertexBufferDesc.StructureByteStride = 0;
+
+	result = device->CreateBuffer(&vertexBufferDesc, NULL, &mVertexBuffer);
+	if (FAILED(result))
 	{
+		return false;
+	}
 
-		vertexBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
-		vertexBufferDesc.ByteWidth = sizeof(VertexType) * (int)mMarsMesh.vertices.size();
-		vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-		vertexBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
-		vertexBufferDesc.MiscFlags = 0;
-		vertexBufferDesc.StructureByteStride = 0;
+	indexBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+	indexBufferDesc.ByteWidth = sizeof(unsigned long) * (int)mMarsMesh.indices.size()*10;
+	indexBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
+	indexBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	indexBufferDesc.MiscFlags = 0;
+	indexBufferDesc.StructureByteStride = 0;
 
-		vertexData.pSysMem = &mMarsMesh.vertices[0];
-		vertexData.SysMemPitch = 0;
-		vertexData.SysMemSlicePitch = 0;
-
-		result = device->CreateBuffer(&vertexBufferDesc, &vertexData, &mVertexBuffer);
-		if (FAILED(result))
-		{
-			return false;
-		}
-
-		indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-		indexBufferDesc.ByteWidth = sizeof(unsigned long) * (int)mMarsMesh.indices.size();
-		indexBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
-		indexBufferDesc.CPUAccessFlags = 0;
-		indexBufferDesc.MiscFlags = 0;
-		indexBufferDesc.StructureByteStride = 0;
-
-		indexData.pSysMem = &mMarsMesh.indices[0];
-		indexData.SysMemPitch = 0;
-		indexData.SysMemSlicePitch = 0;
-
-		result = device->CreateBuffer(&indexBufferDesc, &indexData, &mIndexBuffer);
-		if (FAILED(result))
-		{
-			return false;
-		}
+	result = device->CreateBuffer(&indexBufferDesc, NULL, &mIndexBuffer);
+	if (FAILED(result))
+	{
+		return false;
 	}
 
 	return true;
@@ -159,41 +144,52 @@ bool MarsClass::UpdateVertexBuffer(ID3D11DeviceContext* deviceContext, FrustumCl
 
 	mFrustum = frustum;
 
-	//mMarsMesh.vertices.clear();
-	//mMarsMesh.indices.clear();
+	mMarsMesh.vertices.clear();
+	mMarsMesh.indices.clear();
 
-	//RecursiveTriangle(mIcosphere[1], mIcosphere[3], mIcosphere[8], 0);
-	//RecursiveTriangle(mIcosphere[1], mIcosphere[3], mIcosphere[9], 0);
-	//RecursiveTriangle(mIcosphere[0], mIcosphere[2], mIcosphere[10], 0);
-	//RecursiveTriangle(mIcosphere[0], mIcosphere[2], mIcosphere[11], 0);
+	RecursiveTriangle(mIcosphere[1], mIcosphere[3], mIcosphere[8], 0);
+	RecursiveTriangle(mIcosphere[1], mIcosphere[3], mIcosphere[9], 0);
+	RecursiveTriangle(mIcosphere[0], mIcosphere[2], mIcosphere[10], 0);
+	RecursiveTriangle(mIcosphere[0], mIcosphere[2], mIcosphere[11], 0);
 
-	//RecursiveTriangle(mIcosphere[5], mIcosphere[7], mIcosphere[0], 0);
-	//RecursiveTriangle(mIcosphere[5], mIcosphere[7], mIcosphere[1], 0);
-	//RecursiveTriangle(mIcosphere[4], mIcosphere[6], mIcosphere[2], 0);
-	//RecursiveTriangle(mIcosphere[4], mIcosphere[6], mIcosphere[3], 0);
+	RecursiveTriangle(mIcosphere[5], mIcosphere[7], mIcosphere[0], 0);
+	RecursiveTriangle(mIcosphere[5], mIcosphere[7], mIcosphere[1], 0);
+	RecursiveTriangle(mIcosphere[4], mIcosphere[6], mIcosphere[2], 0);
+	RecursiveTriangle(mIcosphere[4], mIcosphere[6], mIcosphere[3], 0);
 
-	//RecursiveTriangle(mIcosphere[9], mIcosphere[11], mIcosphere[4], 0);
-	//RecursiveTriangle(mIcosphere[9], mIcosphere[11], mIcosphere[5], 0);
-	//RecursiveTriangle(mIcosphere[8], mIcosphere[10], mIcosphere[6], 0);
-	//RecursiveTriangle(mIcosphere[8], mIcosphere[10], mIcosphere[7], 0);
+	RecursiveTriangle(mIcosphere[9], mIcosphere[11], mIcosphere[4], 0);
+	RecursiveTriangle(mIcosphere[9], mIcosphere[11], mIcosphere[5], 0);
+	RecursiveTriangle(mIcosphere[8], mIcosphere[10], mIcosphere[6], 0);
+	RecursiveTriangle(mIcosphere[8], mIcosphere[10], mIcosphere[7], 0);
 
-	//RecursiveTriangle(mIcosphere[1], mIcosphere[7], mIcosphere[8], 0);
-	//RecursiveTriangle(mIcosphere[1], mIcosphere[5], mIcosphere[9], 0);
-	//RecursiveTriangle(mIcosphere[0], mIcosphere[7], mIcosphere[10], 0);
-	//RecursiveTriangle(mIcosphere[0], mIcosphere[5], mIcosphere[11], 0);
+	RecursiveTriangle(mIcosphere[1], mIcosphere[7], mIcosphere[8], 0);
+	RecursiveTriangle(mIcosphere[1], mIcosphere[5], mIcosphere[9], 0);
+	RecursiveTriangle(mIcosphere[0], mIcosphere[7], mIcosphere[10], 0);
+	RecursiveTriangle(mIcosphere[0], mIcosphere[5], mIcosphere[11], 0);
 
-	//RecursiveTriangle(mIcosphere[3], mIcosphere[6], mIcosphere[8], 0);
-	//RecursiveTriangle(mIcosphere[3], mIcosphere[4], mIcosphere[9], 0);
-	//RecursiveTriangle(mIcosphere[2], mIcosphere[6], mIcosphere[10], 0);
-	//RecursiveTriangle(mIcosphere[2], mIcosphere[4], mIcosphere[11], 0);
+	RecursiveTriangle(mIcosphere[3], mIcosphere[6], mIcosphere[8], 0);
+	RecursiveTriangle(mIcosphere[3], mIcosphere[4], mIcosphere[9], 0);
+	RecursiveTriangle(mIcosphere[2], mIcosphere[6], mIcosphere[10], 0);
+	RecursiveTriangle(mIcosphere[2], mIcosphere[4], mIcosphere[11], 0);
 
-	//hResult = deviceContext->Map(mVertexBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &resource);	
-	//memcpy(resource.pData, &mMarsMesh.vertices[0], (sizeof(VertexType) * mMarsMesh.vertices.size()));
-	//deviceContext->Unmap(mVertexBuffer, 0);
+	if ((int)mMarsMesh.vertices.size() > 0)
+	{
+		hResult = deviceContext->Map(mVertexBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &resource);
+		if (hResult == S_OK)
+		{
+			memcpy(resource.pData, &mMarsMesh.vertices[0], (sizeof(VertexType) * mMarsMesh.vertices.size()));
+			deviceContext->Unmap(mVertexBuffer, 0);
+		}
 
-	//deviceContext->Map(mIndexBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &resource);
-	//memcpy(resource.pData, &mMarsMesh.indices[0], (sizeof(unsigned long) * mMarsMesh.indices.size()));
-	//deviceContext->Unmap(mIndexBuffer, 0);
+		ZeroMemory(&resource, sizeof(resource));
+
+		hResult = deviceContext->Map(mIndexBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &resource);
+		if (hResult == S_OK)
+		{
+			memcpy(resource.pData, &mMarsMesh.indices[0], (sizeof(unsigned long) * mMarsMesh.indices.size()));
+			deviceContext->Unmap(mIndexBuffer, 0);
+		}
+	}
 
 	return true;
 }
@@ -238,8 +234,6 @@ void MarsClass::RecursiveTriangle(VertexType a, VertexType b, VertexType c, shor
 
 	//Check if the triangle is inside the frustum
 	visible = mFrustum->CheckTriangle(XMFLOAT3(a.position.x, a.position.y, a.position.z), XMFLOAT3(b.position.x, b.position.y, b.position.z), XMFLOAT3(c.position.x, c.position.y, c.position.z));
-
-	//visible = true;
 
 	if (visible)
 	{

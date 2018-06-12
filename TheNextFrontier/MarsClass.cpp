@@ -56,7 +56,6 @@ int MarsClass::GetVerticesCount()
 
 bool MarsClass::InitializeBuffers(ID3D11Device* device)
 {
-	vector<VertexType> icosphere;
 	D3D11_BUFFER_DESC vertexBufferDesc, indexBufferDesc;
 	D3D11_SUBRESOURCE_DATA vertexData, indexData;
 	HRESULT result;
@@ -72,53 +71,53 @@ bool MarsClass::InitializeBuffers(ID3D11Device* device)
 
 	ratio *= scale;
 
-	icosphere.push_back(VertexType(ratio, 0.0f, -scale, color));
-	icosphere.push_back(VertexType(-ratio, 0.0f, -scale, color));
-	icosphere.push_back(VertexType(ratio, 0.0f, scale, color));
-	icosphere.push_back(VertexType(-ratio, 0.0f, scale, color));
+	mIcosphere.push_back(VertexType(ratio, 0.0f, -scale, color));
+	mIcosphere.push_back(VertexType(-ratio, 0.0f, -scale, color));
+	mIcosphere.push_back(VertexType(ratio, 0.0f, scale, color));
+	mIcosphere.push_back(VertexType(-ratio, 0.0f, scale, color));
 
-	icosphere.push_back(VertexType(0.0f, -scale, ratio, color));
-	icosphere.push_back(VertexType(0.0f, -scale, -ratio, color));
-	icosphere.push_back(VertexType(0.0f, scale, ratio, color));
-	icosphere.push_back(VertexType(0.0f, scale, -ratio, color));
+	mIcosphere.push_back(VertexType(0.0f, -scale, ratio, color));
+	mIcosphere.push_back(VertexType(0.0f, -scale, -ratio, color));
+	mIcosphere.push_back(VertexType(0.0f, scale, ratio, color));
+	mIcosphere.push_back(VertexType(0.0f, scale, -ratio, color));
 
-	icosphere.push_back(VertexType(-scale, ratio, 0.0f, color));
-	icosphere.push_back(VertexType(-scale, -ratio, 0.0f, color));
-	icosphere.push_back(VertexType(scale, ratio, 0.0f, color));
-	icosphere.push_back(VertexType(scale, -ratio, 0.0f, color));
+	mIcosphere.push_back(VertexType(-scale, ratio, 0.0f, color));
+	mIcosphere.push_back(VertexType(-scale, -ratio, 0.0f, color));
+	mIcosphere.push_back(VertexType(scale, ratio, 0.0f, color));
+	mIcosphere.push_back(VertexType(scale, -ratio, 0.0f, color));
 
-	RecursiveTriangle(icosphere[1], icosphere[3], icosphere[8], 0);
-	RecursiveTriangle(icosphere[1], icosphere[3], icosphere[9], 0);
-	RecursiveTriangle(icosphere[0], icosphere[2], icosphere[10], 0);
-	RecursiveTriangle(icosphere[0], icosphere[2], icosphere[11], 0);
+	RecursiveTriangle(mIcosphere[1], mIcosphere[3], mIcosphere[8], 0);
+	RecursiveTriangle(mIcosphere[1], mIcosphere[3], mIcosphere[9], 0);
+	RecursiveTriangle(mIcosphere[0], mIcosphere[2], mIcosphere[10], 0);
+	RecursiveTriangle(mIcosphere[0], mIcosphere[2], mIcosphere[11], 0);
 
-	RecursiveTriangle(icosphere[5], icosphere[7], icosphere[0], 0);
-	RecursiveTriangle(icosphere[5], icosphere[7], icosphere[1], 0);
-	RecursiveTriangle(icosphere[4], icosphere[6], icosphere[2], 0);
-	RecursiveTriangle(icosphere[4], icosphere[6], icosphere[3], 0);
+	RecursiveTriangle(mIcosphere[5], mIcosphere[7], mIcosphere[0], 0);
+	RecursiveTriangle(mIcosphere[5], mIcosphere[7], mIcosphere[1], 0);
+	RecursiveTriangle(mIcosphere[4], mIcosphere[6], mIcosphere[2], 0);
+	RecursiveTriangle(mIcosphere[4], mIcosphere[6], mIcosphere[3], 0);
 
-	RecursiveTriangle(icosphere[9], icosphere[11], icosphere[4], 0);
-	RecursiveTriangle(icosphere[9], icosphere[11], icosphere[5], 0);
-	RecursiveTriangle(icosphere[8], icosphere[10], icosphere[6], 0);
-	RecursiveTriangle(icosphere[8], icosphere[10], icosphere[7], 0);
+	RecursiveTriangle(mIcosphere[9], mIcosphere[11], mIcosphere[4], 0);
+	RecursiveTriangle(mIcosphere[9], mIcosphere[11], mIcosphere[5], 0);
+	RecursiveTriangle(mIcosphere[8], mIcosphere[10], mIcosphere[6], 0);
+	RecursiveTriangle(mIcosphere[8], mIcosphere[10], mIcosphere[7], 0);
 
-	RecursiveTriangle(icosphere[1], icosphere[7], icosphere[8], 0);
-	RecursiveTriangle(icosphere[1], icosphere[5], icosphere[9], 0);
-	RecursiveTriangle(icosphere[0], icosphere[7], icosphere[10], 0);
-	RecursiveTriangle(icosphere[0], icosphere[5], icosphere[11], 0);
+	RecursiveTriangle(mIcosphere[1], mIcosphere[7], mIcosphere[8], 0);
+	RecursiveTriangle(mIcosphere[1], mIcosphere[5], mIcosphere[9], 0);
+	RecursiveTriangle(mIcosphere[0], mIcosphere[7], mIcosphere[10], 0);
+	RecursiveTriangle(mIcosphere[0], mIcosphere[5], mIcosphere[11], 0);
 
-	RecursiveTriangle(icosphere[3], icosphere[6], icosphere[8], 0);
-	RecursiveTriangle(icosphere[3], icosphere[4], icosphere[9], 0);
-	RecursiveTriangle(icosphere[2], icosphere[6], icosphere[10], 0);
-	RecursiveTriangle(icosphere[2], icosphere[4], icosphere[11], 0);
+	RecursiveTriangle(mIcosphere[3], mIcosphere[6], mIcosphere[8], 0);
+	RecursiveTriangle(mIcosphere[3], mIcosphere[4], mIcosphere[9], 0);
+	RecursiveTriangle(mIcosphere[2], mIcosphere[6], mIcosphere[10], 0);
+	RecursiveTriangle(mIcosphere[2], mIcosphere[4], mIcosphere[11], 0);
 
 	if ((int)mMarsMesh.vertices.size() > 0)
 	{
 
-		vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
+		vertexBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
 		vertexBufferDesc.ByteWidth = sizeof(VertexType) * (int)mMarsMesh.vertices.size();
 		vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-		vertexBufferDesc.CPUAccessFlags = 0;
+		vertexBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 		vertexBufferDesc.MiscFlags = 0;
 		vertexBufferDesc.StructureByteStride = 0;
 
@@ -149,6 +148,52 @@ bool MarsClass::InitializeBuffers(ID3D11Device* device)
 			return false;
 		}
 	}
+
+	return true;
+}
+
+bool MarsClass::UpdateVertexBuffer(ID3D11DeviceContext* deviceContext, FrustumClass* frustum) 
+{
+	D3D11_MAPPED_SUBRESOURCE resource;
+	HRESULT hResult;
+
+	mFrustum = frustum;
+
+	//mMarsMesh.vertices.clear();
+	//mMarsMesh.indices.clear();
+
+	//RecursiveTriangle(mIcosphere[1], mIcosphere[3], mIcosphere[8], 0);
+	//RecursiveTriangle(mIcosphere[1], mIcosphere[3], mIcosphere[9], 0);
+	//RecursiveTriangle(mIcosphere[0], mIcosphere[2], mIcosphere[10], 0);
+	//RecursiveTriangle(mIcosphere[0], mIcosphere[2], mIcosphere[11], 0);
+
+	//RecursiveTriangle(mIcosphere[5], mIcosphere[7], mIcosphere[0], 0);
+	//RecursiveTriangle(mIcosphere[5], mIcosphere[7], mIcosphere[1], 0);
+	//RecursiveTriangle(mIcosphere[4], mIcosphere[6], mIcosphere[2], 0);
+	//RecursiveTriangle(mIcosphere[4], mIcosphere[6], mIcosphere[3], 0);
+
+	//RecursiveTriangle(mIcosphere[9], mIcosphere[11], mIcosphere[4], 0);
+	//RecursiveTriangle(mIcosphere[9], mIcosphere[11], mIcosphere[5], 0);
+	//RecursiveTriangle(mIcosphere[8], mIcosphere[10], mIcosphere[6], 0);
+	//RecursiveTriangle(mIcosphere[8], mIcosphere[10], mIcosphere[7], 0);
+
+	//RecursiveTriangle(mIcosphere[1], mIcosphere[7], mIcosphere[8], 0);
+	//RecursiveTriangle(mIcosphere[1], mIcosphere[5], mIcosphere[9], 0);
+	//RecursiveTriangle(mIcosphere[0], mIcosphere[7], mIcosphere[10], 0);
+	//RecursiveTriangle(mIcosphere[0], mIcosphere[5], mIcosphere[11], 0);
+
+	//RecursiveTriangle(mIcosphere[3], mIcosphere[6], mIcosphere[8], 0);
+	//RecursiveTriangle(mIcosphere[3], mIcosphere[4], mIcosphere[9], 0);
+	//RecursiveTriangle(mIcosphere[2], mIcosphere[6], mIcosphere[10], 0);
+	//RecursiveTriangle(mIcosphere[2], mIcosphere[4], mIcosphere[11], 0);
+
+	//hResult = deviceContext->Map(mVertexBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &resource);	
+	//memcpy(resource.pData, &mMarsMesh.vertices[0], (sizeof(VertexType) * mMarsMesh.vertices.size()));
+	//deviceContext->Unmap(mVertexBuffer, 0);
+
+	//deviceContext->Map(mIndexBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &resource);
+	//memcpy(resource.pData, &mMarsMesh.indices[0], (sizeof(unsigned long) * mMarsMesh.indices.size()));
+	//deviceContext->Unmap(mIndexBuffer, 0);
 
 	return true;
 }

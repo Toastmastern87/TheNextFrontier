@@ -23,10 +23,13 @@ public:
 
 	void RenderBaseViewMatrix();
 	void GetBaseViewMatrix(XMMATRIX&);
+	bool CheckMovement();
 
 private:
 	float mPositionX, mPositionY, mPositionZ;
 	float mRotationX, mRotationY, mRotationZ;
+	float mOldPositionX, mOldPositionY, mOldPositionZ;
+	float mOldRotationX, mOldRotationY, mOldRotationZ;
 	XMMATRIX mViewMatrix, mBaseViewMatrix;
 	XMVECTOR mLookAt;
 };

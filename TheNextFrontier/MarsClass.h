@@ -73,6 +73,8 @@ public:
 	int GetIndexCount();
 	int GetVerticesCount();
 
+	bool UpdateVertexBuffer(ID3D11DeviceContext*, FrustumClass*);
+
 private:
 	bool InitializeBuffers(ID3D11Device*);
 	void ShutdownBuffers();
@@ -81,9 +83,10 @@ private:
 	float GetVertexTypeLength(VertexType);
 
 private:
-	ID3D11Buffer * mVertexBuffer, *mIndexBuffer;
+	ID3D11Buffer *mVertexBuffer, *mIndexBuffer;
 	MeshGeometry3D mMarsMesh;
 	FrustumClass* mFrustum;
+	vector<VertexType> mIcosphere;
 };
 
 #endif 

@@ -198,8 +198,13 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 	mCamera->GetBaseViewMatrix(baseViewMatrix);
 	direct3D->GetOrthoMatrix(orthoMatrix);
 
-	mFrustum->ConstructFrustum(mScreenDepth, projectionMatrix, viewMatrix);
-	mMars->Initialize(direct3D->GetDevice(), mFrustum);
+	if (mCamera->CheckMovement()) 
+	{
+		mFrustum->ConstructFrustum(mScreenDepth, projectionMatrix, viewMatrix);
+
+		mMars->UpdateVertexBuffer(direct3D->GetDeviceContext(), mFrustum);
+		mMars->Initialize(direct3D->GetDevice(), mFrustum);
+	}
 
 	direct3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
 

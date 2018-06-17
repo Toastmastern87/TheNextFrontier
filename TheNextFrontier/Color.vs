@@ -8,6 +8,7 @@ cbuffer MatrixBuffer
 struct VertexInputType
 {
 	float2 localPosition : TEXCOORD0;
+	float2 localMorph : TEXCOORD1;
 	int level : TEXTUREID;
 	float3 a : POSITION0;
 	float3 r : POSITION1;
@@ -26,9 +27,13 @@ PixelInputType ColorVertexShader(VertexInputType input)
 	float4 finalPos;
 	float3 posxr;
 	float3 posys;
+	float3 morphrx;
+	float3 morphsy;
 
 	posxr = float3(input.r.x * input.localPosition.x, input.r.y * input.localPosition.x, input.r.z * input.localPosition.x);
 	posys = float3(input.s.x * input.localPosition.y, input.s.y * input.localPosition.y, input.s.z * input.localPosition.y);
+	morphrx = float3(input.r.x * input.localMorph.x, input.r.y * input.localMorph.x, input.r.z * input.localMorph.x);
+	morphsy = float3(input.s.x * input.localMorph.y, input.s.y * input.localMorph.y, input.s.z * input.localMorph.y);
 
 	finalPos.x = input.a.x + posxr.x + posys.x;
 	finalPos.y = input.a.y + posxr.y + posys.y;

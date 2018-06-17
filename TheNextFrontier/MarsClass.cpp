@@ -21,10 +21,10 @@ bool MarsClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceCont
 	bool result;
 
 	mFrustum = frustum;
-	mMarsRadius = 10.0f;
+	mMarsRadius = 3389.5f;
 
 	mMaxLevel = 4;
-	mMaxCellLevel = 1;
+	mMaxCellLevel = 2;
 
 	GenerateCellGeometry();
 
@@ -146,11 +146,14 @@ bool MarsClass::MapCells(ID3D11DeviceContext* deviceContext)
 
 void MarsClass::GenerateCellGeometry()
 {
+	float delta;
+
 	mMarsCellVertices.clear();
 	mMarsCellIndices.clear();
 
-	//0 inside pow is number each cell is divided levels
 	int mRC = 1 + (int)pow(2, mMaxCellLevel);
+
+	delta = 1 / (float)(mRC - 1);
 
 	int rowIndex = 0;
 	int nextIndex = 0;
@@ -166,8 +169,29 @@ void MarsClass::GenerateCellGeometry()
 			//calc position
 			XMFLOAT2 pos = XMFLOAT2(column / (float)(mRC - 1), row / (float)(mRC - 1));
 
+			//calc morph factor
+			XMFLOAT2 morph = XMFLOAT2(0.0f, 0.0f);
+			if (row % 2 == 0)
+			{
+				if (column % 2 == 1) 
+				{
+					morph = XMFLOAT2(-delta, 0);
+				} 
+			}
+			else
+			{
+				if (column % 2 == 0) 
+				{ 
+					morph = XMFLOAT2(0, delta); 
+				}
+				else 
+				{ 
+					morph = XMFLOAT2(delta, -delta);
+				}
+			}
+
 			//create vertex
-			mMarsCellVertices.push_back(MarsVertexType(pos));
+			mMarsCellVertices.push_back(MarsVertexType(pos, morph));
 
 			//calc index
 			if (row < mRC - 1 && column < numCols - 1)

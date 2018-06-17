@@ -57,7 +57,7 @@ bool ColorShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* 
 	ID3D10Blob* errorMessage;
 	ID3D10Blob* vertexShaderBuffer;
 	ID3D10Blob* pixelShaderBuffer;
-	D3D11_INPUT_ELEMENT_DESC polygonLayout[5];
+	D3D11_INPUT_ELEMENT_DESC polygonLayout[6];
 	unsigned int numElements;
 	D3D11_BUFFER_DESC matrixBufferDesc;
 
@@ -115,24 +115,24 @@ bool ColorShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* 
 	polygonLayout[0].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
 	polygonLayout[0].InstanceDataStepRate = 0;
 
-	polygonLayout[1].SemanticName = "TEXTUREID";
-	polygonLayout[1].SemanticIndex = 0;
-	polygonLayout[1].Format = DXGI_FORMAT_R32_SINT;
-	polygonLayout[1].InputSlot = 1;
-	polygonLayout[1].AlignedByteOffset = 0;
-	polygonLayout[1].InputSlotClass = D3D11_INPUT_PER_INSTANCE_DATA;
-	polygonLayout[1].InstanceDataStepRate = 1;
+	polygonLayout[1].SemanticName = "TEXCOORD";
+	polygonLayout[1].SemanticIndex = 1;
+	polygonLayout[1].Format = DXGI_FORMAT_R32G32_FLOAT;
+	polygonLayout[1].InputSlot = 0;
+	polygonLayout[1].AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
+	polygonLayout[1].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
+	polygonLayout[1].InstanceDataStepRate = 0;
 
-	polygonLayout[2].SemanticName = "POSITION";
+	polygonLayout[2].SemanticName = "TEXTUREID";
 	polygonLayout[2].SemanticIndex = 0;
-	polygonLayout[2].Format = DXGI_FORMAT_R32G32B32_FLOAT;
+	polygonLayout[2].Format = DXGI_FORMAT_R32_SINT;
 	polygonLayout[2].InputSlot = 1;
-	polygonLayout[2].AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
+	polygonLayout[2].AlignedByteOffset = 0;
 	polygonLayout[2].InputSlotClass = D3D11_INPUT_PER_INSTANCE_DATA;
 	polygonLayout[2].InstanceDataStepRate = 1;
 
 	polygonLayout[3].SemanticName = "POSITION";
-	polygonLayout[3].SemanticIndex = 1;
+	polygonLayout[3].SemanticIndex = 0;
 	polygonLayout[3].Format = DXGI_FORMAT_R32G32B32_FLOAT;
 	polygonLayout[3].InputSlot = 1;
 	polygonLayout[3].AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
@@ -140,12 +140,20 @@ bool ColorShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* 
 	polygonLayout[3].InstanceDataStepRate = 1;
 
 	polygonLayout[4].SemanticName = "POSITION";
-	polygonLayout[4].SemanticIndex = 2;
+	polygonLayout[4].SemanticIndex = 1;
 	polygonLayout[4].Format = DXGI_FORMAT_R32G32B32_FLOAT;
 	polygonLayout[4].InputSlot = 1;
 	polygonLayout[4].AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
 	polygonLayout[4].InputSlotClass = D3D11_INPUT_PER_INSTANCE_DATA;
 	polygonLayout[4].InstanceDataStepRate = 1;
+
+	polygonLayout[5].SemanticName = "POSITION";
+	polygonLayout[5].SemanticIndex = 2;
+	polygonLayout[5].Format = DXGI_FORMAT_R32G32B32_FLOAT;
+	polygonLayout[5].InputSlot = 1;
+	polygonLayout[5].AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
+	polygonLayout[5].InputSlotClass = D3D11_INPUT_PER_INSTANCE_DATA;
+	polygonLayout[5].InstanceDataStepRate = 1;
 
 	numElements = sizeof(polygonLayout) / sizeof(polygonLayout[0]);
 

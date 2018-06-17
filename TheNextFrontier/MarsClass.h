@@ -15,10 +15,12 @@ public:
 	struct MarsVertexType
 	{
 		XMFLOAT2 pos;
+		XMFLOAT2 morph;
 
-		MarsVertexType(XMFLOAT2 position)
+		MarsVertexType(XMFLOAT2 position, XMFLOAT2 morphing)
 		{
 			pos = position;
+			morph = morphing;
 		}
 	};
 
@@ -36,14 +38,6 @@ public:
 			r = R;
 			s = S;
 		}
-	};
-
-	enum NextTriangle
-	{
-		CULL,
-		LEAF,
-		SPLIT,
-		SPLITCULL
 	};
 
 	struct TriangleType
@@ -66,6 +60,14 @@ public:
 
 			level = Level;
 		}
+	};
+
+	enum NextTriangle
+	{
+		CULL,
+		LEAF,
+		SPLIT,
+		SPLITCULL
 	};
 
 public:

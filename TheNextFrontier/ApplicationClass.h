@@ -3,7 +3,7 @@
 
 const bool FULLSCREEN = true;
 const bool VSYNCENABLED = false;
-const float SCREENDEPTH = 1000.0f;
+const float SCREENDEPTH = 100000.0f;
 const float SCREENEAR = 0.1f;
 
 #include "InputClass.h"

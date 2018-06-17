@@ -1,6 +1,6 @@
 #include "ShaderManagerClass.h"
 
-ShaderManagerClass::ShaderManagerClass() 
+ShaderManagerClass::ShaderManagerClass()
 {
 	mColorShader = 0;
 	mFontShader = 0;
@@ -10,7 +10,7 @@ ShaderManagerClass::ShaderManagerClass(const ShaderManagerClass& other)
 {
 }
 
-ShaderManagerClass::~ShaderManagerClass() 
+ShaderManagerClass::~ShaderManagerClass()
 {
 }
 
@@ -45,9 +45,9 @@ bool ShaderManagerClass::Initialize(ID3D11Device* device, HWND hwnd)
 	return true;
 }
 
-void ShaderManagerClass::Shutdown() 
+void ShaderManagerClass::Shutdown()
 {
-	if (mFontShader) 
+	if (mFontShader)
 	{
 		mFontShader->Shutdown();
 		delete mFontShader;
@@ -64,9 +64,9 @@ void ShaderManagerClass::Shutdown()
 	return;
 }
 
-bool ShaderManagerClass::RenderColorShader(ID3D11DeviceContext* deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix)
+bool ShaderManagerClass::RenderColorShader(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix)
 {
-	return mColorShader->Render(deviceContext, indexCount, worldMatrix, viewMatrix, projectionMatrix);
+	return mColorShader->Render(deviceContext, indexCount, instanceCount, worldMatrix, viewMatrix, projectionMatrix);
 }
 
 bool ShaderManagerClass::RenderFontShader(ID3D11DeviceContext* deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, ID3D11ShaderResourceView* texture, XMFLOAT4 color)

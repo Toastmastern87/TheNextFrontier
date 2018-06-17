@@ -11,7 +11,7 @@
 #include "MarsClass.h"
 #include "FrustumClass.h"
 
-class UniverseClass 
+class UniverseClass
 {
 public:
 	UniverseClass();
@@ -27,7 +27,7 @@ private:
 	bool Render(D3DClass*, ShaderManagerClass*);
 
 private:
-	UIClass* mUI;
+	UIClass * mUI;
 	CameraClass* mCamera;
 	PositionClass* mPosition;
 	MarsClass* mMars;

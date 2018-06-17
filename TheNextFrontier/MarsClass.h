@@ -1,9 +1,9 @@
-#ifndef _MARSCLASS_H_
-#define _MARSCLASS_H_
+#pragma once
 
 #include <d3d11.h>
 #include <DirectXMath.h>
 #include <vector>
+#include <math.h>
 #include <fstream>
 #include "FrustumClass.h"
 using namespace DirectX;
@@ -11,54 +11,61 @@ using namespace std;
 
 class MarsClass
 {
-private:
-	struct VertexType 
+public:
+	struct MarsVertexType
 	{
-		XMFLOAT3 position;
-		XMFLOAT4 color;
+		XMFLOAT2 pos;
 
-		VertexType() 
+		MarsVertexType(XMFLOAT2 position)
 		{
-		}
-
-		VertexType(float x, float y, float z, XMFLOAT4 c) 
-		{
-			position.x = x;
-			position.y = y;
-			position.z = z;
-
-			color = c;
-		}
-
-		VertexType(float x, float y, float z)
-		{
-			position.x = x;
-			position.y = y;
-			position.z = z;
-
-			color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
-		}
-
-		VertexType operator+(VertexType a)
-		{
-			return VertexType(a.position.x + position.x, a.position.y + position.y, a.position.z + position.z, color);
-		}
-
-		VertexType operator*(float factor)
-		{
-			return VertexType(position.x * factor, position.y * factor, position.z * factor, color);
-		}
-
-		VertexType operator-(VertexType a)
-		{
-			return VertexType(position.x - a.position.x, position.y - a.position.y, position.z - a.position.z, color);
+			pos = position;
 		}
 	};
 
-	struct MeshGeometry3D
+	struct MarsCellType
 	{
-		vector<VertexType> vertices;
-		vector<unsigned long> indices;
+		int level;
+		XMFLOAT3 a;
+		XMFLOAT3 r;
+		XMFLOAT3 s;
+
+		MarsCellType(int Level, XMFLOAT3 A, XMFLOAT3 R, XMFLOAT3 S)
+		{
+			level = Level;
+			a = A;
+			r = R;
+			s = S;
+		}
+	};
+
+	enum NextTriangle
+	{
+		CULL,
+		LEAF,
+		SPLIT,
+		SPLITCULL
+	};
+
+	struct TriangleType
+	{
+		XMFLOAT3 a, b, c;
+		TriangleType* parent;
+		short level;
+
+		TriangleType()
+		{
+		}
+
+		TriangleType(XMFLOAT3 A, XMFLOAT3 B, XMFLOAT3 C, TriangleType* Parent, short Level)
+		{
+			a = A;
+			b = B;
+			c = C;
+
+			parent = Parent;
+
+			level = Level;
+		}
 	};
 
 public:
@@ -66,27 +73,41 @@ public:
 	MarsClass(const MarsClass&);
 	~MarsClass();
 
-	bool Initialize(ID3D11Device*, FrustumClass*);
+	bool Initialize(ID3D11Device*, ID3D11DeviceContext*, FrustumClass*);
 	void Shutdown();
 	void Render(ID3D11DeviceContext*);
 
 	int GetIndexCount();
-	int GetVerticesCount();
+	int GetInstanceCount();
+	int GetMarsVerticesCount();
+	float GetMarsRadius();
 
-	bool UpdateVertexBuffer(ID3D11DeviceContext*, FrustumClass*);
+	bool UpdateMars(ID3D11DeviceContext*, FrustumClass*);
 
 private:
 	bool InitializeBuffers(ID3D11Device*);
+	bool InitializeIcosphere();
 	void ShutdownBuffers();
 	void RenderBuffers(ID3D11DeviceContext*);
-	void RecursiveTriangle(VertexType, VertexType, VertexType, short level);
-	float GetVertexTypeLength(VertexType);
+
+	float GetVectorLength(XMFLOAT3);
+	vector<XMFLOAT3> GetIcosadronPositions(int);
+	vector<int> GetIcosadronIndices();
+	void GenerateCells();
+	void GenerateCellGeometry();
+	bool MapCells(ID3D11DeviceContext*);
+
+	void RecursiveTriangle(XMFLOAT3, XMFLOAT3, XMFLOAT3, short level, bool frustumCull);
+	//NextTriangle SplitHeuristic(XMFLOAT3, XMFLOAT3, XMFLOAT3, short level, bool frustumCull);
 
 private:
-	ID3D11Buffer *mVertexBuffer, *mIndexBuffer;
-	MeshGeometry3D mMarsMesh;
+	ID3D11Buffer * mVertexBuffer, *mIndexBuffer, *mInstanceBuffer;
+	vector<MarsVertexType> mMarsCellVertices;
+	vector<long int> mMarsCellIndices;
 	FrustumClass* mFrustum;
-	vector<VertexType> mIcosphere;
+	int mMarsRadius;
+	vector<TriangleType> mIcosphere;
+	vector<MarsCellType> mMarsCells;
+	int mMaxLevel;
+	int mMaxCellLevel;
 };
-
-#endif 

@@ -13,7 +13,7 @@ using namespace std;
 class ColorShaderClass
 {
 private:
-	struct MatrixBufferType 
+	struct MatrixBufferType
 	{
 		XMMATRIX world;
 		XMMATRIX view;
@@ -27,7 +27,7 @@ public:
 
 	bool Initialize(ID3D11Device*, HWND);
 	void Shutdown();
-	bool Render(ID3D11DeviceContext*, int, XMMATRIX, XMMATRIX, XMMATRIX);
+	bool Render(ID3D11DeviceContext*, int, int, XMMATRIX, XMMATRIX, XMMATRIX);
 
 private:
 	bool InitializeShader(ID3D11Device*, HWND, WCHAR*, WCHAR*);
@@ -35,10 +35,10 @@ private:
 	void OutputShaderErrorMessage(ID3D10Blob*, HWND, WCHAR*);
 
 	bool SetShaderParameters(ID3D11DeviceContext*, XMMATRIX, XMMATRIX, XMMATRIX);
-	void RenderShaders(ID3D11DeviceContext*, int);
-	
+	void RenderShaders(ID3D11DeviceContext*, int, int);
+
 private:
-	ID3D11VertexShader* mVertexShader;
+	ID3D11VertexShader * mVertexShader;
 	ID3D11PixelShader* mPixelShader;
 	ID3D11InputLayout* mLayout;
 	ID3D11Buffer* mMatrixBuffer;

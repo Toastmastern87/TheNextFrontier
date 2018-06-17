@@ -5,7 +5,7 @@
 #include "ColorShaderClass.h"
 #include "FontShaderClass.h"
 
-class ShaderManagerClass 
+class ShaderManagerClass
 {
 public:
 	ShaderManagerClass();
@@ -15,11 +15,11 @@ public:
 	bool Initialize(ID3D11Device*, HWND);
 	void Shutdown();
 
-	bool RenderColorShader(ID3D11DeviceContext*, int, XMMATRIX, XMMATRIX, XMMATRIX);
+	bool RenderColorShader(ID3D11DeviceContext*, int, int, XMMATRIX, XMMATRIX, XMMATRIX);
 	bool RenderFontShader(ID3D11DeviceContext*, int, XMMATRIX, XMMATRIX, XMMATRIX, ID3D11ShaderResourceView*, XMFLOAT4);
 
 private:
-	ColorShaderClass* mColorShader;
+	ColorShaderClass * mColorShader;
 	FontShaderClass* mFontShader;
 };
 

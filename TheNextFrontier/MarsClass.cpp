@@ -16,15 +16,17 @@ MarsClass::~MarsClass()
 {
 }
 
-bool MarsClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceContext, FrustumClass* frustum)
+bool MarsClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceContext, FrustumClass* frustum, int screenWidth)
 {
 	bool result;
 
 	mFrustum = frustum;
 	mMarsRadius = 3389.5f;
 
-	mMaxLevel = 4;
+	mMaxSizeTriangle = 300.0f;
+	mMaxSubdivisionLevel = 4;
 	mMaxCellLevel = 2;
+	mScreenWidth = screenWidth;
 
 	GenerateCellGeometry();
 
@@ -284,6 +286,20 @@ void MarsClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 
 void MarsClass::GenerateCells()
 {
+	float vectorDistance;
+	float frac;
+
+	mDistanceLUT.clear();
+
+	vectorDistance = GetVectorDistance(mIcosphere[0].a , mIcosphere[0].b);
+	frac = tanf((mMaxTriangleSize * (mFrustum->GetFOV() * (M_PI / 180.0f))) / mScreenWidth);
+
+	for (int level = 0; level < mMaxSubdivisionLevel; level++)
+	{
+		mDistanceLUT.push_back(vectorDistance / frac);
+		vectorDistance *= 0.5f;
+	}
+
 	mMarsCells.clear();
 
 	for (auto triangle : mIcosphere)
@@ -299,6 +315,15 @@ float MarsClass::GetVectorLength(XMFLOAT3 vector)
 	length = sqrt((vector.x * vector.x) + (vector.y * vector.y) + (vector.z * vector.z));
 
 	return length;
+}
+
+float MarsClass::GetVectorDistance(XMFLOAT3 vector1, XMFLOAT3 vector2)
+{
+	float distance;
+
+	distance = sqrt(((vector1.x - vector2.x) * (vector1.x - vector2.x)) + ((vector1.y - vector2.y) * (vector1.y - vector2.y)) + ((vector1.z - vector2.z) * (vector1.z - vector2.z)));
+
+	return distance;
 }
 
 vector<XMFLOAT3> MarsClass::GetIcosadronPositions(int radius)
@@ -368,7 +393,7 @@ void MarsClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, short leve
 
 	//Check if the triangle is inside the frustum
 	//visible = mFrustum->CheckTriangle(XMFLOAT3(a.position.x, a.position.y, a.position.z), XMFLOAT3(b.position.x, b.position.y, b.position.z), XMFLOAT3(c.position.x, c.position.y, c.position.z));
-	if (level < mMaxLevel) {
+	if (level < mMaxSubdivisionLevel) {
 		int nLevel;
 
 		float lengthA;

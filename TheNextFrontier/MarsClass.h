@@ -1,5 +1,7 @@
 #pragma once
 
+#define _USE_MATH_DEFINES
+
 #include <d3d11.h>
 #include <DirectXMath.h>
 #include <vector>
@@ -75,7 +77,7 @@ public:
 	MarsClass(const MarsClass&);
 	~MarsClass();
 
-	bool Initialize(ID3D11Device*, ID3D11DeviceContext*, FrustumClass*);
+	bool Initialize(ID3D11Device*, ID3D11DeviceContext*, FrustumClass*, int);
 	void Shutdown();
 	void Render(ID3D11DeviceContext*);
 
@@ -93,6 +95,8 @@ private:
 	void RenderBuffers(ID3D11DeviceContext*);
 
 	float GetVectorLength(XMFLOAT3);
+	float GetVectorDistance(XMFLOAT3, XMFLOAT3);
+
 	vector<XMFLOAT3> GetIcosadronPositions(int);
 	vector<int> GetIcosadronIndices();
 	void GenerateCells();
@@ -104,12 +108,22 @@ private:
 
 private:
 	ID3D11Buffer * mVertexBuffer, *mIndexBuffer, *mInstanceBuffer;
+
 	vector<MarsVertexType> mMarsCellVertices;
+
 	vector<long int> mMarsCellIndices;
 	FrustumClass* mFrustum;
+
 	int mMarsRadius;
+	int screenWidth;
+
 	vector<TriangleType> mIcosphere;
 	vector<MarsCellType> mMarsCells;
-	int mMaxLevel;
+
+	vector<float> mDistanceLUT;
+
+	int mMaxSubdivisionLevel;
 	int mMaxCellLevel;
+	float mMaxTriangleSize;
+	int mScreenWidth;
 };

@@ -13,10 +13,12 @@ public:
 
 	void SetPosition(float, float, float);
 	void SetRotation(float, float, float);
+	void SetFOV(float);
 
 	XMFLOAT3 GetPosition();
 	XMFLOAT3 GetRotation();
 	XMVECTOR GetLookAtVector();
+	float GetFOV();
 
 	void Render();
 	XMMATRIX GetViewMatrix();
@@ -32,6 +34,7 @@ private:
 	float mOldRotationX, mOldRotationY, mOldRotationZ;
 	XMMATRIX mViewMatrix, mBaseViewMatrix;
 	XMVECTOR mLookAt;
+	float mFOV;
 };
 
 #endif

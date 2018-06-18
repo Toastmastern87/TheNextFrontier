@@ -226,3 +226,16 @@ bool CameraClass::CheckMovement()
 
 	return false;
 }
+
+void CameraClass::SetFOV(float fov) 
+{
+	mFOV = fov;
+
+	return;
+}
+
+float CameraClass::GetFOV() 
+{
+	return mFOV;
+}
+

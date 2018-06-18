@@ -12,6 +12,11 @@ FrustumClass::~FrustumClass()
 {
 }
 
+bool FrustumClass::Initialize(CameraClass* camera) 
+{
+	mCamera = camera;
+}
+
 bool FrustumClass::ConstructFrustum(float screenDepth, XMMATRIX projectionMatrix, XMMATRIX viewMatrix) 
 {
 	float zMin, r;
@@ -108,4 +113,9 @@ bool FrustumClass::CheckTriangle(XMFLOAT3 p1, XMFLOAT3 p2, XMFLOAT3 p3)
 	}
 
 	return true;
+}
+
+float FrustumClass::GetFOV() 
+{
+	return mCamera->GetFOV();
 }

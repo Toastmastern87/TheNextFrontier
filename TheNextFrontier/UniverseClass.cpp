@@ -42,6 +42,7 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 	}
 
 	mCamera->SetPosition(0.0f, 0.0f, -10.0f);
+	mCamera->SetFOV(45.0f);
 	mCamera->Render();
 	mCamera->RenderBaseViewMatrix();
 
@@ -56,6 +57,12 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 
 	mFrustum = new FrustumClass;
 	if (!mFrustum)
+	{
+		return false;
+	}
+
+	result = mFrustum->Initialize(mCamera);
+	if (!result)
 	{
 		return false;
 	}
@@ -202,7 +209,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 	//{
 	mFrustum->ConstructFrustum(mScreenDepth, projectionMatrix, viewMatrix);
 
-	mMars->UpdateMars(direct3D->GetDeviceContext(), mFrustum);
+	mMars->UpdateMars(direct3D->GetDeviceContext(), mFrustum, scree);
 	//}
 
 	direct3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);

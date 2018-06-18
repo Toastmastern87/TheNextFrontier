@@ -23,7 +23,7 @@ bool MarsClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceCont
 	mFrustum = frustum;
 	mMarsRadius = 3389.5f;
 
-	mMaxSizeTriangle = 300.0f;
+	mMaxTriangleSize = 300.0f;
 	mMaxSubdivisionLevel = 4;
 	mMaxCellLevel = 2;
 	mScreenWidth = screenWidth;
@@ -384,6 +384,11 @@ vector<int> MarsClass::GetIcosadronIndices()
 	};
 
 	return ret;
+}
+
+MarsClass::NextTriangle MarsClass::CheckTriangleSplit(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, short level, bool frustumCull)
+{
+	return NextTriangle::CULL;
 }
 
 void MarsClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, short level, bool frustumCull)

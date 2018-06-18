@@ -103,11 +103,11 @@ private:
 	void GenerateCellGeometry();
 	bool MapCells(ID3D11DeviceContext*);
 
-	void RecursiveTriangle(XMFLOAT3, XMFLOAT3, XMFLOAT3, short level, bool frustumCull);
-	//NextTriangle SplitHeuristic(XMFLOAT3, XMFLOAT3, XMFLOAT3, short level, bool frustumCull);
+	void RecursiveTriangle(XMFLOAT3, XMFLOAT3, XMFLOAT3, short, bool);
+	NextTriangle CheckTriangleSplit(XMFLOAT3, XMFLOAT3, XMFLOAT3, short, bool);
 
 private:
-	ID3D11Buffer * mVertexBuffer, *mIndexBuffer, *mInstanceBuffer;
+	ID3D11Buffer *mVertexBuffer, *mIndexBuffer, *mInstanceBuffer;
 
 	vector<MarsVertexType> mMarsCellVertices;
 

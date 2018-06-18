@@ -15,6 +15,8 @@ FrustumClass::~FrustumClass()
 bool FrustumClass::Initialize(CameraClass* camera) 
 {
 	mCamera = camera;
+
+	return true;
 }
 
 bool FrustumClass::ConstructFrustum(float screenDepth, XMMATRIX projectionMatrix, XMMATRIX viewMatrix) 

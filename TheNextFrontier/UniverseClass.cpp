@@ -73,7 +73,7 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 		return false;
 	}
 
-	result = mMars->Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), mFrustum);
+	result = mMars->Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), mFrustum, screenWidth);
 	if (!result)
 	{
 		MessageBox(hwnd, L"Could not initialize the Mars object.", L"Error", MB_OK);
@@ -209,7 +209,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 	//{
 	mFrustum->ConstructFrustum(mScreenDepth, projectionMatrix, viewMatrix);
 
-	mMars->UpdateMars(direct3D->GetDeviceContext(), mFrustum, scree);
+	mMars->UpdateMars(direct3D->GetDeviceContext(), mFrustum);
 	//}
 
 	direct3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);

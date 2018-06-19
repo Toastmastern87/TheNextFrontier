@@ -1,8 +1,8 @@
-#ifndef _POSITIONCLASS_H_
-
-#define _POSITIONCLASS_H_
+#pragma once
 
 #include <math.h>
+#include <DirectXMath.h>
+using namespace DirectX;
 
 class PositionClass 
 {
@@ -15,6 +15,7 @@ public:
 	void SetRotation(float, float, float);
 
 	void GetPosition(float&, float&, float&);
+	XMFLOAT3 GetPositionXMFLOAT3();
 	void GetRotation(float&, float&, float&);
 
 	void SetFrameTime(float);
@@ -39,5 +40,3 @@ private:
 	float mLeftTurnSpeed, mRightTurnSpeed;
 	float mLookUpSpeed, mLookDownSpeed;
 };
-
-#endif

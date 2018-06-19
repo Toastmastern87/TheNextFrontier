@@ -317,3 +317,8 @@ void PositionClass::LookDownward(bool keyDown)
 
 	return;
 }
+
+XMFLOAT3 PositionClass::GetPositionXMFLOAT3() 
+{
+	return XMFLOAT3(mPositionX, mPositionY, mPositionZ);
+}

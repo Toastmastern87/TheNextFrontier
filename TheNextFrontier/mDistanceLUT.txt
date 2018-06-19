@@ -1,0 +1,4 @@
+mDistanceLUT[0]: 38606.9
+mDistanceLUT[1]: 19303.5
+mDistanceLUT[2]: 9651.73
+mDistanceLUT[3]: 4825.87

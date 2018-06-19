@@ -25,7 +25,7 @@ bool MarsClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceCont
 
 	mMaxTriangleSize = 300.0f;
 	mMaxSubdivisionLevel = 22;
-	mMaxCellLevel = 3;
+	mMaxCellLevel = 4;
 	mScreenWidth = screenWidth;
 
 	GenerateCellGeometry();
@@ -98,7 +98,7 @@ bool MarsClass::InitializeBuffers(ID3D11Device* device)
 	}
 
 	instanceBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
-	instanceBufferDesc.ByteWidth = (sizeof(MarsCellType) * 10000);
+	instanceBufferDesc.ByteWidth = (sizeof(MarsCellType) * 20000);
 	instanceBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	instanceBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 	instanceBufferDesc.MiscFlags = 0;
@@ -390,6 +390,24 @@ vector<int> MarsClass::GetIcosadronIndices()
 MarsClass::NextTriangle MarsClass::CheckTriangleSplit(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, short level, bool frustumCull)
 {
 	float aDistance, bDistance, cDistance;
+	float dot;
+	XMFLOAT3 center, position, centerPositionSubtraction;
+	XMVECTOR centerNormalized, centerPositionSubtractionNormalized;
+
+	//Backface culling
+	center = XMFLOAT3(((a.x + b.x + c.x) / 3), ((a.y + b.y + c.y) / 3), ((a.z + b.z + c.z) / 3));
+	position = mPosition->GetPositionXMFLOAT3();
+
+	centerNormalized = XMVector3Normalize(XMLoadFloat3(&center));
+	centerPositionSubtraction = XMFLOAT3((center.x - position.x), (center.y - position.y), (center.z - position.z));
+	centerPositionSubtractionNormalized = XMVector3Normalize(XMLoadFloat3(&centerPositionSubtraction));
+
+	dot = XMVectorGetX(XMVector3Dot(centerNormalized, centerPositionSubtractionNormalized));
+
+	if (dot > 0.0f)
+	{
+		return NextTriangle::CULL;
+	}
 
 	if (level > mMaxSubdivisionLevel)
 	{
@@ -415,6 +433,11 @@ void MarsClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, short leve
 	NextTriangle nextTriangle;
 
 	nextTriangle = CheckTriangleSplit(a, b, c, level, frustumCull);
+
+	if (nextTriangle == NextTriangle::CULL)
+	{
+		return;
+	}
 
 	//Check if the triangle is inside the frustum
 	if (nextTriangle == NextTriangle::SPLITCULL) {

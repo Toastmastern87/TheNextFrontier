@@ -17,6 +17,7 @@ public:
 	void GetPosition(float&, float&, float&);
 	XMFLOAT3 GetPositionXMFLOAT3();
 	void GetRotation(float&, float&, float&);
+	float GetAltitude();
 
 	void SetFrameTime(float);
 

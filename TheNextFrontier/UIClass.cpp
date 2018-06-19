@@ -7,6 +7,7 @@ UIClass::UIClass()
 	mVideoStrings = 0;
 	mPositionStrings = 0;
 	mVerticesString = 0;
+	mAltitudeString = 0;
 }
 
 UIClass::UIClass(const UIClass& other) 
@@ -24,6 +25,7 @@ bool UIClass::Initialize(HWND hwnd, D3DClass* direct3D, int screenHeight, int sc
 	int videoMemory;
 	char videoString[144];
 	char memoryString[32];
+	char altitudeString[32];
 	char tempString[16];
 	int i;
 
@@ -136,6 +138,18 @@ bool UIClass::Initialize(HWND hwnd, D3DClass* direct3D, int screenHeight, int sc
 		return false;
 	}
 
+	mAltitudeString = new TextClass;
+
+	strcpy_s(altitudeString, "Altitude: ");
+	strcat_s(altitudeString, tempString);
+	strcat_s(altitudeString, " km");
+
+	result = mAltitudeString->Initialize(hwnd, direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 40, false, mFont1, altitudeString, 10, 460, 1.0f, 1.0f, 1.0f);
+	if (!result)
+	{
+		return false;
+	}
+
 	return true;
 }
 
@@ -186,7 +200,7 @@ void UIClass::Shutdown()
 	return;
 }
 
-bool UIClass::Frame(HWND hwnd, ID3D11DeviceContext* deviceContext, int fps, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, int verticesNr)
+bool UIClass::Frame(HWND hwnd, ID3D11DeviceContext* deviceContext, int fps, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, int verticesNr, float altitude)
 {
 	bool result;
 
@@ -203,6 +217,12 @@ bool UIClass::Frame(HWND hwnd, ID3D11DeviceContext* deviceContext, int fps, floa
 	}
 
 	result = UpdateVerticesString(hwnd, deviceContext, verticesNr);
+	if (!result)
+	{
+		return false;
+	}
+
+	result = UpdateAltitudeString(hwnd, deviceContext, altitude);
 	if (!result)
 	{
 		return false;
@@ -229,6 +249,7 @@ bool UIClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager, XMMA
 	}
 
 	mVerticesString->Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
+	mAltitudeString->Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
 
 	direct3D->DisableAlphaBlending();
 	direct3D->TurnZBufferOn();
@@ -403,6 +424,27 @@ bool UIClass::UpdateVerticesString(HWND hwnd, ID3D11DeviceContext* deviceContext
 	strcat_s(finalString, tempString);
 
 	result = mVerticesString->UpdateSentence(hwnd, deviceContext, mFont1, finalString, 10, 260, 1.0f, 1.0f, 1.0f);
+	if (!result)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+bool UIClass::UpdateAltitudeString(HWND hwnd, ID3D11DeviceContext* deviceContext, float altitude)
+{
+	bool result;
+	char tempString[40];
+	char finalString[40];
+
+	_itoa_s(altitude, tempString, 10);
+
+	strcpy_s(finalString, "Altitude: ");
+	strcat_s(finalString, tempString);
+	strcat_s(finalString, " km");
+
+	result = mAltitudeString->UpdateSentence(hwnd, deviceContext, mFont1, finalString, 10, 280, 1.0f, 1.0f, 1.0f);
 	if (!result)
 	{
 		return false;

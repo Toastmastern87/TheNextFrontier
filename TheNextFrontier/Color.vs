@@ -3,6 +3,7 @@ cbuffer MatrixBuffer
 	matrix worldMatrix;
 	matrix viewMatrix;
 	matrix projectionMatrix;
+	float marsRadius;
 };
 
 struct VertexInputType
@@ -29,6 +30,7 @@ PixelInputType ColorVertexShader(VertexInputType input)
 	float3 posys;
 	float3 morphrx;
 	float3 morphsy;
+	float3 normPos;
 
 	posxr = float3(input.r.x * input.localPosition.x, input.r.y * input.localPosition.x, input.r.z * input.localPosition.x);
 	posys = float3(input.s.x * input.localPosition.y, input.s.y * input.localPosition.y, input.s.z * input.localPosition.y);
@@ -38,6 +40,10 @@ PixelInputType ColorVertexShader(VertexInputType input)
 	finalPos.x = input.a.x + posxr.x + posys.x;
 	finalPos.y = input.a.y + posxr.y + posys.y;
 	finalPos.z = input.a.z + posxr.z + posys.z;
+
+	normPos = normalize(finalPos.xyz) * marsRadius;
+	finalPos.xyz = normPos;
+
 	finalPos.w = 1.0f;
 
 	output.position = mul(finalPos, worldMatrix);

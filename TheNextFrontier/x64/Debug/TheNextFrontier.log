@@ -1,7 +1,17 @@
-﻿  MarsClass.cpp
+﻿  ApplicationClass.cpp
+  ColorShaderClass.cpp
+  MarsClass.cpp
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsclass.cpp(24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsclass.cpp(84): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsclass.cpp(114): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsclass.cpp(296): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsclass.cpp(462): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsclass.cpp(485): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+  ShaderManagerClass.cpp
+  SystemClass.cpp
+  TextClass.cpp
+  TheNextFrontier.cpp
+  UIClass.cpp
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\uiclass.cpp(441): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  UniverseClass.cpp
+  Generating Code...
   TheNextFrontier.vcxproj -> C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\x64\Debug\TheNextFrontier.exe

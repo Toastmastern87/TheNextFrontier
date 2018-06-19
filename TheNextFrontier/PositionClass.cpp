@@ -322,3 +322,8 @@ XMFLOAT3 PositionClass::GetPositionXMFLOAT3()
 {
 	return XMFLOAT3(mPositionX, mPositionY, mPositionZ);
 }
+
+float PositionClass::GetAltitude()
+{
+	return (sqrtf((mPositionX * mPositionX) + (mPositionY * mPositionY) + (mPositionZ * mPositionZ)) - 3389.5f);
+}

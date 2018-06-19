@@ -128,7 +128,7 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 	mPosition->GetPosition(posX, posY, posZ);
 	mPosition->GetRotation(rotX, rotY, rotZ);
 
-	result = mUI->Frame(hwnd, direct3D->GetDeviceContext(), fps, posX, posY, posZ, rotX, rotY, rotZ, (mMars->GetMarsVerticesCount() * mMars->GetInstanceCount()));
+	result = mUI->Frame(hwnd, direct3D->GetDeviceContext(), fps, posX, posY, posZ, rotX, rotY, rotZ, (mMars->GetMarsVerticesCount() * mMars->GetInstanceCount()), mPosition->GetAltitude());
 	if (!result)
 	{
 		return false;
@@ -221,7 +221,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 
 	mMars->Render(direct3D->GetDeviceContext());
 
-	result = shaderManager->RenderColorShader(direct3D->GetDeviceContext(), mMars->GetIndexCount(), mMars->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix);
+	result = shaderManager->RenderColorShader(direct3D->GetDeviceContext(), mMars->GetIndexCount(), mMars->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, mMars->GetMarsRadius());
 	if (!result)
 	{
 		return false;

@@ -1,6 +1,2 @@
-﻿  FrustumClass.cpp
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\frustumclass.cpp(25): warning C4101: 'length': unreferenced local variable
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\frustumclass.cpp(29): warning C4101: 'tempVector': unreferenced local variable
-  UniverseClass.cpp
-  Generating Code...
+﻿  PositionClass.cpp
   TheNextFrontier.vcxproj -> C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\x64\Debug\TheNextFrontier.exe

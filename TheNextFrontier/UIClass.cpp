@@ -376,8 +376,8 @@ bool UIClass::UpdatePositionStrings(HWND hwnd, ID3D11DeviceContext* deviceContex
 
 	if (rotationZ != mPreviousPosition[5])
 	{
-		mPreviousPosition[5] = positionX;
-		_itoa_s(positionX, tempString, 10);
+		mPreviousPosition[5] = rotationZ;
+		_itoa_s(rotationZ, tempString, 10);
 		strcpy_s(finalString, "rZ: ");
 		strcat_s(finalString, tempString);
 

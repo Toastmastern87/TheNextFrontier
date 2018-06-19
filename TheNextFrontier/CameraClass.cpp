@@ -145,67 +145,7 @@ XMVECTOR CameraClass::GetLookAtVector()
 
 bool CameraClass::CheckMovement() 
 {
-	if (mOldPositionX != mPositionX)
-	{
-		mOldPositionX = mPositionX;
-		mOldPositionY = mPositionY;
-		mOldPositionZ = mPositionZ;
-		mOldRotationX = mRotationX;
-		mOldRotationY = mRotationY;
-		mOldRotationZ = mRotationZ;
-
-		return true;
-	}
-
-	if (mOldPositionY != mPositionY)
-	{
-		mOldPositionX = mPositionX;
-		mOldPositionY = mPositionY;
-		mOldPositionZ = mPositionZ;
-		mOldRotationX = mRotationX;
-		mOldRotationY = mRotationY;
-		mOldRotationZ = mRotationZ;
-
-		return true;
-	}
-
-	if (mOldPositionY != mPositionY)
-	{
-		mOldPositionX = mPositionX;
-		mOldPositionY = mPositionY;
-		mOldPositionZ = mPositionZ;
-		mOldRotationX = mRotationX;
-		mOldRotationY = mRotationY;
-		mOldRotationZ = mRotationZ;
-
-		return true;
-	}
-
-	if (mOldRotationX != mRotationX)
-	{
-		mOldPositionX = mPositionX;
-		mOldPositionY = mPositionY;
-		mOldPositionZ = mPositionZ;
-		mOldRotationX = mRotationX;
-		mOldRotationY = mRotationY;
-		mOldRotationZ = mRotationZ;
-
-		return true;
-	}
-
-	if (mOldRotationY != mRotationY)
-	{
-		mOldPositionX = mPositionX;
-		mOldPositionY = mPositionY;
-		mOldPositionZ = mPositionZ;
-		mOldRotationX = mRotationX;
-		mOldRotationY = mRotationY;
-		mOldRotationZ = mRotationZ;
-
-		return true;
-	}
-
-	if (mOldRotationZ != mRotationZ)
+	if ((mOldPositionX != mPositionX) || (mOldPositionY != mPositionY) || (mOldPositionZ != mPositionZ) || (mOldRotationX != mRotationX) || (mOldRotationY != mRotationY) || (mOldRotationZ != mRotationZ))
 	{
 		mOldPositionX = mPositionX;
 		mOldPositionY = mPositionY;

@@ -140,14 +140,14 @@ void PositionClass::MoveUpward(bool keyDown)
 	{
 		mUpwardSpeed += mFrameTime * 1.5f;
 
-		if (mUpwardSpeed > (mFrameTime * 15.0f))
+		if (mUpwardSpeed > (mFrameTime * 300.0f))
 		{
-			mUpwardSpeed = mFrameTime * 15.0f;
+			mUpwardSpeed = mFrameTime * 300.0f;
 		}
 	}
 	else
 	{
-		mUpwardSpeed -= mFrameTime * 0.5f;
+		mUpwardSpeed -= mFrameTime * 0.99f;
 
 		if (mUpwardSpeed < 0.0f)
 		{
@@ -155,7 +155,11 @@ void PositionClass::MoveUpward(bool keyDown)
 		}
 	}
 
-	mPositionY += mUpwardSpeed;
+	float totPos = mPositionX + mPositionY + mPositionZ;
+
+	mPositionX += (mPositionX / totPos) * mUpwardSpeed;
+	mPositionY += (mPositionY / totPos) * mUpwardSpeed;
+	mPositionZ += (mPositionZ / totPos) * mUpwardSpeed;
 
 	return;
 }
@@ -166,14 +170,14 @@ void PositionClass::MoveDownward(bool keyDown)
 	{
 		mDownwardSpeed += mFrameTime * 1.5f;
 
-		if (mDownwardSpeed > (mFrameTime * 15.0f))
+		if (mDownwardSpeed > (mFrameTime * 300.0f))
 		{
-			mDownwardSpeed = mFrameTime * 15.0f;
+			mDownwardSpeed = mFrameTime * 300.0f;
 		}
 	}
 	else
 	{
-		mDownwardSpeed -= mFrameTime * 0.5f;
+		mDownwardSpeed -= mFrameTime * 0.99f;
 
 		if (mDownwardSpeed < 0.0f)
 		{
@@ -181,7 +185,11 @@ void PositionClass::MoveDownward(bool keyDown)
 		}
 	}
 
-	mPositionY -= mDownwardSpeed;
+	float totPos = mPositionX + mPositionY + mPositionZ;
+
+	mPositionX -= (mPositionX / totPos) * mDownwardSpeed;
+	mPositionY -= (mPositionY / totPos) * mDownwardSpeed;
+	mPositionZ -= (mPositionZ / totPos) * mDownwardSpeed;
 
 	return;
 }

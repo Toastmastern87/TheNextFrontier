@@ -86,6 +86,7 @@ public:
 	int GetInstanceCount();
 	int GetMarsVerticesCount();
 	float GetMarsRadius();
+	vector<float> GetDistanceLUT();
 
 	bool UpdateMars(ID3D11DeviceContext*, FrustumClass*, PositionClass*);
 

@@ -6,6 +6,11 @@ cbuffer MatrixBuffer
 	float marsRadius;
 };
 
+cbuffer DistanceLUT
+{
+	float distanceLUT[32];
+};
+
 struct VertexInputType
 {
 	float2 localPosition : TEXCOORD0;

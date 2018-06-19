@@ -484,3 +484,8 @@ float MarsClass::GetMarsRadius()
 {
 	return mMarsRadius;
 }
+
+vector<float> MarsClass::GetDistanceLUT()
+{
+	return mDistanceLUT;
+}

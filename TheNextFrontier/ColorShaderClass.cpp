@@ -36,11 +36,11 @@ void ColorShaderClass::Shutdown()
 	return;
 }
 
-bool ColorShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius)
+bool ColorShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, vector<float> distanceLUT)
 {
 	bool result;
 
-	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, marsRadius);
+	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, marsRadius, distanceLUT);
 	if (!result)
 	{
 		return false;
@@ -59,7 +59,7 @@ bool ColorShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* 
 	ID3D10Blob* pixelShaderBuffer;
 	D3D11_INPUT_ELEMENT_DESC polygonLayout[6];
 	unsigned int numElements;
-	D3D11_BUFFER_DESC matrixBufferDesc;
+	D3D11_BUFFER_DESC matrixBufferDesc, distanceLUTBufferDesc;
 
 	errorMessage = 0;
 	vertexShaderBuffer = 0;
@@ -182,11 +182,30 @@ bool ColorShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* 
 		return false;
 	}
 
+	distanceLUTBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+	distanceLUTBufferDesc.ByteWidth = sizeof(MatrixBufferType);
+	distanceLUTBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	distanceLUTBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	distanceLUTBufferDesc.MiscFlags = 0;
+	distanceLUTBufferDesc.StructureByteStride = 0;
+
+	result = device->CreateBuffer(&distanceLUTBufferDesc, NULL, &mDistanceLUTBuffer);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
 	return true;
 }
 
 void ColorShaderClass::ShutdownShader()
 {
+	if (mDistanceLUTBuffer)
+	{
+		mDistanceLUTBuffer->Release();
+		mDistanceLUTBuffer = 0;
+	}
+
 	if (mMatrixBuffer)
 	{
 		mMatrixBuffer->Release();
@@ -241,12 +260,15 @@ void ColorShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND h
 	return;
 }
 
-bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius)
+bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, vector<float> distanceLUT)
 {
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
-	MatrixBufferType* dataPtr;
+	MatrixBufferType *dataPtr;
+	DistanceLUTBufferType *distanceDataPtr;
 	unsigned int bufferNumber;
+
+	float temp[32];
 
 	worldMatrix = XMMatrixTranspose(worldMatrix);
 	viewMatrix = XMMatrixTranspose(viewMatrix);
@@ -267,9 +289,30 @@ bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, X
 
 	deviceContext->Unmap(mMatrixBuffer, 0);
 
+	ZeroMemory(&mappedResource, sizeof(mappedResource));
+
+	result = deviceContext->Map(mDistanceLUTBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	distanceDataPtr = (DistanceLUTBufferType*)mappedResource.pData;
+
+	for (int i = 0; i < distanceLUT.size(); i++) 
+	{
+		distanceDataPtr->distanceLUT[i] = distanceLUT[i];
+	}
+
+	deviceContext->Unmap(mDistanceLUTBuffer, 0);
+
 	bufferNumber = 0;
 
 	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mMatrixBuffer);
+
+	bufferNumber = 1;
+
+	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mDistanceLUTBuffer);
 
 	return true;
 }

@@ -6,7 +6,7 @@
 #include <d3dcompiler.h>
 #include <DirectXMath.h>
 #include <fstream>
-
+#include <vector>
 using namespace DirectX;
 using namespace std;
 
@@ -19,7 +19,11 @@ private:
 		XMMATRIX view;
 		XMMATRIX projection;
 		float marsRadius;
+	};
 
+	struct DistanceLUTBufferType
+	{
+		float distanceLUT[32];
 	};
 
 public:
@@ -29,21 +33,21 @@ public:
 
 	bool Initialize(ID3D11Device*, HWND);
 	void Shutdown();
-	bool Render(ID3D11DeviceContext*, int, int, XMMATRIX, XMMATRIX, XMMATRIX, float);
+	bool Render(ID3D11DeviceContext*, int, int, XMMATRIX, XMMATRIX, XMMATRIX, float, vector<float>);
 
 private:
 	bool InitializeShader(ID3D11Device*, HWND, WCHAR*, WCHAR*);
 	void ShutdownShader();
 	void OutputShaderErrorMessage(ID3D10Blob*, HWND, WCHAR*);
 
-	bool SetShaderParameters(ID3D11DeviceContext*, XMMATRIX, XMMATRIX, XMMATRIX, float);
+	bool SetShaderParameters(ID3D11DeviceContext*, XMMATRIX, XMMATRIX, XMMATRIX, float, vector<float>);
 	void RenderShaders(ID3D11DeviceContext*, int, int);
 
 private:
 	ID3D11VertexShader * mVertexShader;
 	ID3D11PixelShader* mPixelShader;
 	ID3D11InputLayout* mLayout;
-	ID3D11Buffer* mMatrixBuffer;
+	ID3D11Buffer *mMatrixBuffer, *mDistanceLUTBuffer;
 };
 
 #endif

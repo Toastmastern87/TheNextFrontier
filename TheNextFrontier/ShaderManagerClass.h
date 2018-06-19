@@ -15,7 +15,7 @@ public:
 	bool Initialize(ID3D11Device*, HWND);
 	void Shutdown();
 
-	bool RenderColorShader(ID3D11DeviceContext*, int, int, XMMATRIX, XMMATRIX, XMMATRIX, float);
+	bool RenderColorShader(ID3D11DeviceContext*, int, int, XMMATRIX, XMMATRIX, XMMATRIX, float, vector<float>);
 	bool RenderFontShader(ID3D11DeviceContext*, int, XMMATRIX, XMMATRIX, XMMATRIX, ID3D11ShaderResourceView*, XMFLOAT4);
 
 private:

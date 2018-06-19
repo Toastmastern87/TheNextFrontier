@@ -209,7 +209,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 	//{
 	mFrustum->ConstructFrustum(mScreenDepth, projectionMatrix, viewMatrix);
 
-	mMars->UpdateMars(direct3D->GetDeviceContext(), mFrustum);
+	mMars->UpdateMars(direct3D->GetDeviceContext(), mFrustum, mPosition);
 	//}
 
 	direct3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);

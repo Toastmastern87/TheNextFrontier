@@ -8,6 +8,7 @@
 #include <math.h>
 #include <fstream>
 #include "FrustumClass.h"
+#include "PositionClass.h"
 using namespace DirectX;
 using namespace std;
 
@@ -86,7 +87,7 @@ public:
 	int GetMarsVerticesCount();
 	float GetMarsRadius();
 
-	bool UpdateMars(ID3D11DeviceContext*, FrustumClass*);
+	bool UpdateMars(ID3D11DeviceContext*, FrustumClass*, PositionClass*);
 
 private:
 	bool InitializeBuffers(ID3D11Device*);
@@ -126,4 +127,6 @@ private:
 	int mMaxCellLevel;
 	float mMaxTriangleSize;
 	int mScreenWidth;
+
+	PositionClass* mPosition;
 };

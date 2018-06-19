@@ -24,8 +24,8 @@ bool MarsClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceCont
 	mMarsRadius = 3389.5f;
 
 	mMaxTriangleSize = 300.0f;
-	mMaxSubdivisionLevel = 4;
-	mMaxCellLevel = 2;
+	mMaxSubdivisionLevel = 22;
+	mMaxCellLevel = 3;
 	mScreenWidth = screenWidth;
 
 	GenerateCellGeometry();
@@ -233,9 +233,10 @@ bool MarsClass::InitializeIcosphere()
 	return true;
 }
 
-bool MarsClass::UpdateMars(ID3D11DeviceContext* deviceContext, FrustumClass* frustum)
+bool MarsClass::UpdateMars(ID3D11DeviceContext* deviceContext, FrustumClass* frustum, PositionClass* position)
 {
 	mFrustum = frustum;
+	mPosition = position;
 
 	GenerateCells();
 
@@ -388,7 +389,24 @@ vector<int> MarsClass::GetIcosadronIndices()
 
 MarsClass::NextTriangle MarsClass::CheckTriangleSplit(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, short level, bool frustumCull)
 {
-	return NextTriangle::CULL;
+	float aDistance, bDistance, cDistance;
+
+	if (level > mMaxSubdivisionLevel)
+	{
+		return NextTriangle::LEAF;
+	}
+
+	// Check distance between triangle vertex and the position of the camera
+	aDistance = GetVectorDistance(a, mPosition->GetPositionXMFLOAT3());
+	bDistance = GetVectorDistance(b, mPosition->GetPositionXMFLOAT3());
+	cDistance = GetVectorDistance(c, mPosition->GetPositionXMFLOAT3());
+
+	if(fminf(aDistance, fminf(bDistance, cDistance)) < mDistanceLUT[level])
+	{
+		return NextTriangle::SPLITCULL;
+	}
+
+	return NextTriangle::LEAF;
 }
 
 void MarsClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, short level, bool frustumCull)
@@ -396,9 +414,10 @@ void MarsClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, short leve
 	XMFLOAT3 A, B, C;
 	NextTriangle nextTriangle;
 
+	nextTriangle = CheckTriangleSplit(a, b, c, level, frustumCull);
+
 	//Check if the triangle is inside the frustum
-	//visible = mFrustum->CheckTriangle(XMFLOAT3(a.position.x, a.position.y, a.position.z), XMFLOAT3(b.position.x, b.position.y, b.position.z), XMFLOAT3(c.position.x, c.position.y, c.position.z));
-	if (level < mMaxSubdivisionLevel) {
+	if (nextTriangle == NextTriangle::SPLITCULL) {
 		int nLevel;
 
 		float lengthA;
@@ -419,10 +438,10 @@ void MarsClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, short leve
 
 		nLevel = level + 1;
 
-		RecursiveTriangle(a, B, C, nLevel, false);
-		RecursiveTriangle(A, b, C, nLevel, false);
-		RecursiveTriangle(A, B, c, nLevel, false);
-		RecursiveTriangle(A, B, C, nLevel, false);
+		RecursiveTriangle(a, B, C, nLevel, nextTriangle == NextTriangle::SPLITCULL);
+		RecursiveTriangle(A, b, C, nLevel, nextTriangle == NextTriangle::SPLITCULL);
+		RecursiveTriangle(A, B, c, nLevel, nextTriangle == NextTriangle::SPLITCULL);
+		RecursiveTriangle(A, B, C, nLevel, nextTriangle == NextTriangle::SPLITCULL);
 	}
 	else
 	{

@@ -40,40 +40,40 @@
   </DEFECT><DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>colorshaderclass.cpp</FILENAME>
+      <FILENAME>marsshaderclass.cpp</FILENAME>
       <LINE>3</LINE>
-      <COLUMN>18</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ColorShaderClass::mMorphBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>ColorShaderClass::{ctor}</FUNCTION>
-    <DECORATED>??0ColorShaderClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT><DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>colorshaderclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>18</COLUMN>
+      <COLUMN>17</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>ColorShaderClass::{ctor}</FUNCTION>
-    <DECORATED>??0ColorShaderClass@@QEAA@XZ</DECORATED>
+    <FUNCTION>MarsShaderClass::{ctor}</FUNCTION>
+    <DECORATED>??0MarsShaderClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>colorshaderclass.cpp</FILENAME>
-      <LINE>11</LINE>
-      <COLUMN>18</COLUMN>
+      <FILENAME>marsshaderclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>17</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ColorShaderClass::mVertexShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>ColorShaderClass::{ctor}</FUNCTION>
-    <DECORATED>??0ColorShaderClass@@QEAA@AEBV0@@Z</DECORATED>
+    <DESCRIPTION>Variable 'MarsShaderClass::mMorphBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MarsShaderClass::{ctor}</FUNCTION>
+    <DECORATED>??0MarsShaderClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>marsshaderclass.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>17</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsShaderClass::mVertexShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MarsShaderClass::{ctor}</FUNCTION>
+    <DECORATED>??0MarsShaderClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>11</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
@@ -1336,8 +1336,8 @@
       <LINE>3</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'FPSClass::mCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>FPSClass::{ctor}</FUNCTION>
     <DECORATED>??0FPSClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1349,8 +1349,8 @@
       <LINE>3</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'FPSClass::mCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>FPSClass::{ctor}</FUNCTION>
     <DECORATED>??0FPSClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1375,8 +1375,8 @@
       <LINE>52</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>52</FUNCLINE>
@@ -1388,8 +1388,8 @@
       <LINE>52</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>52</FUNCLINE>
@@ -1466,8 +1466,8 @@
       <LINE>3</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'InputClass::mKeyboardState' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>InputClass::{ctor}</FUNCTION>
     <DECORATED>??0InputClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1479,8 +1479,8 @@
       <LINE>3</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'InputClass::mKeyboardState' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>InputClass::{ctor}</FUNCTION>
     <DECORATED>??0InputClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1558,7 +1558,7 @@
       <COLUMN>15</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'PositionClass::mForwardSpeed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'PositionClass::mLookDownSpeed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>PositionClass::{ctor}</FUNCTION>
     <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>25</FUNCLINE>
@@ -1584,7 +1584,7 @@
       <COLUMN>20</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ShaderManagerClass::mColorShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'ShaderManagerClass::mMarsShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ShaderManagerClass::{ctor}</FUNCTION>
     <DECORATED>??0ShaderManagerClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>9</FUNCLINE>
@@ -1714,7 +1714,7 @@
       <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'TextureClass::mTargaData' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'TextureClass::mTextureView' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>TextureClass::{ctor}</FUNCTION>
     <DECORATED>??0TextureClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>10</FUNCLINE>
@@ -2498,8 +2498,8 @@
       <LINE>3</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'TimerClass::mFrequency' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>TimerClass::{ctor}</FUNCTION>
     <DECORATED>??0TimerClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2511,8 +2511,8 @@
       <LINE>3</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'TimerClass::mStartTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>TimerClass::{ctor}</FUNCTION>
     <DECORATED>??0TimerClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2525,7 +2525,7 @@
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'TimerClass::mStartTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'TimerClass::mFrequency' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>TimerClass::{ctor}</FUNCTION>
     <DECORATED>??0TimerClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>7</FUNCLINE>

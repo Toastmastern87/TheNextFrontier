@@ -221,7 +221,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 
 	mMars->Render(direct3D->GetDeviceContext());
 
-	result = shaderManager->RenderColorShader(direct3D->GetDeviceContext(), mMars->GetIndexCount(), mMars->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, mMars->GetMarsRadius(), mMars->GetDistanceLUT(), mPosition->GetPositionXMFLOAT3());
+	result = shaderManager->RenderMarsShader(direct3D->GetDeviceContext(), mMars->GetIndexCount(), mMars->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, mMars->GetMarsRadius(), mMars->GetDistanceLUT(), mPosition->GetPositionXMFLOAT3());
 	if (!result)
 	{
 		return false;

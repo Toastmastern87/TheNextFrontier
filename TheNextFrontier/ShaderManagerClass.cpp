@@ -2,7 +2,7 @@
 
 ShaderManagerClass::ShaderManagerClass()
 {
-	mColorShader = 0;
+	mMarsShader = 0;
 	mFontShader = 0;
 }
 
@@ -18,13 +18,13 @@ bool ShaderManagerClass::Initialize(ID3D11Device* device, HWND hwnd)
 {
 	bool result;
 
-	mColorShader = new ColorShaderClass;
-	if (!mColorShader)
+	mMarsShader = new MarsShaderClass;
+	if (!mMarsShader)
 	{
 		return false;
 	}
 
-	result = mColorShader->Initialize(device, hwnd);
+	result = mMarsShader->Initialize(device, hwnd);
 	if (!result)
 	{
 		return false;
@@ -54,19 +54,19 @@ void ShaderManagerClass::Shutdown()
 		mFontShader = 0;
 	}
 
-	if (mColorShader)
+	if (mMarsShader)
 	{
-		mColorShader->Shutdown();
-		delete mColorShader;
-		mColorShader = 0;
+		mMarsShader->Shutdown();
+		delete mMarsShader;
+		mMarsShader = 0;
 	}
 
 	return;
 }
 
-bool ShaderManagerClass::RenderColorShader(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, vector<float> distanceLUT, XMFLOAT3 cameraPos)
+bool ShaderManagerClass::RenderMarsShader(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, vector<float> distanceLUT, XMFLOAT3 cameraPos)
 {
-	return mColorShader->Render(deviceContext, indexCount, instanceCount, worldMatrix, viewMatrix, projectionMatrix, marsRadius, distanceLUT, cameraPos);
+	return mMarsShader->Render(deviceContext, indexCount, instanceCount, worldMatrix, viewMatrix, projectionMatrix, marsRadius, distanceLUT, cameraPos);
 }
 
 bool ShaderManagerClass::RenderFontShader(ID3D11DeviceContext* deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, ID3D11ShaderResourceView* texture, XMFLOAT4 color)

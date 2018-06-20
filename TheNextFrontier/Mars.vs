@@ -43,7 +43,7 @@ float morphFac(float distance, int level)
 	return (1 - clamp((a/morphRange.x), 0, 1));
 }
 
-PixelInputType ColorVertexShader(VertexInputType input)
+PixelInputType MarsVertexShader(VertexInputType input)
 {
 	PixelInputType output;
 	float3 finalPos;

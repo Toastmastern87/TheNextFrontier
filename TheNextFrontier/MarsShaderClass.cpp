@@ -1,6 +1,6 @@
-#include "ColorShaderClass.h"
+#include "MarsShaderClass.h"
 
-ColorShaderClass::ColorShaderClass()
+MarsShaderClass::MarsShaderClass()
 {
 	mVertexShader = 0;
 	mPixelShader = 0;
@@ -8,19 +8,19 @@ ColorShaderClass::ColorShaderClass()
 	mLayout = 0;
 }
 
-ColorShaderClass::ColorShaderClass(const ColorShaderClass& other)
+MarsShaderClass::MarsShaderClass(const MarsShaderClass& other)
 {
 }
 
-ColorShaderClass::~ColorShaderClass()
+MarsShaderClass::~MarsShaderClass()
 {
 }
 
-bool ColorShaderClass::Initialize(ID3D11Device* device, HWND hwnd)
+bool MarsShaderClass::Initialize(ID3D11Device* device, HWND hwnd)
 {
 	bool result;
 
-	result = InitializeShader(device, hwnd, (WCHAR*)L"../TheNextFrontier/Color.vs", (WCHAR*)L"../TheNextFrontier/Color.ps");
+	result = InitializeShader(device, hwnd, (WCHAR*)L"../TheNextFrontier/Mars.vs", (WCHAR*)L"../TheNextFrontier/Mars.ps");
 	if (!result)
 	{
 		return false;
@@ -29,14 +29,14 @@ bool ColorShaderClass::Initialize(ID3D11Device* device, HWND hwnd)
 	return true;
 }
 
-void ColorShaderClass::Shutdown()
+void MarsShaderClass::Shutdown()
 {
 	ShutdownShader();
 
 	return;
 }
 
-bool ColorShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, vector<float> distanceLUT, XMFLOAT3 cameraPos)
+bool MarsShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, vector<float> distanceLUT, XMFLOAT3 cameraPos)
 {
 	bool result;
 
@@ -51,7 +51,7 @@ bool ColorShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount
 	return true;
 }
 
-bool ColorShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* vsFilename, WCHAR* psFilename)
+bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* vsFilename, WCHAR* psFilename)
 {
 	HRESULT result;
 	ID3D10Blob* errorMessage;
@@ -65,7 +65,7 @@ bool ColorShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* 
 	vertexShaderBuffer = 0;
 	pixelShaderBuffer = 0;
 
-	result = D3DCompileFromFile(vsFilename, NULL, NULL, "ColorVertexShader", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &vertexShaderBuffer, &errorMessage);
+	result = D3DCompileFromFile(vsFilename, NULL, NULL, "MarsVertexShader", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &vertexShaderBuffer, &errorMessage);
 	if (FAILED(result))
 	{
 		if (errorMessage)
@@ -80,7 +80,7 @@ bool ColorShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* 
 		return false;
 	}
 
-	result = D3DCompileFromFile(psFilename, NULL, NULL, "ColorPixelShader", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &pixelShaderBuffer, &errorMessage);
+	result = D3DCompileFromFile(psFilename, NULL, NULL, "MarsPixelShader", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &pixelShaderBuffer, &errorMessage);
 	if (FAILED(result))
 	{
 		if (errorMessage)
@@ -198,7 +198,7 @@ bool ColorShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* 
 	return true;
 }
 
-void ColorShaderClass::ShutdownShader()
+void MarsShaderClass::ShutdownShader()
 {
 	if (mMorphBuffer)
 	{
@@ -233,7 +233,7 @@ void ColorShaderClass::ShutdownShader()
 	return;
 }
 
-void ColorShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND hwnd, WCHAR* shaderFilename)
+void MarsShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND hwnd, WCHAR* shaderFilename)
 {
 	char* compileErrors;
 	unsigned long long bufferSize, i;
@@ -260,7 +260,7 @@ void ColorShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND h
 	return;
 }
 
-bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, vector<float> distanceLUT, XMFLOAT3 cameraPos)
+bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, vector<float> distanceLUT, XMFLOAT3 cameraPos)
 {
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
@@ -321,7 +321,7 @@ bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, X
 	return true;
 }
 
-void ColorShaderClass::RenderShaders(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount)
+void MarsShaderClass::RenderShaders(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount)
 {
 	deviceContext->IASetInputLayout(mLayout);
 

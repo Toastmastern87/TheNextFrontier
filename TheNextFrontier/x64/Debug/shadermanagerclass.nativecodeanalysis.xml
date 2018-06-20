@@ -22,7 +22,7 @@
       <COLUMN>20</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ShaderManagerClass::mColorShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'ShaderManagerClass::mMarsShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ShaderManagerClass::{ctor}</FUNCTION>
     <DECORATED>??0ShaderManagerClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>9</FUNCLINE>

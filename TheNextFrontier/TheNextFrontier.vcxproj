@@ -143,7 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CameraClass.cpp" />
-    <ClCompile Include="ColorShaderClass.cpp" />
+    <ClCompile Include="MarsShaderClass.cpp" />
     <ClCompile Include="D3DClass.cpp" />
     <ClCompile Include="FontClass.cpp" />
     <ClCompile Include="FontShaderClass.cpp" />
@@ -164,7 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CameraClass.h" />
-    <ClInclude Include="ColorShaderClass.h" />
+    <ClInclude Include="MarsShaderClass.h" />
     <ClInclude Include="D3DClass.h" />
     <ClInclude Include="FontClass.h" />
     <ClInclude Include="FontShaderClass.h" />
@@ -183,8 +183,8 @@
     <ClInclude Include="UniverseClass.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Color.vs" />
-    <None Include="Color.ps" />
+    <None Include="Mars.vs" />
+    <None Include="Mars.ps" />
     <None Include="Font.ps" />
     <None Include="Font.vs" />
   </ItemGroup>

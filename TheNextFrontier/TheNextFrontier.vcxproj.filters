@@ -33,9 +33,6 @@
     <ClCompile Include="CameraClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ColorShaderClass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PositionClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -75,6 +72,9 @@
     <ClCompile Include="FrustumClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MarsShaderClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SystemClass.h">
@@ -87,9 +87,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CameraClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ColorShaderClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PositionClass.h">
@@ -131,18 +128,21 @@
     <ClInclude Include="FrustumClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MarsShaderClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Color.vs">
-      <Filter>Source Files\Shaders</Filter>
-    </None>
-    <None Include="Color.ps">
-      <Filter>Source Files\Shaders</Filter>
-    </None>
     <None Include="Font.ps">
       <Filter>Source Files\Shaders</Filter>
     </None>
     <None Include="Font.vs">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="Mars.ps">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="Mars.vs">
       <Filter>Source Files\Shaders</Filter>
     </None>
   </ItemGroup>

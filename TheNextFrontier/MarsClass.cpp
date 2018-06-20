@@ -25,7 +25,7 @@ bool MarsClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceCont
 
 	mMaxTriangleSize = 300.0f;
 	mMaxSubdivisionLevel = 22;
-	mMaxCellLevel = 4;
+	mMaxCellLevel = 3;
 	mScreenWidth = screenWidth;
 
 	GenerateCellGeometry();
@@ -394,7 +394,7 @@ MarsClass::NextTriangle MarsClass::CheckTriangleSplit(XMFLOAT3 a, XMFLOAT3 b, XM
 	XMFLOAT3 center, position, centerPositionSubtraction;
 	XMVECTOR centerNormalized, centerPositionSubtractionNormalized;
 
-	//Backface culling
+	//Backface Culling
 	center = XMFLOAT3(((a.x + b.x + c.x) / 3), ((a.y + b.y + c.y) / 3), ((a.z + b.z + c.z) / 3));
 	position = mPosition->GetPositionXMFLOAT3();
 
@@ -407,6 +407,37 @@ MarsClass::NextTriangle MarsClass::CheckTriangleSplit(XMFLOAT3 a, XMFLOAT3 b, XM
 	if (dot > 0.0f)
 	{
 		return NextTriangle::CULL;
+	}
+
+	//Frustum Culling
+	if (frustumCull)
+	{
+		VolumeCheck intersect = mFrustum->CheckTriangle(a, b, c);
+
+		if (intersect == VolumeCheck::OUTSIDE) 
+		{
+			return NextTriangle::CULL;
+		}
+
+		// All children are also inside the frustum, so we stop checking the frustum culling
+		if (intersect == VolumeCheck::CONTAINS) 
+		{
+			if (level > mMaxSubdivisionLevel)
+			{
+				return NextTriangle::LEAF;
+			}
+
+			aDistance = GetVectorDistance(a, mPosition->GetPositionXMFLOAT3());
+			bDistance = GetVectorDistance(b, mPosition->GetPositionXMFLOAT3());
+			cDistance = GetVectorDistance(c, mPosition->GetPositionXMFLOAT3());
+
+			if (fminf(aDistance, fminf(bDistance, cDistance)) < mDistanceLUT[level])
+			{
+				return NextTriangle::SPLIT;
+			}
+
+			return NextTriangle::LEAF;
+		}
 	}
 
 	if (level > mMaxSubdivisionLevel)
@@ -440,7 +471,7 @@ void MarsClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, short leve
 	}
 
 	//Check if the triangle is inside the frustum
-	if (nextTriangle == NextTriangle::SPLITCULL) {
+	if (nextTriangle == NextTriangle::SPLIT || nextTriangle == NextTriangle::SPLITCULL) {
 		int nLevel;
 
 		float lengthA;

@@ -1,9 +1,15 @@
-#ifndef _FRUSTUMCLASS_H_
-#define _FRUSTUMCLASS_H_
+#pragma once
 
 #include <DirectXMath.h>
 #include "CameraClass.h"
 using namespace DirectX;
+
+enum class VolumeCheck 
+{
+	OUTSIDE,
+	INTERSECT,
+	CONTAINS
+};
 
 class FrustumClass 
 {
@@ -14,7 +20,7 @@ public:
 
 	bool Initialize(CameraClass*);
 	bool ConstructFrustum(float, XMMATRIX, XMMATRIX);
-	bool CheckTriangle(XMFLOAT3, XMFLOAT3, XMFLOAT3);
+	VolumeCheck CheckTriangle(XMFLOAT3, XMFLOAT3, XMFLOAT3);
 
 	float GetFOV();
 
@@ -22,5 +28,3 @@ private:
 	XMFLOAT4 mPlane[6];
 	CameraClass* mCamera;
 };
-
-#endif

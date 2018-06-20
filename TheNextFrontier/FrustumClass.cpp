@@ -82,39 +82,44 @@ bool FrustumClass::ConstructFrustum(float screenDepth, XMMATRIX projectionMatrix
 	return true;
 }
 
-bool FrustumClass::CheckTriangle(XMFLOAT3 p1, XMFLOAT3 p2, XMFLOAT3 p3) 
+VolumeCheck FrustumClass::CheckTriangle(XMFLOAT3 p1, XMFLOAT3 p2, XMFLOAT3 p3) 
 {
 	int i;
 	XMVECTOR tempPlaneVector;
-	XMVECTOR tempP1Vector, tempP2Vector, tempP3Vector;
-
-	tempP1Vector = XMLoadFloat3(&p1);
-	tempP2Vector = XMLoadFloat3(&p2);
-	tempP3Vector = XMLoadFloat3(&p3);
+	VolumeCheck ret = VolumeCheck::CONTAINS;
 
 	for (i = 0; i < 6; i++)
 	{
 		tempPlaneVector = XMLoadFloat4(&mPlane[i]);
 
-		if (XMVectorGetX(XMPlaneDotCoord(tempPlaneVector, tempP1Vector)) >= 0.0f)
+		int rejects = 0;
+
+		if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), XMLoadFloat3(&p1))) < 0.0f)
 		{
-			continue;
+			rejects++;
 		}
 
-		if (XMVectorGetX(XMPlaneDotCoord(tempPlaneVector, tempP2Vector)) >= 0.0f)
+		if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), XMLoadFloat3(&p2))) < 0.0f)
 		{
-			continue;
+			rejects++;
 		}
 
-		if (XMVectorGetX(XMPlaneDotCoord(tempPlaneVector, tempP3Vector)) >= 0.0f)
+		if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), XMLoadFloat3(&p3))) < 0.0f)
 		{
-			continue;
+			rejects++;
 		}
 
-		return false;
+		if (rejects >= 3)
+		{
+			return VolumeCheck::OUTSIDE;
+		}
+		else if (rejects > 0)
+		{
+			ret = VolumeCheck::INTERSECT;
+		}
 	}
 
-	return true;
+	return ret;
 }
 
 float FrustumClass::GetFOV() 

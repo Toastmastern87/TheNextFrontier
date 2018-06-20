@@ -6,9 +6,11 @@ cbuffer MatrixBuffer
 	float marsRadius;
 };
 
-cbuffer DistanceLUT
+cbuffer MorphCalculation
 {
-	float distanceLUT[32];
+	float4 distanceLUT[32];
+	float4 cameraPos;
+	float4 morphRange;
 };
 
 struct VertexInputType
@@ -27,31 +29,39 @@ struct PixelInputType
 	float4 color : COLOR;
 };
 
+float morphFac(float distance, int level)
+{
+	float low, high, delta, a;
+
+	low = distanceLUT[level - 1].x;
+	high = distanceLUT[level].x;
+
+	delta = high - low;
+
+	a = (distance - low) / delta;
+
+	return (1 - clamp((a/morphRange.x), 0, 1));
+}
+
 PixelInputType ColorVertexShader(VertexInputType input)
 {
 	PixelInputType output;
-	float4 finalPos;
-	float3 posxr;
-	float3 posys;
-	float3 morphrx;
-	float3 morphsy;
+	float3 finalPos;
 	float3 normPos;
+	float distance;
+	float morphPercentage;
 
-	posxr = float3(input.r.x * input.localPosition.x, input.r.y * input.localPosition.x, input.r.z * input.localPosition.x);
-	posys = float3(input.s.x * input.localPosition.y, input.s.y * input.localPosition.y, input.s.z * input.localPosition.y);
-	morphrx = float3(input.r.x * input.localMorph.x, input.r.y * input.localMorph.x, input.r.z * input.localMorph.x);
-	morphsy = float3(input.s.x * input.localMorph.y, input.s.y * input.localMorph.y, input.s.z * input.localMorph.y);
+	finalPos = input.a + input.r * input.localPosition.x + input.s * input.localPosition.y;
 
-	finalPos.x = input.a.x + posxr.x + posys.x;
-	finalPos.y = input.a.y + posxr.y + posys.y;
-	finalPos.z = input.a.z + posxr.z + posys.z;
+	distance = length(finalPos - cameraPos.xyz);
+	morphPercentage = morphFac(distance, input.level);
 
-	normPos = normalize(finalPos.xyz) * marsRadius;
+	finalPos += morphPercentage * (input.r * input.localMorph.x + input.s * input.localMorph.y);
+
+	normPos = normalize(finalPos) * marsRadius;
 	finalPos.xyz = normPos;
 
-	finalPos.w = 1.0f;
-
-	output.position = mul(finalPos, worldMatrix);
+	output.position = mul(float4(finalPos, 1.0f), worldMatrix);
 	output.position = mul(output.position, viewMatrix);
 	output.position = mul(output.position, projectionMatrix);
 	

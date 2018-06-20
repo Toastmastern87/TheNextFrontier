@@ -36,11 +36,11 @@ void ColorShaderClass::Shutdown()
 	return;
 }
 
-bool ColorShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, vector<float> distanceLUT)
+bool ColorShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, vector<float> distanceLUT, XMFLOAT3 cameraPos)
 {
 	bool result;
 
-	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, marsRadius, distanceLUT);
+	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, marsRadius, distanceLUT, cameraPos);
 	if (!result)
 	{
 		return false;
@@ -59,7 +59,7 @@ bool ColorShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* 
 	ID3D10Blob* pixelShaderBuffer;
 	D3D11_INPUT_ELEMENT_DESC polygonLayout[6];
 	unsigned int numElements;
-	D3D11_BUFFER_DESC matrixBufferDesc, distanceLUTBufferDesc;
+	D3D11_BUFFER_DESC matrixBufferDesc, morphBufferDesc;
 
 	errorMessage = 0;
 	vertexShaderBuffer = 0;
@@ -182,14 +182,14 @@ bool ColorShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* 
 		return false;
 	}
 
-	distanceLUTBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
-	distanceLUTBufferDesc.ByteWidth = sizeof(MatrixBufferType);
-	distanceLUTBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
-	distanceLUTBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
-	distanceLUTBufferDesc.MiscFlags = 0;
-	distanceLUTBufferDesc.StructureByteStride = 0;
+	morphBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+	morphBufferDesc.ByteWidth = sizeof(MorphBufferType);
+	morphBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	morphBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	morphBufferDesc.MiscFlags = 0;
+	morphBufferDesc.StructureByteStride = 0;
 
-	result = device->CreateBuffer(&distanceLUTBufferDesc, NULL, &mDistanceLUTBuffer);
+	result = device->CreateBuffer(&morphBufferDesc, NULL, &mMorphBuffer);
 	if (FAILED(result))
 	{
 		return false;
@@ -200,10 +200,10 @@ bool ColorShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* 
 
 void ColorShaderClass::ShutdownShader()
 {
-	if (mDistanceLUTBuffer)
+	if (mMorphBuffer)
 	{
-		mDistanceLUTBuffer->Release();
-		mDistanceLUTBuffer = 0;
+		mMorphBuffer->Release();
+		mMorphBuffer = 0;
 	}
 
 	if (mMatrixBuffer)
@@ -260,12 +260,12 @@ void ColorShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND h
 	return;
 }
 
-bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, vector<float> distanceLUT)
+bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, vector<float> distanceLUT, XMFLOAT3 cameraPos)
 {
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
 	MatrixBufferType *dataPtr;
-	DistanceLUTBufferType *distanceDataPtr;
+	MorphBufferType *morphDataPtr;
 	unsigned int bufferNumber;
 
 	float temp[32];
@@ -291,20 +291,24 @@ bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, X
 
 	ZeroMemory(&mappedResource, sizeof(mappedResource));
 
-	result = deviceContext->Map(mDistanceLUTBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
+	result = deviceContext->Map(mMorphBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
 	if (FAILED(result))
 	{
 		return false;
 	}
 
-	distanceDataPtr = (DistanceLUTBufferType*)mappedResource.pData;
+	morphDataPtr = (MorphBufferType*)mappedResource.pData;
+
+	morphDataPtr->cameraPos = XMFLOAT4(cameraPos.x, cameraPos.y, cameraPos.z, 1.0f);
 
 	for (int i = 0; i < distanceLUT.size(); i++) 
 	{
-		distanceDataPtr->distanceLUT[i] = distanceLUT[i];
+		morphDataPtr->distanceLUT[i] = XMFLOAT4(distanceLUT[i], distanceLUT[i], distanceLUT[i], distanceLUT[i]);
 	}
 
-	deviceContext->Unmap(mDistanceLUTBuffer, 0);
+	morphDataPtr->morphRange = XMFLOAT4(0.5f, 0.5f, 0.5f, 0.5f);
+
+	deviceContext->Unmap(mMorphBuffer, 0);
 
 	bufferNumber = 0;
 
@@ -312,7 +316,7 @@ bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, X
 
 	bufferNumber = 1;
 
-	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mDistanceLUTBuffer);
+	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mMorphBuffer);
 
 	return true;
 }

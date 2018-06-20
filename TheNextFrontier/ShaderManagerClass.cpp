@@ -64,9 +64,9 @@ void ShaderManagerClass::Shutdown()
 	return;
 }
 
-bool ShaderManagerClass::RenderColorShader(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, vector<float> distanceLUT)
+bool ShaderManagerClass::RenderColorShader(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, vector<float> distanceLUT, XMFLOAT3 cameraPos)
 {
-	return mColorShader->Render(deviceContext, indexCount, instanceCount, worldMatrix, viewMatrix, projectionMatrix, marsRadius, distanceLUT);
+	return mColorShader->Render(deviceContext, indexCount, instanceCount, worldMatrix, viewMatrix, projectionMatrix, marsRadius, distanceLUT, cameraPos);
 }
 
 bool ShaderManagerClass::RenderFontShader(ID3D11DeviceContext* deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, ID3D11ShaderResourceView* texture, XMFLOAT4 color)

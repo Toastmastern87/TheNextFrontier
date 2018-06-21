@@ -151,6 +151,12 @@
     <Image Include="font01.tga">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="MarsHeightMap8K.tif">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="MarsHeightMap46K.tif">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="font01.txt">

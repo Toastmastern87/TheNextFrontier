@@ -191,6 +191,8 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="font01.tga" />
+    <Image Include="MarsHeightMap46K.tif" />
+    <Image Include="MarsHeightMap8K.tif" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="font01.txt" />

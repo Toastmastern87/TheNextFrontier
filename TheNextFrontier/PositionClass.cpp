@@ -78,11 +78,11 @@ void PositionClass::MoveForward(bool keyDown)
 
 	if (keyDown) 
 	{
-		mForwardSpeed += mFrameTime * 1.0f;
+		mForwardSpeed += mFrameTime * 100.0f;
 
-		if (mForwardSpeed > (mFrameTime * 50.0f)) 
+		if (mForwardSpeed > (mFrameTime * 500.0f)) 
 		{
-			mForwardSpeed = mFrameTime * 50.0f;
+			mForwardSpeed = mFrameTime * 500.0f;
 		}
 	}
 	else 
@@ -136,18 +136,22 @@ void PositionClass::MoveBackward(bool keyDown)
 
 void PositionClass::MoveUpward(bool keyDown)
 {
+	float maxSpeed;
+
+	maxSpeed = exp(GetAltitude() / 25.0f);
+
 	if (keyDown)
 	{
-		mUpwardSpeed += mFrameTime * 1.5f;
+		mUpwardSpeed += mFrameTime * 5.5f;
 
-		if (mUpwardSpeed > (mFrameTime * 300.0f))
+		if (mUpwardSpeed > (mFrameTime * maxSpeed))
 		{
-			mUpwardSpeed = mFrameTime * 300.0f;
+			mUpwardSpeed = mFrameTime * maxSpeed;
 		}
 	}
 	else
 	{
-		mUpwardSpeed -= mFrameTime * 0.99f;
+		mUpwardSpeed -= mFrameTime * maxSpeed * 0.5f;
 
 		if (mUpwardSpeed < 0.0f)
 		{
@@ -166,18 +170,22 @@ void PositionClass::MoveUpward(bool keyDown)
 
 void PositionClass::MoveDownward(bool keyDown)
 {
+	float maxSpeed;
+
+	maxSpeed = exp(GetAltitude() / 25.0f);
+
 	if (keyDown)
 	{
-		mDownwardSpeed += mFrameTime * 1.5f;
+		mDownwardSpeed += mFrameTime * 5.5f;
 
-		if (mDownwardSpeed > (mFrameTime * 300.0f))
+		if (mDownwardSpeed > (mFrameTime * maxSpeed))
 		{
-			mDownwardSpeed = mFrameTime * 300.0f;
+			mDownwardSpeed = mFrameTime * maxSpeed;
 		}
 	}
 	else
 	{
-		mDownwardSpeed -= mFrameTime * 0.99f;
+		mDownwardSpeed -= mFrameTime * maxSpeed * 0.5f;
 
 		if (mDownwardSpeed < 0.0f)
 		{

@@ -36,11 +36,11 @@ void MarsShaderClass::Shutdown()
 	return;
 }
 
-bool MarsShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture)
+bool MarsShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture)
 {
 	bool result;
 
-	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, marsRadius, distanceLUT, cameraPos, heightTexture);
+	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, marsRadius,  marsMaxHeight, marsMinHeight, distanceLUT, cameraPos, heightTexture);
 	if (!result)
 	{
 		return false;
@@ -59,7 +59,7 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 	ID3D10Blob* pixelShaderBuffer;
 	D3D11_INPUT_ELEMENT_DESC polygonLayout[6];
 	unsigned int numElements;
-	D3D11_BUFFER_DESC matrixBufferDesc, morphBufferDesc;
+	D3D11_BUFFER_DESC matrixBufferDesc, morphBufferDesc, heightBufferDesc;
 	D3D11_SAMPLER_DESC samplerDesc;
 
 	errorMessage = 0;
@@ -196,6 +196,19 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 		return false;
 	}
 
+	heightBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+	heightBufferDesc.ByteWidth = sizeof(MarsHeightBufferType);
+	heightBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	heightBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	heightBufferDesc.MiscFlags = 0;
+	heightBufferDesc.StructureByteStride = 0;
+
+	result = device->CreateBuffer(&heightBufferDesc, NULL, &mHeightBuffer);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
 	samplerDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
 	samplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
 	samplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
@@ -225,6 +238,12 @@ void MarsShaderClass::ShutdownShader()
 	{
 		mSampleState->Release();
 		mSampleState = 0;
+	}
+
+	if (mHeightBuffer)
+	{
+		mHeightBuffer->Release();
+		mHeightBuffer = 0;
 	}
 
 	if (mMorphBuffer)
@@ -287,12 +306,14 @@ void MarsShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND hw
 	return;
 }
 
-bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture)
+bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture)
 {
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
 	MatrixBufferType *dataPtr;
 	MorphBufferType *morphDataPtr;
+	MarsHeightBufferType *heightDataPtr;
+
 	unsigned int bufferNumber;
 
 	float temp[32];
@@ -337,6 +358,21 @@ bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XM
 
 	deviceContext->Unmap(mMorphBuffer, 0);
 
+	ZeroMemory(&mappedResource, sizeof(mappedResource));
+
+	result = deviceContext->Map(mHeightBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	heightDataPtr = (MarsHeightBufferType*)mappedResource.pData;
+
+	heightDataPtr->marsMaxHeight = XMFLOAT4(marsMaxHeight, marsMaxHeight, marsMaxHeight, marsMaxHeight);
+	heightDataPtr->marsMinHeight = XMFLOAT4(marsMinHeight, marsMinHeight, marsMinHeight, marsMinHeight);
+
+	deviceContext->Unmap(mHeightBuffer, 0);
+
 	bufferNumber = 0;
 
 	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mMatrixBuffer);
@@ -344,6 +380,10 @@ bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XM
 	bufferNumber = 1;
 
 	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mMorphBuffer);
+
+	bufferNumber = 2;
+
+	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mHeightBuffer);
 
 	deviceContext->VSSetShaderResources(0, 1, &heightTexture);
 

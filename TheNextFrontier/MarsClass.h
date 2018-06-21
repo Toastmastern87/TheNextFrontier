@@ -88,6 +88,8 @@ public:
 	int GetInstanceCount();
 	int GetMarsVerticesCount();
 	float GetMarsRadius();
+	float GetMarsMaxHeight();
+	float GetMarsMinHeight();
 	vector<float> GetDistanceLUT();
 	ID3D11ShaderResourceView* GetHeightMap();
 
@@ -120,7 +122,9 @@ private:
 	vector<long int> mMarsCellIndices;
 	FrustumClass* mFrustum;
 
-	int mMarsRadius;
+	float mMarsRadius;
+	float mMarsMaxHeight;
+	float mMarsMinHeight;
 	int screenWidth;
 
 	vector<TriangleType> mIcosphere;

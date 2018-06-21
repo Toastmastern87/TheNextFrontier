@@ -24,6 +24,8 @@ bool MarsClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceCont
 
 	mFrustum = frustum;
 	mMarsRadius = 3389.5f;
+	mMarsMaxHeight = 21.229f;
+	mMarsMinHeight = -8.2f;
 
 	mMaxTriangleSize = 400.0f;
 	mMaxSubdivisionLevel = 22;
@@ -526,6 +528,16 @@ float MarsClass::GetMarsRadius()
 	return mMarsRadius;
 }
 
+float MarsClass::GetMarsMaxHeight()
+{
+	return mMarsMaxHeight;
+}
+
+float MarsClass::GetMarsMinHeight()
+{
+	return mMarsMinHeight;
+}
+
 vector<float> MarsClass::GetDistanceLUT()
 {
 	return mDistanceLUT;
@@ -542,6 +554,13 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device, ID3D11DeviceContext* 
 	{
 		return false;
 	}
+
+	ofstream fOut;
+
+	fOut.open("Debug.txt", ios::out | ios::app);
+
+
+	fOut.close();
 
 	return true;
 }

@@ -1,5 +1,4 @@
-#ifndef _SHADERMANAGERCLASS_H_
-#define _SHADERMANAGERCLASS_H_
+#pragma once
 
 #include "D3DClass.h"
 #include "MarsShaderClass.h"
@@ -15,12 +14,10 @@ public:
 	bool Initialize(ID3D11Device*, HWND);
 	void Shutdown();
 
-	bool RenderMarsShader(ID3D11DeviceContext*, int, int, XMMATRIX, XMMATRIX, XMMATRIX, float, vector<float>, XMFLOAT3);
+	bool RenderMarsShader(ID3D11DeviceContext*, int, int, XMMATRIX, XMMATRIX, XMMATRIX, float, vector<float>, XMFLOAT3, ID3D11ShaderResourceView*);
 	bool RenderFontShader(ID3D11DeviceContext*, int, XMMATRIX, XMMATRIX, XMMATRIX, ID3D11ShaderResourceView*, XMFLOAT4);
 
 private:
 	MarsShaderClass * mMarsShader;
 	FontShaderClass* mFontShader;
 };
-
-#endif

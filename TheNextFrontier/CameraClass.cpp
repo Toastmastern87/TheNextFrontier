@@ -9,6 +9,14 @@ CameraClass::CameraClass()
 	mRotationX = 0.0f;
 	mRotationY = 0.0f;
 	mRotationZ = 0.0f;
+
+	mOldPositionX = 0.0f;
+	mOldPositionY = 0.0f;
+	mOldPositionZ = 0.0f;
+
+	mOldRotationX = 0.0f;
+	mOldRotationY = 0.0f;
+	mOldRotationZ = 0.0f;
 }
 
 CameraClass::CameraClass(const CameraClass& other) 

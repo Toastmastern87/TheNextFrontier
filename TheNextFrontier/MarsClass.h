@@ -9,6 +9,8 @@
 #include <fstream>
 #include "FrustumClass.h"
 #include "PositionClass.h"
+#include "TextureClass.h"
+#include <WICTextureLoader.h>
 using namespace DirectX;
 using namespace std;
 
@@ -87,6 +89,7 @@ public:
 	int GetMarsVerticesCount();
 	float GetMarsRadius();
 	vector<float> GetDistanceLUT();
+	ID3D11ShaderResourceView* GetHeightMap();
 
 	bool UpdateMars(ID3D11DeviceContext*, FrustumClass*, PositionClass*);
 
@@ -95,6 +98,7 @@ private:
 	bool InitializeIcosphere();
 	void ShutdownBuffers();
 	void RenderBuffers(ID3D11DeviceContext*);
+	bool LoadHeightMapTexture(ID3D11Device*, ID3D11DeviceContext*);
 
 	float GetVectorLength(XMFLOAT3);
 	float GetVectorDistance(XMFLOAT3, XMFLOAT3);
@@ -130,4 +134,6 @@ private:
 	int mScreenWidth;
 
 	PositionClass* mPosition;
+	ID3D11Resource *mHeightMapResource;
+	ID3D11ShaderResourceView* mHeightMapResourceView;
 };

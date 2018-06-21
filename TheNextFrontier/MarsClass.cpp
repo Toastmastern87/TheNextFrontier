@@ -6,6 +6,8 @@ MarsClass::MarsClass()
 	mInstanceBuffer = 0;
 	mIndexBuffer = 0;
 	mFrustum = 0;
+	mHeightMapResource = 0;
+	mHeightMapResourceView = 0;
 }
 
 MarsClass::MarsClass(const MarsClass& other)
@@ -23,12 +25,18 @@ bool MarsClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceCont
 	mFrustum = frustum;
 	mMarsRadius = 3389.5f;
 
-	mMaxTriangleSize = 300.0f;
+	mMaxTriangleSize = 400.0f;
 	mMaxSubdivisionLevel = 22;
 	mMaxCellLevel = 3;
 	mScreenWidth = screenWidth;
 
 	GenerateCellGeometry();
+
+	result = LoadHeightMapTexture(device, deviceContext);
+	if (!result)
+	{
+		return false;
+	}
 
 	result = InitializeBuffers(device);
 	if (!result)
@@ -240,7 +248,9 @@ bool MarsClass::UpdateMars(ID3D11DeviceContext* deviceContext, FrustumClass* fru
 
 	GenerateCells();
 
-	MapCells(deviceContext);
+	if ((int)mMarsCells.size() > 0) {
+		MapCells(deviceContext);
+	}
 
 	return true;
 }
@@ -404,7 +414,7 @@ MarsClass::NextTriangle MarsClass::CheckTriangleSplit(XMFLOAT3 a, XMFLOAT3 b, XM
 
 	dot = XMVectorGetX(XMVector3Dot(centerNormalized, centerPositionSubtractionNormalized));
 
-	if (dot > 0.0f)
+	if (dot > 0.5f)
 	{
 		return NextTriangle::CULL;
 	}
@@ -519,4 +529,24 @@ float MarsClass::GetMarsRadius()
 vector<float> MarsClass::GetDistanceLUT()
 {
 	return mDistanceLUT;
+}
+
+bool MarsClass::LoadHeightMapTexture(ID3D11Device* device, ID3D11DeviceContext* deviceContext)
+{
+	bool result;
+	HRESULT hResult;
+	const wchar_t* fileName = L"../TheNextFrontier/MarsHeightMap8K.tif";
+
+	hResult = CreateWICTextureFromFile(device, fileName, &mHeightMapResource, &mHeightMapResourceView);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	return true;
+}
+
+ID3D11ShaderResourceView* MarsClass::GetHeightMap() 
+{
+	return mHeightMapResourceView;
 }

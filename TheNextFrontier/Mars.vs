@@ -50,6 +50,8 @@ PixelInputType MarsVertexShader(VertexInputType input)
 	float3 normPos;
 	float distance;
 	float morphPercentage;
+	Texture2D shaderTexture;
+	SamplerState SampleType;
 
 	finalPos = input.a + input.r * input.localPosition.x + input.s * input.localPosition.y;
 

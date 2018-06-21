@@ -153,7 +153,7 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 	mPosition->TurnLeft(keyDown);
 
 	keyDown = input->IsRightPressed();
-	mPosition->TurnRight(keyDown);
+	mPosition->OrbitRight(keyDown);
 
 	keyDown = input->IsUpPressed();
 	mPosition->MoveForward(keyDown);

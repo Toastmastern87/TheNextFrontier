@@ -233,33 +233,41 @@ void PositionClass::TurnLeft(bool keyDown)
 	return;
 }
 
-void PositionClass::TurnRight(bool keyDown)
+void PositionClass::OrbitRight(bool keyDown)
 {
+	float altitude = GetAltitude();
+
 	if (keyDown)
 	{
-		mRightTurnSpeed += mFrameTime * 5.0f;
+		mRightTurnSpeed += mFrameTime * 0.1;
 
-		if (mRightTurnSpeed > (mFrameTime * 150.0f))
-		{
-			mRightTurnSpeed = mFrameTime * 150.0f;
-		}
+		//if (mRightTurnSpeed > (mFrameTime * 150.0f))
+		//{
+		//	mRightTurnSpeed = mFrameTime * 150.0f;
+		//}
+
+
 	}
 	else
 	{
-		mRightTurnSpeed -= mFrameTime * 3.5f;
+		//mRightTurnSpeed -= mFrameTime * 3.5f;
 
-		if (mRightTurnSpeed < 0.0f)
-		{
-			mRightTurnSpeed = 0.0f;
-		}
+		//if (mRightTurnSpeed < 0.0f)
+		//{
+		//	mRightTurnSpeed = 0.0f;
+		//}
 	}
 
-	mRotationY += mRightTurnSpeed;
+	//mRotationY += mRightTurnSpeed;
 
-	if (mRotationY > 360.0f)
-	{
-		mRotationY -= 360.0f;
-	}
+	//if (mRotationY > 360.0f)
+	//{
+	//	mRotationY -= 360.0f;
+	//}
+
+	// 0.01f being the angular speed
+	mPositionX += cosf(mRightTurnSpeed) * (3389.5f + altitude) - mPositionX;
+	mPositionZ += sinf(mRightTurnSpeed) * (3389.5f + altitude) - mPositionZ;
 
 	return;
 }

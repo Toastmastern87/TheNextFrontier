@@ -2,7 +2,9 @@
 
 #include <math.h>
 #include <DirectXMath.h>
+#include <fstream>
 using namespace DirectX;
+using namespace std;
 
 class PositionClass 
 {
@@ -26,7 +28,7 @@ public:
 	void MoveUpward(bool);
 	void MoveDownward(bool);
 	void TurnLeft(bool);
-	void TurnRight(bool);
+	void OrbitRight(bool);
 	void LookUpward(bool);
 	void LookDownward(bool);
 

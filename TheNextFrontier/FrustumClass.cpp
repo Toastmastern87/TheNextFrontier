@@ -122,6 +122,68 @@ VolumeCheck FrustumClass::CheckTriangle(XMFLOAT3 p1, XMFLOAT3 p2, XMFLOAT3 p3)
 	return ret;
 }
 
+VolumeCheck FrustumClass::CheckTriangleVolume(XMFLOAT3 p1, XMFLOAT3 p2, XMFLOAT3 p3, float height)
+{
+	int i;
+	XMVECTOR tempPlaneVector;
+	VolumeCheck ret = VolumeCheck::CONTAINS;
+
+	for (i = 0; i < 6; i++)
+	{
+		tempPlaneVector = XMLoadFloat4(&mPlane[i]);
+
+		int rejects = 0;
+
+		if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), XMLoadFloat3(&p1))) < 0.0f)
+		{
+			rejects++;
+		}
+
+		if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), XMLoadFloat3(&p2))) < 0.0f)
+		{
+			rejects++;
+		}
+
+		if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), XMLoadFloat3(&p3))) < 0.0f)
+		{
+			rejects++;
+		}
+
+		if (rejects >= 3)
+		{
+			if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), (XMLoadFloat3(&p1) * height))) < 0.0f)
+			{
+				rejects++;
+			}
+
+			if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), (XMLoadFloat3(&p2) * height))) < 0.0f)
+			{
+				rejects++;
+			}
+
+			if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), (XMLoadFloat3(&p3) * height))) < 0.0f)
+			{
+				rejects++;
+			}
+
+			if (rejects >= 6)
+			{
+				return VolumeCheck::OUTSIDE;
+			}
+			else 
+			{
+				return VolumeCheck::INTERSECT;
+			}
+		}
+		else if (rejects > 0)
+		{
+			ret = VolumeCheck::INTERSECT;
+		}
+	}
+
+	return ret;
+}
+
 float FrustumClass::GetFOV() 
 {
 	return mCamera->GetFOV();

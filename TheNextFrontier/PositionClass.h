@@ -25,8 +25,8 @@ public:
 
 	void MoveForward(bool);
 	void MoveBackward(bool);
-	void MoveUpward(bool);
-	void MoveDownward(bool);
+	void ZoomOut(bool);
+	void ZoomIn(bool);
 	void OrbitLeft(bool);
 	void OrbitRight(bool);
 	void LookUpward(bool);

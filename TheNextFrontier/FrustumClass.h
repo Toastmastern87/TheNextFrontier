@@ -21,6 +21,7 @@ public:
 	bool Initialize(CameraClass*);
 	bool ConstructFrustum(float, XMMATRIX, XMMATRIX);
 	VolumeCheck CheckTriangle(XMFLOAT3, XMFLOAT3, XMFLOAT3);
+	VolumeCheck CheckTriangleVolume(XMFLOAT3, XMFLOAT3, XMFLOAT3, float);
 
 	float GetFOV();
 

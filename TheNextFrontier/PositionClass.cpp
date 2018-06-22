@@ -133,7 +133,7 @@ void PositionClass::MoveBackward(bool keyDown)
 	return;
 }
 
-void PositionClass::MoveUpward(bool keyDown)
+void PositionClass::ZoomOut(bool keyDown)
 {
 	float maxSpeed;
 
@@ -167,7 +167,7 @@ void PositionClass::MoveUpward(bool keyDown)
 	return;
 }
 
-void PositionClass::MoveDownward(bool keyDown)
+void PositionClass::ZoomIn(bool keyDown)
 {
 	float maxSpeed;
 

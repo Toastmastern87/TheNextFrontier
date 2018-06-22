@@ -109,6 +109,7 @@ private:
 	vector<int> GetIcosadronIndices();
 	void GenerateCells();
 	void GenerateCellGeometry();
+	void GenerateHeightMultiLUT();
 	bool MapCells(ID3D11DeviceContext*);
 
 	void RecursiveTriangle(XMFLOAT3, XMFLOAT3, XMFLOAT3, short, bool);
@@ -131,6 +132,7 @@ private:
 	vector<MarsCellType> mMarsCells;
 
 	vector<float> mDistanceLUT;
+	vector<float> mHeightMultiLUT;
 
 	int mMaxSubdivisionLevel;
 	int mMaxCellLevel;

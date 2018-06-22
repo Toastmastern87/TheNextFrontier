@@ -162,10 +162,10 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 	mPosition->MoveBackward(keyDown);
 
 	keyDown = input->IsAPressed();
-	mPosition->MoveUpward(keyDown);
+	mPosition->ZoomOut(keyDown);
 
 	keyDown = input->IsZPressed();
-	mPosition->MoveDownward(keyDown);
+	mPosition->ZoomIn(keyDown);
 
 	keyDown = input->IsPgUpPressed();
 	mPosition->LookUpward(keyDown);

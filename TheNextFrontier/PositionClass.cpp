@@ -16,8 +16,7 @@ PositionClass::PositionClass()
 	mBackwardSpeed = 0.0f;
 	mUpwardSpeed = 0.0f;
 	mDownwardSpeed = 0.0f;
-	mLeftTurnSpeed = 0.0f;
-	mRightTurnSpeed = 0.0f;
+	mOrbitAngle = 0.0f;
 	mLookUpSpeed = 0.0f;
 	mLookDownSpeed = 0.0f;
 }
@@ -202,33 +201,22 @@ void PositionClass::MoveDownward(bool keyDown)
 	return;
 }
 
-void PositionClass::TurnLeft(bool keyDown)
+void PositionClass::OrbitLeft(bool keyDown)
 {
+	float altitude = GetAltitude();
+
 	if (keyDown)
 	{
-		mLeftTurnSpeed += mFrameTime * 5.0f;
-
-		if (mLeftTurnSpeed > (mFrameTime * 150.0f))
-		{
-			mLeftTurnSpeed = mFrameTime * 150.0f;
-		}
+		mOrbitAngle -= mFrameTime * 0.1;
 	}
-	else
+
+	if (mOrbitAngle < 0.0f)
 	{
-		mLeftTurnSpeed -= mFrameTime * 3.5f;
-
-		if (mLeftTurnSpeed < 0.0f)
-		{
-			mLeftTurnSpeed = 0.0f;
-		}
+		mOrbitAngle += (2 * XM_PI);
 	}
 
-	mRotationY -= mLeftTurnSpeed;
-
-	if (mRotationY < 0.0f)
-	{
-		mRotationY += 360.0f;
-	}
+	mPositionX += cosf(mOrbitAngle) * (3389.5f + altitude) - mPositionX;
+	mPositionZ += sinf(mOrbitAngle) * (3389.5f + altitude) - mPositionZ;
 
 	return;
 }
@@ -239,35 +227,16 @@ void PositionClass::OrbitRight(bool keyDown)
 
 	if (keyDown)
 	{
-		mRightTurnSpeed += mFrameTime * 0.1;
-
-		//if (mRightTurnSpeed > (mFrameTime * 150.0f))
-		//{
-		//	mRightTurnSpeed = mFrameTime * 150.0f;
-		//}
-
-
+		mOrbitAngle += mFrameTime * 0.1;
 	}
-	else
+
+	if (mOrbitAngle > (2 * XM_PI))
 	{
-		//mRightTurnSpeed -= mFrameTime * 3.5f;
-
-		//if (mRightTurnSpeed < 0.0f)
-		//{
-		//	mRightTurnSpeed = 0.0f;
-		//}
+		mOrbitAngle -= (2 * XM_PI);
 	}
 
-	//mRotationY += mRightTurnSpeed;
-
-	//if (mRotationY > 360.0f)
-	//{
-	//	mRotationY -= 360.0f;
-	//}
-
-	// 0.01f being the angular speed
-	mPositionX += cosf(mRightTurnSpeed) * (3389.5f + altitude) - mPositionX;
-	mPositionZ += sinf(mRightTurnSpeed) * (3389.5f + altitude) - mPositionZ;
+	mPositionX += cosf(mOrbitAngle) * (3389.5f + altitude) - mPositionX;
+	mPositionZ += sinf(mOrbitAngle) * (3389.5f + altitude) - mPositionZ;
 
 	return;
 }

@@ -27,7 +27,7 @@ public:
 	void MoveBackward(bool);
 	void MoveUpward(bool);
 	void MoveDownward(bool);
-	void TurnLeft(bool);
+	void OrbitLeft(bool);
 	void OrbitRight(bool);
 	void LookUpward(bool);
 	void LookDownward(bool);
@@ -40,6 +40,6 @@ private:
 
 	float mForwardSpeed, mBackwardSpeed;
 	float mUpwardSpeed, mDownwardSpeed;
-	float mLeftTurnSpeed, mRightTurnSpeed;
+	float mOrbitAngle;
 	float mLookUpSpeed, mLookDownSpeed;
 };

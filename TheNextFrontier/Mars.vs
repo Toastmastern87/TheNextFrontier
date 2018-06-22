@@ -76,7 +76,6 @@ PixelInputType MarsVertexShader(VertexInputType input)
 	float distance;
 	float morphPercentage;
 	float height;
-	float heightRecalc;
 
 	finalPos = input.a + input.r * input.localPosition.x + input.s * input.localPosition.y;
 
@@ -87,9 +86,7 @@ PixelInputType MarsVertexShader(VertexInputType input)
 
 	height = GetHeight(finalPos);
 
-	heightRecalc = height / (marsMaxHeight - marsMinHeight);
-
-	normPos = normalize(finalPos) * (marsRadius + (height * (marsMaxHeight - marsMinHeight)));
+	normPos = normalize(finalPos) * (marsRadius + (height * (marsMaxHeight - marsMinHeight)) + marsMinHeight);
 	finalPos.xyz = normPos;
 
 	output.position = mul(float4(finalPos, 1.0f), worldMatrix);

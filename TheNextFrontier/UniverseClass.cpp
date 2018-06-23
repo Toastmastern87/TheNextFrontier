@@ -17,11 +17,12 @@ UniverseClass::~UniverseClass()
 {
 }
 
-bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, int screenHeight, float screenDepth)
+bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, int screenHeight, float screenDepth, float screenNear)
 {
 	bool result;
 
 	mScreenDepth = screenDepth;
+	mScreenDepth = screenNear;
 
 	mUI = new UIClass;
 	if (!mUI)
@@ -61,7 +62,7 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 		return false;
 	}
 
-	result = mFrustum->Initialize(mCamera);
+	result = mFrustum->Initialize(mCamera, mPosition);
 	if (!result)
 	{
 		return false;
@@ -207,7 +208,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 
 	if (mCamera->CheckMovement()) 
 	{
-		mFrustum->ConstructFrustum(mScreenDepth, projectionMatrix, viewMatrix);
+		mFrustum->ConstructFrustum(mScreenDepth, mScreenNear, direct3D->GetAspectRation(), projectionMatrix, viewMatrix);
 
 		mMars->UpdateMars(direct3D->GetDeviceContext(), mFrustum, mPosition);
 	}

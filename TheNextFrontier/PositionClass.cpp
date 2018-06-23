@@ -16,7 +16,8 @@ PositionClass::PositionClass()
 	mBackwardSpeed = 0.0f;
 	mUpwardSpeed = 0.0f;
 	mDownwardSpeed = 0.0f;
-	mOrbitAngle = 0.0f;
+	mOrbitAngleXZ = 0.0f;
+	mOrbitAngleY = 0.0f;
 	mLookUpSpeed = 0.0f;
 	mLookDownSpeed = 0.0f;
 }
@@ -73,62 +74,42 @@ void PositionClass::SetFrameTime(float time)
 
 void PositionClass::MoveForward(bool keyDown) 
 {
-	float radians;
+	float altitude = GetAltitude();
 
 	if (keyDown) 
 	{
-		mForwardSpeed += mFrameTime * 100.0f;
-
-		if (mForwardSpeed > (mFrameTime * 500.0f)) 
-		{
-			mForwardSpeed = mFrameTime * 500.0f;
-		}
+		mOrbitAngleY += mFrameTime * 0.1;
 	}
-	else 
+
+	if (mOrbitAngleY > (2 * XM_PI))
 	{
-		mForwardSpeed -= mFrameTime * 0.5f;
-
-		if (mForwardSpeed < 0.0f)
-		{
-			mForwardSpeed = 0.0f;
-		}
+		mOrbitAngleY -= (2 * XM_PI);
 	}
 
-	radians = mRotationY * 0.0174532925f;
-
-	mPositionX += sinf(radians) * mForwardSpeed;
-	mPositionZ += cosf(radians) * mForwardSpeed;
+	mPositionX += (cosf(mOrbitAngleXZ) * (3389.5f + altitude) * cosf(mOrbitAngleY)) - mPositionX;
+	mPositionY += (sinf(mOrbitAngleY) * (3389.5f + altitude)) - mPositionY;
+	mPositionZ += (sinf(mOrbitAngleXZ) * (3389.5f + altitude) * cosf(mOrbitAngleY)) - mPositionZ;
 
 	return;
 }
 
 void PositionClass::MoveBackward(bool keyDown)
 {
-	float radians;
+	float altitude = GetAltitude();
 
 	if (keyDown)
 	{
-		mBackwardSpeed += mFrameTime * 1.0f;
-
-		if (mBackwardSpeed > (mFrameTime * 50.0f))
-		{
-			mBackwardSpeed = mFrameTime * 50.0f;
-		}
+		mOrbitAngleY -= mFrameTime * 0.1;
 	}
-	else
+
+	if (mOrbitAngleY < 0.0f)
 	{
-		mBackwardSpeed -= mFrameTime * 0.5f;
-
-		if (mBackwardSpeed < 0.0f)
-		{
-			mBackwardSpeed = 0.0f;
-		}
+		mOrbitAngleY += (2 * XM_PI);
 	}
 
-	radians = mRotationY * 0.0174532925f;
-
-	mPositionX -= sinf(radians) * mBackwardSpeed;
-	mPositionZ -= cosf(radians) * mBackwardSpeed;
+	mPositionX += (cosf(mOrbitAngleXZ) * (3389.5f + altitude) * cosf(mOrbitAngleY)) - mPositionX;
+	mPositionY += (sinf(mOrbitAngleY) * (3389.5f + altitude)) - mPositionY;
+	mPositionZ += (sinf(mOrbitAngleXZ) * (3389.5f + altitude) * cosf(mOrbitAngleY)) - mPositionZ;
 
 	return;
 }
@@ -203,40 +184,40 @@ void PositionClass::ZoomIn(bool keyDown)
 
 void PositionClass::OrbitLeft(bool keyDown)
 {
-	float altitude = GetAltitude();
+	float distanceFromOrigoXZPlane = sqrt(mPositionX * mPositionX + mPositionZ * mPositionZ);
 
 	if (keyDown)
 	{
-		mOrbitAngle -= mFrameTime * 0.1;
+		mOrbitAngleXZ -= mFrameTime * 0.1;
 	}
 
-	if (mOrbitAngle < 0.0f)
+	if (mOrbitAngleXZ < 0.0f)
 	{
-		mOrbitAngle += (2 * XM_PI);
+		mOrbitAngleXZ += (2 * XM_PI);
 	}
 
-	mPositionX += cosf(mOrbitAngle) * (3389.5f + altitude) - mPositionX;
-	mPositionZ += sinf(mOrbitAngle) * (3389.5f + altitude) - mPositionZ;
+	mPositionX += (cosf(mOrbitAngleXZ) * distanceFromOrigoXZPlane) - mPositionX;
+	mPositionZ += (sinf(mOrbitAngleXZ) * distanceFromOrigoXZPlane) - mPositionZ;
 
 	return;
 }
 
 void PositionClass::OrbitRight(bool keyDown)
 {
-	float altitude = GetAltitude();
+	float distanceFromOrigoXZPlane = sqrt(mPositionX * mPositionX + mPositionZ * mPositionZ);
 
 	if (keyDown)
 	{
-		mOrbitAngle += mFrameTime * 0.1;
+		mOrbitAngleXZ += mFrameTime * 0.1;
 	}
 
-	if (mOrbitAngle > (2 * XM_PI))
+	if (mOrbitAngleXZ > (2 * XM_PI))
 	{
-		mOrbitAngle -= (2 * XM_PI);
+		mOrbitAngleXZ -= (2 * XM_PI);
 	}
 
-	mPositionX += cosf(mOrbitAngle) * (3389.5f + altitude) - mPositionX;
-	mPositionZ += sinf(mOrbitAngle) * (3389.5f + altitude) - mPositionZ;
+	mPositionX += (cosf(mOrbitAngleXZ) * distanceFromOrigoXZPlane) - mPositionX;
+	mPositionZ += (sinf(mOrbitAngleXZ) * distanceFromOrigoXZPlane) - mPositionZ;
 
 	return;
 }

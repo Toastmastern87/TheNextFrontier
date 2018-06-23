@@ -339,7 +339,7 @@ void MarsClass::GenerateHeightMultiLUT()
 
 	mHeightMultiLUT.push_back(1 / XMVectorGetX(XMVector3Dot(XMVector3Normalize(a), XMVector3Normalize(center))));
 
-	normMaxHeight = mMarsMaxHeight / mMarsRadius;
+	normMaxHeight = 3.0f / mMarsRadius;
 
 	for (int i = 1; i < mMaxSubdivisionLevel; i++) 
 	{
@@ -585,7 +585,7 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device, ID3D11DeviceContext* 
 {
 	bool result;
 	HRESULT hResult;
-	const wchar_t* fileName = L"../TheNextFrontier/MarsHeightMap46K.tif";
+	const wchar_t* fileName = L"../TheNextFrontier/MarsHeightMap8K.tif";
 
 	hResult = CreateWICTextureFromFile(device, fileName, &mHeightMapResource, &mHeightMapResourceView);
 	if (FAILED(hResult))

@@ -18,196 +18,210 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>positionclass.cpp</FILENAME>
-      <LINE>24</LINE>
-      <COLUMN>15</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'PositionClass::mOrbitAngle' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>PositionClass::{ctor}</FUNCTION>
-    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>24</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>positionclass.cpp</FILENAME>
-      <LINE>24</LINE>
-      <COLUMN>15</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'PositionClass::mDownwardSpeed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>PositionClass::{ctor}</FUNCTION>
-    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>24</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>positionclass.cpp</FILENAME>
-      <LINE>24</LINE>
-      <COLUMN>15</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'PositionClass::mLookDownSpeed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>PositionClass::{ctor}</FUNCTION>
-    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>24</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>positionclass.cpp</FILENAME>
-      <LINE>24</LINE>
-      <COLUMN>15</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'PositionClass::mLookUpSpeed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>PositionClass::{ctor}</FUNCTION>
-    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>24</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>positionclass.cpp</FILENAME>
-      <LINE>24</LINE>
-      <COLUMN>15</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'PositionClass::mUpwardSpeed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>PositionClass::{ctor}</FUNCTION>
-    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>24</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>positionclass.cpp</FILENAME>
-      <LINE>24</LINE>
-      <COLUMN>15</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'PositionClass::mBackwardSpeed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>PositionClass::{ctor}</FUNCTION>
-    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>24</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>positionclass.cpp</FILENAME>
-      <LINE>24</LINE>
-      <COLUMN>15</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'PositionClass::mForwardSpeed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>PositionClass::{ctor}</FUNCTION>
-    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>24</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>positionclass.cpp</FILENAME>
-      <LINE>24</LINE>
-      <COLUMN>15</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'PositionClass::mFrameTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>PositionClass::{ctor}</FUNCTION>
-    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>24</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>positionclass.cpp</FILENAME>
-      <LINE>24</LINE>
-      <COLUMN>15</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'PositionClass::mRotationZ' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>PositionClass::{ctor}</FUNCTION>
-    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>24</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>positionclass.cpp</FILENAME>
-      <LINE>24</LINE>
-      <COLUMN>15</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'PositionClass::mPositionY' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>PositionClass::{ctor}</FUNCTION>
-    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>24</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>positionclass.cpp</FILENAME>
-      <LINE>24</LINE>
-      <COLUMN>15</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'PositionClass::mPositionZ' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>PositionClass::{ctor}</FUNCTION>
-    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>24</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>positionclass.cpp</FILENAME>
-      <LINE>24</LINE>
-      <COLUMN>15</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'PositionClass::mRotationX' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>PositionClass::{ctor}</FUNCTION>
-    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>24</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>positionclass.cpp</FILENAME>
-      <LINE>24</LINE>
-      <COLUMN>15</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'PositionClass::mRotationY' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>PositionClass::{ctor}</FUNCTION>
-    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>24</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>positionclass.cpp</FILENAME>
-      <LINE>24</LINE>
+      <LINE>25</LINE>
       <COLUMN>15</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'PositionClass::mPositionX' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>PositionClass::{ctor}</FUNCTION>
     <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>24</FUNCLINE>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>positionclass.cpp</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'PositionClass::mRotationY' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>PositionClass::{ctor}</FUNCTION>
+    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>positionclass.cpp</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'PositionClass::mRotationX' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>PositionClass::{ctor}</FUNCTION>
+    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>positionclass.cpp</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'PositionClass::mPositionZ' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>PositionClass::{ctor}</FUNCTION>
+    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>positionclass.cpp</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'PositionClass::mPositionY' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>PositionClass::{ctor}</FUNCTION>
+    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>positionclass.cpp</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'PositionClass::mRotationZ' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>PositionClass::{ctor}</FUNCTION>
+    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>positionclass.cpp</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'PositionClass::mFrameTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>PositionClass::{ctor}</FUNCTION>
+    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>positionclass.cpp</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'PositionClass::mForwardSpeed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>PositionClass::{ctor}</FUNCTION>
+    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>positionclass.cpp</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'PositionClass::mBackwardSpeed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>PositionClass::{ctor}</FUNCTION>
+    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>positionclass.cpp</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'PositionClass::mUpwardSpeed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>PositionClass::{ctor}</FUNCTION>
+    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>positionclass.cpp</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'PositionClass::mDownwardSpeed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>PositionClass::{ctor}</FUNCTION>
+    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>positionclass.cpp</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'PositionClass::mOrbitAngleXZ' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>PositionClass::{ctor}</FUNCTION>
+    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>positionclass.cpp</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'PositionClass::mOrbitAngleY' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>PositionClass::{ctor}</FUNCTION>
+    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>positionclass.cpp</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'PositionClass::mLookUpSpeed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>PositionClass::{ctor}</FUNCTION>
+    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>positionclass.cpp</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'PositionClass::mLookDownSpeed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>PositionClass::{ctor}</FUNCTION>
+    <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
 </DEFECTS>

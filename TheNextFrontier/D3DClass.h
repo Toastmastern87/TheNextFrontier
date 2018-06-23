@@ -31,6 +31,7 @@ public:
 	void GetOrthoMatrix(XMMATRIX&);
 
 	void GetVideoCardInfo(char*, int&);
+	float GetAspectRation();
 
 	void TurnZBufferOn();
 	void TurnZBufferOff();
@@ -49,6 +50,7 @@ private:
 	bool mVSyncEnabled;
 	int mVideoCardMemory;
 	char mVideoCardDescription[128];
+	float mAspectRatio;
 	IDXGISwapChain* mSwapChain;
 	ID3D11Device* mDevice;
 	ID3D11DeviceContext* mDeviceContext;

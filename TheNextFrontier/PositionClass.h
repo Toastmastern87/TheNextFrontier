@@ -40,6 +40,6 @@ private:
 
 	float mForwardSpeed, mBackwardSpeed;
 	float mUpwardSpeed, mDownwardSpeed;
-	float mOrbitAngle;
+	float mOrbitAngleXZ, mOrbitAngleY;
 	float mLookUpSpeed, mLookDownSpeed;
 };

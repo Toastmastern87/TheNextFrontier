@@ -18,7 +18,7 @@ public:
 	UniverseClass(const UniverseClass& other);
 	~UniverseClass();
 
-	bool Initialize(D3DClass*, HWND, int, int, float);
+	bool Initialize(D3DClass*, HWND, int, int, float, float);
 	void Shutdown();
 	bool Frame(HWND, D3DClass*, InputClass*, ShaderManagerClass*, float, int);
 
@@ -33,7 +33,7 @@ private:
 	MarsClass* mMars;
 	FrustumClass* mFrustum;
 	bool mDisplayUI, mWireframe;
-	float mScreenDepth;
+	float mScreenDepth, mScreenNear;
 };
 
 #endif

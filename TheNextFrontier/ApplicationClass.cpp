@@ -88,7 +88,7 @@ bool ApplicationClass::Initialize(HINSTANCE hInstance, HWND hwnd, int screenWidt
 		return false;
 	}
 
-	result = mUniverse->Initialize(mDirect3D, hwnd, screenWidth, screenHeight, SCREENDEPTH);
+	result = mUniverse->Initialize(mDirect3D, hwnd, screenWidth, screenHeight, SCREENDEPTH, SCREENEAR);
 	if (!result)
 	{
 		MessageBox(hwnd, L"Could not initialize the universe object", L"Error", MB_OK);

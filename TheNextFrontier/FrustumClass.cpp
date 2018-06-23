@@ -12,15 +12,29 @@ FrustumClass::~FrustumClass()
 {
 }
 
-bool FrustumClass::Initialize(CameraClass* camera) 
+bool FrustumClass::Initialize(CameraClass* camera, PositionClass* position) 
 {
 	mCamera = camera;
+	mPosition = position;
 
 	return true;
 }
 
-bool FrustumClass::ConstructFrustum(float screenDepth, XMMATRIX projectionMatrix, XMMATRIX viewMatrix) 
+bool FrustumClass::ConstructFrustum(float farPlane, float nearPlane, float aspectRatio, XMMATRIX projectionMatrix, XMMATRIX viewMatrix) 
 {
+	//NEW WAY
+	float normHalfWidth;
+	float nearPlaneWidth, nearPlaneHeight, farPlaneWidth, farPlaneHeight;
+
+	normHalfWidth = tanf(mCamera->GetFOV() * (XM_PI / 180.0f));
+
+	nearPlaneWidth = normHalfWidth * nearPlane;
+	nearPlaneHeight = nearPlaneWidth / aspectRatio;
+	farPlaneWidth = normHalfWidth * farPlane;
+	farPlaneHeight = farPlaneWidth / aspectRatio;
+
+
+	//OLD WAY
 	float zMin, r;
 	float length;
 	XMFLOAT4X4 projectionMatrixXMFLOAT, viewMatrixXMFLOAT;
@@ -32,7 +46,7 @@ bool FrustumClass::ConstructFrustum(float screenDepth, XMMATRIX projectionMatrix
 	XMStoreFloat4x4(&viewMatrixXMFLOAT, viewMatrix);
 
 	zMin = -projectionMatrixXMFLOAT._43 / projectionMatrixXMFLOAT._33;
-	r = screenDepth / (screenDepth - zMin);
+	r = farPlane / (farPlane - zMin);
 	projectionMatrixXMFLOAT._33 = r;
 	projectionMatrixXMFLOAT._43 = -r * zMin;
 

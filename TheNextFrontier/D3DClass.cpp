@@ -45,7 +45,7 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vSync, HWND hw
 	D3D11_DEPTH_STENCIL_VIEW_DESC depthStencilViewDesc;
 	D3D11_RASTERIZER_DESC rasterDesc;
 	D3D11_VIEWPORT viewport;
-	float fieldOfView, screenAspect;
+	float fieldOfView;
 	D3D11_DEPTH_STENCIL_DESC depthDisabledStencilDesc;
 	D3D11_BLEND_DESC blendStateDesc;
 
@@ -307,9 +307,9 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vSync, HWND hw
 	mDeviceContext->RSSetViewports(1, &viewport);
 
 	fieldOfView = 3.141592654f / 4.0f;
-	screenAspect = (float)screenWidth / (float)screenHeight;
+	mAspectRatio = (float)screenWidth / (float)screenHeight;
 
-	mProjectionMatrix = XMMatrixPerspectiveFovLH(fieldOfView, screenAspect, screenNear, screenDepth);
+	mProjectionMatrix = XMMatrixPerspectiveFovLH(fieldOfView, mAspectRatio, screenNear, screenDepth);
 
 	mWorldMatrix = XMMatrixIdentity();
 
@@ -628,4 +628,9 @@ void D3DClass::DisableWireframe()
 	mDeviceContext->RSSetState(mRasterState);
 
 	return;
+}
+
+float D3DClass::GetAspectRation()
+{
+	return mAspectRatio;
 }

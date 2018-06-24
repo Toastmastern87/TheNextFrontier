@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointerclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>19</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
+    <DECORATED>??0MousePointerClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointerclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>19</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MousePointerClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
+    <DECORATED>??0MousePointerClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointerclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>19</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MousePointerClass::mVertexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
+    <DECORATED>??0MousePointerClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointerclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>19</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MousePointerClass::mIndexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
+    <DECORATED>??0MousePointerClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointerclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>19</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MousePointerClass::mIndexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
+    <DECORATED>??0MousePointerClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointerclass.cpp</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>19</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MousePointerClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
+    <DECORATED>??0MousePointerClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointerclass.cpp</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>19</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MousePointerClass::mVertexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
+    <DECORATED>??0MousePointerClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointerclass.cpp</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>19</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MousePointerClass::mIndexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
+    <DECORATED>??0MousePointerClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointerclass.cpp</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>19</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MousePointerClass::mIndexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
+    <DECORATED>??0MousePointerClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointerclass.cpp</FILENAME>
+      <LINE>118</LINE>
+      <COLUMN>31</COLUMN>
+    </SFA>
+    <DEFECTCODE>6216</DEFECTCODE>
+    <DESCRIPTION>Compiler-inserted cast between semantically different integral types:  a Boolean type to HRESULT.</DESCRIPTION>
+    <FUNCTION>MousePointerClass::InitializeMousePointer</FUNCTION>
+    <DECORATED>?InitializeMousePointer@MousePointerClass@@AEAA_NPEAUID3D11Device@@PEAUID3D11DeviceContext@@HH@Z</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointerclass.cpp</FILENAME>
+      <LINE>119</LINE>
+      <COLUMN>5</COLUMN>
+    </SFA>
+    <DEFECTCODE>6217</DEFECTCODE>
+    <DESCRIPTION>Implicit cast between semantically different integer types:  testing HRESULT with 'not'.  Consider using SUCCEEDED or FAILED macro instead.</DESCRIPTION>
+    <FUNCTION>MousePointerClass::InitializeMousePointer</FUNCTION>
+    <DECORATED>?InitializeMousePointer@MousePointerClass@@AEAA_NPEAUID3D11Device@@PEAUID3D11DeviceContext@@HH@Z</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointerclass.cpp</FILENAME>
+      <LINE>162</LINE>
+      <COLUMN>22</COLUMN>
+    </SFA>
+    <DEFECTCODE>6385</DEFECTCODE>
+    <DESCRIPTION>Reading invalid data from 'vertices':  the readable size is '_Old_3`sizeof(MousePointerClass::VertexType)*mVertexCount' bytes, but '40' bytes may be read.</DESCRIPTION>
+    <FUNCTION>MousePointerClass::UpdateMousePointerPos</FUNCTION>
+    <DECORATED>?UpdateMousePointerPos@MousePointerClass@@QEAA_NPEAUID3D11DeviceContext@@HH@Z</DECORATED>
+    <FUNCLINE>144</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>mousepointerclass.cpp</FILENAME>
+        <LINE>146</LINE>
+        <COLUMN>9</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>mousepointerclass.cpp</FILENAME>
+        <LINE>147</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>mousepointerclass.cpp</FILENAME>
+        <LINE>148</LINE>
+        <COLUMN>26</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>mousepointerclass.cpp</FILENAME>
+        <LINE>149</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>mousepointerclass.cpp</FILENAME>
+        <LINE>151</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>mousepointerclass.cpp</FILENAME>
+        <LINE>152</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume '!vertices' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>mousepointerclass.cpp</FILENAME>
+        <LINE>157</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'vertices' is an In/Out argument to 'memset' (declared at c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.14.26428\include\vcruntime_string.h:60)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>mousepointerclass.cpp</FILENAME>
+        <LINE>159</LINE>
+        <COLUMN>22</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>mousepointerclass.cpp</FILENAME>
+        <LINE>160</LINE>
+        <COLUMN>21</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>mousepointerclass.cpp</FILENAME>
+        <LINE>162</LINE>
+        <COLUMN>22</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid read from 'vertices[1]', (readable range is 0 to 0)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+</DEFECTS>

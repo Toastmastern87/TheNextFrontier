@@ -208,7 +208,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 
 	if (mCamera->CheckMovement()) 
 	{
-		mFrustum->ConstructFrustum(mScreenDepth, mScreenNear, direct3D->GetAspectRation(), projectionMatrix, viewMatrix);
+		mFrustum->ConstructFrustum(mScreenDepth, mScreenNear, direct3D->GetAspectRation(), projectionMatrix, viewMatrix, worldMatrix);
 
 		mMars->UpdateMars(direct3D->GetDeviceContext(), mFrustum, mPosition);
 	}

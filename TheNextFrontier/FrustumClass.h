@@ -1,6 +1,7 @@
 #pragma once
 
 #include <DirectXMath.h>
+#include <vector>
 #include "CameraClass.h"
 #include "PositionClass.h"
 using namespace DirectX;
@@ -14,7 +15,7 @@ enum class VolumeCheck
 
 struct FrustumCorners
 {
-	//void Transform(XMFLOAT4X4 space);
+	void Transform(XMMATRIX);
 	XMVECTOR nearA;
 	XMVECTOR nearB;
 	XMVECTOR nearC;
@@ -25,6 +26,17 @@ struct FrustumCorners
 	XMVECTOR farD;
 };
 
+struct Plane 
+{
+	XMVECTOR n, d;
+
+	Plane(XMVECTOR a, XMVECTOR b, XMVECTOR c)
+	{
+		d = a;
+		n = XMVector3Normalize(XMVector3Cross(-b + a, c - a));
+	}
+};
+
 class FrustumClass 
 {
 public:
@@ -33,14 +45,17 @@ public:
 	~FrustumClass();
 
 	bool Initialize(CameraClass*, PositionClass*);
-	bool ConstructFrustum(float, float, float, XMMATRIX, XMMATRIX);
+	bool ConstructFrustum(float, float, float, XMMATRIX, XMMATRIX, XMMATRIX);
 	VolumeCheck CheckTriangle(XMFLOAT3, XMFLOAT3, XMFLOAT3);
 	VolumeCheck CheckTriangleVolume(XMFLOAT3, XMFLOAT3, XMFLOAT3, float);
+	VolumeCheck CheckTriangleVolume(XMVECTOR, XMVECTOR, XMVECTOR, float);
 
 	float GetFOV();
 
 private:
 	XMFLOAT4 mPlane[6];
+	vector<Plane> mPlanes;
 	CameraClass* mCamera;
 	PositionClass* mPosition;
+	FrustumCorners mCorners;
 };

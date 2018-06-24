@@ -4,98 +4,154 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>frustumclass.cpp</FILENAME>
-      <LINE>3</LINE>
+      <LINE>16</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'FrustumClass::mPlane' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>FrustumClass::{ctor}</FUNCTION>
     <DECORATED>??0FrustumClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>frustumclass.cpp</FILENAME>
-      <LINE>3</LINE>
+      <LINE>16</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'FrustumClass::mCamera' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>FrustumClass::{ctor}</FUNCTION>
     <DECORATED>??0FrustumClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>frustumclass.cpp</FILENAME>
-      <LINE>3</LINE>
+      <LINE>16</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'FrustumClass::mPosition' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>FrustumClass::{ctor}</FUNCTION>
     <DECORATED>??0FrustumClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>frustumclass.cpp</FILENAME>
-      <LINE>3</LINE>
+      <LINE>16</LINE>
+      <COLUMN>14</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'FrustumClass::mCorners' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>FrustumClass::{ctor}</FUNCTION>
+    <DECORATED>??0FrustumClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>16</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>frustumclass.cpp</FILENAME>
+      <LINE>16</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>FrustumClass::{ctor}</FUNCTION>
     <DECORATED>??0FrustumClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>frustumclass.cpp</FILENAME>
-      <LINE>7</LINE>
+      <LINE>20</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'FrustumClass::mPlane' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>FrustumClass::{ctor}</FUNCTION>
     <DECORATED>??0FrustumClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>7</FUNCLINE>
+    <FUNCLINE>20</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>frustumclass.cpp</FILENAME>
-      <LINE>7</LINE>
+      <LINE>20</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'FrustumClass::mCamera' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>FrustumClass::{ctor}</FUNCTION>
     <DECORATED>??0FrustumClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>7</FUNCLINE>
+    <FUNCLINE>20</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>frustumclass.cpp</FILENAME>
-      <LINE>7</LINE>
+      <LINE>20</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'FrustumClass::mPosition' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>FrustumClass::{ctor}</FUNCTION>
     <DECORATED>??0FrustumClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>7</FUNCLINE>
+    <FUNCLINE>20</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>frustumclass.cpp</FILENAME>
+      <LINE>20</LINE>
+      <COLUMN>14</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'FrustumClass::mCorners' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>FrustumClass::{ctor}</FUNCTION>
+    <DECORATED>??0FrustumClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>20</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>frustumclass.cpp</FILENAME>
+      <LINE>286</LINE>
+      <COLUMN>14</COLUMN>
+    </SFA>
+    <DEFECTCODE>6282</DEFECTCODE>
+    <DESCRIPTION>Incorrect operator:  assignment of constant in Boolean context. Consider using '==' instead.</DESCRIPTION>
+    <FUNCTION>FrustumClass::CheckTriangleVolume</FUNCTION>
+    <DECORATED>?CheckTriangleVolume@FrustumClass@@QEAA?AW4VolumeCheck@@T__m128@@00M@Z</DECORATED>
+    <FUNCLINE>263</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>frustumclass.cpp</FILENAME>
+      <LINE>303</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>6282</DEFECTCODE>
+    <DESCRIPTION>Incorrect operator:  assignment of constant in Boolean context. Consider using '==' instead.</DESCRIPTION>
+    <FUNCTION>FrustumClass::CheckTriangleVolume</FUNCTION>
+    <DECORATED>?CheckTriangleVolume@FrustumClass@@QEAA?AW4VolumeCheck@@T__m128@@00M@Z</DECORATED>
+    <FUNCLINE>263</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
 </DEFECTS>

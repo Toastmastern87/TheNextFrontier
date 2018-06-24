@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointershaderclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>25</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>MousePointerShaderClass::{ctor}</FUNCTION>
+    <DECORATED>??0MousePointerShaderClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointershaderclass.cpp</FILENAME>
+      <LINE>12</LINE>
+      <COLUMN>25</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MousePointerShaderClass::mVertexShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MousePointerShaderClass::{ctor}</FUNCTION>
+    <DECORATED>??0MousePointerShaderClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>12</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointershaderclass.cpp</FILENAME>
+      <LINE>12</LINE>
+      <COLUMN>25</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MousePointerShaderClass::mLayout' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MousePointerShaderClass::{ctor}</FUNCTION>
+    <DECORATED>??0MousePointerShaderClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>12</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointershaderclass.cpp</FILENAME>
+      <LINE>12</LINE>
+      <COLUMN>25</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MousePointerShaderClass::mPixelShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MousePointerShaderClass::{ctor}</FUNCTION>
+    <DECORATED>??0MousePointerShaderClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>12</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointershaderclass.cpp</FILENAME>
+      <LINE>12</LINE>
+      <COLUMN>25</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MousePointerShaderClass::mConstantBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MousePointerShaderClass::{ctor}</FUNCTION>
+    <DECORATED>??0MousePointerShaderClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>12</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointershaderclass.cpp</FILENAME>
+      <LINE>12</LINE>
+      <COLUMN>25</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MousePointerShaderClass::mSampleState' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MousePointerShaderClass::{ctor}</FUNCTION>
+    <DECORATED>??0MousePointerShaderClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>12</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

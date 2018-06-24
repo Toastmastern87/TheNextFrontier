@@ -54,7 +54,7 @@ XMFLOAT3 CameraClass::GetRotation()
 void CameraClass::Render() 
 {
 	XMFLOAT3 up, position, lookAt;
-	XMVECTOR upVector, positionVector, lookAtVector;
+	XMVECTOR positionVector;
 	float yaw, pitch, roll;
 	XMMATRIX rotationMatrix;
 
@@ -62,7 +62,7 @@ void CameraClass::Render()
 	up.y = 1.0f;
 	up.z = 0.0f;
 
-	upVector = XMLoadFloat3(&up);
+	mUp = XMLoadFloat3(&up);
 
 	position.x = mPositionX;
 	position.y = mPositionY;
@@ -83,11 +83,11 @@ void CameraClass::Render()
 	rotationMatrix = XMMatrixRotationRollPitchYaw(pitch, yaw, roll);
 
 	mLookAt = XMVector3TransformCoord(mLookAt, rotationMatrix);
-	upVector = XMVector3TransformCoord(upVector, rotationMatrix);
+	mUp = XMVector3TransformCoord(mUp, rotationMatrix);
 
 	mLookAt = XMVectorAdd(positionVector, mLookAt);
 
-	mViewMatrix = XMMatrixLookAtLH(positionVector, mLookAt, upVector);
+	mViewMatrix = XMMatrixLookAtLH(positionVector, mLookAt, mUp);
 
 	return;
 }
@@ -149,6 +149,16 @@ void CameraClass::GetBaseViewMatrix(XMMATRIX& baseViewMatrix)
 XMVECTOR CameraClass::GetLookAtVector() 
 {
 	return mLookAt;
+}
+
+XMVECTOR CameraClass::GetUpVector()
+{
+	return mUp;
+}
+
+XMVECTOR CameraClass::GetRightVector()
+{
+	return XMVector3Cross(mUp, mLookAt);
 }
 
 bool CameraClass::CheckMovement() 

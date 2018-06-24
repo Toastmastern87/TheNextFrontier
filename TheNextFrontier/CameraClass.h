@@ -18,6 +18,8 @@ public:
 	XMFLOAT3 GetPosition();
 	XMFLOAT3 GetRotation();
 	XMVECTOR GetLookAtVector();
+	XMVECTOR GetUpVector();
+	XMVECTOR GetRightVector();
 	float GetFOV();
 
 	void Render();
@@ -33,7 +35,7 @@ private:
 	float mOldPositionX, mOldPositionY, mOldPositionZ;
 	float mOldRotationX, mOldRotationY, mOldRotationZ;
 	XMMATRIX mViewMatrix, mBaseViewMatrix;
-	XMVECTOR mLookAt;
+	XMVECTOR mLookAt, mUp;
 	float mFOV;
 };
 

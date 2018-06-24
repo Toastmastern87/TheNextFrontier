@@ -152,6 +152,8 @@
     <ClCompile Include="FrustumClass.cpp" />
     <ClCompile Include="InputClass.cpp" />
     <ClCompile Include="MarsClass.cpp" />
+    <ClCompile Include="MousePointerClass.cpp" />
+    <ClCompile Include="MousePointerShaderClass.cpp" />
     <ClCompile Include="PositionClass.cpp" />
     <ClCompile Include="ShaderManagerClass.cpp" />
     <ClCompile Include="SystemClass.cpp" />
@@ -173,6 +175,8 @@
     <ClInclude Include="FrustumClass.h" />
     <ClInclude Include="InputClass.h" />
     <ClInclude Include="MarsClass.h" />
+    <ClInclude Include="MousePointerClass.h" />
+    <ClInclude Include="MousePointerShaderClass.h" />
     <ClInclude Include="PositionClass.h" />
     <ClInclude Include="ShaderManagerClass.h" />
     <ClInclude Include="SystemClass.h" />
@@ -187,6 +191,8 @@
     <None Include="Mars.ps" />
     <None Include="Font.ps" />
     <None Include="Font.vs" />
+    <None Include="MousePointer.ps" />
+    <None Include="MousePointer.vs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

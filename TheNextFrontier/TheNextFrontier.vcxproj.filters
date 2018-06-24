@@ -75,6 +75,12 @@
     <ClCompile Include="MarsShaderClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MousePointerClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MousePointerShaderClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SystemClass.h">
@@ -131,6 +137,12 @@
     <ClInclude Include="MarsShaderClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MousePointerClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MousePointerShaderClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Font.ps">
@@ -146,6 +158,12 @@
       <Filter>Source Files\Shaders</Filter>
     </None>
     <None Include="packages.config" />
+    <None Include="MousePointer.ps">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="MousePointer.vs">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="font01.tga">

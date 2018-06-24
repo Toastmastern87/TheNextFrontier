@@ -1,18 +1,31 @@
-#include "FrustumClass.h"
+#include FrustumClass.h
 
-FrustumClass::FrustumClass()
+void FrustumCornersTransform(XMMATRIX space)
+{
+	nearA = XMVector3Transform(nearA, space);
+	nearB = XMVector3Transform(nearB, space);
+	nearC = XMVector3Transform(nearC, space);
+	nearD = XMVector3Transform(nearD, space);
+
+	farA = XMVector3Transform(farA, space);
+	farB = XMVector3Transform(farB, space);
+	farC = XMVector3Transform(farC, space);
+	farD = XMVector3Transform(farD, space);
+}
+
+FrustumClassFrustumClass()
 {
 }
 
-FrustumClass::FrustumClass(const FrustumClass& other) 
+FrustumClassFrustumClass(const FrustumClass& other)
 {
 }
 
-FrustumClass::~FrustumClass() 
+FrustumClass~FrustumClass()
 {
 }
 
-bool FrustumClass::Initialize(CameraClass* camera, PositionClass* position) 
+bool FrustumClassInitialize(CameraClass camera, PositionClass position)
 {
 	mCamera = camera;
 	mPosition = position;
@@ -20,22 +33,71 @@ bool FrustumClass::Initialize(CameraClass* camera, PositionClass* position)
 	return true;
 }
 
-bool FrustumClass::ConstructFrustum(float farPlane, float nearPlane, float aspectRatio, XMMATRIX projectionMatrix, XMMATRIX viewMatrix) 
+bool FrustumClassConstructFrustum(float farPlane, float nearPlane, float aspectRatio, XMMATRIX projectionMatrix, XMMATRIX viewMatrix, XMMATRIX worldMatrix)
 {
-	//NEW WAY
-	float normHalfWidth;
+	NEW WAY
+		float normHalfWidth;
 	float nearPlaneWidth, nearPlaneHeight, farPlaneWidth, farPlaneHeight;
+	XMVECTOR nearCenter, farCenter;
+	XMMATRIX inverseWorldMatrix;
 
-	normHalfWidth = tanf(mCamera->GetFOV() * (XM_PI / 180.0f));
+	normHalfWidth = tanf(mCamera - GetFOV()  (XM_PI  180.0f));
 
-	nearPlaneWidth = normHalfWidth * nearPlane;
-	nearPlaneHeight = nearPlaneWidth / aspectRatio;
-	farPlaneWidth = normHalfWidth * farPlane;
-	farPlaneHeight = farPlaneWidth / aspectRatio;
+	nearPlaneWidth = normHalfWidth  nearPlane;
+	nearPlaneHeight = nearPlaneWidth  aspectRatio;
+	farPlaneWidth = normHalfWidth  farPlane;
+	farPlaneHeight = farPlaneWidth  aspectRatio;
 
+	nearCenter = XMLoadFloat3(&mPosition - GetPositionXMFLOAT3()) + mCamera - GetLookAtVector()  nearPlane;
+	farCenter = XMLoadFloat3(&mPosition - GetPositionXMFLOAT3()) + mCamera - GetLookAtVector()  farPlane  0.5f;
 
-	//OLD WAY
-	float zMin, r;
+	ofstream fOut;
+
+	fOut.open(Debug.txt, iosout  iosapp);
+	fOut  normHalfWidth;
+	fOut  normHalfWidth;
+	fOut  rn;
+	fOut  nearPlaneWidth;
+	fOut  nearPlaneWidth;
+	fOut  rn;
+	fOut  nearPlaneHeight;
+	fOut  nearPlaneHeight;
+	fOut  rn;
+	fOut  farPlaneWidth;
+	fOut  farPlaneWidth;
+	fOut  rn;
+	fOut  farPlaneHeight;
+	fOut  farPlaneHeight;
+	fOut  rn;
+	fOut  rn;
+
+	fOut.close();
+
+	mCorners.nearA = nearCenter + mCamera - GetUpVector()  nearPlaneHeight - mCamera - GetRightVector()  nearPlaneWidth;
+	mCorners.nearB = nearCenter + mCamera - GetUpVector()  nearPlaneHeight + mCamera - GetRightVector()  nearPlaneWidth;
+	mCorners.nearC = nearCenter - mCamera - GetUpVector()  nearPlaneHeight - mCamera - GetRightVector()  nearPlaneWidth;
+	mCorners.nearD = nearCenter - mCamera - GetUpVector()  nearPlaneHeight + mCamera - GetRightVector()  nearPlaneWidth;
+
+	mCorners.farA = farCenter + mCamera - GetUpVector()  farPlaneHeight - mCamera - GetRightVector()  farPlaneWidth;
+	mCorners.farB = farCenter + mCamera - GetUpVector()  farPlaneHeight + mCamera - GetRightVector()  farPlaneWidth;
+	mCorners.farC = farCenter - mCamera - GetUpVector()  farPlaneHeight - mCamera - GetRightVector()  farPlaneWidth;
+	mCorners.farD = farCenter - mCamera - GetUpVector()  farPlaneHeight + mCamera - GetRightVector()  farPlaneWidth;
+
+	inverseWorldMatrix = XMMatrixInverse(nullptr, worldMatrix);
+
+	mCorners.Transform(inverseWorldMatrix);
+
+	mPlanes.clear();
+
+	mPlanes.push_back(Plane(mCorners.nearA, mCorners.nearB, mCorners.nearC)); Near
+		mPlanes.push_back(Plane(mCorners.farB, mCorners.farA, mCorners.farD)); Far
+		mPlanes.push_back(Plane(mCorners.farA, mCorners.nearA, mCorners.farC)); Left
+		mPlanes.push_back(Plane(mCorners.nearB, mCorners.farB, mCorners.nearD)); Right
+		mPlanes.push_back(Plane(mCorners.farA, mCorners.farB, mCorners.nearA)); Top
+		mPlanes.push_back(Plane(mCorners.nearC, mCorners.nearD, mCorners.farC)); Bottom
+
+		OLD WAY
+		float zMin, r;
 	float length;
 	XMFLOAT4X4 projectionMatrixXMFLOAT, viewMatrixXMFLOAT;
 	XMMATRIX matrix;
@@ -45,10 +107,10 @@ bool FrustumClass::ConstructFrustum(float farPlane, float nearPlane, float aspec
 	XMStoreFloat4x4(&projectionMatrixXMFLOAT, projectionMatrix);
 	XMStoreFloat4x4(&viewMatrixXMFLOAT, viewMatrix);
 
-	zMin = -projectionMatrixXMFLOAT._43 / projectionMatrixXMFLOAT._33;
-	r = farPlane / (farPlane - zMin);
+	zMin = -projectionMatrixXMFLOAT._43  projectionMatrixXMFLOAT._33;
+	r = farPlane(farPlane - zMin);
 	projectionMatrixXMFLOAT._33 = r;
-	projectionMatrixXMFLOAT._43 = -r * zMin;
+	projectionMatrixXMFLOAT._43 = -r  zMin;
 
 	projectionMatrix = XMLoadFloat4x4(&projectionMatrixXMFLOAT);
 	viewMatrix = XMLoadFloat4x4(&viewMatrixXMFLOAT);
@@ -96,109 +158,167 @@ bool FrustumClass::ConstructFrustum(float farPlane, float nearPlane, float aspec
 	return true;
 }
 
-VolumeCheck FrustumClass::CheckTriangle(XMFLOAT3 p1, XMFLOAT3 p2, XMFLOAT3 p3) 
+VolumeCheck FrustumClassCheckTriangle(XMFLOAT3 p1, XMFLOAT3 p2, XMFLOAT3 p3)
 {
 	int i;
 	XMVECTOR tempPlaneVector;
-	VolumeCheck ret = VolumeCheck::CONTAINS;
+	VolumeCheck ret = VolumeCheckCONTAINS;
 
-	for (i = 0; i < 6; i++)
+	for (i = 0; i 6; i++)
 	{
 		tempPlaneVector = XMLoadFloat4(&mPlane[i]);
 
 		int rejects = 0;
 
-		if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), XMLoadFloat3(&p1))) < 0.0f)
+		if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), XMLoadFloat3(&p1)))  0.0f)
 		{
 			rejects++;
 		}
 
-		if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), XMLoadFloat3(&p2))) < 0.0f)
+		if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), XMLoadFloat3(&p2)))  0.0f)
 		{
 			rejects++;
 		}
 
-		if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), XMLoadFloat3(&p3))) < 0.0f)
+		if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), XMLoadFloat3(&p3)))  0.0f)
 		{
 			rejects++;
 		}
 
-		if (rejects >= 3)
+		if (rejects = 3)
 		{
-			return VolumeCheck::OUTSIDE;
+			return VolumeCheckOUTSIDE;
 		}
-		else if (rejects > 0)
+		else if (rejects  0)
 		{
-			ret = VolumeCheck::INTERSECT;
+			ret = VolumeCheckINTERSECT;
 		}
 	}
 
 	return ret;
 }
 
-VolumeCheck FrustumClass::CheckTriangleVolume(XMFLOAT3 p1, XMFLOAT3 p2, XMFLOAT3 p3, float height)
+VolumeCheck FrustumClassCheckTriangleVolume(XMFLOAT3 p1, XMFLOAT3 p2, XMFLOAT3 p3, float height)
 {
 	int i;
 	XMVECTOR tempPlaneVector;
-	VolumeCheck ret = VolumeCheck::CONTAINS;
+	VolumeCheck ret = VolumeCheckCONTAINS;
 
-	for (i = 0; i < 6; i++)
+	for (i = 0; i 6; i++)
 	{
 		tempPlaneVector = XMLoadFloat4(&mPlane[i]);
 
 		int rejects = 0;
 
-		if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), XMLoadFloat3(&p1))) < 0.0f)
+		if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), XMLoadFloat3(&p1)))  0.0f)
 		{
 			rejects++;
 		}
 
-		if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), XMLoadFloat3(&p2))) < 0.0f)
+		if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), XMLoadFloat3(&p2)))  0.0f)
 		{
 			rejects++;
 		}
 
-		if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), XMLoadFloat3(&p3))) < 0.0f)
+		if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), XMLoadFloat3(&p3)))  0.0f)
 		{
 			rejects++;
 		}
 
-		if (rejects >= 3)
+		if (rejects = 3)
 		{
-			if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), (XMLoadFloat3(&p1) * height))) < 0.0f)
+			if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), (XMLoadFloat3(&p1)  height)))  0.0f)
 			{
 				rejects++;
 			}
 
-			if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), (XMLoadFloat3(&p2) * height))) < 0.0f)
+			if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), (XMLoadFloat3(&p2)  height)))  0.0f)
 			{
 				rejects++;
 			}
 
-			if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), (XMLoadFloat3(&p3) * height))) < 0.0f)
+			if (XMVectorGetX(XMPlaneDotCoord(XMLoadFloat4(&mPlane[i]), (XMLoadFloat3(&p3)  height)))  0.0f)
 			{
 				rejects++;
 			}
 
-			if (rejects >= 6)
+			if (rejects = 6)
 			{
-				return VolumeCheck::OUTSIDE;
+				return VolumeCheckOUTSIDE;
 			}
-			else 
+			else
 			{
-				return VolumeCheck::INTERSECT;
+				return VolumeCheckINTERSECT;
 			}
 		}
-		else if (rejects > 0)
+		else if (rejects  0)
 		{
-			ret = VolumeCheck::INTERSECT;
+			ret = VolumeCheckINTERSECT;
 		}
 	}
 
 	return ret;
 }
 
-float FrustumClass::GetFOV() 
+VolumeCheck FrustumClassCheckTriangleVolume(XMVECTOR p1, XMVECTOR p2, XMVECTOR p3, float height)
 {
-	return mCamera->GetFOV();
+	VolumeCheck ret = VolumeCheckCONTAINS;
+
+	for (auto plane mPlanes)
+	{
+		int rejects = 0;
+
+		if (XMVectorGetX(XMVector3Dot(plane.n, (p1 - plane.d)))  0.0f)
+		{
+			rejects++;
+		}
+
+		if (XMVectorGetX(XMVector3Dot(plane.n, (p2 - plane.d)))  0.0f)
+		{
+			rejects++;
+		}
+
+		if (XMVectorGetX(XMVector3Dot(plane.n, (p3 - plane.d)))  0.0f)
+		{
+			rejects++;
+		}
+
+		if (rejects = 3)
+		{
+			if (XMVectorGetX(XMVector3Dot(plane.n, ((p1  height) - plane.d)))  0.0f)
+			{
+				rejects++;
+			}
+
+			if (XMVectorGetX(XMVector3Dot(plane.n, ((p2  height) - plane.d)))  0.0f)
+			{
+				rejects++;
+			}
+
+			if (XMVectorGetX(XMVector3Dot(plane.n, ((p3  height) - plane.d)))  0.0f)
+			{
+				rejects++;
+			}
+
+			if (rejects = 6)
+			{
+				ret = VolumeCheckOUTSIDE;
+			}
+			else
+			{
+				ret = VolumeCheckINTERSECT;
+			}
+		}
+		else if (rejects  0)
+		{
+			ret = VolumeCheckINTERSECT;
+		}
+	}
+
+	return ret;
+}
+
+float FrustumClassGetFOV()
+{
+	return mCamera - GetFOV();
 }

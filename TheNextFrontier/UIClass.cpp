@@ -233,26 +233,18 @@ bool UIClass::Frame(HWND hwnd, ID3D11DeviceContext* deviceContext, int fps, floa
 
 bool UIClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX orthoMatrix) 
 {
-	int i;
-
-	direct3D->TurnZBufferOff();
-	direct3D->EnableAlphaBlending();
-
 	mFPSString->Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
 
 	mVideoStrings[0].Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
 	mVideoStrings[1].Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
 
-	for (i = 0; i < 6; i++)
+	for (int i = 0; i < 6; i++)
 	{
 		mPositionStrings[i].Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
 	}
 
 	mVerticesString->Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
 	mAltitudeString->Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
-
-	direct3D->DisableAlphaBlending();
-	direct3D->TurnZBufferOn();
 
 	return true;
 }

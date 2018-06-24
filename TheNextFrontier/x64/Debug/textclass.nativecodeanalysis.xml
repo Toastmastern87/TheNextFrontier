@@ -7,6 +7,20 @@
       <LINE>3</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>TextClass::{ctor}</FUNCTION>
+    <DECORATED>??0TextClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>textclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'TextClass::mScreenWidth' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>TextClass::{ctor}</FUNCTION>
@@ -93,20 +107,6 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'TextClass::mPixelColor' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>TextClass::{ctor}</FUNCTION>
-    <DECORATED>??0TextClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>textclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>11</COLUMN>
-    </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>TextClass::{ctor}</FUNCTION>
     <DECORATED>??0TextClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>

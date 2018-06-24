@@ -174,24 +174,24 @@ void InputClass::ProcessInput()
 	mMouseX += mMouseState.lX;
 	mMouseY += mMouseState.lY;
 
-	if(mMouseX < 0)
+	if(mMouseX <= -(mScreenWidth / 2))
 	{
-		mMouseX = 0;
+		mMouseX = -(mScreenWidth / 2);
 	}
 
-	if (mMouseY < 0)
+	if (mMouseY <= -(mScreenHeight / 2))
 	{
-		mMouseY = 0;
+		mMouseY = -(mScreenHeight / 2);
 	}
 
-	if(mMouseX > mScreenWidth)
+	if(mMouseX >= ((mScreenWidth / 2) - 40))
 	{
-		mMouseX = mScreenWidth;
+		mMouseX = ((mScreenWidth / 2) - 40);
 	}
 
-	if (mMouseY > mScreenHeight)
+	if (mMouseY >= ((mScreenHeight / 2) - 40))
 	{
-		mMouseY = mScreenHeight;
+		mMouseY = ((mScreenHeight / 2) - 40);
 	}
 }
 

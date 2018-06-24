@@ -82,6 +82,19 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 		return false;
 	}
 
+	mMousePointer = new MousePointerClass();
+	if (!mMousePointer)
+	{
+		return false;
+	}
+
+	result = mMousePointer->Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), 0, 0);
+	if (!result)
+	{
+		MessageBox(hwnd, L"Could not initialize the mouse object", L"Error", MB_OK);
+		return false;
+	}
+
 	mDisplayUI = true;
 	mWireframe = true;
 
@@ -90,6 +103,13 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 
 void UniverseClass::Shutdown()
 {
+	if (mMousePointer)
+	{
+		mMousePointer->Shutdown();
+		delete mMousePointer;
+		mMousePointer = 0;
+	}
+
 	if (mMars)
 	{
 		mMars->Shutdown();
@@ -123,11 +143,20 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 {
 	bool result;
 	float posX, posY, posZ, rotX, rotY, rotZ;
+	int mouseX, mouseY;
 
 	HandleMovementInput(input, frameTime);
 
 	mPosition->GetPosition(posX, posY, posZ);
 	mPosition->GetRotation(rotX, rotY, rotZ);
+
+	input->GetMouseLocation(mouseX, mouseY);
+
+	result = mMousePointer->UpdateMousePointerPos(direct3D->GetDeviceContext(), mouseX, (-1 * mouseY));
+	if (!result)
+	{
+		return false;
+	}
 
 	result = mUI->Frame(hwnd, direct3D->GetDeviceContext(), fps, posX, posY, posZ, rotX, rotY, rotZ, (mMars->GetMarsVerticesCount() * mMars->GetInstanceCount()), mPosition->GetAltitude());
 	if (!result)
@@ -147,8 +176,11 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 {
 	bool keyDown;
 	float posX, posY, posZ, rotX, rotY, rotZ;
+	int mouseX, mouseY;
 
 	mPosition->SetFrameTime(frameTime);
+
+	input->GetMouseLocation(mouseX, mouseY);
 
 	keyDown = input->IsLeftPressed();
 	mPosition->OrbitLeft(keyDown);
@@ -233,6 +265,9 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 		direct3D->DisableWireframe();
 	}
 
+	direct3D->TurnZBufferOff();
+	direct3D->EnableAlphaBlending();
+
 	if (mDisplayUI)
 	{
 		result = mUI->Render(direct3D, shaderManager, worldMatrix, baseViewMatrix, orthoMatrix);
@@ -241,6 +276,15 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 			return false;
 		}
 	}
+
+	result = mMousePointer->Render(direct3D, shaderManager, worldMatrix, baseViewMatrix, orthoMatrix);
+	if (!result)
+	{
+		return false;
+	}
+
+	direct3D->DisableAlphaBlending();
+	direct3D->TurnZBufferOn();
 
 	direct3D->EndScene();
 

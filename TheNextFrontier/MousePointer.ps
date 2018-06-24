@@ -12,8 +12,18 @@ float4 MousePointerPixelShader(PixelInputType input) : SV_TARGET
 	float4 color;
 
 	color = shaderTexture.Sample(sampleType, input.tex);
-
-	color.rgb *= color.a;
+	//color = float4(1.0f, 1.0f, 1.0f, 1.0f);
+	//color.a = 0.0f;
+	//color.rgb *= color.a;
+	//color.a = 0.0f;
+	//if(color.b == 0.0f && color.r == 0.0f && color.g == 0.0f)
+	//{
+	//	color.a = 0.0f;
+	//}
+	//else
+	//{
+	//	color.a = 1.0f;
+	//}
 
 	return color;
 }

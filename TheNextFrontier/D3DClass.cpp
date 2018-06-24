@@ -227,7 +227,7 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vSync, HWND hw
 	depthStencilDesc.FrontFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
 
 	depthStencilDesc.BackFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
-	depthStencilDesc.BackFace.StencilDepthFailOp = D3D11_STENCIL_OP_INCR;
+	depthStencilDesc.BackFace.StencilDepthFailOp = D3D11_STENCIL_OP_DECR;
 	depthStencilDesc.BackFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
 	depthStencilDesc.BackFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
 
@@ -306,7 +306,7 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vSync, HWND hw
 	
 	mDeviceContext->RSSetViewports(1, &viewport);
 
-	fieldOfView = 3.141592654f / 4.0f;
+	fieldOfView = XM_PI / 4.0f;
 	mAspectRatio = (float)screenWidth / (float)screenHeight;
 
 	mProjectionMatrix = XMMatrixPerspectiveFovLH(fieldOfView, mAspectRatio, screenNear, screenDepth);

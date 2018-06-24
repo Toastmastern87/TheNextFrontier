@@ -25,7 +25,7 @@ float4 FontPixelShader(PixelInputType input) : SV_TARGET
 	else
 	{
 		color.a = 1.0f;
-		color = color * pixelColor;
+		color *= pixelColor;
 	}
 
 	return color;

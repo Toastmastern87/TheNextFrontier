@@ -32,11 +32,11 @@ void MousePointerClass::Shutdown()
 	return;
 }
 
-bool MousePointerClass::Render(D3DClass *direct3D, ShaderManagerClass *shaderManager, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX orthoMatrix, ID3D11ShaderResourceView *mouseTexture)
+bool MousePointerClass::Render(D3DClass *direct3D, ShaderManagerClass *shaderManager, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX orthoMatrix)
 {
 	bool result;
 
-	result = RenderMousePointer(direct3D, shaderManager, worldMatrix, viewMatrix, orthoMatrix, mouseTexture);
+	result = RenderMousePointer(direct3D, shaderManager, worldMatrix, viewMatrix, orthoMatrix);
 	if (!result)
 	{
 		return false;
@@ -51,10 +51,17 @@ bool MousePointerClass::InitializeMousePointer(ID3D11Device *device, ID3D11Devic
 	unsigned long *indices;
 	D3D11_BUFFER_DESC vertexBufferDesc, indexBufferDesc;
 	D3D11_SUBRESOURCE_DATA vertexData, indexData;
-	HRESULT result;
+	HRESULT hResult;
+	bool result;
 
 	mVertexCount = 6;
 	mIndexCount = 6;
+
+	result = LoadMousePointerTexture(device, deviceContext);
+	if (!result) 
+	{
+		return false;
+	}
 
 	vertices = new VertexType[mVertexCount];
 	if (!vertices)
@@ -86,8 +93,8 @@ bool MousePointerClass::InitializeMousePointer(ID3D11Device *device, ID3D11Devic
 	vertexData.SysMemPitch = 0;
 	vertexData.SysMemSlicePitch = 0;
 
-	result = device->CreateBuffer(&vertexBufferDesc, &vertexData, &mVertexBuffer);
-	if (FAILED(result))
+	hResult = device->CreateBuffer(&vertexBufferDesc, &vertexData, &mVertexBuffer);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
@@ -103,8 +110,8 @@ bool MousePointerClass::InitializeMousePointer(ID3D11Device *device, ID3D11Devic
 	indexData.SysMemPitch = 0;
 	indexData.SysMemSlicePitch = 0;
 
-	result = device->CreateBuffer(&indexBufferDesc, &indexData, &mIndexBuffer);
-	if (FAILED(result))
+	hResult = device->CreateBuffer(&indexBufferDesc, &indexData, &mIndexBuffer);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
@@ -159,19 +166,19 @@ bool MousePointerClass::UpdateMousePointerPos(ID3D11DeviceContext *deviceContext
 	vertices[0].position = XMFLOAT3(mouseX, mouseY, 0.0f);
 	vertices[0].texture = XMFLOAT2(0.0f, 0.0f);
 
-	vertices[1].position = XMFLOAT3((mouseX + 42.3), (mouseY - 50), 0.0f);
+	vertices[1].position = XMFLOAT3((mouseX + 40), (mouseY - 40), 0.0f);
 	vertices[1].texture = XMFLOAT2(1.0f, 1.0f);
 
-	vertices[2].position = XMFLOAT3(mouseX, (mouseY - 50), 0.0f);
+	vertices[2].position = XMFLOAT3(mouseX, (mouseY - 40), 0.0f);
 	vertices[2].texture = XMFLOAT2(0.0f, 1.0f);
 
 	vertices[3].position = XMFLOAT3(mouseX, mouseY, 0.0f);
 	vertices[3].texture = XMFLOAT2(0.0f, 0.0f);
 
-	vertices[4].position = XMFLOAT3((mouseX + 42.3), mouseY, 0.0f);
+	vertices[4].position = XMFLOAT3((mouseX + 40), mouseY, 0.0f);
 	vertices[4].texture = XMFLOAT2(1.0f, 0.0f);
 
-	vertices[5].position = XMFLOAT3((mouseX + 42.3), (mouseY - 50), 0.0f);
+	vertices[5].position = XMFLOAT3((mouseX + 40), (mouseY - 40), 0.0f);
 	vertices[5].texture = XMFLOAT2(1.0f, 1.0f);
 
 	result = deviceContext->Map(mVertexBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
@@ -192,7 +199,7 @@ bool MousePointerClass::UpdateMousePointerPos(ID3D11DeviceContext *deviceContext
 	return true;
 }
 
-bool MousePointerClass::RenderMousePointer(D3DClass *direct3D, ShaderManagerClass *shaderManager, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX orthoMatrix, ID3D11ShaderResourceView *mouseTexture)
+bool MousePointerClass::RenderMousePointer(D3DClass *direct3D, ShaderManagerClass *shaderManager, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX orthoMatrix)
 {
 	unsigned int stride, offset;
 
@@ -203,13 +210,22 @@ bool MousePointerClass::RenderMousePointer(D3DClass *direct3D, ShaderManagerClas
 	direct3D->GetDeviceContext()->IASetIndexBuffer(mIndexBuffer, DXGI_FORMAT_R32_UINT, 0);
 	direct3D->GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-	direct3D->TurnZBufferOff();
-	direct3D->EnableAlphaBlending();
+	shaderManager->RenderMousePointerShader(direct3D->GetDeviceContext(), mIndexCount, worldMatrix, viewMatrix, orthoMatrix, mMousePointerResourceView);
 
-	//shaderManager->RenderMouseShader(direct3D->GetDeviceContext(), mIndexCount, worldMatrix, viewMatrix, orthoMatrix, mouseTexture);
+	return true;
+}
 
-	direct3D->DisableAlphaBlending();
-	direct3D->TurnZBufferOn();
+bool MousePointerClass::LoadMousePointerTexture(ID3D11Device* device, ID3D11DeviceContext* deviceContext)
+{
+	bool result;
+	HRESULT hResult;
+	const wchar_t* fileName = L"../TheNextFrontier/MousePointer.tif";
+
+	hResult = CreateWICTextureFromFile(device, fileName, &mMousePointerResource, &mMousePointerResourceView);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
 
 	return true;
 }

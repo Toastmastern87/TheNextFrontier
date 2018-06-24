@@ -370,14 +370,14 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>uiclass.cpp</FILENAME>
-      <LINE>282</LINE>
+      <LINE>274</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
     <DEFECTCODE>6054</DEFECTCODE>
     <DESCRIPTION>String 'tempString' might not be zero-terminated.</DESCRIPTION>
     <FUNCTION>UIClass::UpdateFPSString</FUNCTION>
     <DECORATED>?UpdateFPSString@UIClass@@AEAA_NPEAUHWND__@@PEAUID3D11DeviceContext@@H@Z</DECORATED>
-    <FUNCLINE>260</FUNCLINE>
+    <FUNCLINE>252</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>3</RANK>
     <CATEGORY>
@@ -387,7 +387,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>262</LINE>
+        <LINE>254</LINE>
         <COLUMN>6</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -399,37 +399,37 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>263</LINE>
+        <LINE>255</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>264</LINE>
+        <LINE>256</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>264</LINE>
+        <LINE>256</LINE>
         <COLUMN>12</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>264</LINE>
+        <LINE>256</LINE>
         <COLUMN>19</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>265</LINE>
+        <LINE>257</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>267</LINE>
+        <LINE>259</LINE>
         <COLUMN>18</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -441,19 +441,19 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>272</LINE>
+        <LINE>264</LINE>
         <COLUMN>14</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>274</LINE>
+        <LINE>266</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>279</LINE>
+        <LINE>271</LINE>
         <COLUMN>8</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -465,13 +465,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>281</LINE>
+        <LINE>273</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>282</LINE>
+        <LINE>274</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
@@ -483,7 +483,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>282</LINE>
+        <LINE>274</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>5</ID>
@@ -498,14 +498,14 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>uiclass.cpp</FILENAME>
-      <LINE>403</LINE>
+      <LINE>395</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>6054</DEFECTCODE>
     <DESCRIPTION>String 'tempString' might not be zero-terminated.</DESCRIPTION>
     <FUNCTION>UIClass::UpdatePositionStrings</FUNCTION>
     <DECORATED>?UpdatePositionStrings@UIClass@@AEAA_NPEAUHWND__@@PEAUID3D11DeviceContext@@MMMMMM@Z</DECORATED>
-    <FUNCLINE>314</FUNCLINE>
+    <FUNCLINE>306</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>3</RANK>
     <CATEGORY>
@@ -515,43 +515,43 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>316</LINE>
+        <LINE>308</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>316</LINE>
+        <LINE>308</LINE>
         <COLUMN>16</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>316</LINE>
+        <LINE>308</LINE>
         <COLUMN>27</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>316</LINE>
+        <LINE>308</LINE>
         <COLUMN>38</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>316</LINE>
+        <LINE>308</LINE>
         <COLUMN>49</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>316</LINE>
+        <LINE>308</LINE>
         <COLUMN>60</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>317</LINE>
+        <LINE>309</LINE>
         <COLUMN>6</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -563,55 +563,55 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>310</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>311</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>313</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>314</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>315</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>316</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>317</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
         <LINE>318</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>319</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>321</LINE>
         <COLUMN>11</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>322</LINE>
-        <COLUMN>11</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>323</LINE>
-        <COLUMN>11</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>324</LINE>
-        <COLUMN>11</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>325</LINE>
-        <COLUMN>11</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>326</LINE>
-        <COLUMN>11</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>328</LINE>
+        <LINE>320</LINE>
         <COLUMN>15</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -623,7 +623,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>342</LINE>
+        <LINE>334</LINE>
         <COLUMN>15</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -635,7 +635,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>356</LINE>
+        <LINE>348</LINE>
         <COLUMN>15</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
@@ -647,7 +647,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>370</LINE>
+        <LINE>362</LINE>
         <COLUMN>15</COLUMN>
         <KEYEVENT>
           <ID>5</ID>
@@ -659,7 +659,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>384</LINE>
+        <LINE>376</LINE>
         <COLUMN>14</COLUMN>
         <KEYEVENT>
           <ID>6</ID>
@@ -671,7 +671,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>398</LINE>
+        <LINE>390</LINE>
         <COLUMN>15</COLUMN>
         <KEYEVENT>
           <ID>7</ID>
@@ -683,13 +683,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>400</LINE>
+        <LINE>392</LINE>
         <COLUMN>23</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>401</LINE>
+        <LINE>393</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>8</ID>
@@ -701,13 +701,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>402</LINE>
+        <LINE>394</LINE>
         <COLUMN>10</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>403</LINE>
+        <LINE>395</LINE>
         <COLUMN>10</COLUMN>
         <KEYEVENT>
           <ID>9</ID>
@@ -719,7 +719,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>403</LINE>
+        <LINE>395</LINE>
         <COLUMN>10</COLUMN>
         <KEYEVENT>
           <ID>10</ID>
@@ -734,14 +734,14 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>uiclass.cpp</FILENAME>
-      <LINE>424</LINE>
+      <LINE>416</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
     <DEFECTCODE>6054</DEFECTCODE>
     <DESCRIPTION>String 'tempString' might not be zero-terminated.</DESCRIPTION>
     <FUNCTION>UIClass::UpdateVerticesString</FUNCTION>
     <DECORATED>?UpdateVerticesString@UIClass@@AEAA_NPEAUHWND__@@PEAUID3D11DeviceContext@@H@Z</DECORATED>
-    <FUNCLINE>415</FUNCLINE>
+    <FUNCLINE>407</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>3</RANK>
     <CATEGORY>
@@ -751,13 +751,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>417</LINE>
+        <LINE>409</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>418</LINE>
+        <LINE>410</LINE>
         <COLUMN>6</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -769,13 +769,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>419</LINE>
+        <LINE>411</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>421</LINE>
+        <LINE>413</LINE>
         <COLUMN>8</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -787,13 +787,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>423</LINE>
+        <LINE>415</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>424</LINE>
+        <LINE>416</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -805,7 +805,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>424</LINE>
+        <LINE>416</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
@@ -820,14 +820,14 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>uiclass.cpp</FILENAME>
-      <LINE>444</LINE>
+      <LINE>436</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
     <DEFECTCODE>6054</DEFECTCODE>
     <DESCRIPTION>String 'tempString' might not be zero-terminated.</DESCRIPTION>
     <FUNCTION>UIClass::UpdateAltitudeString</FUNCTION>
     <DECORATED>?UpdateAltitudeString@UIClass@@AEAA_NPEAUHWND__@@PEAUID3D11DeviceContext@@M@Z</DECORATED>
-    <FUNCLINE>435</FUNCLINE>
+    <FUNCLINE>427</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>3</RANK>
     <CATEGORY>
@@ -837,13 +837,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>437</LINE>
+        <LINE>429</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>438</LINE>
+        <LINE>430</LINE>
         <COLUMN>6</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -855,13 +855,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>439</LINE>
+        <LINE>431</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>441</LINE>
+        <LINE>433</LINE>
         <COLUMN>8</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -873,13 +873,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>443</LINE>
+        <LINE>435</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>444</LINE>
+        <LINE>436</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -891,7 +891,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>444</LINE>
+        <LINE>436</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>4</ID>

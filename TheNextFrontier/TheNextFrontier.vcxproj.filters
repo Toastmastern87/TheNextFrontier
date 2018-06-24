@@ -175,6 +175,9 @@
     <Image Include="MarsHeightMap46K.tif">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="MousePointer.tif">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="font01.txt">

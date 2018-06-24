@@ -4,6 +4,7 @@ ShaderManagerClass::ShaderManagerClass()
 {
 	mMarsShader = 0;
 	mFontShader = 0;
+	mMousePointerShader = 0;
 }
 
 ShaderManagerClass::ShaderManagerClass(const ShaderManagerClass& other)
@@ -42,11 +43,30 @@ bool ShaderManagerClass::Initialize(ID3D11Device* device, HWND hwnd)
 		return false;
 	}
 
+	mMousePointerShader = new MousePointerShaderClass();
+	if (!mMousePointerShader)
+	{
+		return false;
+	}
+
+	result = mMousePointerShader->Initialize(device, hwnd);
+	if (!result)
+	{
+		return false;
+	}
+
 	return true;
 }
 
 void ShaderManagerClass::Shutdown()
 {
+	if (mMousePointerShader)
+	{
+		mMousePointerShader->Shutdown();
+		delete mMousePointerShader;
+		mMousePointerShader = 0;
+	}
+
 	if (mFontShader)
 	{
 		mFontShader->Shutdown();
@@ -72,4 +92,9 @@ bool ShaderManagerClass::RenderMarsShader(ID3D11DeviceContext* deviceContext, in
 bool ShaderManagerClass::RenderFontShader(ID3D11DeviceContext* deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, ID3D11ShaderResourceView* texture, XMFLOAT4 color)
 {
 	return mFontShader->Render(deviceContext, indexCount, worldMatrix, viewMatrix, projectionMatrix, texture, color);
+}
+
+bool ShaderManagerClass::RenderMousePointerShader(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, ID3D11ShaderResourceView *texture)
+{
+	return mMousePointerShader->Render(deviceContext, indexCount, worldMatrix, viewMatrix, projectionMatrix, texture);
 }

@@ -34,7 +34,13 @@ bool MarsClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceCont
 
 	GenerateCellGeometry();
 
-	result = LoadHeightMapTexture(device, deviceContext);
+	result = LoadHeightMapTexture(device);
+	if (!result)
+	{
+		return false;
+	}
+
+	result = LoadNormalMapTexture(device);
 	if (!result)
 	{
 		return false;
@@ -581,9 +587,8 @@ vector<float> MarsClass::GetDistanceLUT()
 	return mDistanceLUT;
 }
 
-bool MarsClass::LoadHeightMapTexture(ID3D11Device* device, ID3D11DeviceContext* deviceContext)
+bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 {
-	bool result;
 	HRESULT hResult;
 	const wchar_t* fileName = L"../TheNextFrontier/MarsHeightMap46K.tif";
 
@@ -596,9 +601,8 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device, ID3D11DeviceContext* 
 	return true;
 }
 
-bool MarsClass::LoadNormalMapTexture(ID3D11Device* device, ID3D11DeviceContext* deviceContext)
+bool MarsClass::LoadNormalMapTexture(ID3D11Device* device)
 {
-	bool result;
 	HRESULT hResult;
 	const wchar_t* fileName = L"../TheNextFrontier/MarsNormalMap8K.tif";
 
@@ -614,4 +618,9 @@ bool MarsClass::LoadNormalMapTexture(ID3D11Device* device, ID3D11DeviceContext* 
 ID3D11ShaderResourceView* MarsClass::GetHeightMap() 
 {
 	return mHeightMapResourceView;
+}
+
+ID3D11ShaderResourceView* MarsClass::GetNormalMap()
+{
+	return mNormalMapResourceView;
 }

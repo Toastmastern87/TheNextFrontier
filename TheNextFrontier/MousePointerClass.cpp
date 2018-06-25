@@ -166,7 +166,7 @@ bool MousePointerClass::UpdateMousePointerPos(ID3D11DeviceContext *deviceContext
 	vertices[0].position = XMFLOAT3(mouseX, mouseY, 0.0f);
 	vertices[0].texture = XMFLOAT2(0.0f, 0.0f);
 
-	vertices[1].position = XMFLOAT3((mouseX + 40), (mouseY - 40), 0.0f);
+	vertices[1].position = XMFLOAT3((mouseX + 33.72f), (mouseY - 40), 0.0f);
 	vertices[1].texture = XMFLOAT2(1.0f, 1.0f);
 
 	vertices[2].position = XMFLOAT3(mouseX, (mouseY - 40), 0.0f);
@@ -175,10 +175,10 @@ bool MousePointerClass::UpdateMousePointerPos(ID3D11DeviceContext *deviceContext
 	vertices[3].position = XMFLOAT3(mouseX, mouseY, 0.0f);
 	vertices[3].texture = XMFLOAT2(0.0f, 0.0f);
 
-	vertices[4].position = XMFLOAT3((mouseX + 40), mouseY, 0.0f);
+	vertices[4].position = XMFLOAT3((mouseX + 33.72f), mouseY, 0.0f);
 	vertices[4].texture = XMFLOAT2(1.0f, 0.0f);
 
-	vertices[5].position = XMFLOAT3((mouseX + 40), (mouseY - 40), 0.0f);
+	vertices[5].position = XMFLOAT3((mouseX + 33.72f), (mouseY - 40), 0.0f);
 	vertices[5].texture = XMFLOAT2(1.0f, 1.0f);
 
 	result = deviceContext->Map(mVertexBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);

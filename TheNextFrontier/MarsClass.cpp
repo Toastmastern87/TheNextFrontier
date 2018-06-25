@@ -585,7 +585,7 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device, ID3D11DeviceContext* 
 {
 	bool result;
 	HRESULT hResult;
-	const wchar_t* fileName = L"../TheNextFrontier/MarsHeightMap8K.tif";
+	const wchar_t* fileName = L"../TheNextFrontier/MarsHeightMap46K.tif";
 
 	hResult = CreateWICTextureFromFile(device, fileName, &mHeightMapResource, &mHeightMapResourceView);
 	if (FAILED(hResult))
@@ -593,12 +593,20 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device, ID3D11DeviceContext* 
 		return false;
 	}
 
-	ofstream fOut;
+	return true;
+}
 
-	fOut.open("Debug.txt", ios::out | ios::app);
+bool MarsClass::LoadNormalMapTexture(ID3D11Device* device, ID3D11DeviceContext* deviceContext)
+{
+	bool result;
+	HRESULT hResult;
+	const wchar_t* fileName = L"../TheNextFrontier/MarsNormalMap8K.tif";
 
-
-	fOut.close();
+	hResult = CreateWICTextureFromFile(device, fileName, &mHeightMapResource, &mHeightMapResourceView);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
 
 	return true;
 }

@@ -19,7 +19,7 @@ void GameTimeClass::Initialize()
 	mGameTimeMins = 0;
 	mGameTimeHours = 0;
 	mGameTimeDays = 0;
-	mGameTimeYears = 0;
+	mGameTimeMarsYears = 0;
 
 	mSpeed = 1;
 
@@ -66,7 +66,7 @@ void GameTimeClass::Frame()
 	{
 		mGameTimeDays -= 687;
 
-		mGameTimeYears++;
+		mGameTimeMarsYears++;
 	}
 
 	return;

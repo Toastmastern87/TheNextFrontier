@@ -100,7 +100,9 @@ private:
 	bool InitializeIcosphere();
 	void ShutdownBuffers();
 	void RenderBuffers(ID3D11DeviceContext*);
+
 	bool LoadHeightMapTexture(ID3D11Device*, ID3D11DeviceContext*);
+	bool LoadNormalMapTexture(ID3D11Device*, ID3D11DeviceContext*);
 
 	float GetVectorLength(XMFLOAT3);
 	float GetVectorDistance(XMFLOAT3, XMFLOAT3);
@@ -140,6 +142,6 @@ private:
 	int mScreenWidth;
 
 	PositionClass* mPosition;
-	ID3D11Resource *mHeightMapResource;
-	ID3D11ShaderResourceView* mHeightMapResourceView;
+	ID3D11Resource *mHeightMapResource, *mNormalMapResource;
+	ID3D11ShaderResourceView* mHeightMapResourceView, *mNormalMapResourceView;
 };

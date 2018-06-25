@@ -22,6 +22,12 @@ cbuffer HeightCalculations
 	float4 marsMinHeight;
 };
 
+cbuffer LightCalculations
+{
+	float4 diffuseColor;
+	float3 lightDirection;
+};
+
 struct VertexInputType
 {
 	float2 localPosition : TEXCOORD0;
@@ -93,7 +99,7 @@ PixelInputType MarsVertexShader(VertexInputType input)
 	output.position = mul(output.position, viewMatrix);
 	output.position = mul(output.position, projectionMatrix);
 	
-	output.color = float4(height, height, height, height);
+	output.color = float4(1.0f, 1.0f, 1.0f, 1.0f);
 
 	return output;
 }

@@ -184,9 +184,9 @@ void InputClass::ProcessInput()
 		mMouseY = -(mScreenHeight / 2);
 	}
 
-	if(mMouseX >= ((mScreenWidth / 2) - 40))
+	if(mMouseX >= ((mScreenWidth / 2) - 33.72f))
 	{
-		mMouseX = ((mScreenWidth / 2) - 40);
+		mMouseX = ((mScreenWidth / 2) - 33.72f);
 	}
 
 	if (mMouseY >= ((mScreenHeight / 2) - 40))

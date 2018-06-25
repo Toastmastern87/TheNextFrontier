@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CameraClass.cpp" />
+    <ClCompile Include="GameTimeClass.cpp" />
     <ClCompile Include="MarsShaderClass.cpp" />
     <ClCompile Include="D3DClass.cpp" />
     <ClCompile Include="FontClass.cpp" />
@@ -166,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CameraClass.h" />
+    <ClInclude Include="GameTimeClass.h" />
     <ClInclude Include="MarsShaderClass.h" />
     <ClInclude Include="D3DClass.h" />
     <ClInclude Include="FontClass.h" />

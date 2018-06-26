@@ -22,7 +22,7 @@
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'LightClass::mAmbientColor' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'LightClass::mPosition' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>LightClass::{ctor}</FUNCTION>
     <DECORATED>??0LightClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -64,7 +64,7 @@
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'LightClass::mPosition' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'LightClass::mAmbientColor' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>LightClass::{ctor}</FUNCTION>
     <DECORATED>??0LightClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -78,7 +78,7 @@
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'LightClass::mAmbientColor' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'LightClass::mPosition' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>LightClass::{ctor}</FUNCTION>
     <DECORATED>??0LightClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>7</FUNCLINE>
@@ -120,7 +120,7 @@
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'LightClass::mPosition' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'LightClass::mAmbientColor' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>LightClass::{ctor}</FUNCTION>
     <DECORATED>??0LightClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>7</FUNCLINE>

@@ -26,6 +26,7 @@ cbuffer LightCalculations
 {
 	float4 lightDirection;
 	float4 diffuseColor;
+	float4 patchDelta;
 };
 
 struct VertexInputType
@@ -43,6 +44,15 @@ struct PixelInputType
 	float4 position : SV_POSITION;
 	float4 color : COLOR;
 };
+
+float3 CalculateNormal()
+{
+	float3 normal, tangent, biTangent, up;
+
+	up = float3(0.0f, 1.0f, 0.0f);
+
+	return float3(0.0f, 0.0f, 0.0f);
+}
 
 float MorphFac(float distance, int level)
 {
@@ -67,7 +77,6 @@ float GetHeight(float3 pos)
 	normalizePos = normalize(pos);
 
 	uv = float2((0.5f + (atan2(normalizePos.z, normalizePos.x) / (2 * 3.14159265f))), (0.5f - (asin(normalizePos.y) / 3.14159265f)));
-	//uv = float2(atan2(normalizePos.z, normalizePos.x)/6.28318530718, acos(normalizePos.y)/3.14159265359f);
 
 	heightColorValue = shaderTexture.SampleLevel(sampleType, uv, 0).r;
 

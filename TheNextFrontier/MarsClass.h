@@ -90,6 +90,7 @@ public:
 	float GetMarsRadius();
 	float GetMarsMaxHeight();
 	float GetMarsMinHeight();
+	float GetMarsPatchDelta();
 	vector<float> GetDistanceLUT();
 	ID3D11ShaderResourceView* GetHeightMap();
 	ID3D11ShaderResourceView* GetNormalMap();
@@ -139,7 +140,7 @@ private:
 
 	int mMaxSubdivisionLevel;
 	int mMaxCellLevel;
-	float mMaxTriangleSize;
+	float mMaxTriangleSize, mDelta;
 	int mScreenWidth;
 
 	PositionClass* mPosition;

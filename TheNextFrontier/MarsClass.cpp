@@ -164,14 +164,12 @@ bool MarsClass::MapCells(ID3D11DeviceContext* deviceContext)
 
 void MarsClass::GenerateCellGeometry()
 {
-	float delta;
-
 	mMarsCellVertices.clear();
 	mMarsCellIndices.clear();
 
 	int mRC = 1 + (int)pow(2, mMaxCellLevel);
 
-	delta = 1 / (float)(mRC - 1);
+	mDelta = 1 / (float)(mRC - 1);
 
 	int rowIndex = 0;
 	int nextIndex = 0;
@@ -193,18 +191,18 @@ void MarsClass::GenerateCellGeometry()
 			{
 				if (column % 2 == 1) 
 				{
-					morph = XMFLOAT2(-delta, 0);
+					morph = XMFLOAT2(-mDelta, 0);
 				} 
 			}
 			else
 			{
 				if (column % 2 == 0) 
 				{ 
-					morph = XMFLOAT2(0, delta); 
+					morph = XMFLOAT2(0, mDelta);
 				}
 				else 
 				{ 
-					morph = XMFLOAT2(delta, -delta);
+					morph = XMFLOAT2(mDelta, -mDelta);
 				}
 			}
 
@@ -580,6 +578,11 @@ float MarsClass::GetMarsMaxHeight()
 float MarsClass::GetMarsMinHeight()
 {
 	return mMarsMinHeight;
+}
+
+float MarsClass::GetMarsPatchDelta()
+{
+	return mDelta;
 }
 
 vector<float> MarsClass::GetDistanceLUT()

@@ -37,11 +37,11 @@ void MarsShaderClass::Shutdown()
 	return;
 }
 
-bool MarsShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, XMFLOAT4 lightDirection, XMFLOAT4 lightDiffuseColor)
+bool MarsShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, XMFLOAT4 lightDirection, XMFLOAT4 lightDiffuseColor, float patchDelta)
 {
 	bool result;
 
-	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, marsRadius,  marsMaxHeight, marsMinHeight, distanceLUT, cameraPos, heightTexture, lightDirection, lightDiffuseColor);
+	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, marsRadius,  marsMaxHeight, marsMinHeight, distanceLUT, cameraPos, heightTexture, lightDirection, lightDiffuseColor, patchDelta);
 	if (!result)
 	{
 		return false;
@@ -326,7 +326,7 @@ void MarsShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND hw
 	return;
 }
 
-bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, XMFLOAT4 lightDirection, XMFLOAT4 lightDiffuseColor)
+bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, XMFLOAT4 lightDirection, XMFLOAT4 lightDiffuseColor, float patchDelta)
 {
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
@@ -404,6 +404,7 @@ bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XM
 
 	lightDataPtr->lightDirection = lightDirection;
 	lightDataPtr->diffuseColor = lightDiffuseColor;
+	lightDataPtr->patchDelta = XMFLOAT4(patchDelta, patchDelta, patchDelta, patchDelta);
 
 	deviceContext->Unmap(mLightBuffer, 0);
 
@@ -421,7 +422,7 @@ bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XM
 
 	bufferNumber = 3;
 
-	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mMorphBuffer);
+	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mLightBuffer);
 
 	deviceContext->VSSetShaderResources(0, 1, &heightTexture);
 

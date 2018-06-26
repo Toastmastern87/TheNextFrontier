@@ -26,9 +26,9 @@ void LightClass::SetDiffuseColor(float red, float green, float blue, float alpha
 	return;
 }
 
-void LightClass::SetDirection(float x, float y, float z)
+void LightClass::SetDirection(float x, float y, float z, float w)
 {
-	mDirection = XMFLOAT3(x, y, z);
+	mDirection = XMFLOAT4(x, y, z, w);
 
 	return;
 }
@@ -50,7 +50,7 @@ XMFLOAT4 LightClass::GetDiffuseColor()
 	return mDiffuseColor;
 }
 
-XMFLOAT3 LightClass::GetDirection()
+XMFLOAT4 LightClass::GetDirection()
 {
 	return mDirection;
 }

@@ -1,3 +1,6 @@
+Texture2D shaderTexture;
+SamplerState sampleType;
+
 struct PixelInputType
 {
 	float4 position : SV_POSITION;
@@ -5,9 +8,15 @@ struct PixelInputType
 	float3 normal : NORMAL;
 };
 
-
-
 float4 MarsPixelShader(PixelInputType input) : SV_TARGET
 {
+	float2 uv;
+	float3 normalizePos;
+
+	normalizePos = float3(input.position.x, input.position.y, input.position.z);
+	normalizePos = normalize(normalizePos);
+
+	uv = float2((0.5f + (atan2(normalizePos.z, normalizePos.x) / (2 * 3.14159265f))), (0.5f - (asin(normalizePos.y) / 3.14159265f)));
+
 	return input.color;
 }

@@ -37,11 +37,11 @@ void MarsShaderClass::Shutdown()
 	return;
 }
 
-bool MarsShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX inverserWorldMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, XMFLOAT4 lightDirection, XMFLOAT4 lightDiffuseColor, float patchDelta)
+bool MarsShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX inverserWorldMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, XMFLOAT4 lightDirection, XMFLOAT4 lightDiffuseColor, float patchDelta, ID3D11ShaderResourceView* normalTexture)
 {
 	bool result;
 
-	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, inverserWorldMatrix, marsRadius,  marsMaxHeight, marsMinHeight, distanceLUT, cameraPos, heightTexture, lightDirection, lightDiffuseColor, patchDelta);
+	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, inverserWorldMatrix, marsRadius,  marsMaxHeight, marsMinHeight, distanceLUT, cameraPos, heightTexture, lightDirection, lightDiffuseColor, patchDelta, normalTexture);
 	if (!result)
 	{
 		return false;
@@ -61,7 +61,7 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 	D3D11_INPUT_ELEMENT_DESC polygonLayout[6];
 	unsigned int numElements;
 	D3D11_BUFFER_DESC matrixBufferDesc, morphBufferDesc, heightBufferDesc, lightBufferDesc;
-	D3D11_SAMPLER_DESC samplerDescHeight;
+	D3D11_SAMPLER_DESC samplerDescHeight, samplerDescNormal;
 
 	errorMessage = 0;
 	vertexShaderBuffer = 0;
@@ -243,6 +243,26 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 		return false;
 	}
 
+	samplerDescNormal.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+	samplerDescNormal.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
+	samplerDescNormal.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
+	samplerDescNormal.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;
+	samplerDescNormal.MipLODBias = 0.0f;
+	samplerDescNormal.MaxAnisotropy = 1;
+	samplerDescNormal.ComparisonFunc = D3D11_COMPARISON_ALWAYS;
+	samplerDescNormal.BorderColor[0] = 0;
+	samplerDescNormal.BorderColor[1] = 0;
+	samplerDescNormal.BorderColor[2] = 0;
+	samplerDescNormal.BorderColor[3] = 0;
+	samplerDescNormal.MinLOD = 0;
+	samplerDescNormal.MaxLOD = D3D11_FLOAT32_MAX;
+
+	result = device->CreateSamplerState(&samplerDescNormal, &mSampleStateNormal);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
 	return true;
 }
 
@@ -252,6 +272,12 @@ void MarsShaderClass::ShutdownShader()
 	{
 		mLightBuffer->Release();
 		mLightBuffer = 0;
+	}
+
+	if (mSampleStateNormal)
+	{
+		mSampleStateNormal->Release();
+		mSampleStateNormal = 0;
 	}
 
 	if (mSampleStateHeight)
@@ -326,7 +352,7 @@ void MarsShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND hw
 	return;
 }
 
-bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX inverseWorldMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, XMFLOAT4 lightDirection, XMFLOAT4 lightDiffuseColor, float patchDelta)
+bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX inverseWorldMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, XMFLOAT4 lightDirection, XMFLOAT4 lightDiffuseColor, float patchDelta, ID3D11ShaderResourceView* normalTexture)
 {
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
@@ -427,6 +453,8 @@ bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XM
 	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mLightBuffer);
 
 	deviceContext->VSSetShaderResources(0, 1, &heightTexture);
+
+	deviceContext->PSSetShaderResources(0, 1, &normalTexture);
 
 	return true;
 }

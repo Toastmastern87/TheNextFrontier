@@ -24,8 +24,8 @@ cbuffer HeightCalculations
 
 cbuffer LightCalculations
 {
+	float4 lightDirection;
 	float4 diffuseColor;
-	float3 lightDirection;
 };
 
 struct VertexInputType

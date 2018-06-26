@@ -6,6 +6,7 @@ MarsShaderClass::MarsShaderClass()
 	mPixelShader = 0;
 	mMatrixBuffer = 0;
 	mLayout = 0;
+	mLightBuffer = 0;
 }
 
 MarsShaderClass::MarsShaderClass(const MarsShaderClass& other)
@@ -36,11 +37,11 @@ void MarsShaderClass::Shutdown()
 	return;
 }
 
-bool MarsShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture)
+bool MarsShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, XMFLOAT4 lightDirection, XMFLOAT4 lightDiffuseColor)
 {
 	bool result;
 
-	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, marsRadius,  marsMaxHeight, marsMinHeight, distanceLUT, cameraPos, heightTexture);
+	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, marsRadius,  marsMaxHeight, marsMinHeight, distanceLUT, cameraPos, heightTexture, lightDirection, lightDiffuseColor);
 	if (!result)
 	{
 		return false;
@@ -59,8 +60,8 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 	ID3D10Blob* pixelShaderBuffer;
 	D3D11_INPUT_ELEMENT_DESC polygonLayout[6];
 	unsigned int numElements;
-	D3D11_BUFFER_DESC matrixBufferDesc, morphBufferDesc, heightBufferDesc;
-	D3D11_SAMPLER_DESC samplerDesc;
+	D3D11_BUFFER_DESC matrixBufferDesc, morphBufferDesc, heightBufferDesc, lightBufferDesc;
+	D3D11_SAMPLER_DESC samplerDescHeight;
 
 	errorMessage = 0;
 	vertexShaderBuffer = 0;
@@ -209,21 +210,34 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 		return false;
 	}
 
-	samplerDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
-	samplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
-	samplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
-	samplerDesc.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;
-	samplerDesc.MipLODBias = 0.0f;
-	samplerDesc.MaxAnisotropy = 1;
-	samplerDesc.ComparisonFunc = D3D11_COMPARISON_ALWAYS;
-	samplerDesc.BorderColor[0] = 0;
-	samplerDesc.BorderColor[1] = 0;
-	samplerDesc.BorderColor[2] = 0;
-	samplerDesc.BorderColor[3] = 0;
-	samplerDesc.MinLOD = 0;
-	samplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
+	samplerDescHeight.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+	samplerDescHeight.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
+	samplerDescHeight.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
+	samplerDescHeight.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;
+	samplerDescHeight.MipLODBias = 0.0f;
+	samplerDescHeight.MaxAnisotropy = 1;
+	samplerDescHeight.ComparisonFunc = D3D11_COMPARISON_ALWAYS;
+	samplerDescHeight.BorderColor[0] = 0;
+	samplerDescHeight.BorderColor[1] = 0;
+	samplerDescHeight.BorderColor[2] = 0;
+	samplerDescHeight.BorderColor[3] = 0;
+	samplerDescHeight.MinLOD = 0;
+	samplerDescHeight.MaxLOD = D3D11_FLOAT32_MAX;
 
-	result = device->CreateSamplerState(&samplerDesc, &mSampleState);
+	result = device->CreateSamplerState(&samplerDescHeight, &mSampleStateHeight);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	lightBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+	lightBufferDesc.ByteWidth = sizeof(LightBufferType);
+	lightBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	lightBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	lightBufferDesc.MiscFlags = 0;
+	lightBufferDesc.StructureByteStride = 0;
+
+	result = device->CreateBuffer(&lightBufferDesc, NULL, &mLightBuffer);
 	if (FAILED(result))
 	{
 		return false;
@@ -234,10 +248,16 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 
 void MarsShaderClass::ShutdownShader()
 {
-	if (mSampleState)
+	if (mLightBuffer)
 	{
-		mSampleState->Release();
-		mSampleState = 0;
+		mLightBuffer->Release();
+		mLightBuffer = 0;
+	}
+
+	if (mSampleStateHeight)
+	{
+		mSampleStateHeight->Release();
+		mSampleStateHeight = 0;
 	}
 
 	if (mHeightBuffer)
@@ -306,13 +326,14 @@ void MarsShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND hw
 	return;
 }
 
-bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture)
+bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, XMFLOAT4 lightDirection, XMFLOAT4 lightDiffuseColor)
 {
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
 	MatrixBufferType *dataPtr;
 	MorphBufferType *morphDataPtr;
 	MarsHeightBufferType *heightDataPtr;
+	LightBufferType *lightDataPtr;
 
 	unsigned int bufferNumber;
 
@@ -373,6 +394,19 @@ bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XM
 
 	deviceContext->Unmap(mHeightBuffer, 0);
 
+	result = deviceContext->Map(mLightBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	lightDataPtr = (LightBufferType*)mappedResource.pData;
+
+	lightDataPtr->lightDirection = lightDirection;
+	lightDataPtr->diffuseColor = lightDiffuseColor;
+
+	deviceContext->Unmap(mLightBuffer, 0);
+
 	bufferNumber = 0;
 
 	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mMatrixBuffer);
@@ -384,6 +418,10 @@ bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XM
 	bufferNumber = 2;
 
 	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mHeightBuffer);
+
+	bufferNumber = 3;
+
+	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mMorphBuffer);
 
 	deviceContext->VSSetShaderResources(0, 1, &heightTexture);
 
@@ -397,7 +435,7 @@ void MarsShaderClass::RenderShaders(ID3D11DeviceContext* deviceContext, int inde
 	deviceContext->VSSetShader(mVertexShader, NULL, 0);
 	deviceContext->PSSetShader(mPixelShader, NULL, 0);
 
-	deviceContext->VSSetSamplers(0, 1, &mSampleState);
+	deviceContext->VSSetSamplers(0, 1, &mSampleStateHeight);
 
 	deviceContext->DrawIndexedInstanced(indexCount, instanceCount, 0, 0, 0);
 

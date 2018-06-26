@@ -79,6 +79,45 @@
   </DEFECT><DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>lightclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>LightClass::{ctor}</FUNCTION>
+    <DECORATED>??0LightClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>lightclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'LightClass::mAmbientColor' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>LightClass::{ctor}</FUNCTION>
+    <DECORATED>??0LightClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>lightclass.cpp</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'LightClass::mAmbientColor' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>LightClass::{ctor}</FUNCTION>
+    <DECORATED>??0LightClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsshaderclass.cpp</FILENAME>
       <LINE>3</LINE>
       <COLUMN>17</COLUMN>
@@ -106,14 +145,14 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsshaderclass.cpp</FILENAME>
-      <LINE>11</LINE>
+      <LINE>12</LINE>
       <COLUMN>17</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsShaderClass::mVertexShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsShaderClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsShaderClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>11</FUNCLINE>
+    <FUNCLINE>12</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
@@ -1396,8 +1435,8 @@
       <LINE>54</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>54</FUNCLINE>
@@ -1409,8 +1448,8 @@
       <LINE>54</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>54</FUNCLINE>
@@ -1436,7 +1475,7 @@
       <COLUMN>18</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ApplicationClass::mInput' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'ApplicationClass::mUniverse' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ApplicationClass::{ctor}</FUNCTION>
     <DECORATED>??0ApplicationClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>13</FUNCLINE>
@@ -1805,8 +1844,8 @@
       <LINE>3</LINE>
       <COLUMN>13</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'SystemClass::mHInstance' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1818,8 +1857,8 @@
       <LINE>3</LINE>
       <COLUMN>13</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'SystemClass::mHInstance' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>

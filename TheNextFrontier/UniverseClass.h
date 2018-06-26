@@ -11,6 +11,7 @@
 #include "MarsClass.h"
 #include "FrustumClass.h"
 #include "MousePointerClass.h"
+#include "LightClass.h"
 
 class UniverseClass
 {
@@ -33,6 +34,7 @@ private:
 	PositionClass* mPosition;
 	MarsClass* mMars;
 	FrustumClass* mFrustum;
+	LightClass* mSunlight;
 	bool mDisplayUI, mWireframe;
 	float mScreenDepth, mScreenNear;
 	MousePointerClass *mMousePointer;

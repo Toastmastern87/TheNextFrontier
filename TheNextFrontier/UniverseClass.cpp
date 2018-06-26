@@ -7,6 +7,7 @@ UniverseClass::UniverseClass()
 	mPosition = 0;
 	mMars = 0;
 	mFrustum = 0;
+	mSunlight = 0;
 }
 
 UniverseClass::UniverseClass(const UniverseClass& other)
@@ -46,6 +47,9 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 	mCamera->SetFOV(45.0f);
 	mCamera->Render();
 	mCamera->RenderBaseViewMatrix();
+
+	mSunlight->SetDiffuseColor(1.0f, 1.0f, 1.0f, 1.0f);
+	mSunlight->SetDirection(1.0f, 0.0f, 0.0f);
 
 	mPosition = new PositionClass;
 	if (!mPosition)
@@ -121,6 +125,12 @@ void UniverseClass::Shutdown()
 	{
 		delete mPosition;
 		mPosition = 0;
+	}
+
+	if (mSunlight)
+	{
+		delete mSunlight;
+		mSunlight = 0;
 	}
 
 	if (mCamera)
@@ -254,7 +264,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 
 	mMars->Render(direct3D->GetDeviceContext());
 
-	result = shaderManager->RenderMarsShader(direct3D->GetDeviceContext(), mMars->GetIndexCount(), mMars->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, mMars->GetMarsRadius(), mMars->GetMarsMaxHeight(), mMars->GetMarsMinHeight(), mMars->GetDistanceLUT(), mPosition->GetPositionXMFLOAT3(), mMars->GetHeightMap(), XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f));
+	result = shaderManager->RenderMarsShader(direct3D->GetDeviceContext(), mMars->GetIndexCount(), mMars->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, mMars->GetMarsRadius(), mMars->GetMarsMaxHeight(), mMars->GetMarsMinHeight(), mMars->GetDistanceLUT(), mPosition->GetPositionXMFLOAT3(), mMars->GetHeightMap(), XMFLOAT4(mSunlight->GetDirection().x, mSunlight->GetDirection().y, mSunlight->GetDirection().z, 1.0f), mSunlight->GetDiffuseColor());
 	if (!result)
 	{
 		return false;

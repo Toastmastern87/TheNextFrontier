@@ -6,6 +6,7 @@ cbuffer MatrixBuffer
 	matrix worldMatrix;
 	matrix viewMatrix;
 	matrix projectionMatrix;
+	matrix inverseWorldMatrix;
 	float marsRadius;
 };
 
@@ -43,16 +44,8 @@ struct PixelInputType
 {
 	float4 position : SV_POSITION;
 	float4 color : COLOR;
+	float3 normal : NORMAL;
 };
-
-float3 CalculateNormal()
-{
-	float3 normal, tangent, biTangent, up;
-
-	up = float3(0.0f, 1.0f, 0.0f);
-
-	return float3(0.0f, 0.0f, 0.0f);
-}
 
 float MorphFac(float distance, int level)
 {
@@ -91,6 +84,7 @@ PixelInputType MarsVertexShader(VertexInputType input)
 	float distance;
 	float morphPercentage;
 	float height;
+	matrix normalMatrix;
 
 	finalPos = input.a + input.r * input.localPosition.x + input.s * input.localPosition.y;
 
@@ -103,6 +97,9 @@ PixelInputType MarsVertexShader(VertexInputType input)
 
 	normPos = normalize(finalPos) * (marsRadius + (height * (marsMaxHeight - marsMinHeight)) + marsMinHeight);
 	finalPos.xyz = normPos;
+
+	//Normal calculations
+	output.normal = normalize(mul(float4(finalPos, 1.0f), inverseWorldMatrix));
 
 	output.position = mul(float4(finalPos, 1.0f), worldMatrix);
 	output.position = mul(output.position, viewMatrix);

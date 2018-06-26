@@ -27,6 +27,7 @@ public:
 	ID3D11DeviceContext* GetDeviceContext();
 
 	XMMATRIX GetProjectionMatrix();
+	XMMATRIX GetInverseWorldMatrix();
 	void GetWorldMatrix(XMMATRIX&);
 	void GetOrthoMatrix(XMMATRIX&);
 

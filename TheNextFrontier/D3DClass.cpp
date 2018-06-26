@@ -524,6 +524,11 @@ XMMATRIX D3DClass::GetProjectionMatrix()
 	return mProjectionMatrix;
 }
 
+XMMATRIX D3DClass::GetInverseWorldMatrix()
+{
+	return XMMatrixInverse(nullptr, mWorldMatrix);
+}
+
 void D3DClass::GetWorldMatrix(XMMATRIX& worldMatrix)
 {
 	worldMatrix = mWorldMatrix;

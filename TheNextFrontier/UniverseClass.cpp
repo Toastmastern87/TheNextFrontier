@@ -243,12 +243,13 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 
 bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager)
 {
-	XMMATRIX worldMatrix, viewMatrix, projectionMatrix, baseViewMatrix, orthoMatrix;
+	XMMATRIX worldMatrix, viewMatrix, projectionMatrix, baseViewMatrix, orthoMatrix, inverseWorldMatrix;
 	bool result;
 
 	mCamera->Render();
 
 	direct3D->GetWorldMatrix(worldMatrix);
+	inverseWorldMatrix = direct3D->GetInverseWorldMatrix();
 	viewMatrix = mCamera->GetViewMatrix();
 	projectionMatrix = direct3D->GetProjectionMatrix();
 	mCamera->GetBaseViewMatrix(baseViewMatrix);
@@ -270,7 +271,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 
 	mMars->Render(direct3D->GetDeviceContext());
 
-	result = shaderManager->RenderMarsShader(direct3D->GetDeviceContext(), mMars->GetIndexCount(), mMars->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, mMars->GetMarsRadius(), mMars->GetMarsMaxHeight(), mMars->GetMarsMinHeight(), mMars->GetDistanceLUT(), mPosition->GetPositionXMFLOAT3(), mMars->GetHeightMap(), mSunlight->GetDirection(), mSunlight->GetDiffuseColor(), mMars->GetMarsPatchDelta());
+	result = shaderManager->RenderMarsShader(direct3D->GetDeviceContext(), mMars->GetIndexCount(), mMars->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, inverseWorldMatrix, mMars->GetMarsRadius(), mMars->GetMarsMaxHeight(), mMars->GetMarsMinHeight(), mMars->GetDistanceLUT(), mPosition->GetPositionXMFLOAT3(), mMars->GetHeightMap(), mSunlight->GetDirection(), mSunlight->GetDiffuseColor(), mMars->GetMarsPatchDelta());
 	if (!result)
 	{
 		return false;

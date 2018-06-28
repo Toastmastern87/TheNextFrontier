@@ -23,13 +23,6 @@ cbuffer HeightCalculations
 	float4 marsMinHeight;
 };
 
-cbuffer LightCalculations
-{
-	float4 lightDirection;
-	float4 diffuseColor;
-	float4 patchDelta;
-};
-
 struct VertexInputType
 {
 	float2 localPosition : TEXCOORD0;
@@ -44,7 +37,9 @@ struct PixelInputType
 {
 	float4 position : SV_POSITION;
 	float4 color : COLOR;
-	float3 normal : NORMAL;
+	float2 mapCoord : TEXCOORD0;
+	float3 normal : NORMAL0;
+	float3 viewVector : NORMAL1;
 };
 
 float MorphFac(float distance, int level)
@@ -73,13 +68,14 @@ float GetHeight(float3 pos)
 
 	heightColorValue = shaderTexture.SampleLevel(sampleType, uv, 0).r;
 
-	return heightColorValue;//clamp(heightColorValue, marsMinHeight.x, marsMaxHeight.x);
+	return heightColorValue;
 }
 
 PixelInputType MarsVertexShader(VertexInputType input)
 {
 	PixelInputType output;
 	float3 finalPos;
+	float3 mapCoords;
 	float3 normPos;
 	float distance;
 	float morphPercentage;
@@ -96,16 +92,18 @@ PixelInputType MarsVertexShader(VertexInputType input)
 	height = GetHeight(finalPos);
 
 	normPos = normalize(finalPos) * (marsRadius + (height * (marsMaxHeight - marsMinHeight)) + marsMinHeight);
-	finalPos.xyz = normPos;
+	finalPos = normPos;
 
 	//Normal calculations
-	output.normal = normalize(mul(float4(finalPos, 1.0f), inverseWorldMatrix));
+	output.normal = mul(finalPos, worldMatrix);
+	output.viewVector = (cameraPos.xyz - mul(finalPos, worldMatrix));
+
+	mapCoords = normalize(finalPos);
+	output.mapCoord = float2((0.5f + (atan2(mapCoords.z, mapCoords.x) / (2 * 3.14159265f))), (0.5f - (asin(mapCoords.y) / 3.14159265f)));
 
 	output.position = mul(float4(finalPos, 1.0f), worldMatrix);
 	output.position = mul(output.position, viewMatrix);
 	output.position = mul(output.position, projectionMatrix);
-	
-	output.color = float4(1.0f, 1.0f, 1.0f, 1.0f);
 
 	return output;
 }

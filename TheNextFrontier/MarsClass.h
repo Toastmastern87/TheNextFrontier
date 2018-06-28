@@ -93,7 +93,6 @@ public:
 	float GetMarsPatchDelta();
 	vector<float> GetDistanceLUT();
 	ID3D11ShaderResourceView* GetHeightMap();
-	ID3D11ShaderResourceView* GetNormalMap();
 
 	bool UpdateMars(ID3D11DeviceContext*, FrustumClass*, PositionClass*);
 
@@ -104,7 +103,6 @@ private:
 	void RenderBuffers(ID3D11DeviceContext*);
 
 	bool LoadHeightMapTexture(ID3D11Device*);
-	bool LoadNormalMapTexture(ID3D11Device*);
 
 	float GetVectorLength(XMFLOAT3);
 	float GetVectorDistance(XMFLOAT3, XMFLOAT3);
@@ -144,6 +142,6 @@ private:
 	int mScreenWidth;
 
 	PositionClass* mPosition;
-	ID3D11Resource *mHeightMapResource, *mNormalMapResource;
-	ID3D11ShaderResourceView* mHeightMapResourceView, *mNormalMapResourceView;
+	ID3D11Resource *mHeightMapResource;
+	ID3D11ShaderResourceView* mHeightMapResourceView;
 };

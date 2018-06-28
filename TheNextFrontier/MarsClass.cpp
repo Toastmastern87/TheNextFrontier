@@ -40,12 +40,6 @@ bool MarsClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceCont
 		return false;
 	}
 
-	result = LoadNormalMapTexture(device);
-	if (!result)
-	{
-		return false;
-	}
-
 	result = InitializeBuffers(device);
 	if (!result)
 	{
@@ -604,26 +598,7 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 	return true;
 }
 
-bool MarsClass::LoadNormalMapTexture(ID3D11Device* device)
-{
-	HRESULT hResult;
-	const wchar_t* fileName = L"../TheNextFrontier/MarsNormalMap8K.tif";
-
-	hResult = CreateWICTextureFromFile(device, fileName, &mNormalMapResource, &mNormalMapResourceView);
-	if (FAILED(hResult))
-	{
-		return false;
-	}
-
-	return true;
-}
-
 ID3D11ShaderResourceView* MarsClass::GetHeightMap() 
 {
 	return mHeightMapResourceView;
-}
-
-ID3D11ShaderResourceView* MarsClass::GetNormalMap()
-{
-	return mNormalMapResourceView;
 }

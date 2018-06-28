@@ -5,18 +5,79 @@ struct PixelInputType
 {
 	float4 position : SV_POSITION;
 	float4 color : COLOR;
+	float2 mapCoord : TEXCOORD0;
 	float3 normal : NORMAL;
+	float3 viewVector : NORMAL1;
 };
+
+cbuffer LightCalculations
+{
+	float4 lightDirection;
+	float4 diffuseColor;
+	float4 patchDelta;
+};
+
+float3x3 GetTBNMatrix(float3 normalVector, float3 posVector, float2 uv)
+{
+	float3 dp1, dp2, dp2perp, dp1perp, T, B;
+	float2 duv1, duv2;
+	float invMax;
+
+	dp1 = ddx(posVector);
+	dp2 = ddy(posVector);
+	duv1 = ddx(uv);
+	duv2 = ddx(uv);
+
+	dp2perp = cross(dp2, normalVector);
+	dp1perp = cross(normalVector, dp1);
+
+	// * -1 due to being LH coordinate system
+	T = (dp2perp * duv1.x + dp1perp * duv2.x) * -1;
+	B = (dp2perp * duv1.y + dp1perp * duv2.y) * -1;
+
+	invMax = rsqrt(max(dot(T, T), dot(B, B)));
+
+    return float3x3(T * invMax, B * invMax, normalVector);
+}
+
+float GetHeight(float2 uv)
+{
+	return shaderTexture.SampleLevel(sampleType, uv, 0).r * (21.229f + 8.2f);
+}
+
+float3 CalculateNormal(float3 normalVector, float3 viewVector, float2 uv)
+{
+	float textureWidth, textureHeight, hL, hR, hD, hU;
+	float3 texOffset, N;
+	float3x3 TBN;
+
+	shaderTexture.GetDimensions(textureWidth, textureHeight);
+
+	texOffset = float3((1.0f / textureWidth), (1.0f / textureHeight), 0.0f);
+
+	hL = GetHeight(uv - texOffset.xz);
+	hR = GetHeight(uv + texOffset.xz);
+	hD = GetHeight(uv + texOffset.zy);
+	hU = GetHeight(uv - texOffset.zy);
+
+	N = normalize(float3((hL - hR), (hU - hD), 2.0f));
+
+	TBN = GetTBNMatrix(normalVector, -viewVector, uv);
+
+	return normalize(mul(TBN, N));
+}
 
 float4 MarsPixelShader(PixelInputType input) : SV_TARGET
 {
-	float2 uv;
-	float3 normalizePos;
+	float3 normal;
+	float lightIntensity, color;
+	float4 finalColor;
 
-	normalizePos = float3(input.position.x, input.position.y, input.position.z);
-	normalizePos = normalize(normalizePos);
+	normal = CalculateNormal(normalize(input.normal), normalize(input.viewVector), input.mapCoord);
 
-	uv = float2((0.5f + (atan2(normalizePos.z, normalizePos.x) / (2 * 3.14159265f))), (0.5f - (asin(normalizePos.y) / 3.14159265f)));
+    lightIntensity = saturate(dot(normal, normalize(-lightDirection)));
 
-	return input.color;
+    color = saturate(diffuseColor * lightIntensity);
+
+	return float4(color, color, color, 1.0f);
 }

@@ -64,7 +64,7 @@ float3 CalculateNormal(float3 normalVector, float3 viewVector, float2 uv)
 
 	TBN = GetTBNMatrix(normalVector, -viewVector, uv);
 
-	return normalize(mul(TBN, N));
+	return mul(TBN, N);
 }
 
 float4 MarsPixelShader(PixelInputType input) : SV_TARGET

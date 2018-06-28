@@ -2,6 +2,8 @@
 
 #define _USE_MATH_DEFINES
 
+const bool HD = false;
+
 #include <d3d11.h>
 #include <DirectXMath.h>
 #include <vector>
@@ -11,8 +13,10 @@
 #include "PositionClass.h"
 #include "TextureClass.h"
 #include <WICTextureLoader.h>
+#include "CImg.h"
 using namespace DirectX;
 using namespace std;
+using namespace cimg_library;
 
 class MarsClass
 {
@@ -132,6 +136,7 @@ private:
 
 	vector<TriangleType> mIcosphere;
 	vector<MarsCellType> mMarsCells;
+	vector<vector<int>> mHeightData;
 
 	vector<float> mDistanceLUT;
 	vector<float> mHeightMultiLUT;

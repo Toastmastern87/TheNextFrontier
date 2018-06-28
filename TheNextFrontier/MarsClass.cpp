@@ -587,12 +587,34 @@ vector<float> MarsClass::GetDistanceLUT()
 bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 {
 	HRESULT hResult;
-	const wchar_t* fileName = L"../TheNextFrontier/MarsHeightMap8K.tif";
+	const wchar_t* fileName;
+	int textureWidth, textureHeight;
+
+	if (HD) 
+	{
+		fileName = L"../TheNextFrontier/MarsHeightMap46K.tif";
+		textureWidth = 46080;
+		textureHeight = 22528;
+	}
+	else {
+		fileName = L"../TheNextFrontier/MarsHeightMap8K.tif";
+		textureWidth = 8192;
+		textureHeight = 4069;
+	}
 
 	hResult = CreateWICTextureFromFile(device, fileName, &mHeightMapResource, &mHeightMapResourceView);
 	if (FAILED(hResult))
 	{
 		return false;
+	}
+
+	CImg<unsigned char> image((unsigned char)fileName);
+
+	for (int i = 0; i < image.width(); i++)
+	{
+		for (int j = 0; j < image.height(); j++)
+		{
+		}
 	}
 
 	return true;

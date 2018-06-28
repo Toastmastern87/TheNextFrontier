@@ -168,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CameraClass.h" />
+    <ClInclude Include="CImg.h" />
     <ClInclude Include="GameTimeClass.h" />
     <ClInclude Include="LightClass.h" />
     <ClInclude Include="MarsShaderClass.h" />
@@ -203,7 +204,6 @@
     <Image Include="font01.tga" />
     <Image Include="MarsHeightMap46K.tif" />
     <Image Include="MarsHeightMap8K.tif" />
-    <Image Include="MarsNormalMap8K.tif" />
     <Image Include="MousePointer.tif" />
   </ItemGroup>
   <ItemGroup>

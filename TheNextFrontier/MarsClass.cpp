@@ -588,18 +588,14 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 {
 	HRESULT hResult;
 	const wchar_t* fileName;
-	int textureWidth, textureHeight;
+	int height, width;
 
 	if (HD) 
 	{
 		fileName = L"../TheNextFrontier/MarsHeightMap46K.tif";
-		textureWidth = 46080;
-		textureHeight = 22528;
 	}
 	else {
 		fileName = L"../TheNextFrontier/MarsHeightMap8K.tif";
-		textureWidth = 8192;
-		textureHeight = 4069;
 	}
 
 	hResult = CreateWICTextureFromFile(device, fileName, &mHeightMapResource, &mHeightMapResourceView);
@@ -608,19 +604,63 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 		return false;
 	}
 
-	CImg<unsigned char> image((unsigned char)fileName);
+	TIFF *image = TIFFOpen("../TheNextFrontier/MarsHeightMap8K.tif", "r");
 
-	for (int i = 0; i < image.width(); i++)
-	{
-		for (int j = 0; j < image.height(); j++)
-		{
-		}
-	}
+	TIFFGetField(image, TIFFTAG_IMAGEWIDTH, &width); 
+	TIFFGetField(image, TIFFTAG_IMAGELENGTH, &height); 
+
+	//mHeightDataImage((unsigned char)fileName);
+
+	//CImg<unsigned char> test("../TheNextFrontier/MarsHeightMap8K.tif");
+
+	//for (int i = 0; i < mHeightDataImage.width(); i++)
+	//{
+	//	mHeightData.push_back(vector<int>());
+
+	//	for (int j = 0; j < mHeightDataImage.height(); j++)
+	//	{
+	//		mHeightData[i].push_back((int)mHeightDataImage.atXY(i, j));
+	//	}
+	//}
+
+	ofstream fOut;
+
+	fOut.open("Debug.txt", ios::out | ios::app);
+
+	fOut << "Image width: ";
+	fOut << width;
+	fOut << "\r\n";
+	fOut << "Image height: ";
+	fOut << height;
+	fOut << "\r\n";
+
+	fOut.close();
 
 	return true;
 }
 
-ID3D11ShaderResourceView* MarsClass::GetHeightMap() 
+ID3D11ShaderResourceView* MarsClass::GetHeightMap()
 {
 	return mHeightMapResourceView;
+}
+
+int MarsClass::GetHeightAtPos(XMFLOAT3 position)
+{
+	//position.x = position.x / GetVectorLength(position);
+	//position.y = position.y / GetVectorLength(position);
+	//position.z = position.z / GetVectorLength(position);
+
+	//ofstream fOut;
+
+	//fOut.open("Debug.txt", ios::out | ios::app);
+
+	//XMFLOAT2 uv = XMFLOAT2((0.5f + (atan2(position.z, position.x) / (2 * 3.14159265f))), (0.5f - (asin(position.y) / 3.14159265f)));
+
+	//fOut << "Height: ";
+	//fOut << mHeightData[uv.x * mHeightDataImage.width()][uv.y * mHeightDataImage.height()];
+	//fOut << "\r\n";
+
+	//fOut.close();
+
+	return 0; //mHeightData[uv.x * mHeightDataImage.width()][uv.y * mHeightDataImage.height()];
 }

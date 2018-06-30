@@ -74,7 +74,7 @@ void PositionClass::SetFrameTime(float time)
 
 void PositionClass::MoveForward(bool keyDown) 
 {
-	float altitude = GetAltitude();
+	float altitude = GetDistanceFromOrigo();
 
 	if (keyDown) 
 	{
@@ -95,7 +95,7 @@ void PositionClass::MoveForward(bool keyDown)
 
 void PositionClass::MoveBackward(bool keyDown)
 {
-	float altitude = GetAltitude();
+	float altitude = GetDistanceFromOrigo();
 
 	if (keyDown)
 	{
@@ -118,7 +118,7 @@ void PositionClass::ZoomOut(bool keyDown)
 {
 	float maxSpeed;
 
-	maxSpeed = exp(GetAltitude() / 25.0f);
+	maxSpeed = exp(GetDistanceFromOrigo() / 25.0f);
 
 	if (keyDown)
 	{
@@ -152,7 +152,7 @@ void PositionClass::ZoomIn(bool keyDown)
 {
 	float maxSpeed;
 
-	maxSpeed = exp(GetAltitude() / 25.0f);
+	maxSpeed = exp(GetDistanceFromOrigo() / 25.0f);
 
 	if (keyDown)
 	{
@@ -289,7 +289,7 @@ XMFLOAT3 PositionClass::GetPositionXMFLOAT3()
 	return XMFLOAT3(mPositionX, mPositionY, mPositionZ);
 }
 
-float PositionClass::GetAltitude()
+float PositionClass::GetDistanceFromOrigo()
 {
 	return (sqrtf((mPositionX * mPositionX) + (mPositionY * mPositionY) + (mPositionZ * mPositionZ)) - 3389.5f);
 }

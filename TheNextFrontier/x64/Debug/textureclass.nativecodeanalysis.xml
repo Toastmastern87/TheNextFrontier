@@ -22,7 +22,7 @@
       <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'TextureClass::mTextureView' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'TextureClass::mTargaData' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>TextureClass::{ctor}</FUNCTION>
     <DECORATED>??0TextureClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>10</FUNCLINE>
@@ -36,7 +36,7 @@
       <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'TextureClass::mTargaData' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'TextureClass::mTextureView' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>TextureClass::{ctor}</FUNCTION>
     <DECORATED>??0TextureClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>10</FUNCLINE>

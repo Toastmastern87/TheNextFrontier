@@ -13,10 +13,9 @@ const bool HD = false;
 #include "PositionClass.h"
 #include "TextureClass.h"
 #include <WICTextureLoader.h>
-#include "CImg.h"
+#include "tiffio.h"
 using namespace DirectX;
 using namespace std;
-using namespace cimg_library;
 
 class MarsClass
 {
@@ -95,6 +94,7 @@ public:
 	float GetMarsMaxHeight();
 	float GetMarsMinHeight();
 	float GetMarsPatchDelta();
+	int GetHeightAtPos(XMFLOAT3);
 	vector<float> GetDistanceLUT();
 	ID3D11ShaderResourceView* GetHeightMap();
 
@@ -145,6 +145,8 @@ private:
 	int mMaxCellLevel;
 	float mMaxTriangleSize, mDelta;
 	int mScreenWidth;
+
+	float mHeightDataImage;
 
 	PositionClass* mPosition;
 	ID3D11Resource *mHeightMapResource;

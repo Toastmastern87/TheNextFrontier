@@ -12,7 +12,7 @@ const float SCREENEAR = 0.1f;
 #include "TimerClass.h"
 #include "FPSClass.h"
 #include "UniverseClass.h"
-
+#include "tiffio.h"
 class ApplicationClass
 {
 public:

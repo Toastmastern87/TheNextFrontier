@@ -1,0 +1,8 @@
+Image width: 0
+Image height: 0
+Image width: 160
+Image height: 1
+Image width: 8192
+Image height: 4096
+Image width: 8192
+Image height: 4096

@@ -13,6 +13,7 @@ const bool HD = false;
 #include "PositionClass.h"
 #include "TextureClass.h"
 #include <WICTextureLoader.h>
+#include <algorithm>
 #include "tiffio.h"
 using namespace DirectX;
 using namespace std;
@@ -136,7 +137,7 @@ private:
 
 	vector<TriangleType> mIcosphere;
 	vector<MarsCellType> mMarsCells;
-	vector<vector<int>> mHeightData;
+	vector<vector<float>> mHeightData;
 
 	vector<float> mDistanceLUT;
 	vector<float> mHeightMultiLUT;

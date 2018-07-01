@@ -8,6 +8,8 @@ UIClass::UIClass()
 	mPositionStrings = 0;
 	mVerticesString = 0;
 	mAltitudeString = 0;
+	mDistFromOrigoString = 0;
+	mMarsHeightString = 0;
 }
 
 UIClass::UIClass(const UIClass& other) 
@@ -26,6 +28,8 @@ bool UIClass::Initialize(HWND hwnd, D3DClass* direct3D, int screenHeight, int sc
 	char videoString[144];
 	char memoryString[32];
 	char altitudeString[32];
+	char distFromOrigoString[60];
+	char marsHeightString[32];
 	char tempString[16];
 	int i;
 
@@ -150,6 +154,30 @@ bool UIClass::Initialize(HWND hwnd, D3DClass* direct3D, int screenHeight, int sc
 		return false;
 	}
 
+	mDistFromOrigoString = new TextClass;
+
+	strcpy_s(distFromOrigoString, "Distance from origo: ");
+	strcat_s(distFromOrigoString, tempString);
+	strcat_s(distFromOrigoString, " km");
+
+	result = mDistFromOrigoString->Initialize(hwnd, direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 60, false, mFont1, distFromOrigoString, 10, 480, 1.0f, 1.0f, 1.0f);
+	if (!result)
+	{
+		return false;
+	}
+
+	mMarsHeightString = new TextClass;
+
+	strcpy_s(marsHeightString, "Mars height: ");
+	strcat_s(marsHeightString, tempString);
+	strcat_s(marsHeightString, " km");
+
+	result = mMarsHeightString->Initialize(hwnd, direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 40, false, mFont1, marsHeightString, 10, 500, 1.0f, 1.0f, 1.0f);
+	if (!result)
+	{
+		return false;
+	}
+
 	return true;
 }
 
@@ -200,7 +228,7 @@ void UIClass::Shutdown()
 	return;
 }
 
-bool UIClass::Frame(HWND hwnd, ID3D11DeviceContext* deviceContext, int fps, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, int verticesNr, float altitude)
+bool UIClass::Frame(HWND hwnd, ID3D11DeviceContext* deviceContext, int fps, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, int verticesNr, float altitude, float distFromOrigo, float marsHeight)
 {
 	bool result;
 
@@ -228,6 +256,18 @@ bool UIClass::Frame(HWND hwnd, ID3D11DeviceContext* deviceContext, int fps, floa
 		return false;
 	}
 
+	result = UpdateDistFromOrigoString(hwnd, deviceContext, distFromOrigo);
+	if (!result)
+	{
+		return false;
+	}
+
+	result = UpdateMarsHeightString(hwnd, deviceContext, marsHeight);
+	if (!result)
+	{
+		return false;
+	}
+
 	return true;
 }
 
@@ -245,6 +285,8 @@ bool UIClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager, XMMA
 
 	mVerticesString->Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
 	mAltitudeString->Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
+	mDistFromOrigoString->Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
+	mMarsHeightString->Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
 
 	return true;
 }
@@ -437,6 +479,48 @@ bool UIClass::UpdateAltitudeString(HWND hwnd, ID3D11DeviceContext* deviceContext
 	strcat_s(finalString, " km");
 
 	result = mAltitudeString->UpdateSentence(hwnd, deviceContext, mFont1, finalString, 10, 280, 1.0f, 1.0f, 1.0f);
+	if (!result)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+bool UIClass::UpdateDistFromOrigoString(HWND hwnd, ID3D11DeviceContext* deviceContext, float distFromOrigo)
+{
+	bool result;
+	char tempString[60];
+	char finalString[60];
+
+	_itoa_s(distFromOrigo, tempString, 10);
+
+	strcpy_s(finalString, "Distance from origo: ");
+	strcat_s(finalString, tempString);
+	strcat_s(finalString, " km");
+
+	result = mDistFromOrigoString->UpdateSentence(hwnd, deviceContext, mFont1, finalString, 10, 300, 1.0f, 1.0f, 1.0f);
+	if (!result)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+bool UIClass::UpdateMarsHeightString(HWND hwnd, ID3D11DeviceContext* deviceContext, float marsHeight)
+{
+	bool result;
+	char tempString[60];
+	char finalString[60];
+
+	_itoa_s(marsHeight, tempString, 10);
+
+	strcpy_s(finalString, "Mars height: ");
+	strcat_s(finalString, tempString);
+	strcat_s(finalString, " km");
+
+	result = mMarsHeightString->UpdateSentence(hwnd, deviceContext, mFont1, finalString, 10, 320, 1.0f, 1.0f, 1.0f);
 	if (!result)
 	{
 		return false;

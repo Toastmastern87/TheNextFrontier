@@ -158,7 +158,7 @@ void UniverseClass::Shutdown()
 bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, ShaderManagerClass* shaderManager, float frameTime, int fps)
 {
 	bool result;
-	float posX, posY, posZ, rotX, rotY, rotZ;
+	float posX, posY, posZ, rotX, rotY, rotZ, altitude;
 	int mouseX, mouseY;
 
 	HandleMovementInput(input, frameTime);
@@ -174,9 +174,9 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 		return false;
 	}
 
-	mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3());
+	altitude = mPosition->GetDistanceFromOrigo() - mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3());
 
-	result = mUI->Frame(hwnd, direct3D->GetDeviceContext(), fps, posX, posY, posZ, rotX, rotY, rotZ, (mMars->GetMarsVerticesCount() * mMars->GetInstanceCount()), mPosition->GetDistanceFromOrigo());
+	result = mUI->Frame(hwnd, direct3D->GetDeviceContext(), fps, posX, posY, posZ, rotX, rotY, rotZ, (mMars->GetMarsVerticesCount() * mMars->GetInstanceCount()), altitude, mPosition->GetDistanceFromOrigo(), mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()));
 	if (!result)
 	{
 		return false;

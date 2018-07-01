@@ -1,8 +1,40 @@
-Image width: 0
-Image height: 0
-Image width: 160
-Image height: 1
-Image width: 8192
-Image height: 4096
-Image width: 8192
-Image height: 4096
+Lowest value: 0.00015259
+X: 5511
+Y: 2796
+
+Higest value: 0.998718
+X: 1068
+Y: 1653
+
+Lowest value: 0.00015259
+X: 5511
+Y: 2796
+
+Higest value: 0.998718
+X: 1068
+Y: 1653
+
+Lowest value: 0.00015259
+X: 5511
+Y: 2796
+
+Higest value: 0.998718
+X: 1068
+Y: 1653
+
+Lowest value: 0.00015259
+X: 5511
+Y: 2796
+
+Higest value: 0.998718
+X: 1068
+Y: 1653
+
+Lowest value: 0.00015259
+X: 5511
+Y: 2796
+
+Higest value: 0.998718
+X: 1068
+Y: 1653
+

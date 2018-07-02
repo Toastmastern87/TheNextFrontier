@@ -592,11 +592,11 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 	tsize_t scanline;
 	tdata_t buffer;
 	float clampValue;
-	float lowestValue, highestValue;
-	int lowestX, lowestY, highestX, highestY;
 	TIFF *image;
 
-	mHeightData.clear();
+	ofstream fOut;
+
+	fOut.open("Debug.txt", ios::out | ios::app);
 
 	if (HD) 
 	{
@@ -627,38 +627,29 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 
 	clampValue = 1.0f / 65535.0f;
 
-	lowestValue = 1.0f;
-	highestValue = 0.0f;
+	fOut << "imageLength: ";
+	fOut << imageLength;
+	fOut << "\r\n";
+	fOut << "(scanline / 2): ";
+	fOut << (scanline / 2);
+	fOut << "\r\n";
+	fOut << "\r\n";
 
 	for (int i = 0; i < imageLength; i++)
 	{
-		mHeightData.push_back(vector<float>());
-
 		TIFFReadScanline(image, buffer, i);
 		auto u16buffer = (uint16_t*)buffer;
 
 		for (int j = 0; j < (scanline / 2); j++)
 		{		
-			mHeightData[i].push_back(clampValue * u16buffer[j]);
-
-			if ((clampValue * u16buffer[j]) < lowestValue)
-			{
-				lowestValue = clampValue * u16buffer[j];
-				lowestX = j;
-				lowestY = i;
-			}
-
-			if ((clampValue * u16buffer[j]) > highestValue)
-			{
-				highestValue = clampValue * u16buffer[j];
-				highestX = j;
-				highestY = i;
-			}
+			mHeightData[j][i] = (clampValue * u16buffer[j]);
 		}
 	}
 
 	_TIFFfree(buffer);
 	TIFFClose(image);
+
+	fOut.close();
 
 	return true;
 }
@@ -674,17 +665,7 @@ int MarsClass::GetHeightAtPos(XMFLOAT3 position)
 	position.y = position.y / GetVectorLength(position);
 	position.z = position.z / GetVectorLength(position);
 
-	//ofstream fOut;
-
-	//fOut.open("Debug.txt", ios::out | ios::app);
-
 	XMFLOAT2 uv = XMFLOAT2((0.5f + (atan2(position.z, position.x) / (2 * 3.14159265f))), (0.5f - (asin(position.y) / 3.14159265f)));
 
-	//fOut << "Height: ";
-	//fOut << mHeightData[(int)(uv.y * 4096.0f)][(int)(uv.x * 8192.0f)];
-	//fOut << "\r\n";
-
-	//fOut.close();
-
-	return 	(mMarsRadius + (mHeightData[(int)(uv.y * 4096.0f)][(int)(uv.x * 8192.0f)] * (mMarsMaxHeight - mMarsMinHeight)) + mMarsMinHeight);
+	return 	(mMarsRadius + (mHeightData[(int)(uv.x * 8192.0f)][(int)(uv.y * 4096.0f)] * (mMarsMaxHeight - mMarsMinHeight)) + mMarsMinHeight);
 }

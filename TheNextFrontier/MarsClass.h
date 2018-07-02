@@ -137,7 +137,7 @@ private:
 
 	vector<TriangleType> mIcosphere;
 	vector<MarsCellType> mMarsCells;
-	vector<vector<float>> mHeightData;
+	float mHeightData[8192][4096];
 
 	vector<float> mDistanceLUT;
 	vector<float> mHeightMultiLUT;

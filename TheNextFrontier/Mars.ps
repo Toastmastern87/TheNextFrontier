@@ -79,5 +79,5 @@ float4 MarsPixelShader(PixelInputType input) : SV_TARGET
 
     color = saturate(diffuseColor * lightIntensity);
 
-	return input.color;//float4(color, color, color, 1.0f);
+	return float4(color, color, color, 1.0f);
 }

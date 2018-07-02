@@ -1,40 +1,12 @@
-Lowest value: 0.00015259
-X: 5511
-Y: 2796
+imageLength: 4096
+(scanline / 2): 8192
 
-Higest value: 0.998718
-X: 1068
-Y: 1653
+imageLength: 4096
+(scanline / 2): 8192
 
-Lowest value: 0.00015259
-X: 5511
-Y: 2796
+imageLength: 4096
+(scanline / 2): 8192
 
-Higest value: 0.998718
-X: 1068
-Y: 1653
-
-Lowest value: 0.00015259
-X: 5511
-Y: 2796
-
-Higest value: 0.998718
-X: 1068
-Y: 1653
-
-Lowest value: 0.00015259
-X: 5511
-Y: 2796
-
-Higest value: 0.998718
-X: 1068
-Y: 1653
-
-Lowest value: 0.00015259
-X: 5511
-Y: 2796
-
-Higest value: 0.998718
-X: 1068
-Y: 1653
+imageLength: 4096
+(scanline / 2): 8192
 

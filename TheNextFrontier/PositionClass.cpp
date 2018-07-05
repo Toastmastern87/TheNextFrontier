@@ -14,12 +14,13 @@ PositionClass::PositionClass()
 
 	mForwardSpeed = 0.0f;
 	mBackwardSpeed = 0.0f;
-	mUpwardSpeed = 0.0f;
-	mDownwardSpeed = 0.0f;
+	mZoomInSpeed = 0.0f;
+	mZoomOutSpeed = 0.0f;
 	mOrbitAngleXZ = 0.0f;
 	mOrbitAngleY = 0.0f;
 	mLookUpSpeed = 0.0f;
 	mLookDownSpeed = 0.0f;
+	mMaxZoomSpeed = 0.0f;
 }
 
 PositionClass::PositionClass(const PositionClass& other) 
@@ -72,114 +73,242 @@ void PositionClass::SetFrameTime(float time)
 	return;
 }
 
-void PositionClass::MoveForward(bool keyDown) 
+void PositionClass::OrbitNorth(bool keyDown) 
 {
 	float altitude = GetDistanceFromOrigo();
 
 	if (keyDown) 
 	{
 		mOrbitAngleY += mFrameTime * 0.1;
-	}
 
-	if (mOrbitAngleY > (2 * XM_PI))
-	{
-		mOrbitAngleY -= (2 * XM_PI);
-	}
+		if (mOrbitAngleY > (2 * XM_PI))
+		{
+			mOrbitAngleY -= (2 * XM_PI);
+		}
 
-	mPositionX += (cosf(mOrbitAngleXZ) * altitude * cosf(mOrbitAngleY)) - mPositionX;
-	mPositionY += (sinf(mOrbitAngleY) * altitude) - mPositionY;
-	mPositionZ += (sinf(mOrbitAngleXZ) * altitude * cosf(mOrbitAngleY)) - mPositionZ;
+		mPositionX += (cosf(mOrbitAngleXZ) * altitude * cosf(mOrbitAngleY)) - mPositionX;
+		mPositionY += (sinf(mOrbitAngleY) * altitude) - mPositionY;
+		mPositionZ += (sinf(mOrbitAngleXZ) * altitude * cosf(mOrbitAngleY)) - mPositionZ;
+	}
 
 	return;
 }
 
-void PositionClass::MoveBackward(bool keyDown)
+void PositionClass::OrbitSouth(bool keyDown)
 {
 	float altitude = GetDistanceFromOrigo();
 
 	if (keyDown)
 	{
 		mOrbitAngleY -= mFrameTime * 0.1;
-	}
 
-	if (mOrbitAngleY < 0.0f)
-	{
-		mOrbitAngleY += (2 * XM_PI);
-	}
+		if (mOrbitAngleY < 0.0f)
+		{
+			mOrbitAngleY += (2 * XM_PI);
+		}
 
-	mPositionX += (cosf(mOrbitAngleXZ) * altitude * cosf(mOrbitAngleY)) - mPositionX;
-	mPositionY += (sinf(mOrbitAngleY) * altitude) - mPositionY;
-	mPositionZ += (sinf(mOrbitAngleXZ) * altitude * cosf(mOrbitAngleY)) - mPositionZ;
+		mPositionX += (cosf(mOrbitAngleXZ) * altitude * cosf(mOrbitAngleY)) - mPositionX;
+		mPositionY += (sinf(mOrbitAngleY) * altitude) - mPositionY;
+		mPositionZ += (sinf(mOrbitAngleXZ) * altitude * cosf(mOrbitAngleY)) - mPositionZ;
+	}
 
 	return;
 }
 
-void PositionClass::ZoomOut(bool keyDown)
+void PositionClass::ZoomOut(int mouseWheelDelta)
 {
 	float maxSpeed;
 
-	maxSpeed = 25.0f;
+	maxSpeed = powf(log10f(GetDistanceFromOrigo() - 3389.5f), 5.0f) * 5.0f;
 
-	if (keyDown)
+	if (mouseWheelDelta < 0 && GetDistanceFromOrigo() < MAXDISTANCEFROMORIGO)
 	{
-		mUpwardSpeed += mFrameTime * 5.5f;
+		mZoomOutSpeed = powf(log10f(GetDistanceFromOrigo() - 3389.5f), 5.0f) * 5.0f;
 
-		if (mUpwardSpeed > (mFrameTime * maxSpeed))
+		if (mZoomOutSpeed > maxSpeed)
 		{
-			mUpwardSpeed = mFrameTime * maxSpeed;
+			mZoomOutSpeed = maxSpeed;
 		}
 	}
 	else
 	{
-		mUpwardSpeed -= mFrameTime * maxSpeed * 0.5f;
+		mZoomOutSpeed -= mFrameTime * mZoomOutSpeed * 4.0f;
 
-		if (mUpwardSpeed < 0.0f)
+		if (mZoomOutSpeed < 0.0f)
 		{
-			mUpwardSpeed = 0.0f;
+			mZoomOutSpeed = 0.0f;
 		}
 	}
 
 	float totPos = mPositionX + mPositionY + mPositionZ;
 
-	mPositionX += (mPositionX / totPos) * mUpwardSpeed;
-	mPositionY += (mPositionY / totPos) * mUpwardSpeed;
-	mPositionZ += (mPositionZ / totPos) * mUpwardSpeed;
+	ofstream fOut;
+
+	if (GetDistanceFromOrigo() < MAXDISTANCEFROMORIGO)
+	{
+		mPositionX += (mPositionX / totPos) * mFrameTime * mZoomOutSpeed;
+		mPositionY += (mPositionY / totPos) * mFrameTime * mZoomOutSpeed;
+		mPositionZ += (mPositionZ / totPos) * mFrameTime * mZoomOutSpeed;
+	}
+
+	// Check if max zoom is achieved and compensate position for that
+	if (GetDistanceFromOrigo() > MAXDISTANCEFROMORIGO)
+	{
+		XMVECTOR posVector = XMVectorSet(mPositionX, mPositionY, mPositionZ, 1.0f);
+		XMVECTOR posVectorNorm = XMVector4Normalize(posVector);
+		XMVECTOR maxPosVector = posVectorNorm * MAXDISTANCEFROMORIGO;
+
+		mPositionX = XMVectorGetX(maxPosVector);
+		mPositionY = XMVectorGetY(maxPosVector);
+		mPositionZ = XMVectorGetZ(maxPosVector);
+	}
 
 	return;
 }
 
-void PositionClass::ZoomIn(bool keyDown)
+void PositionClass::ZoomIn(int mouseWheelDelta)
 {
-	float maxSpeed;
+	////ofstream fOut;
+	//float maxZoomSpeed, zoomAmount, positionDelta;
 
-	maxSpeed = 250.0f;
+	////fOut.open("Debug.txt", ios::out | ios::app);
 
-	if (keyDown)
-	{
-		mDownwardSpeed += mFrameTime * 5.5f;
+	////fOut << "mouseWheelDelta inside position: ";
+	////fOut << mouseWheelDelta;
+	////fOut << "\r\n";
 
-		if (mDownwardSpeed > (mFrameTime * maxSpeed))
-		{
-			mDownwardSpeed = mFrameTime * maxSpeed;
-		}
-	}
-	else
-	{
-		mDownwardSpeed -= mFrameTime * maxSpeed * 0.5f;
+	////fOut.close();
 
-		if (mDownwardSpeed < 0.0f)
-		{
-			mDownwardSpeed = 0.0f;
-		}
-	}
+	//ofstream fOut;
 
-	float totPos = mPositionX + mPositionY + mPositionZ;
+	//fOut.open("Debug.txt", ios::out | ios::app);
 
-	mPositionX -= (mPositionX / totPos) * mDownwardSpeed;
-	mPositionY -= (mPositionY / totPos) * mDownwardSpeed;
-	mPositionZ -= (mPositionZ / totPos) * mDownwardSpeed;
+	//float logMinAlt = log10f(MINALTITUDE);
+	//float logMaxAlt = log10f(MAXALTITUDE);
 
-	return;
+	//float logAlt = logMinAlt + (logMaxAlt - logMinAlt) * ((GetDistanceFromOrigo() - 3389.5f) / (6605.0f - 1.0f));
+
+	//float alt = expf(logAlt);
+
+	//mMaxZoomSpeed = powf(3.0f, (GetDistanceFromOrigo() - 3389.5f - MINALTITUDE) / 700.0f);
+
+	//fOut << "\r\n";
+	//fOut << "altitude: ";
+	//fOut << (GetDistanceFromOrigo() - 3389.5f);
+	//fOut << "\r\n";
+	//fOut << "mMaxZoomSpeed: ";
+	//fOut << mMaxZoomSpeed;
+	//fOut << "\r\n";
+	//fOut << "mZoomInSpeed: ";
+	//fOut << mZoomInSpeed;
+
+	//if (mouseWheelDelta > 0)
+	//{
+	//	zoomAmount = mouseWheelDelta * mMaxZoomSpeed;
+
+	//	mZoomInSpeed += mFrameTime * mMaxZoomSpeed;
+
+	//	fOut << "\r\n";
+	//	fOut << "mMaxZoomSpeed at 10km Altitude: ";
+	//	fOut << powf((3399.5f - 3389.5f - MINALTITUDE) / 1000.0f, 3.0f);
+	//	fOut << "\r\n";
+	//	fOut << "mMaxZoomSpeed at 6610km Altitude: ";
+	//	fOut << powf((10000.0f - 3389.5f - MINALTITUDE) / 1000.0f, 3.0f);
+	//	fOut << "\r\n";
+	//	fOut << "mMaxZoomSpeed at 5000km Altitude: ";
+	//	fOut << powf((8390.0f - 3389.5f - MINALTITUDE) / 1000.0f, 3.0f);
+	//	fOut << "\r\n";
+	//	fOut << "mMaxZoomSpeed at 3305km Altitude: ";
+	//	fOut << powf((6695.0f - 3389.5f - MINALTITUDE) / 1000.0f, 3.0f);
+	//	fOut << "\r\n";
+	//	fOut << "mMaxZoomSpeed at 1695km Altitude: ";
+	//	fOut << powf((5000.0f - 3389.5f - MINALTITUDE) / 1000.0f, 3.0f);
+	//	fOut << "\r\n";
+	//	fOut << "mouseWheelDelta: ";
+	//	fOut << mouseWheelDelta;
+	//	fOut << "\r\n";
+	//	fOut << "mFrameTime: ";
+	//	fOut << mFrameTime;
+	//	fOut << "\r\n";
+	//	fOut << "mZoomInSpeed: ";
+	//	fOut << mZoomInSpeed;
+	//	fOut << "\r\n";
+	//	fOut << "mFrameTime * mMaxZoomSpeed: ";
+	//	fOut << mFrameTime * mMaxZoomSpeed;
+	//	fOut << "\r\n";
+	//	fOut << "\r\n";
+	//	fOut << "\r\n";
+
+	//	//fOut.open("Debug.txt", ios::out | ios::app);
+
+	//	//fOut << "mouseWheelDelta: ";
+	//	//fOut << mouseWheelDelta;
+	//	//fOut << "\r\n";
+
+	//	//fOut.close();
+
+	//	//mZoomInSpeed = mFrameTime * alt * 50.0f;
+
+
+	//}
+	//else
+	//{
+	//	mZoomInSpeed -= mFrameTime * mZoomInSpeed * 2.5f;
+
+	//	if (mZoomInSpeed < 0.0f)
+	//	{
+	//		mZoomInSpeed = 0.0f;
+	//	}
+	//}
+
+	//if (mZoomInSpeed > mMaxZoomSpeed)
+	//{
+	//	fOut << "\r\n";
+	//	fOut << "High zoom speed detected, setting mZoomInSpeed to: ";
+	//	fOut << mMaxZoomSpeed;
+	//	fOut << "\r\n";
+	//	fOut << "\r\n";
+
+	//	mZoomInSpeed = mMaxZoomSpeed;
+	//}
+
+	////fOut << "\r\n";
+	////fOut << "mZoomInSpeed: ";
+	////fOut << mZoomInSpeed;
+	////fOut << "\r\n";
+
+	//fOut.close();
+
+	//float totPos = fabsf(mPositionX) + fabsf(mPositionY) + fabsf(mPositionZ);
+
+	//if (mPositionX >= 0) 
+	//{
+	//	mPositionX -= (mPositionX / totPos) * mZoomInSpeed;
+	//}
+	//else 
+	//{
+	//	mPositionX += (mPositionX / totPos) * mZoomInSpeed;
+	//}
+
+	//if (mPositionY >= 0)
+	//{
+	//	mPositionY -= (mPositionY / totPos) * mZoomInSpeed;
+	//}
+	//else
+	//{
+	//	mPositionY += (mPositionY / totPos) * mZoomInSpeed;
+	//}
+
+	//if (mPositionZ >= 0)
+	//{
+	//	mPositionZ -= (mPositionZ / totPos) * mZoomInSpeed;
+	//}
+	//else
+	//{
+	//	mPositionZ += (mPositionZ / totPos) * mZoomInSpeed;
+	//}
+
+	//return;
 }
 
 void PositionClass::OrbitLeft(bool keyDown)
@@ -189,15 +318,15 @@ void PositionClass::OrbitLeft(bool keyDown)
 	if (keyDown)
 	{
 		mOrbitAngleXZ -= mFrameTime * 0.1;
-	}
 
-	if (mOrbitAngleXZ < 0.0f)
-	{
-		mOrbitAngleXZ += (2 * XM_PI);
-	}
+		if (mOrbitAngleXZ < 0.0f)
+		{
+			mOrbitAngleXZ += (2 * XM_PI);
+		}
 
-	mPositionX += (cosf(mOrbitAngleXZ) * distanceFromOrigoXZPlane) - mPositionX;
-	mPositionZ += (sinf(mOrbitAngleXZ) * distanceFromOrigoXZPlane) - mPositionZ;
+		mPositionX += (cosf(mOrbitAngleXZ) * distanceFromOrigoXZPlane) - mPositionX;
+		mPositionZ += (sinf(mOrbitAngleXZ) * distanceFromOrigoXZPlane) - mPositionZ;
+	}
 
 	return;
 }
@@ -209,15 +338,15 @@ void PositionClass::OrbitRight(bool keyDown)
 	if (keyDown)
 	{
 		mOrbitAngleXZ += mFrameTime * 0.1;
-	}
 
-	if (mOrbitAngleXZ > (2 * XM_PI))
-	{
-		mOrbitAngleXZ -= (2 * XM_PI);
-	}
+		if (mOrbitAngleXZ > (2 * XM_PI))
+		{
+			mOrbitAngleXZ -= (2 * XM_PI);
+		}
 
-	mPositionX += (cosf(mOrbitAngleXZ) * distanceFromOrigoXZPlane) - mPositionX;
-	mPositionZ += (sinf(mOrbitAngleXZ) * distanceFromOrigoXZPlane) - mPositionZ;
+		mPositionX += (cosf(mOrbitAngleXZ) * distanceFromOrigoXZPlane) - mPositionX;
+		mPositionZ += (sinf(mOrbitAngleXZ) * distanceFromOrigoXZPlane) - mPositionZ;
+	}
 
 	return;
 }

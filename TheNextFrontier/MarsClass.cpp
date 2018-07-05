@@ -594,9 +594,9 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 	float clampValue;
 	TIFF *image;
 
-	ofstream fOut;
+	//ofstream fOut;
 
-	fOut.open("Debug.txt", ios::out | ios::app);
+	//fOut.open("Debug.txt", ios::out | ios::app);
 
 	if (HD) 
 	{
@@ -627,13 +627,13 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 
 	clampValue = 1.0f / 65535.0f;
 
-	fOut << "imageLength: ";
-	fOut << imageLength;
-	fOut << "\r\n";
-	fOut << "(scanline / 2): ";
-	fOut << (scanline / 2);
-	fOut << "\r\n";
-	fOut << "\r\n";
+	//fOut << "imageLength: ";
+	//fOut << imageLength;
+	//fOut << "\r\n";
+	//fOut << "(scanline / 2): ";
+	//fOut << (scanline / 2);
+	//fOut << "\r\n";
+	//fOut << "\r\n";
 
 	for (int i = 0; i < imageLength; i++)
 	{
@@ -649,7 +649,7 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 	_TIFFfree(buffer);
 	TIFFClose(image);
 
-	fOut.close();
+	//fOut.close();
 
 	return true;
 }

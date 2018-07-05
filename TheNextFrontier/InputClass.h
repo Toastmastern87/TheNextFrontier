@@ -8,6 +8,8 @@
 #pragma comment(lib, "dxguid.lib")
 
 #include <dinput.h>
+#include <fstream>
+using namespace std;
 
 class InputClass
 {
@@ -22,6 +24,8 @@ public:
 
 	bool IsEscapePressed();
 	void GetMouseLocation(int&, int&);
+	int GetMouseWheelLocation();
+	int GetMouseWheelDelta();
 
 	bool IsLeftPressed();
 	bool IsRightPressed();
@@ -49,7 +53,7 @@ private:
 	DIMOUSESTATE mMouseState;
 
 	int mScreenWidth, mScreenHeight;
-	int mMouseX, mMouseY;
+	int mMouseX, mMouseY, mMouseWheel, mOldMouseWheel;
 
 	bool mF1Released;
 	bool mF2Released;

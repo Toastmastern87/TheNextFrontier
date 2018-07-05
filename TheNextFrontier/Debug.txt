@@ -1,12 +1,30 @@
-imageLength: 4096
-(scanline / 2): 8192
+Zoom to big! compensating
+Position vector X: 10012.6 Y: 0 Z: 0
+Max position vector X: 10000 Y: 0 Z: 0
+Change needed in altitude: 12.5811
 
-imageLength: 4096
-(scanline / 2): 8192
+Zoom to big! compensating
+Position vector X: 9761.17 Y: 0 Z: -2281.74
+Max position vector X: 9737.5 Y: 0 Z: -2276.2
+Change needed in altitude: 24.3066
 
-imageLength: 4096
-(scanline / 2): 8192
+Zoom to big! compensating
+Position vector X: 10020.7 Y: 0 Z: 0
+Max position vector X: 10000 Y: 0 Z: 0
+Change needed in altitude: 20.7461
 
-imageLength: 4096
-(scanline / 2): 8192
+Zoom to big! compensating
+Position vector X: 10025.3 Y: 0 Z: -140.295
+Max position vector X: 9999.02 Y: 0 Z: -139.926
+Change needed in altitude: 26.3164
+
+Zoom to big! compensating
+Position vector X: 10023.2 Y: 0 Z: -260.416
+Max position vector X: 9996.63 Y: 0 Z: -259.726
+Change needed in altitude: 26.5508
+
+Zoom to big! compensating
+Position vector X: 10019 Y: 0 Z: 339.341
+Max position vector X: 9994.27 Y: 0 Z: 338.505
+Change needed in altitude: 24.7012
 

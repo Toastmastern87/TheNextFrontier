@@ -24,6 +24,8 @@ bool InputClass::Initialize(HINSTANCE hInstance, HWND hwnd, int screenWidth, int
 
 	mMouseX = 0;
 	mMouseY = 0;
+	mMouseWheel = 0;
+	mOldMouseWheel = 0;
 
 	result = DirectInput8Create(hInstance, DIRECTINPUT_VERSION, IID_IDirectInput8, (void**)&mDirectInput, NULL);
 	if (FAILED(result)) 
@@ -173,6 +175,7 @@ void InputClass::ProcessInput()
 {
 	mMouseX += mMouseState.lX;
 	mMouseY += mMouseState.lY;
+	mMouseWheel += mMouseState.lZ;
 
 	if(mMouseX <= -(mScreenWidth / 2))
 	{
@@ -184,11 +187,13 @@ void InputClass::ProcessInput()
 		mMouseY = -(mScreenHeight / 2);
 	}
 
+	// 33.72 is the width of the mouse texture on the screen
 	if(mMouseX >= ((mScreenWidth / 2) - 33.72f))
 	{
 		mMouseX = ((mScreenWidth / 2) - 33.72f);
 	}
 
+	// 40 is the height of the mouse texture on the screen
 	if (mMouseY >= ((mScreenHeight / 2) - 40))
 	{
 		mMouseY = ((mScreenHeight / 2) - 40);
@@ -211,6 +216,22 @@ void InputClass::GetMouseLocation(int& mouseX, int& mouseY)
 	mouseY = mMouseY;
 
 	return;
+}
+
+int InputClass::GetMouseWheelLocation() 
+{
+	return mMouseWheel;
+}
+
+int InputClass::GetMouseWheelDelta()
+{
+	int ret;
+
+	ret = mMouseWheel - mOldMouseWheel;
+
+	mOldMouseWheel = mMouseWheel;
+
+	return ret;
 }
 
 bool InputClass::IsLeftPressed()

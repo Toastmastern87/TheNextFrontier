@@ -63,7 +63,7 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 		return false;
 	}
 
-	mPosition->SetPosition(10000.0f, 0.0f, 0.0f);
+	mPosition->SetPosition(2021.0f, 0.0f, -2725.0f);
 	mPosition->SetRotation(0.0f, 270.0f, 0.0f);
 
 	mFrustum = new FrustumClass;
@@ -199,6 +199,7 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 	mPosition->SetFrameTime(frameTime);
 
 	input->GetMouseLocation(mouseX, mouseY);
+	input->GetMouseWheelLocation();
 
 	keyDown = input->IsLeftPressed();
 	mPosition->OrbitLeft(keyDown);
@@ -207,22 +208,23 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 	mPosition->OrbitRight(keyDown);
 
 	keyDown = input->IsUpPressed();
-	mPosition->MoveForward(keyDown);
+	mPosition->OrbitNorth(keyDown);
 
 	keyDown = input->IsDownPressed();
-	mPosition->MoveBackward(keyDown);
+	mPosition->OrbitSouth(keyDown);
 
-	keyDown = input->IsAPressed();
-	mPosition->ZoomOut(keyDown);
+	if (mPosition->GetDistanceFromOrigo() < mPosition->MAXDISTANCEFROMORIGO) 
+	{
+		mPosition->ZoomOut(input->GetMouseWheelDelta());
+	}
 
-	keyDown = input->IsZPressed();
-	mPosition->ZoomIn(keyDown);
+	mPosition->ZoomIn(input->GetMouseWheelDelta());
 
-	keyDown = input->IsPgUpPressed();
-	mPosition->LookUpward(keyDown);
+	//keyDown = input->IsPgUpPressed();
+	//mPosition->LookUpward(keyDown);
 
-	keyDown = input->IsPgDownPressed();
-	mPosition->LookDownward(keyDown);
+	//keyDown = input->IsPgDownPressed();
+	//mPosition->LookDownward(keyDown);
 
 	mPosition->GetPosition(posX, posY, posZ);
 	mPosition->GetRotation(rotX, rotY, rotZ);

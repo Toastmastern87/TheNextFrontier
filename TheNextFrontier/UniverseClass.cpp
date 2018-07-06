@@ -224,12 +224,6 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 		mPosition->ZoomIn(mouseDelta, mMars->GetMarsRadius());
 	}
 
-	//keyDown = input->IsPgUpPressed();
-	//mPosition->LookUpward(keyDown);
-
-	//keyDown = input->IsPgDownPressed();
-	//mPosition->LookDownward(keyDown);
-
 	mPosition->GetPosition(posX, posY, posZ);
 	mPosition->GetRotation(rotX, rotY, rotZ);
 

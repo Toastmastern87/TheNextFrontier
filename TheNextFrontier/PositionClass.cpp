@@ -33,9 +33,17 @@ PositionClass::~PositionClass()
 
 void PositionClass::SetPosition(float x, float y, float z) 
 {
+	float hypXZ;
+	float hypXY;
+
 	mPositionX = x;
 	mPositionY = y;
 	mPositionZ = z;
+
+	hypXZ = sqrtf(mPositionX * mPositionX + mPositionZ * mPositionZ);
+	hypXY = sqrtf(mPositionX * mPositionX + mPositionY * mPositionY);
+
+	mOrbitAngleXZ = asinf(mPositionZ / hypXZ);
 
 	return;
 }
@@ -183,23 +191,10 @@ void PositionClass::ZoomIn(int mouseWheelDelta, float marsRadius)
 	posVectorNorm = XMVector3Normalize(posVector);
 	maxSpeed = powf(log10f(GetDistanceFromOrigo() - marsRadius), 5.0f) * 5.0f;
 
-	fOut << "mouseWheelDelta: ";
-	fOut << mouseWheelDelta;
-	fOut << "\r\n";
-	fOut << "GetDistanceFromOrigo(): ";
-	fOut << GetDistanceFromOrigo();
-	fOut << "\r\n";
-	fOut << "\r\n";
-
 	// GetDistanceFromOrigo() > MINDISTANCEFROMORIGO shouldn't actually be happening here since it's also checked in
 	// UniverseClass but it doesn't hurt to double check
 	if (mouseWheelDelta > 0 && GetDistanceFromOrigo() > MINDISTANCEFROMORIGO)
 	{
-		fOut << "mouseWheelDelta: ";
-		fOut << mouseWheelDelta;
-		fOut << "\r\n";
-		fOut << "\r\n";
-
 		mZoomInSpeed = powf(log10f(GetDistanceFromOrigo() - marsRadius), 5.0f) * 5.0f;
 
 		if (mZoomInSpeed > maxSpeed)
@@ -240,148 +235,6 @@ void PositionClass::ZoomIn(int mouseWheelDelta, float marsRadius)
 	fOut.close();
 
 	return;
-
-	////ofstream fOut;
-	//float maxZoomSpeed, zoomAmount, positionDelta;
-
-	////fOut.open("Debug.txt", ios::out | ios::app);
-
-	////fOut << "mouseWheelDelta inside position: ";
-	////fOut << mouseWheelDelta;
-	////fOut << "\r\n";
-
-	////fOut.close();
-
-	//ofstream fOut;
-
-	//fOut.open("Debug.txt", ios::out | ios::app);
-
-	//float logMinAlt = log10f(MINALTITUDE);
-	//float logMaxAlt = log10f(MAXALTITUDE);
-
-	//float logAlt = logMinAlt + (logMaxAlt - logMinAlt) * ((GetDistanceFromOrigo() - 3389.5f) / (6605.0f - 1.0f));
-
-	//float alt = expf(logAlt);
-
-	//mMaxZoomSpeed = powf(3.0f, (GetDistanceFromOrigo() - 3389.5f - MINALTITUDE) / 700.0f);
-
-	//fOut << "\r\n";
-	//fOut << "altitude: ";
-	//fOut << (GetDistanceFromOrigo() - 3389.5f);
-	//fOut << "\r\n";
-	//fOut << "mMaxZoomSpeed: ";
-	//fOut << mMaxZoomSpeed;
-	//fOut << "\r\n";
-	//fOut << "mZoomInSpeed: ";
-	//fOut << mZoomInSpeed;
-
-	//if (mouseWheelDelta > 0)
-	//{
-	//	zoomAmount = mouseWheelDelta * mMaxZoomSpeed;
-
-	//	mZoomInSpeed += mFrameTime * mMaxZoomSpeed;
-
-	//	fOut << "\r\n";
-	//	fOut << "mMaxZoomSpeed at 10km Altitude: ";
-	//	fOut << powf((3399.5f - 3389.5f - MINALTITUDE) / 1000.0f, 3.0f);
-	//	fOut << "\r\n";
-	//	fOut << "mMaxZoomSpeed at 6610km Altitude: ";
-	//	fOut << powf((10000.0f - 3389.5f - MINALTITUDE) / 1000.0f, 3.0f);
-	//	fOut << "\r\n";
-	//	fOut << "mMaxZoomSpeed at 5000km Altitude: ";
-	//	fOut << powf((8390.0f - 3389.5f - MINALTITUDE) / 1000.0f, 3.0f);
-	//	fOut << "\r\n";
-	//	fOut << "mMaxZoomSpeed at 3305km Altitude: ";
-	//	fOut << powf((6695.0f - 3389.5f - MINALTITUDE) / 1000.0f, 3.0f);
-	//	fOut << "\r\n";
-	//	fOut << "mMaxZoomSpeed at 1695km Altitude: ";
-	//	fOut << powf((5000.0f - 3389.5f - MINALTITUDE) / 1000.0f, 3.0f);
-	//	fOut << "\r\n";
-	//	fOut << "mouseWheelDelta: ";
-	//	fOut << mouseWheelDelta;
-	//	fOut << "\r\n";
-	//	fOut << "mFrameTime: ";
-	//	fOut << mFrameTime;
-	//	fOut << "\r\n";
-	//	fOut << "mZoomInSpeed: ";
-	//	fOut << mZoomInSpeed;
-	//	fOut << "\r\n";
-	//	fOut << "mFrameTime * mMaxZoomSpeed: ";
-	//	fOut << mFrameTime * mMaxZoomSpeed;
-	//	fOut << "\r\n";
-	//	fOut << "\r\n";
-	//	fOut << "\r\n";
-
-	//	//fOut.open("Debug.txt", ios::out | ios::app);
-
-	//	//fOut << "mouseWheelDelta: ";
-	//	//fOut << mouseWheelDelta;
-	//	//fOut << "\r\n";
-
-	//	//fOut.close();
-
-	//	//mZoomInSpeed = mFrameTime * alt * 50.0f;
-
-
-	//}
-	//else
-	//{
-	//	mZoomInSpeed -= mFrameTime * mZoomInSpeed * 2.5f;
-
-	//	if (mZoomInSpeed < 0.0f)
-	//	{
-	//		mZoomInSpeed = 0.0f;
-	//	}
-	//}
-
-	//if (mZoomInSpeed > mMaxZoomSpeed)
-	//{
-	//	fOut << "\r\n";
-	//	fOut << "High zoom speed detected, setting mZoomInSpeed to: ";
-	//	fOut << mMaxZoomSpeed;
-	//	fOut << "\r\n";
-	//	fOut << "\r\n";
-
-	//	mZoomInSpeed = mMaxZoomSpeed;
-	//}
-
-	////fOut << "\r\n";
-	////fOut << "mZoomInSpeed: ";
-	////fOut << mZoomInSpeed;
-	////fOut << "\r\n";
-
-	//fOut.close();
-
-	//float totPos = fabsf(mPositionX) + fabsf(mPositionY) + fabsf(mPositionZ);
-
-	//if (mPositionX >= 0) 
-	//{
-	//	mPositionX -= (mPositionX / totPos) * mZoomInSpeed;
-	//}
-	//else 
-	//{
-	//	mPositionX += (mPositionX / totPos) * mZoomInSpeed;
-	//}
-
-	//if (mPositionY >= 0)
-	//{
-	//	mPositionY -= (mPositionY / totPos) * mZoomInSpeed;
-	//}
-	//else
-	//{
-	//	mPositionY += (mPositionY / totPos) * mZoomInSpeed;
-	//}
-
-	//if (mPositionZ >= 0)
-	//{
-	//	mPositionZ -= (mPositionZ / totPos) * mZoomInSpeed;
-	//}
-	//else
-	//{
-	//	mPositionZ += (mPositionZ / totPos) * mZoomInSpeed;
-	//}
-
-	//return;
 }
 
 void PositionClass::OrbitLeft(bool keyDown)

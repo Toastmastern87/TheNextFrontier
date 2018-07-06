@@ -13,6 +13,7 @@ public:
 	const float MINALTITUDE = 10.0f;
 	const float MAXALTITUDE = 6615.0f;
 	const float MAXDISTANCEFROMORIGO = 10000.0f;
+	const float MINDISTANCEFROMORIGO = 3399.5f;
 	const float ONEMOUSEWHEELTURN = 120.0f;
 
 public:
@@ -32,8 +33,8 @@ public:
 
 	void OrbitNorth(bool);
 	void OrbitSouth(bool);
-	void ZoomOut(int);
-	void ZoomIn(int);
+	void ZoomOut(int, float);
+	void ZoomIn(int, float);
 	void OrbitLeft(bool);
 	void OrbitRight(bool);
 	void LookUpward(bool);

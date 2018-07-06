@@ -115,15 +115,21 @@ void PositionClass::OrbitSouth(bool keyDown)
 	return;
 }
 
-void PositionClass::ZoomOut(int mouseWheelDelta)
+void PositionClass::ZoomOut(int mouseWheelDelta, float marsRadius)
 {
-	float maxSpeed;
+	float maxSpeed; 
+	XMVECTOR posVector;
+	XMVECTOR posVectorNorm;
 
-	maxSpeed = powf(log10f(GetDistanceFromOrigo() - 3389.5f), 5.0f) * 5.0f;
+	posVector = XMLoadFloat3(new XMFLOAT3(mPositionX, mPositionY, mPositionZ));
+	posVectorNorm = XMVector3Normalize(posVector);
+	maxSpeed = powf(log10f(GetDistanceFromOrigo() - marsRadius), 5.0f) * 5.0f;
 
+	// GetDistanceFromOrigo() < MAXDISTANCEFROMORIGO shouldn't actually be happening here since it's also checked in
+	// UniverseClass but it doesn't hurt to double check
 	if (mouseWheelDelta < 0 && GetDistanceFromOrigo() < MAXDISTANCEFROMORIGO)
 	{
-		mZoomOutSpeed = powf(log10f(GetDistanceFromOrigo() - 3389.5f), 5.0f) * 5.0f;
+		mZoomOutSpeed = powf(log10f(GetDistanceFromOrigo() - marsRadius), 5.0f) * 5.0f;
 
 		if (mZoomOutSpeed > maxSpeed)
 		{
@@ -140,22 +146,19 @@ void PositionClass::ZoomOut(int mouseWheelDelta)
 		}
 	}
 
-	float totPos = mPositionX + mPositionY + mPositionZ;
-
-	ofstream fOut;
-
+	// Updates the position values
 	if (GetDistanceFromOrigo() < MAXDISTANCEFROMORIGO)
 	{
-		mPositionX += (mPositionX / totPos) * mFrameTime * mZoomOutSpeed;
-		mPositionY += (mPositionY / totPos) * mFrameTime * mZoomOutSpeed;
-		mPositionZ += (mPositionZ / totPos) * mFrameTime * mZoomOutSpeed;
+		XMVECTOR movementDelta = posVectorNorm * mFrameTime * mZoomOutSpeed;
+
+		mPositionX += XMVectorGetX(movementDelta);
+		mPositionY += XMVectorGetY(movementDelta);
+		mPositionZ += XMVectorGetZ(movementDelta);
 	}
 
 	// Check if max zoom is achieved and compensate position for that
 	if (GetDistanceFromOrigo() > MAXDISTANCEFROMORIGO)
 	{
-		XMVECTOR posVector = XMVectorSet(mPositionX, mPositionY, mPositionZ, 1.0f);
-		XMVECTOR posVectorNorm = XMVector4Normalize(posVector);
 		XMVECTOR maxPosVector = posVectorNorm * MAXDISTANCEFROMORIGO;
 
 		mPositionX = XMVectorGetX(maxPosVector);
@@ -166,8 +169,59 @@ void PositionClass::ZoomOut(int mouseWheelDelta)
 	return;
 }
 
-void PositionClass::ZoomIn(int mouseWheelDelta)
+void PositionClass::ZoomIn(int mouseWheelDelta, float marsRadius)
 {
+	float maxSpeed;
+	XMVECTOR posVector;
+	XMVECTOR posVectorNorm;
+
+	posVector = XMLoadFloat3(new XMFLOAT3(mPositionX, mPositionY, mPositionZ));
+	posVectorNorm = XMVector3Normalize(posVector);
+	maxSpeed = powf(log10f(GetDistanceFromOrigo() - marsRadius), 5.0f) * 5.0f;
+
+	// GetDistanceFromOrigo() > MINDISTANCEFROMORIGO shouldn't actually be happening here since it's also checked in
+	// UniverseClass but it doesn't hurt to double check
+	if (mouseWheelDelta > 0 && GetDistanceFromOrigo() > MINDISTANCEFROMORIGO)
+	{
+		mZoomInSpeed = powf(log10f(GetDistanceFromOrigo() - marsRadius), 5.0f) * 5.0f;
+
+		if (mZoomInSpeed > maxSpeed)
+		{
+			mZoomInSpeed = maxSpeed;
+		}
+	}
+	else
+	{
+		mZoomInSpeed -= mFrameTime * mZoomInSpeed * 4.0f;
+
+		if (mZoomInSpeed < 0.0f)
+		{
+			mZoomInSpeed = 0.0f;
+		}
+	}
+
+	// Updates the position values
+	if (GetDistanceFromOrigo() > MINDISTANCEFROMORIGO)
+	{
+		XMVECTOR movementDelta = posVectorNorm * mFrameTime * mZoomInSpeed;
+
+		mPositionX -= XMVectorGetX(movementDelta);
+		mPositionY -= XMVectorGetY(movementDelta);
+		mPositionZ -= XMVectorGetZ(movementDelta);
+	}
+
+	// Check if max zoom is achieved and compensate position for that
+	if (GetDistanceFromOrigo() < MINDISTANCEFROMORIGO)
+	{
+		XMVECTOR minPosVector = posVectorNorm * MINDISTANCEFROMORIGO;
+
+		mPositionX = XMVectorGetX(minPosVector);
+		mPositionY = XMVectorGetY(minPosVector);
+		mPositionZ = XMVectorGetZ(minPosVector);
+	}
+
+	return;
+
 	////ofstream fOut;
 	//float maxZoomSpeed, zoomAmount, positionDelta;
 

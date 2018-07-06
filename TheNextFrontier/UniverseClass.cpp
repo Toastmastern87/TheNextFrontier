@@ -215,10 +215,10 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 
 	if (mPosition->GetDistanceFromOrigo() < mPosition->MAXDISTANCEFROMORIGO) 
 	{
-		mPosition->ZoomOut(input->GetMouseWheelDelta());
+		mPosition->ZoomOut(input->GetMouseWheelDelta(), mMars->GetMarsRadius());
 	}
 
-	mPosition->ZoomIn(input->GetMouseWheelDelta());
+	mPosition->ZoomIn(input->GetMouseWheelDelta(), mMars->GetMarsRadius());
 
 	//keyDown = input->IsPgUpPressed();
 	//mPosition->LookUpward(keyDown);

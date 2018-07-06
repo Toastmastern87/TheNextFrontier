@@ -171,6 +171,10 @@ void PositionClass::ZoomOut(int mouseWheelDelta, float marsRadius)
 
 void PositionClass::ZoomIn(int mouseWheelDelta, float marsRadius)
 {
+	ofstream fOut;
+
+	fOut.open("Debug.txt", ios::out | ios::app);
+
 	float maxSpeed;
 	XMVECTOR posVector;
 	XMVECTOR posVectorNorm;
@@ -179,10 +183,23 @@ void PositionClass::ZoomIn(int mouseWheelDelta, float marsRadius)
 	posVectorNorm = XMVector3Normalize(posVector);
 	maxSpeed = powf(log10f(GetDistanceFromOrigo() - marsRadius), 5.0f) * 5.0f;
 
+	fOut << "mouseWheelDelta: ";
+	fOut << mouseWheelDelta;
+	fOut << "\r\n";
+	fOut << "GetDistanceFromOrigo(): ";
+	fOut << GetDistanceFromOrigo();
+	fOut << "\r\n";
+	fOut << "\r\n";
+
 	// GetDistanceFromOrigo() > MINDISTANCEFROMORIGO shouldn't actually be happening here since it's also checked in
 	// UniverseClass but it doesn't hurt to double check
 	if (mouseWheelDelta > 0 && GetDistanceFromOrigo() > MINDISTANCEFROMORIGO)
 	{
+		fOut << "mouseWheelDelta: ";
+		fOut << mouseWheelDelta;
+		fOut << "\r\n";
+		fOut << "\r\n";
+
 		mZoomInSpeed = powf(log10f(GetDistanceFromOrigo() - marsRadius), 5.0f) * 5.0f;
 
 		if (mZoomInSpeed > maxSpeed)
@@ -219,6 +236,8 @@ void PositionClass::ZoomIn(int mouseWheelDelta, float marsRadius)
 		mPositionY = XMVectorGetY(minPosVector);
 		mPositionZ = XMVectorGetZ(minPosVector);
 	}
+
+	fOut.close();
 
 	return;
 

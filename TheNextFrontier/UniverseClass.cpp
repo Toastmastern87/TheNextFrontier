@@ -194,12 +194,13 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 {
 	bool keyDown;
 	float posX, posY, posZ, rotX, rotY, rotZ;
-	int mouseX, mouseY;
+	int mouseX, mouseY, mouseDelta;
 
 	mPosition->SetFrameTime(frameTime);
 
 	input->GetMouseLocation(mouseX, mouseY);
 	input->GetMouseWheelLocation();
+	mouseDelta = input->GetMouseWheelDelta();
 
 	keyDown = input->IsLeftPressed();
 	mPosition->OrbitLeft(keyDown);
@@ -215,10 +216,13 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 
 	if (mPosition->GetDistanceFromOrigo() < mPosition->MAXDISTANCEFROMORIGO) 
 	{
-		mPosition->ZoomOut(input->GetMouseWheelDelta(), mMars->GetMarsRadius());
+		mPosition->ZoomOut(mouseDelta, mMars->GetMarsRadius());
 	}
 
-	mPosition->ZoomIn(input->GetMouseWheelDelta(), mMars->GetMarsRadius());
+	if (mPosition->GetDistanceFromOrigo() > mPosition->MINDISTANCEFROMORIGO)
+	{
+		mPosition->ZoomIn(mouseDelta, mMars->GetMarsRadius());
+	}
 
 	//keyDown = input->IsPgUpPressed();
 	//mPosition->LookUpward(keyDown);

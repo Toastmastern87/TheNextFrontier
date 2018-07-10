@@ -358,7 +358,7 @@ void MarsClass::GenerateHeightMultiLUT()
 
 	mHeightMultiLUT.push_back(1 / XMVectorGetX(XMVector3Dot(XMVector3Normalize(a), XMVector3Normalize(center))));
 
-	normMaxHeight = 3.0f / mMarsRadius;
+	normMaxHeight = (mMarsMaxHeight - mMarsMinHeight) / mMarsRadius;
 
 	for (int i = 1; i < mMaxSubdivisionLevel; i++) 
 	{
@@ -481,6 +481,21 @@ MarsClass::NextTriangle MarsClass::CheckTriangleSplit(XMFLOAT3 a, XMFLOAT3 b, XM
 	//Frustum Culling
 	if (frustumCull)
 	{
+
+		//ofstream fOut;
+
+		//fOut.open("Debug.txt", ios::out | ios::app);
+
+		//fOut << "level: ";
+		//fOut << level;
+		//fOut << "\r\n";
+		//fOut << "mHeightMultiLUT[level]: ";
+		//fOut << mHeightMultiLUT[level];
+		//fOut << "\r\n";
+		//fOut << "\r\n";
+
+		//fOut.close();
+
 		VolumeCheck intersect = mFrustum->CheckTriangleVolume(a, b, c, mHeightMultiLUT[level]);
 		//VolumeCheck intersect = mFrustum->CheckTriangleVolume(XMLoadFloat3(&a), XMLoadFloat3(&b), XMLoadFloat3(&c), mHeightMultiLUT[level]);
 		//VolumeCheck intersect = mFrustum->CheckTriangle(a, b, c);
@@ -616,10 +631,6 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 	float clampValue;
 	TIFF *image;
 
-	//ofstream fOut;
-
-	//fOut.open("Debug.txt", ios::out | ios::app);
-
 	if (HD) 
 	{
 		fileName = L"../TheNextFrontier/MarsHeightMap46K.tif";
@@ -649,14 +660,6 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 
 	clampValue = 1.0f / 65535.0f;
 
-	//fOut << "imageLength: ";
-	//fOut << imageLength;
-	//fOut << "\r\n";
-	//fOut << "(scanline / 2): ";
-	//fOut << (scanline / 2);
-	//fOut << "\r\n";
-	//fOut << "\r\n";
-
 	for (int i = 0; i < imageLength; i++)
 	{
 		TIFFReadScanline(image, buffer, i);
@@ -670,8 +673,6 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 
 	_TIFFfree(buffer);
 	TIFFClose(image);
-
-	//fOut.close();
 
 	return true;
 }

@@ -268,17 +268,6 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 		mPosition->ZoomIn(mouseDelta, mMars->GetMarsRadius(), mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()));
 	}
 
-	ofstream fOut;
-
-	fOut.open("Debug.txt", ios::out | ios::app);
-
-	fOut << "mPosition->MaxZoom(): ";
-	fOut << mPosition->MaxZoom();
-	fOut << "\r\n";
-	fOut << "\r\n";
-
-	fOut.close();
-
 	if (mPosition->MaxZoom())
 	{
 		mPosition->CheckAltitude(mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()));

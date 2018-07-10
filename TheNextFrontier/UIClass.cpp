@@ -612,7 +612,8 @@ bool UIClass::UpdateGameTimeString(HWND hwnd, ID3D11DeviceContext *deviceContext
 
 		mPreviousGameTimeSec = gameTimeSecs;
 
-		result = mGameTimeString->UpdateSentence(hwnd, deviceContext, mFont1, finalString, 2300, 17, 1.0f, 1.0f, 1.0f);
+		//2300 or 1660
+		result = mGameTimeString->UpdateSentence(hwnd, deviceContext, mFont1, finalString, 1660, 17, 1.0f, 1.0f, 1.0f);
 		if (!result)
 		{
 			return false;

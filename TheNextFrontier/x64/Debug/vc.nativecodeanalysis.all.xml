@@ -122,8 +122,8 @@
       <LINE>3</LINE>
       <COLUMN>17</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsShaderClass::mMorphBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MarsShaderClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsShaderClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -135,8 +135,8 @@
       <LINE>3</LINE>
       <COLUMN>17</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsShaderClass::mMorphBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsShaderClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsShaderClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1432,27 +1432,27 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.h</FILENAME>
-      <LINE>58</LINE>
-      <COLUMN>2</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
-    <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>58</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT><DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>marsclass.h</FILENAME>
-      <LINE>58</LINE>
+      <LINE>59</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>58</FUNCLINE>
+    <FUNCLINE>59</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>marsclass.h</FILENAME>
+      <LINE>59</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
+    <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>59</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
@@ -1592,7 +1592,7 @@
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::mHeightData' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'MarsClass::mMarsRadius' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1601,14 +1601,14 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>16</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::mHeightData' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'MarsClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
@@ -1617,8 +1617,8 @@
       <LINE>3</LINE>
       <COLUMN>19</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MousePointerClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
     <DECORATED>??0MousePointerClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1630,8 +1630,8 @@
       <LINE>3</LINE>
       <COLUMN>19</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MousePointerClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
     <DECORATED>??0MousePointerClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1858,7 +1858,7 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'SystemClass::mHWND' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'SystemClass::mApplicationName' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1871,7 +1871,7 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'SystemClass::mHWND' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'SystemClass::mApplicationName' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>8</FUNCLINE>
@@ -1883,8 +1883,8 @@
       <LINE>3</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'TextClass::mScreenWidth' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>TextClass::{ctor}</FUNCTION>
     <DECORATED>??0TextClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1896,8 +1896,8 @@
       <LINE>3</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'TextClass::mScreenWidth' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>TextClass::{ctor}</FUNCTION>
     <DECORATED>??0TextClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>

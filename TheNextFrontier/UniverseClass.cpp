@@ -181,6 +181,8 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 
 	mGameTime->Frame();
 
+	mMars->CalculateMarsRotation(mGameTime->GetGameTimeMS());
+
 	HandleMovementInput(input, frameTime);
 
 	mPosition->GetPosition(posX, posY, posZ);
@@ -294,7 +296,7 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 
 bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager)
 {
-	XMMATRIX worldMatrix, viewMatrix, projectionMatrix, baseViewMatrix, orthoMatrix, inverseWorldMatrix;
+	XMMATRIX worldMatrix, viewMatrix, projectionMatrix, baseViewMatrix, orthoMatrix, inverseWorldMatrix, rotationMatrix;
 	bool result;
 
 	mCamera->Render();
@@ -305,6 +307,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 	projectionMatrix = direct3D->GetProjectionMatrix();
 	mCamera->GetBaseViewMatrix(baseViewMatrix);
 	direct3D->GetOrthoMatrix(orthoMatrix);
+	rotationMatrix = mMars->GetRotationMatrix();
 
 	if (mCamera->CheckMovement()) 
 	{
@@ -322,7 +325,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 
 	mMars->Render(direct3D->GetDeviceContext());
 
-	result = shaderManager->RenderMarsShader(direct3D->GetDeviceContext(), mMars->GetIndexCount(), mMars->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, inverseWorldMatrix, mMars->GetMarsRadius(), mMars->GetMarsMaxHeight(), mMars->GetMarsMinHeight(), mMars->GetDistanceLUT(), mPosition->GetPositionXMFLOAT3(), mMars->GetHeightMap(), mSunlight->GetDirection(), mSunlight->GetDiffuseColor(), mMars->GetMarsPatchDelta());
+	result = shaderManager->RenderMarsShader(direct3D->GetDeviceContext(), mMars->GetIndexCount(), mMars->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, inverseWorldMatrix, rotationMatrix, mMars->GetMarsRadius(), mMars->GetMarsMaxHeight(), mMars->GetMarsMinHeight(), mMars->GetDistanceLUT(), mPosition->GetPositionXMFLOAT3(), mMars->GetHeightMap(), mSunlight->GetDirection(), mSunlight->GetDiffuseColor(), mMars->GetMarsPatchDelta());
 	if (!result)
 	{
 		return false;

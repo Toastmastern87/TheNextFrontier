@@ -9,6 +9,7 @@ cbuffer MatrixBuffer
 	matrix viewMatrix;
 	matrix projectionMatrix;
 	matrix inverseWorldMatrix;
+	matrix rotationMatrix;
 	float marsRadius;
 };
 

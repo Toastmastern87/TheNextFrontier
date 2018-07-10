@@ -8,6 +8,9 @@ MarsClass::MarsClass()
 	mFrustum = 0;
 	mHeightMapResource = 0;
 	mHeightMapResourceView = 0;
+
+	mMarsRotateAngle = 0;
+	mOldGameTime = 0;
 }
 
 MarsClass::MarsClass(const MarsClass& other)
@@ -481,21 +484,6 @@ MarsClass::NextTriangle MarsClass::CheckTriangleSplit(XMFLOAT3 a, XMFLOAT3 b, XM
 	//Frustum Culling
 	if (frustumCull)
 	{
-
-		//ofstream fOut;
-
-		//fOut.open("Debug.txt", ios::out | ios::app);
-
-		//fOut << "level: ";
-		//fOut << level;
-		//fOut << "\r\n";
-		//fOut << "mHeightMultiLUT[level]: ";
-		//fOut << mHeightMultiLUT[level];
-		//fOut << "\r\n";
-		//fOut << "\r\n";
-
-		//fOut.close();
-
 		VolumeCheck intersect = mFrustum->CheckTriangleVolume(a, b, c, mHeightMultiLUT[level]);
 		//VolumeCheck intersect = mFrustum->CheckTriangleVolume(XMLoadFloat3(&a), XMLoadFloat3(&b), XMLoadFloat3(&c), mHeightMultiLUT[level]);
 		//VolumeCheck intersect = mFrustum->CheckTriangle(a, b, c);
@@ -691,4 +679,45 @@ int MarsClass::GetHeightAtPos(XMFLOAT3 position)
 	XMFLOAT2 uv = XMFLOAT2((0.5f + (atan2(position.z, position.x) / (2 * 3.14159265f))), (0.5f - (asin(position.y) / 3.14159265f)));
 
 	return 	(mMarsRadius + (mHeightData[(int)(uv.x * 8192.0f)][(int)(uv.y * 4096.0f)] * (mMarsMaxHeight - mMarsMinHeight)) + mMarsMinHeight);
+}
+
+void MarsClass::CalculateMarsRotation(int gameTimeMS) 
+{
+	int timeDiff;
+	XMMATRIX upSideDownRotation;
+
+	if (mMarsRotateAngle > (2 * M_PI))
+	{
+		mMarsRotateAngle -= (2 * M_PI);
+	}
+
+	if (mOldGameTime > gameTimeMS)
+	{
+		timeDiff = (1000 - mOldGameTime) + gameTimeMS;
+	}
+	else
+	{
+		timeDiff = gameTimeMS - mOldGameTime;
+	}
+
+	mOldGameTime = gameTimeMS;	
+
+	mMarsRotateAngle += timeDiff * MARSROTATESPEED;
+
+	upSideDownRotation = XMMATRIX(cosf(M_PI), -sinf(M_PI), 0.0f, 0.0f,
+									  sinf(M_PI), cosf(M_PI), 0.0f, 0.0f,
+									  0.0f, 0.0f, 1.0f, 0.0f,
+									  0.0f, 0.0f, 0.0f, 1.0f);
+
+	mRotationMatrix = XMMATRIX(cosf(-mMarsRotateAngle), 0.0f, sinf(-mMarsRotateAngle), 0.0f,
+							   0.0f, 1.0f, 0.0f, 0.0f,
+							   -sinf(-mMarsRotateAngle), 0.0f, cosf(-mMarsRotateAngle), 0.0f,
+							   0.0f, 0.0f, 0.0f, 1.0f);
+
+	mRotationMatrix = XMMatrixMultiply(mRotationMatrix, upSideDownRotation);
+}
+
+XMMATRIX MarsClass::GetRotationMatrix() 
+{
+	return mRotationMatrix;
 }

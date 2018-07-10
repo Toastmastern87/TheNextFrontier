@@ -4,84 +4,84 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.h</FILENAME>
-      <LINE>58</LINE>
+      <LINE>59</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>58</FUNCLINE>
+    <FUNCLINE>59</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.h</FILENAME>
-      <LINE>58</LINE>
+      <LINE>59</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>58</FUNCLINE>
+    <FUNCLINE>59</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.h</FILENAME>
-      <LINE>58</LINE>
+      <LINE>59</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::TriangleType::c' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>58</FUNCLINE>
+    <FUNCLINE>59</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.h</FILENAME>
-      <LINE>58</LINE>
+      <LINE>59</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::TriangleType::b' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>58</FUNCLINE>
+    <FUNCLINE>59</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.h</FILENAME>
-      <LINE>58</LINE>
+      <LINE>59</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::TriangleType::parent' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>58</FUNCLINE>
+    <FUNCLINE>59</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.h</FILENAME>
-      <LINE>58</LINE>
+      <LINE>59</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::TriangleType::level' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>58</FUNCLINE>
+    <FUNCLINE>59</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
@@ -106,20 +106,6 @@
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::mHeightData' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>MarsClass::{ctor}</FUNCTION>
-    <DECORATED>??0MarsClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>11</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::mMarsRadius' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@XZ</DECORATED>
@@ -163,6 +149,20 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::screenWidth' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MarsClass::{ctor}</FUNCTION>
+    <DECORATED>??0MarsClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>marsclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::mHeightData' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -270,252 +270,308 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>3</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::mHeightData' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'MarsClass::mRotationMatrix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
-    <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <DECORATED>??0MarsClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>16</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>16</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::mInstanceBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>16</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::mIndexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>16</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::mFrustum' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>16</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::mMarsRadius' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>16</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::mMarsMaxHeight' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>16</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::mMarsMinHeight' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>16</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::screenWidth' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>16</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::mHeightData' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MarsClass::{ctor}</FUNCTION>
+    <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>16</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>marsclass.cpp</FILENAME>
+      <LINE>16</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::mMaxSubdivisionLevel' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>16</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::mMaxCellLevel' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>16</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::mMaxTriangleSize' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>16</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::mDelta' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>16</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::mScreenWidth' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>16</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::mHeightDataImage' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>16</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::mMarsRotateAngle' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MarsClass::{ctor}</FUNCTION>
+    <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>16</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>marsclass.cpp</FILENAME>
+      <LINE>16</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::mOldGameTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MarsClass::{ctor}</FUNCTION>
+    <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>16</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>marsclass.cpp</FILENAME>
+      <LINE>16</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::mPosition' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>16</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::mHeightMapResource' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>16</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::mHeightMapResourceView' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>marsclass.cpp</FILENAME>
+      <LINE>16</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::mRotationMatrix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MarsClass::{ctor}</FUNCTION>
+    <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
 </DEFECTS>

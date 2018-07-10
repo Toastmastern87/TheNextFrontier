@@ -60,6 +60,8 @@ void GameTimeClass::Frame()
 	if ((mGameTimeHours >= 24) && (mGameTimeMins >= 35) && (mGameTimeSecs >= 39))
 	{
 		mGameTimeHours -= 24;
+		mGameTimeMins -= 35;
+		mGameTimeSecs -= 39;
 
 		mGameTimeDays++;
 	}

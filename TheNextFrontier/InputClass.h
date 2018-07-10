@@ -33,6 +33,8 @@ public:
 	bool IsDownPressed();
 	bool IsAPressed();
 	bool IsZPressed();
+	bool IsPlusNmpPressed();
+	bool IsMinusNmpPressed();
 	bool IsPgUpPressed();
 	bool IsPgDownPressed();
 

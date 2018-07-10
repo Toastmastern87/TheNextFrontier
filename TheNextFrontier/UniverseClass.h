@@ -12,6 +12,7 @@
 #include "FrustumClass.h"
 #include "MousePointerClass.h"
 #include "LightClass.h"
+#include "GameTimeClass.h"
 
 class UniverseClass
 {
@@ -35,9 +36,10 @@ private:
 	MarsClass* mMars;
 	FrustumClass* mFrustum;
 	LightClass* mSunlight;
-	bool mDisplayUI, mWireframe;
+	bool mDisplayUI, mWireframe, mSpeedIncreased, mSpeedDecreased;
 	float mScreenDepth, mScreenNear;
 	MousePointerClass *mMousePointer;
+	GameTimeClass *mGameTime;
 };
 
 #endif

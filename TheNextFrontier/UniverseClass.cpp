@@ -8,6 +8,10 @@ UniverseClass::UniverseClass()
 	mMars = 0;
 	mFrustum = 0;
 	mSunlight = 0;
+	mGameTime = 0;
+
+	mSpeedIncreased = false;
+	mSpeedDecreased = false;
 }
 
 UniverseClass::UniverseClass(const UniverseClass& other)
@@ -23,7 +27,15 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 	bool result;
 
 	mScreenDepth = screenDepth;
-	mScreenDepth = screenNear;
+	mScreenNear = screenNear;
+
+	mGameTime = new GameTimeClass();
+	if (!mGameTime)
+	{
+		return false;
+	}
+
+	mGameTime->Initialize();
 
 	mUI = new UIClass;
 	if (!mUI)
@@ -63,7 +75,7 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 		return false;
 	}
 
-	mPosition->SetPosition(2765.0f, -3.0f, -2048.0f);
+	mPosition->SetPosition(2765.0f, 0.0f, -2048.0f);
 	mPosition->SetRotation(0.0f, 270.0f, 0.0f);
 
 	mFrustum = new FrustumClass;
@@ -152,6 +164,12 @@ void UniverseClass::Shutdown()
 		mUI = 0;
 	}
 
+	if (mGameTime)
+	{
+		delete mGameTime;
+		mGameTime = 0;
+	}
+
 	return;
 }
 
@@ -160,6 +178,8 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 	bool result;
 	float posX, posY, posZ, rotX, rotY, rotZ, altitude;
 	int mouseX, mouseY;
+
+	mGameTime->Frame();
 
 	HandleMovementInput(input, frameTime);
 
@@ -176,7 +196,7 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 
 	altitude = mPosition->GetDistanceFromOrigo() - mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3());
 
-	result = mUI->Frame(hwnd, direct3D->GetDeviceContext(), fps, posX, posY, posZ, rotX, rotY, rotZ, (mMars->GetMarsVerticesCount() * mMars->GetInstanceCount()), altitude, mPosition->GetDistanceFromOrigo(), mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()));
+	result = mUI->Frame(hwnd, direct3D->GetDeviceContext(), fps, posX, posY, posZ, rotX, rotY, rotZ, (mMars->GetMarsVerticesCount() * mMars->GetInstanceCount()), altitude, mPosition->GetDistanceFromOrigo(), mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()), mGameTime->GetGameTimeSecs(), mGameTime->GetGameTimeMins(), mGameTime->GetGameTimeHours(), mGameTime->GetGameTimeDays(), mGameTime->GetGameTimeMarsYears());
 	if (!result)
 	{
 		return false;
@@ -213,6 +233,30 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 
 	keyDown = input->IsDownPressed();
 	mPosition->OrbitSouth(keyDown);
+
+	keyDown = input->IsPlusNmpPressed();
+	if (keyDown && !mSpeedIncreased)
+	{
+		mGameTime->IncreaseGameSpeed();
+
+		mSpeedIncreased = true;
+	}
+	else if (!keyDown && mSpeedIncreased)
+	{
+		mSpeedIncreased = false;
+	}
+
+	keyDown = input->IsMinusNmpPressed();
+	if (keyDown && !mSpeedDecreased)
+	{
+		mGameTime->DecreaseGameSpeed();
+
+		mSpeedDecreased = true;
+	}
+	else if (!keyDown && mSpeedDecreased)
+	{
+		mSpeedDecreased = false;
+	}
 
 	if (mPosition->GetDistanceFromOrigo() < mPosition->MAXDISTANCEFROMORIGO) 
 	{

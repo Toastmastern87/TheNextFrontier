@@ -10,6 +10,7 @@ UIClass::UIClass()
 	mAltitudeString = 0;
 	mDistFromOrigoString = 0;
 	mMarsHeightString = 0;
+	mGameTimeString = 0;
 }
 
 UIClass::UIClass(const UIClass& other) 
@@ -178,6 +179,14 @@ bool UIClass::Initialize(HWND hwnd, D3DClass* direct3D, int screenHeight, int sc
 		return false;
 	}
 
+	mGameTimeString = new TextClass;
+
+	result = mGameTimeString->Initialize(hwnd, direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 40, false, mFont1, (char*)"M: 0 Sol: 0 Time: 00:00:00", 10, 520, 1.0f, 1.0f, 1.0f);
+	if (!result)
+	{
+		return false;
+	}
+
 	return true;
 }
 
@@ -218,6 +227,13 @@ void UIClass::Shutdown()
 		mFPSString = 0;
 	}
 
+	if (mGameTimeString)
+	{
+		mGameTimeString->Shutdown();
+		delete mGameTimeString;
+		mGameTimeString = 0;
+	}
+
 	if (mFont1)
 	{
 		mFont1->Shutdown();
@@ -228,7 +244,7 @@ void UIClass::Shutdown()
 	return;
 }
 
-bool UIClass::Frame(HWND hwnd, ID3D11DeviceContext* deviceContext, int fps, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, int verticesNr, float altitude, float distFromOrigo, float marsHeight)
+bool UIClass::Frame(HWND hwnd, ID3D11DeviceContext* deviceContext, int fps, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, int verticesNr, float altitude, float distFromOrigo, float marsHeight, int gameTimeSecs, int gameTimeMins, int gameTimeHours, int gameTimeDays, int gameTimeMarsYears)
 {
 	bool result;
 
@@ -268,6 +284,12 @@ bool UIClass::Frame(HWND hwnd, ID3D11DeviceContext* deviceContext, int fps, floa
 		return false;
 	}
 
+	result = UpdateGameTimeString(hwnd, deviceContext, gameTimeSecs, gameTimeMins, gameTimeHours, gameTimeDays, gameTimeMarsYears);
+	if (!result)
+	{
+		return false;
+	}
+
 	return true;
 }
 
@@ -287,6 +309,8 @@ bool UIClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager, XMMA
 	mAltitudeString->Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
 	mDistFromOrigoString->Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
 	mMarsHeightString->Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
+
+	mGameTimeString->Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
 
 	return true;
 }
@@ -524,6 +548,75 @@ bool UIClass::UpdateMarsHeightString(HWND hwnd, ID3D11DeviceContext* deviceConte
 	if (!result)
 	{
 		return false;
+	}
+
+	return true;
+}
+
+bool UIClass::UpdateGameTimeString(HWND hwnd, ID3D11DeviceContext *deviceContext, int gameTimeSecs, int gameTimeMins, int gameTimeHours, int gameTimeDays, int gameTimeYears)
+{
+	bool result;
+	char tempString[16];
+	char finalString[40];
+
+	if (gameTimeSecs != mPreviousGameTimeSec)
+	{
+		_itoa_s(gameTimeYears, tempString, 10);
+		strcpy_s(finalString, "M: ");
+		strcat_s(finalString, tempString);
+
+		_itoa_s(gameTimeDays, tempString, 10);
+		strcat_s(finalString, " Sol: ");
+		strcat_s(finalString, tempString);
+
+		strcat_s(finalString, " Time: ");
+
+		if (gameTimeHours < 10)
+		{
+			_itoa_s(gameTimeHours, tempString, 10);
+			strcat_s(finalString, " 0");
+			strcat_s(finalString, tempString);
+		}
+		else
+		{
+			_itoa_s(gameTimeHours, tempString, 10);
+			strcat_s(finalString, " ");
+			strcat_s(finalString, tempString);
+		}
+
+		if (gameTimeMins < 10)
+		{
+			_itoa_s(gameTimeMins, tempString, 10);
+			strcat_s(finalString, ":0");
+			strcat_s(finalString, tempString);
+		}
+		else
+		{
+			_itoa_s(gameTimeMins, tempString, 10);
+			strcat_s(finalString, ":");
+			strcat_s(finalString, tempString);
+		}
+
+		if (gameTimeSecs < 10)
+		{
+			_itoa_s(gameTimeSecs, tempString, 10);
+			strcat_s(finalString, ":0");
+			strcat_s(finalString, tempString);
+		}
+		else
+		{
+			_itoa_s(gameTimeSecs, tempString, 10);
+			strcat_s(finalString, ":");
+			strcat_s(finalString, tempString);
+		}
+
+		mPreviousGameTimeSec = gameTimeSecs;
+
+		result = mGameTimeString->UpdateSentence(hwnd, deviceContext, mFont1, finalString, 2300, 17, 1.0f, 1.0f, 1.0f);
+		if (!result)
+		{
+			return false;
+		}
 	}
 
 	return true;

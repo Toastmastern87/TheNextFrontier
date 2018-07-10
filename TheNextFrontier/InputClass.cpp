@@ -349,3 +349,23 @@ bool InputClass::IsF2Toggled()
 
 	return false;
 }
+
+bool InputClass::IsPlusNmpPressed()
+{
+	if (mKeyboardState[DIK_ADD] & 0x80)
+	{
+		return true;
+	}
+
+	return false;
+}
+
+bool InputClass::IsMinusNmpPressed()
+{
+	if (mKeyboardState[DIK_SUBTRACT] & 0x80)
+	{
+		return true;
+	}
+
+	return false;
+}

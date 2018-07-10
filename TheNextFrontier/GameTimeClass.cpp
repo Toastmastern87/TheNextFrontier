@@ -36,9 +36,11 @@ void GameTimeClass::Frame()
 
 	if (mGameTimeMS >= 1000)
 	{
-		mGameTimeMS -= 1000;
+		int numberOfSecs = mGameTimeMS / 1000;
 
-		mGameTimeSecs++;
+		mGameTimeMS -= (numberOfSecs * 1000);
+
+		mGameTimeSecs += numberOfSecs;
 	}
 
 	if (mGameTimeSecs >= 60)
@@ -112,9 +114,8 @@ void GameTimeClass::IncreaseGameSpeed()
 
 void GameTimeClass::DecreaseGameSpeed()
 {
-	if (mSpeed > 0)
+	if (mSpeed > 1)
 	{
 		mSpeed /= 10;
 	}
-
 }

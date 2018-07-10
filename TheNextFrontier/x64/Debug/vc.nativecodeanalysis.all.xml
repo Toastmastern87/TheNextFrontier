@@ -45,7 +45,7 @@
       <COLUMN>15</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GameTimeClass::mOldTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'GameTimeClass::mGameTimeMS' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>GameTimeClass::{ctor}</FUNCTION>
     <DECORATED>??0GameTimeClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -71,7 +71,7 @@
       <COLUMN>15</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GameTimeClass::mOldTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'GameTimeClass::mGameTimeMS' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>GameTimeClass::{ctor}</FUNCTION>
     <DECORATED>??0GameTimeClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>7</FUNCLINE>
@@ -1435,8 +1435,8 @@
       <LINE>58</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>58</FUNCLINE>
@@ -1448,8 +1448,8 @@
       <LINE>58</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>58</FUNCLINE>
@@ -1475,7 +1475,7 @@
       <COLUMN>18</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ApplicationClass::mInput' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'ApplicationClass::mUniverse' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ApplicationClass::{ctor}</FUNCTION>
     <DECORATED>??0ApplicationClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>13</FUNCLINE>
@@ -1552,8 +1552,8 @@
       <LINE>3</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'InputClass::mKeyboardState' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>InputClass::{ctor}</FUNCTION>
     <DECORATED>??0InputClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1565,8 +1565,8 @@
       <LINE>3</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'InputClass::mKeyboardState' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>InputClass::{ctor}</FUNCTION>
     <DECORATED>??0InputClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2785,8 +2785,8 @@
       <LINE>3</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'UIClass::mPreviousFPS' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>UIClass::{ctor}</FUNCTION>
     <DECORATED>??0UIClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2798,8 +2798,8 @@
       <LINE>3</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'UIClass::mPreviousFPS' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>UIClass::{ctor}</FUNCTION>
     <DECORATED>??0UIClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2808,39 +2808,33 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>uiclass.cpp</FILENAME>
-      <LINE>15</LINE>
+      <LINE>16</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'UIClass::mFont1' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>UIClass::{ctor}</FUNCTION>
     <DECORATED>??0UIClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>15</FUNCLINE>
+    <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>uiclass.cpp</FILENAME>
-      <LINE>69</LINE>
+      <LINE>70</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
     <DEFECTCODE>6054</DEFECTCODE>
     <DESCRIPTION>String 'tempString' might not be zero-terminated.</DESCRIPTION>
     <FUNCTION>UIClass::Initialize</FUNCTION>
     <DECORATED>?Initialize@UIClass@@QEAA_NPEAUHWND__@@PEAVD3DClass@@HH@Z</DECORATED>
-    <FUNCLINE>23</FUNCLINE>
+    <FUNCLINE>24</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>3</RANK>
     <CATEGORY>
       <RULECATEGORY>mspft</RULECATEGORY>
     </CATEGORY>
     <PATH>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>25</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
@@ -2851,13 +2845,13 @@
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
         <LINE>27</LINE>
-        <COLUMN>5</COLUMN>
+        <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
         <LINE>28</LINE>
-        <COLUMN>6</COLUMN>
+        <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
@@ -2888,6 +2882,12 @@
         <FILENAME>uiclass.cpp</FILENAME>
         <LINE>33</LINE>
         <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>34</LINE>
+        <COLUMN>6</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
           <KIND>declaration</KIND>
@@ -2898,19 +2898,19 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>34</LINE>
+        <LINE>35</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>36</LINE>
+        <LINE>37</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>37</LINE>
+        <LINE>38</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -2922,13 +2922,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>42</LINE>
+        <LINE>43</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>43</LINE>
+        <LINE>44</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -2940,13 +2940,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>48</LINE>
+        <LINE>49</LINE>
         <COLUMN>12</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>49</LINE>
+        <LINE>50</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
@@ -2958,13 +2958,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>54</LINE>
+        <LINE>55</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>55</LINE>
+        <LINE>56</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>5</ID>
@@ -2976,20 +2976,14 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>60</LINE>
+        <LINE>61</LINE>
         <COLUMN>14</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>62</LINE>
-        <COLUMN>27</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
         <LINE>63</LINE>
-        <COLUMN>9</COLUMN>
+        <COLUMN>27</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
@@ -3000,7 +2994,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>66</LINE>
+        <LINE>65</LINE>
+        <COLUMN>9</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>67</LINE>
         <COLUMN>8</COLUMN>
         <KEYEVENT>
           <ID>6</ID>
@@ -3012,13 +3012,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>68</LINE>
+        <LINE>69</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>69</LINE>
+        <LINE>70</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>7</ID>
@@ -3030,7 +3030,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>69</LINE>
+        <LINE>70</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>8</ID>
@@ -3044,14 +3044,14 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>uiclass.cpp</FILENAME>
-      <LINE>316</LINE>
+      <LINE>340</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
     <DEFECTCODE>6054</DEFECTCODE>
     <DESCRIPTION>String 'tempString' might not be zero-terminated.</DESCRIPTION>
     <FUNCTION>UIClass::UpdateFPSString</FUNCTION>
     <DECORATED>?UpdateFPSString@UIClass@@AEAA_NPEAUHWND__@@PEAUID3D11DeviceContext@@H@Z</DECORATED>
-    <FUNCLINE>294</FUNCLINE>
+    <FUNCLINE>318</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>3</RANK>
     <CATEGORY>
@@ -3061,7 +3061,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>296</LINE>
+        <LINE>320</LINE>
         <COLUMN>6</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -3073,37 +3073,37 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>297</LINE>
+        <LINE>321</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>298</LINE>
+        <LINE>322</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>298</LINE>
+        <LINE>322</LINE>
         <COLUMN>12</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>298</LINE>
+        <LINE>322</LINE>
         <COLUMN>19</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>299</LINE>
+        <LINE>323</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>301</LINE>
+        <LINE>325</LINE>
         <COLUMN>18</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -3115,19 +3115,19 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>306</LINE>
+        <LINE>330</LINE>
         <COLUMN>14</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>308</LINE>
+        <LINE>332</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>313</LINE>
+        <LINE>337</LINE>
         <COLUMN>8</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -3139,13 +3139,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>315</LINE>
+        <LINE>339</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>316</LINE>
+        <LINE>340</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
@@ -3157,7 +3157,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>316</LINE>
+        <LINE>340</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>5</ID>
@@ -3171,14 +3171,14 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>uiclass.cpp</FILENAME>
-      <LINE>437</LINE>
+      <LINE>461</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>6054</DEFECTCODE>
     <DESCRIPTION>String 'tempString' might not be zero-terminated.</DESCRIPTION>
     <FUNCTION>UIClass::UpdatePositionStrings</FUNCTION>
     <DECORATED>?UpdatePositionStrings@UIClass@@AEAA_NPEAUHWND__@@PEAUID3D11DeviceContext@@MMMMMM@Z</DECORATED>
-    <FUNCLINE>348</FUNCLINE>
+    <FUNCLINE>372</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>3</RANK>
     <CATEGORY>
@@ -3188,43 +3188,43 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>350</LINE>
+        <LINE>374</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>350</LINE>
+        <LINE>374</LINE>
         <COLUMN>16</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>350</LINE>
+        <LINE>374</LINE>
         <COLUMN>27</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>350</LINE>
+        <LINE>374</LINE>
         <COLUMN>38</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>350</LINE>
+        <LINE>374</LINE>
         <COLUMN>49</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>350</LINE>
+        <LINE>374</LINE>
         <COLUMN>60</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>351</LINE>
+        <LINE>375</LINE>
         <COLUMN>6</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -3236,55 +3236,55 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>352</LINE>
+        <LINE>376</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>353</LINE>
+        <LINE>377</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>355</LINE>
+        <LINE>379</LINE>
         <COLUMN>11</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>356</LINE>
+        <LINE>380</LINE>
         <COLUMN>11</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>357</LINE>
+        <LINE>381</LINE>
         <COLUMN>11</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>358</LINE>
+        <LINE>382</LINE>
         <COLUMN>11</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>359</LINE>
+        <LINE>383</LINE>
         <COLUMN>11</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>360</LINE>
+        <LINE>384</LINE>
         <COLUMN>11</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>362</LINE>
+        <LINE>386</LINE>
         <COLUMN>15</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -3296,7 +3296,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>376</LINE>
+        <LINE>400</LINE>
         <COLUMN>15</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -3308,7 +3308,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>390</LINE>
+        <LINE>414</LINE>
         <COLUMN>15</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
@@ -3320,7 +3320,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>404</LINE>
+        <LINE>428</LINE>
         <COLUMN>15</COLUMN>
         <KEYEVENT>
           <ID>5</ID>
@@ -3332,7 +3332,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>418</LINE>
+        <LINE>442</LINE>
         <COLUMN>14</COLUMN>
         <KEYEVENT>
           <ID>6</ID>
@@ -3344,7 +3344,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>432</LINE>
+        <LINE>456</LINE>
         <COLUMN>15</COLUMN>
         <KEYEVENT>
           <ID>7</ID>
@@ -3356,13 +3356,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>434</LINE>
+        <LINE>458</LINE>
         <COLUMN>23</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>435</LINE>
+        <LINE>459</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>8</ID>
@@ -3374,13 +3374,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>436</LINE>
+        <LINE>460</LINE>
         <COLUMN>10</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>437</LINE>
+        <LINE>461</LINE>
         <COLUMN>10</COLUMN>
         <KEYEVENT>
           <ID>9</ID>
@@ -3392,7 +3392,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>437</LINE>
+        <LINE>461</LINE>
         <COLUMN>10</COLUMN>
         <KEYEVENT>
           <ID>10</ID>
@@ -3406,151 +3406,66 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>uiclass.cpp</FILENAME>
-      <LINE>458</LINE>
+      <LINE>482</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
     <DEFECTCODE>6054</DEFECTCODE>
     <DESCRIPTION>String 'tempString' might not be zero-terminated.</DESCRIPTION>
     <FUNCTION>UIClass::UpdateVerticesString</FUNCTION>
     <DECORATED>?UpdateVerticesString@UIClass@@AEAA_NPEAUHWND__@@PEAUID3D11DeviceContext@@H@Z</DECORATED>
-    <FUNCLINE>449</FUNCLINE>
+    <FUNCLINE>473</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>3</RANK>
     <CATEGORY>
       <RULECATEGORY>mspft</RULECATEGORY>
     </CATEGORY>
     <PATH>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>451</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>452</LINE>
-        <COLUMN>6</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>This expression may not zero-terminate 'tempString'</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>453</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>455</LINE>
-        <COLUMN>8</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'tempString' is an Output from '_itoa_s' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdlib.h:629)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>457</LINE>
-        <COLUMN>9</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>458</LINE>
-        <COLUMN>9</COLUMN>
-        <KEYEVENT>
-          <ID>3</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'tempString' is an Input to 'strcat_s' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\string.h:79)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>458</LINE>
-        <COLUMN>9</COLUMN>
-        <KEYEVENT>
-          <ID>4</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'tempString' is required to be zero-terminated by a SAL annotation on 'strcat_s'</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT><DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>uiclass.cpp</FILENAME>
-      <LINE>478</LINE>
-      <COLUMN>9</COLUMN>
-    </SFA>
-    <DEFECTCODE>6054</DEFECTCODE>
-    <DESCRIPTION>String 'tempString' might not be zero-terminated.</DESCRIPTION>
-    <FUNCTION>UIClass::UpdateAltitudeString</FUNCTION>
-    <DECORATED>?UpdateAltitudeString@UIClass@@AEAA_NPEAUHWND__@@PEAUID3D11DeviceContext@@M@Z</DECORATED>
-    <FUNCLINE>469</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>3</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>471</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>472</LINE>
-        <COLUMN>6</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>This expression may not zero-terminate 'tempString'</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>473</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
         <LINE>475</LINE>
-        <COLUMN>8</COLUMN>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>476</LINE>
+        <COLUMN>6</COLUMN>
         <KEYEVENT>
-          <ID>2</ID>
+          <ID>1</ID>
           <KIND>declaration</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'tempString' is an Output from '_itoa_s' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdlib.h:629)</MESSAGE>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>This expression may not zero-terminate 'tempString'</MESSAGE>
         </KEYEVENT>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
         <LINE>477</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>479</LINE>
+        <COLUMN>8</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'tempString' is an Output from '_itoa_s' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdlib.h:629)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>481</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>478</LINE>
+        <LINE>482</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -3562,7 +3477,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>478</LINE>
+        <LINE>482</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
@@ -3576,14 +3491,14 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>uiclass.cpp</FILENAME>
-      <LINE>499</LINE>
+      <LINE>502</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
     <DEFECTCODE>6054</DEFECTCODE>
     <DESCRIPTION>String 'tempString' might not be zero-terminated.</DESCRIPTION>
-    <FUNCTION>UIClass::UpdateDistFromOrigoString</FUNCTION>
-    <DECORATED>?UpdateDistFromOrigoString@UIClass@@AEAA_NPEAUHWND__@@PEAUID3D11DeviceContext@@M@Z</DECORATED>
-    <FUNCLINE>490</FUNCLINE>
+    <FUNCTION>UIClass::UpdateAltitudeString</FUNCTION>
+    <DECORATED>?UpdateAltitudeString@UIClass@@AEAA_NPEAUHWND__@@PEAUID3D11DeviceContext@@M@Z</DECORATED>
+    <FUNCLINE>493</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>3</RANK>
     <CATEGORY>
@@ -3593,31 +3508,31 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>492</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>493</LINE>
-        <COLUMN>6</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>This expression may not zero-terminate 'tempString'</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>494</LINE>
+        <LINE>495</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
         <LINE>496</LINE>
+        <COLUMN>6</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>This expression may not zero-terminate 'tempString'</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>497</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>499</LINE>
         <COLUMN>8</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -3629,13 +3544,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>498</LINE>
+        <LINE>501</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>499</LINE>
+        <LINE>502</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -3647,7 +3562,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>499</LINE>
+        <LINE>502</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
@@ -3661,14 +3576,14 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>uiclass.cpp</FILENAME>
-      <LINE>520</LINE>
+      <LINE>523</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
     <DEFECTCODE>6054</DEFECTCODE>
     <DESCRIPTION>String 'tempString' might not be zero-terminated.</DESCRIPTION>
-    <FUNCTION>UIClass::UpdateMarsHeightString</FUNCTION>
-    <DECORATED>?UpdateMarsHeightString@UIClass@@AEAA_NPEAUHWND__@@PEAUID3D11DeviceContext@@M@Z</DECORATED>
-    <FUNCLINE>511</FUNCLINE>
+    <FUNCTION>UIClass::UpdateDistFromOrigoString</FUNCTION>
+    <DECORATED>?UpdateDistFromOrigoString@UIClass@@AEAA_NPEAUHWND__@@PEAUID3D11DeviceContext@@M@Z</DECORATED>
+    <FUNCLINE>514</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>3</RANK>
     <CATEGORY>
@@ -3678,13 +3593,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>513</LINE>
+        <LINE>516</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>514</LINE>
+        <LINE>517</LINE>
         <COLUMN>6</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -3696,13 +3611,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>515</LINE>
+        <LINE>518</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>517</LINE>
+        <LINE>520</LINE>
         <COLUMN>8</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -3714,13 +3629,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>519</LINE>
+        <LINE>522</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>520</LINE>
+        <LINE>523</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -3732,10 +3647,192 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>uiclass.cpp</FILENAME>
-        <LINE>520</LINE>
+        <LINE>523</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'tempString' is required to be zero-terminated by a SAL annotation on 'strcat_s'</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>uiclass.cpp</FILENAME>
+      <LINE>544</LINE>
+      <COLUMN>9</COLUMN>
+    </SFA>
+    <DEFECTCODE>6054</DEFECTCODE>
+    <DESCRIPTION>String 'tempString' might not be zero-terminated.</DESCRIPTION>
+    <FUNCTION>UIClass::UpdateMarsHeightString</FUNCTION>
+    <DECORATED>?UpdateMarsHeightString@UIClass@@AEAA_NPEAUHWND__@@PEAUID3D11DeviceContext@@M@Z</DECORATED>
+    <FUNCLINE>535</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>3</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>537</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>538</LINE>
+        <COLUMN>6</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>This expression may not zero-terminate 'tempString'</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>539</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>541</LINE>
+        <COLUMN>8</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'tempString' is an Output from '_itoa_s' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdlib.h:629)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>543</LINE>
+        <COLUMN>9</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>544</LINE>
+        <COLUMN>9</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'tempString' is an Input to 'strcat_s' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\string.h:79)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>544</LINE>
+        <COLUMN>9</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'tempString' is required to be zero-terminated by a SAL annotation on 'strcat_s'</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>uiclass.cpp</FILENAME>
+      <LINE>566</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>6054</DEFECTCODE>
+    <DESCRIPTION>String 'tempString' might not be zero-terminated.</DESCRIPTION>
+    <FUNCTION>UIClass::UpdateGameTimeString</FUNCTION>
+    <DECORATED>?UpdateGameTimeString@UIClass@@AEAA_NPEAUHWND__@@PEAUID3D11DeviceContext@@HHHHH@Z</DECORATED>
+    <FUNCLINE>556</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>3</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>558</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>559</LINE>
+        <COLUMN>6</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>This expression may not zero-terminate 'tempString'</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>560</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>562</LINE>
+        <COLUMN>18</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this branch, (assume '&lt;branch condition&gt;')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>564</LINE>
+        <COLUMN>9</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'tempString' is an Output from '_itoa_s' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdlib.h:629)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>565</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>566</LINE>
+        <COLUMN>10</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'tempString' is an Input to 'strcat_s' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\string.h:79)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>uiclass.cpp</FILENAME>
+        <LINE>566</LINE>
+        <COLUMN>10</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
           <KIND>usage</KIND>
           <IMPORTANCE>Essential</IMPORTANCE>
           <MESSAGE>'tempString' is required to be zero-terminated by a SAL annotation on 'strcat_s'</MESSAGE>
@@ -3772,13 +3869,13 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>universeclass.cpp</FILENAME>
-      <LINE>13</LINE>
+      <LINE>17</LINE>
       <COLUMN>15</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'UniverseClass::mUI' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>UniverseClass::{ctor}</FUNCTION>
     <DECORATED>??0UniverseClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>13</FUNCLINE>
+    <FUNCLINE>17</FUNCLINE>
     <PATH></PATH>
   </DEFECT></DEFECTS>

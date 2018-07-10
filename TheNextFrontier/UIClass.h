@@ -13,7 +13,7 @@ public:
 	bool Initialize(HWND, D3DClass*, int, int);
 	void Shutdown();
 
-	bool Frame(HWND, ID3D11DeviceContext*, int, float, float, float, float, float, float, int, float, float, float);
+	bool Frame(HWND, ID3D11DeviceContext*, int, float, float, float, float, float, float, int, float, float, float, int, int, int, int, int);
 	bool Render(D3DClass*, ShaderManagerClass*, XMMATRIX, XMMATRIX, XMMATRIX);
 
 private:
@@ -23,12 +23,14 @@ private:
 	bool UpdateAltitudeString(HWND, ID3D11DeviceContext*, float);
 	bool UpdateDistFromOrigoString(HWND, ID3D11DeviceContext*, float);
 	bool UpdateMarsHeightString(HWND, ID3D11DeviceContext*, float);
+	bool UpdateGameTimeString(HWND, ID3D11DeviceContext*, int, int, int, int, int);
 
 private:
 	FontClass* mFont1;
-	TextClass *mFPSString, *mVideoStrings, *mPositionStrings, *mVerticesString, *mAltitudeString, *mDistFromOrigoString, *mMarsHeightString;
+	TextClass *mFPSString, *mVideoStrings, *mPositionStrings, *mVerticesString, *mAltitudeString, *mDistFromOrigoString, *mMarsHeightString, *mGameTimeString;
 	int mPreviousFPS;
 	int mPreviousPosition[6];
+	int mPreviousGameTimeSec;
 };
 
 #endif

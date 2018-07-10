@@ -1,6 +1,8 @@
 Texture2D shaderTexture;
 SamplerState sampleType;
 
+#define PI 3.141592653589793
+
 cbuffer MatrixBuffer
 {
 	matrix worldMatrix;
@@ -65,8 +67,9 @@ float GetHeight(float3 pos)
 	normalizePos = normalize(pos);
 
 	uv = float2((0.5f + (atan2(normalizePos.z, normalizePos.x) / (2 * 3.14159265f))), (0.5f - (asin(normalizePos.y) / 3.14159265f)));
+	//uv = float2(saturate(((atan2(normalizePos.z, normalizePos.x) / 3.14159265f) + 1.0f) / 2), (0.5f - (asin(normalizePos.y) / 3.14159265f)));
 
-	heightColorValue = shaderTexture.SampleLevel(sampleType, uv, 0).r;
+	heightColorValue = shaderTexture.SampleLevel(sampleType, uv, 1).r;
 
 	return heightColorValue;
 }
@@ -96,14 +99,18 @@ PixelInputType MarsVertexShader(VertexInputType input)
 
 	//Normal calculations
 	output.normal = mul(finalPos, worldMatrix);
-	output.viewVector = (cameraPos.xyz - mul(finalPos, worldMatrix));
+	output.viewVector = (mul(cameraPos.xyz, worldMatrix) - mul(finalPos, worldMatrix));
 
 	mapCoords = normalize(finalPos);
 	output.mapCoord = float2((0.5f + (atan2(mapCoords.z, mapCoords.x) / (2 * 3.14159265f))), (0.5f - (asin(mapCoords.y) / 3.14159265f)));
+	//output.mapCoord = float2(saturate(((atan2(mapCoords.z, mapCoords.x) / 3.14159265f) + 1.0f) / 2), (0.5f - (asin(mapCoords.y) / 3.14159265f)));
+	//float2( saturate(((atan2(position.z, position.x) / pi) + 1.0) / 2.0), (0.5-(asin(position.y)/pi)) );
 
 	output.position = mul(float4(finalPos, 1.0f), worldMatrix);
 	output.position = mul(output.position, viewMatrix);
 	output.position = mul(output.position, projectionMatrix);
+
+	output.color = float4(height, height, height, 1.0f);
 
 	return output;
 }

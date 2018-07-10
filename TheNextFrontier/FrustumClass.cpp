@@ -44,9 +44,9 @@ bool FrustumClass::ConstructFrustum(float farPlane, float nearPlane, float aspec
 	normHalfWidth = tanf(mCamera->GetFOV() * (XM_PI / 180.0f));
 
 	nearPlaneWidth = normHalfWidth * nearPlane;
-	nearPlaneHeight = nearPlaneWidth * aspectRatio;
+	nearPlaneHeight = nearPlaneWidth / aspectRatio;
 	farPlaneWidth = normHalfWidth * farPlane;
-	farPlaneHeight = farPlaneWidth * aspectRatio;
+	farPlaneHeight = farPlaneWidth / aspectRatio;
 
 	nearCenter = XMLoadFloat3(&mPosition->GetPositionXMFLOAT3()) + mCamera->GetLookAtVector() * nearPlane;
 	farCenter = XMLoadFloat3(&mPosition->GetPositionXMFLOAT3()) + mCamera->GetLookAtVector() * farPlane * 0.5f;
@@ -112,12 +112,7 @@ bool FrustumClass::ConstructFrustum(float farPlane, float nearPlane, float aspec
 	projectionMatrixXMFLOAT._33 = r;
 	projectionMatrixXMFLOAT._43 = -r * zMin;
 
-	projectionMatrix = XMLoadFloat4x4(&projectionMatrixXMFLOAT);
-	viewMatrix = XMLoadFloat4x4(&viewMatrixXMFLOAT);
-
-	matrix = XMMatrixMultiply(XMMatrixMultiply(viewMatrix, worldMatrix), projectionMatrix);
-
-	XMStoreFloat4x4(&matrixXMFLOAT, matrix);
+	XMStoreFloat4x4(&matrixXMFLOAT, XMMatrixMultiply(XMMatrixMultiply(XMLoadFloat4x4(&viewMatrixXMFLOAT), worldMatrix), XMLoadFloat4x4(&projectionMatrixXMFLOAT)));
 
 	mPlane[0].x = matrixXMFLOAT._14 + matrixXMFLOAT._13;
 	mPlane[0].y = matrixXMFLOAT._24 + matrixXMFLOAT._23;
@@ -200,11 +195,10 @@ VolumeCheck FrustumClass::CheckTriangle(XMFLOAT3 p1, XMFLOAT3 p2, XMFLOAT3 p3)
 
 VolumeCheck FrustumClass::CheckTriangleVolume(XMFLOAT3 p1, XMFLOAT3 p2, XMFLOAT3 p3, float height)
 {
-	int i;
 	XMVECTOR tempPlaneVector;
 	VolumeCheck ret = VolumeCheck::CONTAINS;
 
-	for (i = 0; i < 6; i++)
+	for (int i = 0; i < 6; i++)
 	{
 		tempPlaneVector = XMLoadFloat4(&mPlane[i]);
 
@@ -300,7 +294,7 @@ VolumeCheck FrustumClass::CheckTriangleVolume(XMVECTOR p1, XMVECTOR p2, XMVECTOR
 				rejects++;
 			}
 
-			if (rejects = 6)
+			if (rejects >= 6)
 			{
 				ret = VolumeCheck::OUTSIDE;
 			}
@@ -309,7 +303,7 @@ VolumeCheck FrustumClass::CheckTriangleVolume(XMVECTOR p1, XMVECTOR p2, XMVECTOR
 				ret = VolumeCheck::INTERSECT;
 			}
 		}
-		else if (rejects < 0)
+		else if (rejects > 0)
 		{
 			ret = VolumeCheck::INTERSECT;
 		}

@@ -117,6 +117,7 @@ private:
 	void GenerateCells();
 	void GenerateCellGeometry();
 	void GenerateHeightMultiLUT();
+	void GenerateTriLevelDotLUT();
 	bool MapCells(ID3D11DeviceContext*);
 
 	void RecursiveTriangle(XMFLOAT3, XMFLOAT3, XMFLOAT3, short, bool);
@@ -140,6 +141,7 @@ private:
 	float mHeightData[8192][4096];
 
 	vector<float> mDistanceLUT;
+	vector<float> mTriLevelDotLUT;
 	vector<float> mHeightMultiLUT;
 
 	int mMaxSubdivisionLevel;

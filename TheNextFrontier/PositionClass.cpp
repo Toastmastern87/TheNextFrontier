@@ -21,6 +21,8 @@ PositionClass::PositionClass()
 	mLookUpSpeed = 0.0f;
 	mLookDownSpeed = 0.0f;
 	mMaxZoomSpeed = 0.0f;
+
+	mMaxZoom = false;
 }
 
 PositionClass::PositionClass(const PositionClass& other) 
@@ -143,6 +145,8 @@ void PositionClass::ZoomOut(int mouseWheelDelta, float marsRadius)
 		{
 			mZoomOutSpeed = maxSpeed;
 		}
+
+		mMaxZoom = false;
 	}
 	else
 	{
@@ -177,15 +181,12 @@ void PositionClass::ZoomOut(int mouseWheelDelta, float marsRadius)
 	return;
 }
 
-void PositionClass::ZoomIn(int mouseWheelDelta, float marsRadius)
+void PositionClass::ZoomIn(int mouseWheelDelta, float marsRadius, float heightAtPos)
 {
-	ofstream fOut;
+	float maxSpeed, altitude;
+	XMVECTOR posVector, posVectorNorm;
 
-	fOut.open("Debug.txt", ios::out | ios::app);
-
-	float maxSpeed;
-	XMVECTOR posVector;
-	XMVECTOR posVectorNorm;
+	mAltitude = XMVectorGetX(XMVector3Length(XMLoadFloat3(new XMFLOAT3(mPositionX, mPositionY, mPositionZ)))) - heightAtPos;
 
 	posVector = XMLoadFloat3(new XMFLOAT3(mPositionX, mPositionY, mPositionZ));
 	posVectorNorm = XMVector3Normalize(posVector);
@@ -193,7 +194,7 @@ void PositionClass::ZoomIn(int mouseWheelDelta, float marsRadius)
 
 	// GetDistanceFromOrigo() > MINDISTANCEFROMORIGO shouldn't actually be happening here since it's also checked in
 	// UniverseClass but it doesn't hurt to double check
-	if (mouseWheelDelta > 0 && GetDistanceFromOrigo() > MINDISTANCEFROMORIGO)
+	if (mouseWheelDelta > 0 && mAltitude > MINALTITUDE)
 	{
 		mZoomInSpeed = powf(log10f(GetDistanceFromOrigo() - marsRadius), 5.0f) * 5.0f;
 
@@ -213,26 +214,38 @@ void PositionClass::ZoomIn(int mouseWheelDelta, float marsRadius)
 	}
 
 	// Updates the position values
-	if (GetDistanceFromOrigo() > MINDISTANCEFROMORIGO)
+	if (mAltitude > MINALTITUDE)
 	{
 		XMVECTOR movementDelta = posVectorNorm * mFrameTime * mZoomInSpeed;
 
 		mPositionX -= XMVectorGetX(movementDelta);
 		mPositionY -= XMVectorGetY(movementDelta);
 		mPositionZ -= XMVectorGetZ(movementDelta);
+
+		// Rechecking altitude after update
+		mAltitude = XMVectorGetX(XMVector3Length(XMLoadFloat3(new XMFLOAT3(mPositionX, mPositionY, mPositionZ)))) - heightAtPos;
+
+		mMaxZoom = false;
 	}
 
-	// Check if max zoom is achieved and compensate position for that
-	if (GetDistanceFromOrigo() < MINDISTANCEFROMORIGO)
+	// Check if min zoom is achieved and compensate position for that
+	if (mAltitude < MINALTITUDE)
 	{
-		XMVECTOR minPosVector = posVectorNorm * MINDISTANCEFROMORIGO;
+		float deltaAlt = MINALTITUDE - mAltitude;
 
-		mPositionX = XMVectorGetX(minPosVector);
-		mPositionY = XMVectorGetY(minPosVector);
-		mPositionZ = XMVectorGetZ(minPosVector);
+		XMVECTOR deltaPosVector = posVectorNorm * deltaAlt;
+
+		mPositionX += XMVectorGetX(deltaPosVector);
+		mPositionY += XMVectorGetY(deltaPosVector);
+		mPositionZ += XMVectorGetZ(deltaPosVector);
+
+		// Rechecking altitude after update
+		mAltitude = XMVectorGetX(XMVector3Length(XMLoadFloat3(new XMFLOAT3(mPositionX, mPositionY, mPositionZ)))) - heightAtPos;
+
+		mZoomInSpeed = 0;
+
+		mMaxZoom = true;
 	}
-
-	fOut.close();
 
 	return;
 }
@@ -347,4 +360,48 @@ XMFLOAT3 PositionClass::GetPositionXMFLOAT3()
 float PositionClass::GetDistanceFromOrigo()
 {
 	return (sqrtf((mPositionX * mPositionX) + (mPositionY * mPositionY) + (mPositionZ * mPositionZ)));
+}
+
+void PositionClass::CheckAltitude(float heightAtPos) 
+{
+	XMVECTOR posVector, posVectorNorm, deltaPosVector;
+
+	posVector = XMLoadFloat3(new XMFLOAT3(mPositionX, mPositionY, mPositionZ));
+	posVectorNorm = XMVector3Normalize(posVector);
+
+	mAltitude = XMVectorGetX(XMVector3Length(XMLoadFloat3(new XMFLOAT3(mPositionX, mPositionY, mPositionZ)))) - heightAtPos;
+
+	if (mMaxZoom) 
+	{
+		float deltaAlt;
+
+		//Go Lower
+		if (mAltitude > (MINALTITUDE + 0.01f))
+		{
+			deltaAlt = mAltitude - MINALTITUDE;
+
+			deltaPosVector = posVectorNorm * deltaAlt;
+
+			mPositionX -= XMVectorGetX(deltaPosVector);
+			mPositionY -= XMVectorGetY(deltaPosVector);
+			mPositionZ -= XMVectorGetZ(deltaPosVector);
+		}
+		
+		//Go higher
+		else if (mAltitude < (MINALTITUDE - 0.01f))
+		{
+			deltaAlt = MINALTITUDE - mAltitude;
+
+			deltaPosVector = posVectorNorm * deltaAlt;
+
+			mPositionX += XMVectorGetX(deltaPosVector);
+			mPositionY += XMVectorGetY(deltaPosVector);
+			mPositionZ += XMVectorGetZ(deltaPosVector);
+		}
+	}
+}
+
+bool PositionClass::MaxZoom()
+{
+	return mMaxZoom;
 }

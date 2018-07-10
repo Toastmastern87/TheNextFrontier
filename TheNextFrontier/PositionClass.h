@@ -28,13 +28,15 @@ public:
 	XMFLOAT3 GetPositionXMFLOAT3();
 	void GetRotation(float&, float&, float&);
 	float GetDistanceFromOrigo();
+	void CheckAltitude(float);
+	bool MaxZoom();
 
 	void SetFrameTime(float);
 
 	void OrbitNorth(bool);
 	void OrbitSouth(bool);
 	void ZoomOut(int, float);
-	void ZoomIn(int, float);
+	void ZoomIn(int, float, float);
 	void OrbitLeft(bool);
 	void OrbitRight(bool);
 	void LookUpward(bool);
@@ -49,5 +51,8 @@ private:
 	float mForwardSpeed, mBackwardSpeed;
 	float mZoomInSpeed, mZoomOutSpeed;
 	float mOrbitAngleXZ, mOrbitAngleY;
+	float mAltitude;
 	float mLookUpSpeed, mLookDownSpeed, mMaxZoomSpeed;
+
+	bool mMaxZoom;
 };

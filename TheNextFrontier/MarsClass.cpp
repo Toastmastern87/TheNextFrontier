@@ -246,6 +246,7 @@ bool MarsClass::UpdateMars(ID3D11DeviceContext* deviceContext, FrustumClass* fru
 	mFrustum = frustum;
 	mPosition = position;
 
+	GenerateTriLevelDotLUT();
 	GenerateHeightMultiLUT();
 
 	GenerateCells();
@@ -319,6 +320,26 @@ void MarsClass::GenerateCells()
 	{
 		RecursiveTriangle(triangle.a, triangle.b, triangle.c, triangle.level, true);
 	}
+}
+
+void MarsClass::GenerateTriLevelDotLUT() 
+{
+	float cullingAngle, angle;
+
+	cullingAngle = acosf(mMarsRadius / (mMarsRadius + mMarsMaxHeight));
+
+	mTriLevelDotLUT.clear();
+
+	mTriLevelDotLUT.push_back(0.5f + sinf(cullingAngle));
+
+	angle = acosf(0.5f);
+	for (int i = 1; i <= mMaxSubdivisionLevel; i++)
+	{
+		angle *= 0.5f;
+		mTriLevelDotLUT.push_back(sinf(angle + cullingAngle));
+	}
+
+	return;
 }
 
 void MarsClass::GenerateHeightMultiLUT() 
@@ -452,7 +473,7 @@ MarsClass::NextTriangle MarsClass::CheckTriangleSplit(XMFLOAT3 a, XMFLOAT3 b, XM
 
 	dot = XMVectorGetX(XMVector3Dot(centerNormalized, centerPositionSubtractionNormalized));
 
-	if (dot > 0.5f)
+	if (dot > mTriLevelDotLUT[level])
 	{
 		return NextTriangle::CULL;
 	}
@@ -461,6 +482,7 @@ MarsClass::NextTriangle MarsClass::CheckTriangleSplit(XMFLOAT3 a, XMFLOAT3 b, XM
 	if (frustumCull)
 	{
 		VolumeCheck intersect = mFrustum->CheckTriangleVolume(a, b, c, mHeightMultiLUT[level]);
+		//VolumeCheck intersect = mFrustum->CheckTriangleVolume(XMLoadFloat3(&a), XMLoadFloat3(&b), XMLoadFloat3(&c), mHeightMultiLUT[level]);
 		//VolumeCheck intersect = mFrustum->CheckTriangle(a, b, c);
 		if (intersect == VolumeCheck::OUTSIDE) 
 		{

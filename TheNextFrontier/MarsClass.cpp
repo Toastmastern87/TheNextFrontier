@@ -10,7 +10,8 @@ MarsClass::MarsClass()
 	mHeightMapResourceView = 0;
 
 	mMarsRotateAngle = 0;
-	mOldGameTime = 0;
+	mOldGameTimeMS = 0;
+	mOldGameTimeSec = 0;
 }
 
 MarsClass::MarsClass(const MarsClass& other)
@@ -422,7 +423,7 @@ vector<XMFLOAT3> MarsClass::GetIcosadronPositions(int radius)
 	ret.push_back(XMFLOAT3(-scale, -ratio, 0.0f));
 	ret.push_back(XMFLOAT3(scale, ratio, 0.0f));
 	ret.push_back(XMFLOAT3(scale, -ratio, 0.0f));
-
+	
 	return ret;
 }
 
@@ -431,28 +432,28 @@ vector<int> MarsClass::GetIcosadronIndices()
 	vector<int> ret
 	{
 		1, 3, 8,
-		1, 3, 9,
-		0, 2, 10,
+		3, 1, 9,
+		2, 0, 10,
 		0, 2, 11,
 
 		5, 7, 0,
-		5, 7, 1,
-		4, 6, 2,
+		7, 5, 1,
+		6, 4, 2,
 		4, 6, 3,
 
 		9, 11, 4,
-		9, 11, 5,
-		8, 10, 6,
+		11, 9, 5,
+		10, 8, 6,
 		8, 10, 7,
 
-		1, 7, 8,
+		7, 1, 8,
 		1, 5, 9,
 		0, 7, 10,
-		0, 5, 11,
+		5, 0, 11,
 
 		3, 6, 8,
-		3, 4, 9,
-		2, 6, 10,
+		4, 3, 9,
+		6, 2, 10,
 		2, 4, 11
 	};
 
@@ -565,9 +566,14 @@ void MarsClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, short leve
 
 		nLevel = level + 1;
 
-		RecursiveTriangle(a, B, C, nLevel, nextTriangle == NextTriangle::SPLITCULL);
-		RecursiveTriangle(A, b, C, nLevel, nextTriangle == NextTriangle::SPLITCULL);
-		RecursiveTriangle(A, B, c, nLevel, nextTriangle == NextTriangle::SPLITCULL);
+		//RecursiveTriangle(C, B, a, nLevel, nextTriangle == NextTriangle::SPLITCULL);
+		//RecursiveTriangle(b, A, C, nLevel, nextTriangle == NextTriangle::SPLITCULL);
+		//RecursiveTriangle(A, c, B, nLevel, nextTriangle == NextTriangle::SPLITCULL);
+
+		RecursiveTriangle(C, B, a, nLevel, nextTriangle == NextTriangle::SPLITCULL);//Winding is inverted
+		RecursiveTriangle(b, A, C, nLevel, nextTriangle == NextTriangle::SPLITCULL);//Winding is inverted
+		RecursiveTriangle(B, A, c, nLevel, nextTriangle == NextTriangle::SPLITCULL);//Winding is inverted
+
 		RecursiveTriangle(A, B, C, nLevel, nextTriangle == NextTriangle::SPLITCULL);
 	}
 	else
@@ -579,6 +585,9 @@ void MarsClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, short leve
 		XMStoreFloat3(&thirdCorner, XMLoadFloat3(&c) - XMLoadFloat3(&a));
 
 		mMarsCells.push_back(MarsCellType(level, a, secondCorner, thirdCorner));
+		//mMarsCells.push_back(MarsCellType(level, secondCorner, a, thirdCorner));
+		//mMarsCells.push_back(MarsCellType(level, thirdCorner, secondCorner, a));
+		//mMarsCells.push_back(MarsCellType(level, a, b, c));
 	}
 
 	return;
@@ -681,40 +690,44 @@ int MarsClass::GetHeightAtPos(XMFLOAT3 position)
 	return 	(mMarsRadius + (mHeightData[(int)(uv.x * 8192.0f)][(int)(uv.y * 4096.0f)] * (mMarsMaxHeight - mMarsMinHeight)) + mMarsMinHeight);
 }
 
-void MarsClass::CalculateMarsRotation(int gameTimeMS) 
+void MarsClass::CalculateMarsRotation(int gameTimeMS, int gameTimeSec)
 {
 	int timeDiff;
-	XMMATRIX upSideDownRotation;
+
+	timeDiff = 0;
 
 	if (mMarsRotateAngle > (2 * M_PI))
 	{
 		mMarsRotateAngle -= (2 * M_PI);
 	}
 
-	if (mOldGameTime > gameTimeMS)
+	if (mOldGameTimeMS > gameTimeMS)
 	{
-		timeDiff = (1000 - mOldGameTime) + gameTimeMS;
+		timeDiff += (1000 - mOldGameTimeMS) + gameTimeMS;
 	}
 	else
 	{
-		timeDiff = gameTimeMS - mOldGameTime;
+		timeDiff += gameTimeMS - mOldGameTimeMS;
 	}
 
-	mOldGameTime = gameTimeMS;	
+	if (mOldGameTimeSec > gameTimeSec)
+	{
+		timeDiff += ((60 - mOldGameTimeSec) + gameTimeSec) * 1000;
+	}
+	else
+	{
+		timeDiff += (gameTimeSec - mOldGameTimeSec) * 1000;
+	}
+
+	mOldGameTimeMS = gameTimeMS;
+	mOldGameTimeSec = gameTimeSec;
 
 	mMarsRotateAngle += timeDiff * MARSROTATESPEED;
-
-	upSideDownRotation = XMMATRIX(cosf(M_PI), -sinf(M_PI), 0.0f, 0.0f,
-									  sinf(M_PI), cosf(M_PI), 0.0f, 0.0f,
-									  0.0f, 0.0f, 1.0f, 0.0f,
-									  0.0f, 0.0f, 0.0f, 1.0f);
 
 	mRotationMatrix = XMMATRIX(cosf(-mMarsRotateAngle), 0.0f, sinf(-mMarsRotateAngle), 0.0f,
 							   0.0f, 1.0f, 0.0f, 0.0f,
 							   -sinf(-mMarsRotateAngle), 0.0f, cosf(-mMarsRotateAngle), 0.0f,
 							   0.0f, 0.0f, 0.0f, 1.0f);
-
-	mRotationMatrix = XMMatrixMultiply(mRotationMatrix, upSideDownRotation);
 }
 
 XMMATRIX MarsClass::GetRotationMatrix() 

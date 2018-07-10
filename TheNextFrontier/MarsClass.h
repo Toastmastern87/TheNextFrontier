@@ -98,7 +98,7 @@ public:
 	float GetMarsPatchDelta();
 	int GetHeightAtPos(XMFLOAT3);
 
-	void CalculateMarsRotation(int);
+	void CalculateMarsRotation(int, int);
 	XMMATRIX GetRotationMatrix();
 
 	vector<float> GetDistanceLUT();
@@ -156,7 +156,7 @@ private:
 
 	float mHeightDataImage;
 	float mMarsRotateAngle;
-	int mOldGameTime;
+	int mOldGameTimeMS, mOldGameTimeSec;
 
 	PositionClass* mPosition;
 	ID3D11Resource *mHeightMapResource;

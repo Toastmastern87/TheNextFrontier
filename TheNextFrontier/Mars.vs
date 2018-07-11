@@ -88,7 +88,7 @@ PixelInputType MarsVertexShader(VertexInputType input)
 
 	finalPos = input.a + input.r * input.localPosition.x + input.s * input.localPosition.y;
 
-	distance = length(finalPos - cameraPos.xyz);
+	distance = length(mul(finalPos, rotationMatrix) - cameraPos.xyz);
 	morphPercentage = MorphFac(distance, input.level);
 
 	finalPos += morphPercentage * (input.r * input.localMorph.x + input.s * input.localMorph.y);

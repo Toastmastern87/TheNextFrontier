@@ -466,6 +466,11 @@ MarsClass::NextTriangle MarsClass::CheckTriangleSplit(XMFLOAT3 a, XMFLOAT3 b, XM
 	float dot;
 	XMFLOAT3 center, position, centerPositionSubtraction;
 	XMVECTOR centerNormalized, centerPositionSubtractionNormalized;
+	XMVECTOR aVector, bVector, cVector;
+
+	XMStoreFloat3(&a, XMVector3Transform(XMLoadFloat3(&a), mRotationMatrix));
+	XMStoreFloat3(&b, XMVector3Transform(XMLoadFloat3(&b), mRotationMatrix));
+	XMStoreFloat3(&c, XMVector3Transform(XMLoadFloat3(&c), mRotationMatrix));
 
 	//Backface Culling
 	center = XMFLOAT3(((a.x + b.x + c.x) / 3), ((a.y + b.y + c.y) / 3), ((a.z + b.z + c.z) / 3));
@@ -585,9 +590,6 @@ void MarsClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, short leve
 		XMStoreFloat3(&thirdCorner, XMLoadFloat3(&c) - XMLoadFloat3(&a));
 
 		mMarsCells.push_back(MarsCellType(level, a, secondCorner, thirdCorner));
-		//mMarsCells.push_back(MarsCellType(level, secondCorner, a, thirdCorner));
-		//mMarsCells.push_back(MarsCellType(level, thirdCorner, secondCorner, a));
-		//mMarsCells.push_back(MarsCellType(level, a, b, c));
 	}
 
 	return;
@@ -696,6 +698,23 @@ void MarsClass::CalculateMarsRotation(int gameTimeMS, int gameTimeSec)
 
 	timeDiff = 0;
 
+	ofstream fOut;
+
+	fOut.open("Debug.txt", ios::out | ios::app);
+
+	fOut << "gameTimeMS: ";
+	fOut << gameTimeMS;
+	fOut << "\r\n";
+	fOut << "gameTimeSec: ";
+	fOut << gameTimeSec;
+	fOut << "\r\n";
+	fOut << "mOldGameTimeMS: ";
+	fOut << mOldGameTimeMS;
+	fOut << "\r\n";
+	fOut << "mOldGameTimeSec: ";
+	fOut << mOldGameTimeSec;
+	fOut << "\r\n";
+
 	if (mMarsRotateAngle > (2 * M_PI))
 	{
 		mMarsRotateAngle -= (2 * M_PI);
@@ -708,16 +727,23 @@ void MarsClass::CalculateMarsRotation(int gameTimeMS, int gameTimeSec)
 	else
 	{
 		timeDiff += gameTimeMS - mOldGameTimeMS;
+
+		if (mOldGameTimeSec > gameTimeSec)
+		{
+			timeDiff += ((60 - mOldGameTimeSec) + gameTimeSec) * 1000;
+		}
+		else
+		{
+			timeDiff += (gameTimeSec - mOldGameTimeSec) * 1000;
+		}
 	}
 
-	if (mOldGameTimeSec > gameTimeSec)
-	{
-		timeDiff += ((60 - mOldGameTimeSec) + gameTimeSec) * 1000;
-	}
-	else
-	{
-		timeDiff += (gameTimeSec - mOldGameTimeSec) * 1000;
-	}
+	fOut << "timeDiff: ";
+	fOut << timeDiff;
+	fOut << "\r\n";
+	fOut << "\r\n";
+
+	fOut.close();
 
 	mOldGameTimeMS = gameTimeMS;
 	mOldGameTimeSec = gameTimeSec;

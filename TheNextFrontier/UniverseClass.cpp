@@ -67,7 +67,7 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 	}
 
 	mSunlight->SetDiffuseColor(1.0f, 1.0f, 1.0f, 1.0f);
-	mSunlight->SetDirection(-1674.0f, 0.0f, 2981.0f, 1.0f);
+	mSunlight->SetDirection(1674.0f, 0.0f, -2981.0f, 1.0f);
 
 	mPosition = new PositionClass;
 	if (!mPosition)
@@ -75,7 +75,7 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 		return false;
 	}
 
-	mPosition->SetPosition(10000.0f, 0.0f, 0.0f);
+	mPosition->SetPosition(3446.0f, 0.0f, 0.0f);
 	mPosition->SetRotation(0.0f, 270.0f, 0.0f);
 
 	mFrustum = new FrustumClass;
@@ -309,12 +309,12 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 	direct3D->GetOrthoMatrix(orthoMatrix);
 	rotationMatrix = mMars->GetRotationMatrix();
 
-	//if (mCamera->CheckMovement()) 
-	//{
+	if (mCamera->CheckMovement()) 
+	{
 		mFrustum->ConstructFrustum(mScreenDepth, mScreenNear, direct3D->GetAspectRation(), projectionMatrix, viewMatrix, worldMatrix);
+	}
 
-		mMars->UpdateMars(direct3D->GetDeviceContext(), mFrustum, mPosition);
-	//}
+	mMars->UpdateMars(direct3D->GetDeviceContext(), mFrustum, mPosition);
 
 	direct3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
 

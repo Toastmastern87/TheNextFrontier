@@ -31,9 +31,8 @@ float3x3 GetTBNMatrix(float3 normalVector, float3 posVector, float2 uv)
 	dp2perp = cross(dp2, normalVector);
 	dp1perp = cross(normalVector, dp1);
 
-	// * -1 due to being LH coordinate system
-	T = (dp2perp * duv1.x + dp1perp * duv2.x) * -1;
-	B = (dp2perp * duv1.y + dp1perp * duv2.y) * -1;
+	T = (dp2perp * duv1.x + dp1perp * duv2.x);
+	B = (dp2perp * duv1.y + dp1perp * duv2.y);
 
 	invMax = rsqrt(max(dot(T, T), dot(B, B)));
 
@@ -75,7 +74,7 @@ float4 MarsPixelShader(PixelInputType input) : SV_TARGET
 
 	normal = normalize(CalculateNormal(normalize(input.normal), normalize(input.viewVector), input.mapCoord));
 
-    lightIntensity = saturate(dot(normal, normalize(-lightDirection)));
+    lightIntensity = saturate(dot(normal, normalize(lightDirection)));
 
     color = saturate(diffuseColor * lightIntensity);
 

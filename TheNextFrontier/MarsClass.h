@@ -103,6 +103,7 @@ public:
 
 	vector<float> GetDistanceLUT();
 	ID3D11ShaderResourceView* GetHeightMap();
+	ID3D11ShaderResourceView* GetHeightMapDetail2();
 
 	bool UpdateMars(ID3D11DeviceContext*, FrustumClass*, PositionClass*);
 
@@ -159,8 +160,8 @@ private:
 	int mOldGameTimeMS, mOldGameTimeSec;
 
 	PositionClass* mPosition;
-	ID3D11Resource *mHeightMapResource;
-	ID3D11ShaderResourceView* mHeightMapResourceView;
+	ID3D11Resource *mHeightMapResource, *mHeightMapDetail2Resource;
+	ID3D11ShaderResourceView *mHeightMapResourceView, *mHeightMapDetail2ResourceView;
 	
 	XMMATRIX mRotationMatrix;
 };

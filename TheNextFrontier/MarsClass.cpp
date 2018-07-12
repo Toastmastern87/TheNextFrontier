@@ -623,8 +623,8 @@ vector<float> MarsClass::GetDistanceLUT()
 bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 {
 	HRESULT hResult;
-	const wchar_t* fileName;
-	int imageLength;
+	const wchar_t *fileName, *fileNameDetail2;
+	int imageLength, testImageLength, testImageHeight, testImageTileWidth, testImageTileHeight;
 	tsize_t scanline;
 	tdata_t buffer;
 	float clampValue;
@@ -638,7 +638,15 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 		fileName = L"../TheNextFrontier/MarsHeightMap8K.tif";
 	}
 
+	fileNameDetail2 = L"../TheNextFrontier/MarsHeightDetail2.tif";
+
 	hResult = CreateWICTextureFromFile(device, fileName, &mHeightMapResource, &mHeightMapResourceView);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	hResult = CreateWICTextureFromFile(device, fileNameDetail2, &mHeightMapDetail2Resource, &mHeightMapDetail2ResourceView);
 	if (FAILED(hResult))
 	{
 		return false;
@@ -653,6 +661,31 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 		image = TIFFOpen("../TheNextFrontier/MarsHeightMap8K.tif", "r");
 	}
  
+	//TIFF *ImageTest = TIFFOpen("../TheNextFrontier/MarsHeightMapTest.tif", "r");
+	//TIFFGetField(ImageTest, TIFFTAG_IMAGELENGTH, &testImageLength);
+	//TIFFGetField(ImageTest, TIFFTAG_IMAGEWIDTH, &testImageHeight);
+	//TIFFGetField(ImageTest, TIFFTAG_TILEWIDTH, &testImageTileWidth);
+	//TIFFGetField(ImageTest, TIFFTAG_TILELENGTH, &testImageTileHeight);
+
+	//ofstream fOut;
+
+	//fOut.open("Debug.txt", ios::out | ios::app);
+
+	//fOut << "Image Length: ";
+	//fOut << testImageLength;
+	//fOut << "\r\n";
+	//fOut << "Image Height: ";
+	//fOut << testImageHeight;
+	//fOut << "\r\n";
+	//fOut << "Image Tile Witdth: ";
+	//fOut << testImageTileWidth;
+	//fOut << "\r\n";
+	//fOut << "Image Tile Height: ";
+	//fOut << testImageTileHeight;
+	//fOut << "\r\n";
+
+
+
 	TIFFGetField(image, TIFFTAG_IMAGELENGTH, &imageLength);
 	scanline = TIFFScanlineSize(image);
 	buffer = _TIFFmalloc(scanline);
@@ -679,6 +712,11 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 ID3D11ShaderResourceView* MarsClass::GetHeightMap()
 {
 	return mHeightMapResourceView;
+}
+
+ID3D11ShaderResourceView* MarsClass::GetHeightMapDetail2()
+{
+	return mHeightMapDetail2ResourceView;
 }
 
 int MarsClass::GetHeightAtPos(XMFLOAT3 position)

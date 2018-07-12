@@ -190,6 +190,9 @@
     <Image Include="MousePointer.tif">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="MarsHeightDetail2.tif">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="font01.txt">

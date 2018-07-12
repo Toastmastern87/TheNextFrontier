@@ -1,4 +1,5 @@
-Texture2D shaderTexture;
+Texture2D heightMapTexture : register(t0);
+Texture2D heightMapDetail2Texture : register(t1);
 SamplerState sampleType;
 
 #define PI 3.141592653589793
@@ -70,7 +71,7 @@ float GetHeight(float3 pos)
 	uv = float2((0.5f + (atan2(normalizePos.z, normalizePos.x) / (2 * 3.14159265f))), (0.5f - (asin(normalizePos.y) / 3.14159265f)));
 	//uv = float2(saturate(((atan2(normalizePos.z, normalizePos.x) / 3.14159265f) + 1.0f) / 2), (0.5f - (asin(normalizePos.y) / 3.14159265f)));
 
-	heightColorValue = shaderTexture.SampleLevel(sampleType, uv, 1).r;
+	heightColorValue = heightMapTexture.SampleLevel(sampleType, uv, 1).r;
 
 	return heightColorValue;
 }

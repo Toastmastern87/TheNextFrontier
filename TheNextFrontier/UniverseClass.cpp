@@ -272,7 +272,7 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 
 	if (mPosition->MaxZoom())
 	{
-		mPosition->CheckAltitude(mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()));
+		mPosition->CheckAltitude(mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()), mMars->GetRotationMatrix());
 	}
 
 	mPosition->GetPosition(posX, posY, posZ);

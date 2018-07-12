@@ -687,6 +687,8 @@ int MarsClass::GetHeightAtPos(XMFLOAT3 position)
 	position.y = position.y / GetVectorLength(position);
 	position.z = position.z / GetVectorLength(position);
 
+	XMStoreFloat3(&position, XMVector3Transform(XMLoadFloat3(&position), mRotationMatrix));
+
 	XMFLOAT2 uv = XMFLOAT2((0.5f + (atan2(position.z, position.x) / (2 * 3.14159265f))), (0.5f - (asin(position.y) / 3.14159265f)));
 
 	return 	(mMarsRadius + (mHeightData[(int)(uv.x * 8192.0f)][(int)(uv.y * 4096.0f)] * (mMarsMaxHeight - mMarsMinHeight)) + mMarsMinHeight);
@@ -697,23 +699,6 @@ void MarsClass::CalculateMarsRotation(int gameTimeMS, int gameTimeSec)
 	int timeDiff;
 
 	timeDiff = 0;
-
-	ofstream fOut;
-
-	fOut.open("Debug.txt", ios::out | ios::app);
-
-	fOut << "gameTimeMS: ";
-	fOut << gameTimeMS;
-	fOut << "\r\n";
-	fOut << "gameTimeSec: ";
-	fOut << gameTimeSec;
-	fOut << "\r\n";
-	fOut << "mOldGameTimeMS: ";
-	fOut << mOldGameTimeMS;
-	fOut << "\r\n";
-	fOut << "mOldGameTimeSec: ";
-	fOut << mOldGameTimeSec;
-	fOut << "\r\n";
 
 	if (mMarsRotateAngle > (2 * M_PI))
 	{
@@ -737,13 +722,6 @@ void MarsClass::CalculateMarsRotation(int gameTimeMS, int gameTimeSec)
 			timeDiff += (gameTimeSec - mOldGameTimeSec) * 1000;
 		}
 	}
-
-	fOut << "timeDiff: ";
-	fOut << timeDiff;
-	fOut << "\r\n";
-	fOut << "\r\n";
-
-	fOut.close();
 
 	mOldGameTimeMS = gameTimeMS;
 	mOldGameTimeSec = gameTimeSec;

@@ -12,6 +12,11 @@ MarsClass::MarsClass()
 	mMarsRotateAngle = 0;
 	mOldGameTimeMS = 0;
 	mOldGameTimeSec = 0;
+
+	mRotationMatrix = XMMATRIX(cosf(-mMarsRotateAngle), 0.0f, sinf(-mMarsRotateAngle), 0.0f,
+		0.0f, 1.0f, 0.0f, 0.0f,
+		-sinf(-mMarsRotateAngle), 0.0f, cosf(-mMarsRotateAngle), 0.0f,
+		0.0f, 0.0f, 0.0f, 1.0f);
 }
 
 MarsClass::MarsClass(const MarsClass& other)
@@ -37,6 +42,12 @@ bool MarsClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceCont
 	mScreenWidth = screenWidth;
 
 	GenerateCellGeometry();
+
+	result = LoadColorMapTexture(device);
+	if (!result)
+	{
+		return false;
+	}
 
 	result = LoadHeightMapTexture(device);
 	if (!result)
@@ -709,6 +720,29 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 	return true;
 }
 
+bool MarsClass::LoadColorMapTexture(ID3D11Device* device)
+{
+	HRESULT hResult;
+	const wchar_t *fileName;
+
+	if (HD)
+	{
+		fileName = L"../TheNextFrontier/MarsColorMap46K.tif";
+	}
+	else {
+		fileName = L"../TheNextFrontier/MarsColorMap8K.tif";
+	}
+
+	hResult = CreateWICTextureFromFile(device, fileName, &mColorMapResource, &mColorMapResourceView);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	return true;
+}
+
+
 ID3D11ShaderResourceView* MarsClass::GetHeightMap()
 {
 	return mHeightMapResourceView;
@@ -717,6 +751,11 @@ ID3D11ShaderResourceView* MarsClass::GetHeightMap()
 ID3D11ShaderResourceView* MarsClass::GetHeightMapDetail2()
 {
 	return mHeightMapDetail2ResourceView;
+}
+
+ID3D11ShaderResourceView* MarsClass::GetColorMap()
+{
+	return mColorMapResourceView;
 }
 
 int MarsClass::GetHeightAtPos(XMFLOAT3 position)

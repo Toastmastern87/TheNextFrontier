@@ -104,6 +104,7 @@ public:
 	vector<float> GetDistanceLUT();
 	ID3D11ShaderResourceView* GetHeightMap();
 	ID3D11ShaderResourceView* GetHeightMapDetail2();
+	ID3D11ShaderResourceView* GetColorMap();
 
 	bool UpdateMars(ID3D11DeviceContext*, FrustumClass*, PositionClass*);
 
@@ -114,6 +115,7 @@ private:
 	void RenderBuffers(ID3D11DeviceContext*);
 
 	bool LoadHeightMapTexture(ID3D11Device*);
+	bool LoadColorMapTexture(ID3D11Device*);
 
 	float GetVectorLength(XMFLOAT3);
 	float GetVectorDistance(XMFLOAT3, XMFLOAT3);
@@ -160,8 +162,8 @@ private:
 	int mOldGameTimeMS, mOldGameTimeSec;
 
 	PositionClass* mPosition;
-	ID3D11Resource *mHeightMapResource, *mHeightMapDetail2Resource;
-	ID3D11ShaderResourceView *mHeightMapResourceView, *mHeightMapDetail2ResourceView;
+	ID3D11Resource *mHeightMapResource, *mHeightMapDetail2Resource, *mColorMapResource;
+	ID3D11ShaderResourceView *mHeightMapResourceView, *mHeightMapDetail2ResourceView, *mColorMapResourceView;
 	
 	XMMATRIX mRotationMatrix;
 };

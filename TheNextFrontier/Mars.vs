@@ -60,20 +60,23 @@ float MorphFac(float distance, int level)
 	return (1 - clamp((a/morphRange.x), 0, 1));
 }
 
-float GetHeight(float3 pos)
+float GetHeight(float3 pos, float maxHeight, float minHeight)
 {
-	float2 uv;
-	float heightColorValue;
+	float2 uv, textureStretch;
+	float heightColorValue, heightDetail2ColorValue;
 	float3 normalizePos;
+
+	textureStretch = float2(2.0f, 1.0f);
 
 	normalizePos = normalize(pos);
 
 	uv = float2((0.5f + (atan2(normalizePos.z, normalizePos.x) / (2 * 3.14159265f))), (0.5f - (asin(normalizePos.y) / 3.14159265f)));
 	//uv = float2(saturate(((atan2(normalizePos.z, normalizePos.x) / 3.14159265f) + 1.0f) / 2), (0.5f - (asin(normalizePos.y) / 3.14159265f)));
 
-	heightColorValue = heightMapTexture.SampleLevel(sampleType, uv, 1).r;
+	heightColorValue = heightMapTexture.SampleLevel(sampleType, uv, 0).r;
+	heightDetail2ColorValue = heightMapDetail2Texture.SampleLevel(sampleType, (uv * textureStretch * 7000), 0).r * 0.01f;
 
-	return heightColorValue;
+	return (heightColorValue * (maxHeight - minHeight));// + heightDetail2ColorValue;
 }
 
 PixelInputType MarsVertexShader(VertexInputType input)
@@ -81,11 +84,13 @@ PixelInputType MarsVertexShader(VertexInputType input)
 	PixelInputType output;
 	float3 finalPos;
 	float3 mapCoords;
-	float3 normPos;
+	float2 textureStretch;
 	float distance;
 	float morphPercentage;
 	float height;
 	matrix normalMatrix;
+
+	textureStretch = float2(2.0f, 1.0f);
 
 	finalPos = input.a + input.r * input.localPosition.x + input.s * input.localPosition.y;
 
@@ -94,10 +99,7 @@ PixelInputType MarsVertexShader(VertexInputType input)
 
 	finalPos += morphPercentage * (input.r * input.localMorph.x + input.s * input.localMorph.y);
 
-	height = GetHeight(finalPos);
-
-	normPos = normalize(finalPos) * (marsRadius + (height * (marsMaxHeight - marsMinHeight)) + marsMinHeight);
-	finalPos = normPos;
+	finalPos = normalize(finalPos) * (marsRadius + GetHeight(finalPos, marsMaxHeight, marsMinHeight) + marsMinHeight);
 
 	//Normal calculations
 	output.normal = mul(finalPos, worldMatrix);
@@ -114,7 +116,9 @@ PixelInputType MarsVertexShader(VertexInputType input)
 	output.position = mul(output.position, viewMatrix);
 	output.position = mul(output.position, projectionMatrix);
 
-	//output.color = float4(1.0f, 1.0f, 1.0f, 1.0f);
+	//float heightColor = heightMapTexture.SampleLevel(sampleType, output.mapCoord, 0).r + (heightMapDetail2Texture.SampleLevel(sampleType, (output.mapCoord * textureStretch * 100), 0).r * 0.01f);
+
+	//output.color = float4(heightColor, heightColor, heightColor, 1.0f);
 
 	return output;
 }

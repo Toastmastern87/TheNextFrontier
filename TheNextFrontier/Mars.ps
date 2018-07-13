@@ -47,7 +47,7 @@ float GetHeight(float2 uv)
 
 	textureStretch = float2(2.0f, 1.0f);
 
-	return (heightMapTexture.SampleLevel(sampleType, uv, 0).r * (21.229f + 8.2f));// + (heightMapDetail2Texture.SampleLevel(sampleType, (uv * textureStretch * 7000), 0).r * 0.01f);
+	return (heightMapTexture.SampleLevel(sampleType, uv, 0).r * (21.229f + 8.2f)) + (heightMapDetail2Texture.SampleLevel(sampleType, (uv * textureStretch * 700), 1).r * 1.0f);
 }
 
 float3 CalculateNormal(float3 normalVector, float3 viewVector, float2 uv)
@@ -75,16 +75,18 @@ float3 CalculateNormal(float3 normalVector, float3 viewVector, float2 uv)
 float4 MarsPixelShader(PixelInputType input) : SV_TARGET
 {
 	float3 normal;
-	float lightIntensity, lightColor;
+	float lightIntensity, lightColor, increasedLigthningFactor;
 	float4 finalColor, color;
 
 	normal = normalize(CalculateNormal(normalize(input.normal), normalize(input.viewVector), input.mapCoord));
 
-    lightIntensity = saturate(dot(normal, normalize(lightDirection)));
+    lightIntensity = saturate(dot(normal, normalize(-lightDirection)));
 
     lightColor = saturate(diffuseColor * lightIntensity);
 
 	color = colorMapTexture.SampleLevel(sampleType, input.mapCoord, 0).rgba;
 
-	return color * lightColor;
+	increasedLigthningFactor = 2.5f;
+
+	return (color * increasedLigthningFactor) * lightColor;
 }

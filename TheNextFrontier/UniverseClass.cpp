@@ -67,7 +67,7 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 	}
 
 	mSunlight->SetDiffuseColor(1.0f, 1.0f, 1.0f, 1.0f);
-	mSunlight->SetDirection(10000.0f, 0.0f, 0.0f, 1.0f);
+	mSunlight->SetDirection(-1.0f, 0.0f, 0.0f, 1.0f);
 
 	mPosition = new PositionClass;
 	if (!mPosition)

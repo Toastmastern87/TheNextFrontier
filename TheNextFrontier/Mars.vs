@@ -70,13 +70,12 @@ float GetHeight(float3 pos, float maxHeight, float minHeight)
 
 	normalizePos = normalize(pos);
 
-	uv = float2((0.5f + (atan2(normalizePos.z, normalizePos.x) / (2 * 3.14159265f))), (0.5f - (asin(normalizePos.y) / 3.14159265f)));
+	uv = float2((0.5f + (atan2(normalizePos.z, normalizePos.x) / (2 * PI))), (0.5f - (asin(normalizePos.y) / PI)));
 	//uv = float2(saturate(((atan2(normalizePos.z, normalizePos.x) / 3.14159265f) + 1.0f) / 2), (0.5f - (asin(normalizePos.y) / 3.14159265f)));
 
 	heightColorValue = heightMapTexture.SampleLevel(sampleType, uv, 0).r;
-	heightDetail2ColorValue = heightMapDetail2Texture.SampleLevel(sampleType, (uv * textureStretch * 7000), 0).r * 0.01f;
 
-	return (heightColorValue * (maxHeight - minHeight));// + heightDetail2ColorValue;
+	return (heightColorValue * (maxHeight - minHeight));
 }
 
 PixelInputType MarsVertexShader(VertexInputType input)

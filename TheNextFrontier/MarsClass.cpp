@@ -641,13 +641,7 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 	float clampValue;
 	TIFF *image;
 
-	if (HD) 
-	{
-		fileName = L"../TheNextFrontier/Textures/MarsHeightMap46K.tif";
-	}
-	else {
-		fileName = L"../TheNextFrontier/Textures/MarsHeightMap8K.tif";
-	}
+	fileName = L"../TheNextFrontier/Textures/MarsHeightMap8K.tif";
 
 	fileNameDetail2 = L"../TheNextFrontier/Textures/MarsHeightDetail2.tif";
 
@@ -663,14 +657,7 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 		return false;
 	}
 
-	if (HD)
-	{
-		image = TIFFOpen("../TheNextFrontier/Textures/MarsHeightMap46K.tif", "r");
-	}
-	else 
-	{
-		image = TIFFOpen("../TheNextFrontier/Textures/MarsHeightMap8K.tif", "r");
-	}
+	image = TIFFOpen("../TheNextFrontier/Textures/MarsHeightMap8K.tif", "r");
 
 	TIFFGetField(image, TIFFTAG_IMAGELENGTH, &imageLength);
 	scanline = TIFFScanlineSize(image);

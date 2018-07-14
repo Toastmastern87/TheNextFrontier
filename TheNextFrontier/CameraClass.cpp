@@ -196,4 +196,3 @@ float CameraClass::GetFOV()
 {
 	return mFOV;
 }
-

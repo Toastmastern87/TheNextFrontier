@@ -2,7 +2,6 @@
 
 #define _USE_MATH_DEFINES
 
-const bool HD = false;
 const float MARSROTATESPEED = (2.0f * 3.141592f) / 88775000.0f;
 
 #include <d3d11.h>

@@ -700,13 +700,7 @@ bool MarsClass::LoadColorMapTexture(ID3D11Device* device)
 	HRESULT hResult;
 	const wchar_t *fileName;
 
-	if (HD)
-	{
-		fileName = L"../TheNextFrontier/Textures/MarsColorMap46K.tif";
-	}
-	else {
-		fileName = L"../TheNextFrontier/Textures/MarsColorMap8K.tif";
-	}
+	fileName = L"../TheNextFrontier/Textures/MarsColorMap8K.tif";
 
 	hResult = CreateWICTextureFromFile(device, fileName, &mColorMapResource, &mColorMapResourceView);
 	if (FAILED(hResult))

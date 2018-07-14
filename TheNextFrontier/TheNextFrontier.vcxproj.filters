@@ -219,9 +219,6 @@
     <Image Include="Textures\MarsHeightMap8K.tif">
       <Filter>Resource Files\Textures</Filter>
     </Image>
-    <Image Include="Textures\MarsHeightMap46K.tif">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
     <Image Include="Textures\MousePointer.tif">
       <Filter>Resource Files\Textures</Filter>
     </Image>

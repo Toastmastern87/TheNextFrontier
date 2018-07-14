@@ -13,6 +13,7 @@
 #include "MousePointerClass.h"
 #include "LightClass.h"
 #include "GameTimeClass.h"
+#include "GUIClass.h"
 
 class UniverseClass
 {
@@ -40,6 +41,7 @@ private:
 	float mScreenDepth, mScreenNear;
 	MousePointerClass *mMousePointer;
 	GameTimeClass *mGameTime;
+	GUIClass *mGUI;
 };
 
 #endif

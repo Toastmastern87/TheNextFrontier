@@ -219,7 +219,7 @@ bool MousePointerClass::LoadMousePointerTexture(ID3D11Device* device, ID3D11Devi
 {
 	bool result;
 	HRESULT hResult;
-	const wchar_t* fileName = L"../TheNextFrontier/MousePointer.tif";
+	const wchar_t* fileName = L"../TheNextFrontier/Textures/MousePointer.tif";
 
 	hResult = CreateWICTextureFromFile(device, fileName, &mMousePointerResource, &mMousePointerResourceView);
 	if (FAILED(hResult))

@@ -643,13 +643,13 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 
 	if (HD) 
 	{
-		fileName = L"../TheNextFrontier/MarsHeightMap46K.tif";
+		fileName = L"../TheNextFrontier/Textures/MarsHeightMap46K.tif";
 	}
 	else {
-		fileName = L"../TheNextFrontier/MarsHeightMap8K.tif";
+		fileName = L"../TheNextFrontier/Textures/MarsHeightMap8K.tif";
 	}
 
-	fileNameDetail2 = L"../TheNextFrontier/MarsHeightDetail2.tif";
+	fileNameDetail2 = L"../TheNextFrontier/Textures/MarsHeightDetail2.tif";
 
 	hResult = CreateWICTextureFromFile(device, fileName, &mHeightMapResource, &mHeightMapResourceView);
 	if (FAILED(hResult))
@@ -665,37 +665,12 @@ bool MarsClass::LoadHeightMapTexture(ID3D11Device* device)
 
 	if (HD)
 	{
-		image = TIFFOpen("../TheNextFrontier/MarsHeightMap46K.tif", "r");
+		image = TIFFOpen("../TheNextFrontier/Textures/MarsHeightMap46K.tif", "r");
 	}
 	else 
 	{
-		image = TIFFOpen("../TheNextFrontier/MarsHeightMap8K.tif", "r");
+		image = TIFFOpen("../TheNextFrontier/Textures/MarsHeightMap8K.tif", "r");
 	}
- 
-	//TIFF *ImageTest = TIFFOpen("../TheNextFrontier/MarsHeightMapTest.tif", "r");
-	//TIFFGetField(ImageTest, TIFFTAG_IMAGELENGTH, &testImageLength);
-	//TIFFGetField(ImageTest, TIFFTAG_IMAGEWIDTH, &testImageHeight);
-	//TIFFGetField(ImageTest, TIFFTAG_TILEWIDTH, &testImageTileWidth);
-	//TIFFGetField(ImageTest, TIFFTAG_TILELENGTH, &testImageTileHeight);
-
-	//ofstream fOut;
-
-	//fOut.open("Debug.txt", ios::out | ios::app);
-
-	//fOut << "Image Length: ";
-	//fOut << testImageLength;
-	//fOut << "\r\n";
-	//fOut << "Image Height: ";
-	//fOut << testImageHeight;
-	//fOut << "\r\n";
-	//fOut << "Image Tile Witdth: ";
-	//fOut << testImageTileWidth;
-	//fOut << "\r\n";
-	//fOut << "Image Tile Height: ";
-	//fOut << testImageTileHeight;
-	//fOut << "\r\n";
-
-
 
 	TIFFGetField(image, TIFFTAG_IMAGELENGTH, &imageLength);
 	scanline = TIFFScanlineSize(image);
@@ -727,10 +702,10 @@ bool MarsClass::LoadColorMapTexture(ID3D11Device* device)
 
 	if (HD)
 	{
-		fileName = L"../TheNextFrontier/MarsColorMap46K.tif";
+		fileName = L"../TheNextFrontier/Textures/MarsColorMap46K.tif";
 	}
 	else {
-		fileName = L"../TheNextFrontier/MarsColorMap8K.tif";
+		fileName = L"../TheNextFrontier/Textures/MarsColorMap8K.tif";
 	}
 
 	hResult = CreateWICTextureFromFile(device, fileName, &mColorMapResource, &mColorMapResourceView);

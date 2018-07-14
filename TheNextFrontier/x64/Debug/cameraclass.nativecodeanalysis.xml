@@ -22,35 +22,21 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'CameraClass::mFOV' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>CameraClass::{ctor}</FUNCTION>
-    <DECORATED>??0CameraClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>cameraclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>13</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'CameraClass::mUp' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>CameraClass::{ctor}</FUNCTION>
-    <DECORATED>??0CameraClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>cameraclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>13</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'CameraClass::mViewMatrix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>CameraClass::{ctor}</FUNCTION>
+    <DECORATED>??0CameraClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>cameraclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>13</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'CameraClass::mBaseViewMatrix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>CameraClass::{ctor}</FUNCTION>
     <DECORATED>??0CameraClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -78,7 +64,21 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'CameraClass::mBaseViewMatrix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'CameraClass::mUp' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>CameraClass::{ctor}</FUNCTION>
+    <DECORATED>??0CameraClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>cameraclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>13</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'CameraClass::mFOV' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>CameraClass::{ctor}</FUNCTION>
     <DECORATED>??0CameraClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -92,7 +92,7 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'CameraClass::mOldRotationY' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'CameraClass::mRotationY' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>CameraClass::{ctor}</FUNCTION>
     <DECORATED>??0CameraClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>22</FUNCLINE>
@@ -106,7 +106,7 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'CameraClass::mOldRotationX' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'CameraClass::mOldRotationZ' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>CameraClass::{ctor}</FUNCTION>
     <DECORATED>??0CameraClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>22</FUNCLINE>
@@ -134,7 +134,21 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'CameraClass::mRotationX' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'CameraClass::mRotationZ' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>CameraClass::{ctor}</FUNCTION>
+    <DECORATED>??0CameraClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>cameraclass.cpp</FILENAME>
+      <LINE>22</LINE>
+      <COLUMN>13</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'CameraClass::mOldPositionX' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>CameraClass::{ctor}</FUNCTION>
     <DECORATED>??0CameraClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>22</FUNCLINE>
@@ -162,35 +176,7 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'CameraClass::mRotationZ' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>CameraClass::{ctor}</FUNCTION>
-    <DECORATED>??0CameraClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>22</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>cameraclass.cpp</FILENAME>
-      <LINE>22</LINE>
-      <COLUMN>13</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'CameraClass::mRotationY' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>CameraClass::{ctor}</FUNCTION>
-    <DECORATED>??0CameraClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>22</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>cameraclass.cpp</FILENAME>
-      <LINE>22</LINE>
-      <COLUMN>13</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'CameraClass::mOldPositionX' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'CameraClass::mOldPositionZ' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>CameraClass::{ctor}</FUNCTION>
     <DECORATED>??0CameraClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>22</FUNCLINE>
@@ -232,7 +218,7 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'CameraClass::mOldPositionZ' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'CameraClass::mRotationX' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>CameraClass::{ctor}</FUNCTION>
     <DECORATED>??0CameraClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>22</FUNCLINE>
@@ -246,7 +232,7 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'CameraClass::mOldRotationZ' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'CameraClass::mOldRotationY' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>CameraClass::{ctor}</FUNCTION>
     <DECORATED>??0CameraClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>22</FUNCLINE>
@@ -260,21 +246,7 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'CameraClass::mFOV' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>CameraClass::{ctor}</FUNCTION>
-    <DECORATED>??0CameraClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>22</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>cameraclass.cpp</FILENAME>
-      <LINE>22</LINE>
-      <COLUMN>13</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'CameraClass::mUp' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'CameraClass::mOldRotationX' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>CameraClass::{ctor}</FUNCTION>
     <DECORATED>??0CameraClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>22</FUNCLINE>
@@ -302,6 +274,20 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'CameraClass::mBaseViewMatrix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>CameraClass::{ctor}</FUNCTION>
+    <DECORATED>??0CameraClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>cameraclass.cpp</FILENAME>
+      <LINE>22</LINE>
+      <COLUMN>13</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'CameraClass::mLookAt' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>CameraClass::{ctor}</FUNCTION>
     <DECORATED>??0CameraClass@@QEAA@AEBV0@@Z</DECORATED>
@@ -316,7 +302,21 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'CameraClass::mBaseViewMatrix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'CameraClass::mUp' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>CameraClass::{ctor}</FUNCTION>
+    <DECORATED>??0CameraClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>cameraclass.cpp</FILENAME>
+      <LINE>22</LINE>
+      <COLUMN>13</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'CameraClass::mFOV' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>CameraClass::{ctor}</FUNCTION>
     <DECORATED>??0CameraClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>22</FUNCLINE>

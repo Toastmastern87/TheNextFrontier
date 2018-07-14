@@ -16,6 +16,9 @@
     <Filter Include="Source Files\Shaders">
       <UniqueIdentifier>{450cdb79-f042-46e4-82a5-b864c8bbae9b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Textures">
+      <UniqueIdentifier>{2bb59a69-f8fa-43a7-a76a-249dd2055665}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TheNextFrontier.cpp">
@@ -87,6 +90,12 @@
     <ClCompile Include="LightClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GUIClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GUIShaderClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SystemClass.h">
@@ -155,6 +164,12 @@
     <ClInclude Include="LightClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GUIClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GUIShaderClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Font.ps">
@@ -176,30 +191,39 @@
     <None Include="MousePointer.vs">
       <Filter>Source Files\Shaders</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="font01.tga">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="MarsHeightMap8K.tif">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="MarsHeightMap46K.tif">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="MousePointer.tif">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="MarsHeightDetail2.tif">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="MarsColorMap8K.tif">
-      <Filter>Resource Files</Filter>
-    </Image>
+    <None Include="GUI.vs">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="GUI.ps">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="font01.txt">
       <Filter>Resource Files</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Textures\font01.tga">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="Textures\GameTimeGUI.tif">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="Textures\MarsColorMap8K.tif">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="Textures\MarsHeightDetail2.tif">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="Textures\MarsHeightMap8K.tif">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="Textures\MarsHeightMap46K.tif">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="Textures\MousePointer.tif">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

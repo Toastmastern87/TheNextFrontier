@@ -4,6 +4,7 @@
 #include "MarsShaderClass.h"
 #include "FontShaderClass.h"
 #include "MousePointerShaderClass.h"
+#include "GUIShaderClass.h"
 
 class ShaderManagerClass
 {
@@ -18,9 +19,11 @@ public:
 	bool RenderMarsShader(ID3D11DeviceContext*, int, int, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, float, float, float, vector<float>, XMFLOAT3, ID3D11ShaderResourceView*, ID3D11ShaderResourceView*, ID3D11ShaderResourceView*, XMFLOAT4, XMFLOAT4, float);
 	bool RenderFontShader(ID3D11DeviceContext*, int, XMMATRIX, XMMATRIX, XMMATRIX, ID3D11ShaderResourceView*, XMFLOAT4);
 	bool RenderMousePointerShader(ID3D11DeviceContext*, int, XMMATRIX, XMMATRIX, XMMATRIX, ID3D11ShaderResourceView*);
+	bool RenderGUIShader(ID3D11DeviceContext*, int, XMMATRIX, XMMATRIX, XMMATRIX, ID3D11ShaderResourceView*);
 
 private:
 	MarsShaderClass * mMarsShader;
 	FontShaderClass* mFontShader;
 	MousePointerShaderClass* mMousePointerShader;
+	GUIShaderClass* mGUIShader;
 };

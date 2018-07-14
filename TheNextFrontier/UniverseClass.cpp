@@ -9,6 +9,7 @@ UniverseClass::UniverseClass()
 	mFrustum = 0;
 	mSunlight = 0;
 	mGameTime = 0;
+	mGUI = 0;
 
 	mSpeedIncreased = false;
 	mSpeedDecreased = false;
@@ -28,6 +29,19 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 
 	mScreenDepth = screenDepth;
 	mScreenNear = screenNear;
+
+	mGUI = new GUIClass();
+	if (!mGUI)
+	{
+		return false;
+	}
+
+	result = mGUI->Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight);
+	if (!result)
+	{
+		MessageBox(hwnd, L"Could not initialize the Game GUI object", L"Error", MB_OK);
+		return false;
+	}
 
 	mGameTime = new GameTimeClass();
 	if (!mGameTime)
@@ -125,6 +139,13 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 
 void UniverseClass::Shutdown()
 {
+	if (mGUI)
+	{
+		mGUI->Shutdown();
+		delete mGUI;
+		mGUI = 0;
+	}
+
 	if (mMousePointer)
 	{
 		mMousePointer->Shutdown();
@@ -341,6 +362,12 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 
 	if (mDisplayUI)
 	{
+		result = mGUI->Render(direct3D, shaderManager, worldMatrix, baseViewMatrix, orthoMatrix);
+		if (!result)
+		{
+			return false;
+		}
+
 		result = mUI->Render(direct3D, shaderManager, worldMatrix, baseViewMatrix, orthoMatrix);
 		if (!result)
 		{

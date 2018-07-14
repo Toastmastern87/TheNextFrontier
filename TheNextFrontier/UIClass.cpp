@@ -40,7 +40,7 @@ bool UIClass::Initialize(HWND hwnd, D3DClass* direct3D, int screenHeight, int sc
 		return false;
 	}
 
-	result = mFont1->Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), (char*)"../TheNextFrontier/font01.txt", (char*)"../TheNextFrontier/font01.tga", 32.0f, 3);
+	result = mFont1->Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), (char*)"../TheNextFrontier/font01.txt", (char*)"../TheNextFrontier/Textures/font01.tga", 32.0f, 3);
 	if (!result)
 	{
 		return false;
@@ -613,7 +613,7 @@ bool UIClass::UpdateGameTimeString(HWND hwnd, ID3D11DeviceContext *deviceContext
 		mPreviousGameTimeSec = gameTimeSecs;
 
 		//2300 or 1660
-		result = mGameTimeString->UpdateSentence(hwnd, deviceContext, mFont1, finalString, 1660, 17, 1.0f, 1.0f, 1.0f);
+		result = mGameTimeString->UpdateSentence(hwnd, deviceContext, mFont1, finalString, 1670, 17, 1.0f, 1.0f, 1.0f);
 		if (!result)
 		{
 			return false;

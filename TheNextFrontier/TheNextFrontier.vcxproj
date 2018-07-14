@@ -149,6 +149,8 @@
   <ItemGroup>
     <ClCompile Include="CameraClass.cpp" />
     <ClCompile Include="GameTimeClass.cpp" />
+    <ClCompile Include="GUIClass.cpp" />
+    <ClCompile Include="GUIShaderClass.cpp" />
     <ClCompile Include="LightClass.cpp" />
     <ClCompile Include="MarsShaderClass.cpp" />
     <ClCompile Include="D3DClass.cpp" />
@@ -174,6 +176,8 @@
   <ItemGroup>
     <ClInclude Include="CameraClass.h" />
     <ClInclude Include="GameTimeClass.h" />
+    <ClInclude Include="GUIClass.h" />
+    <ClInclude Include="GUIShaderClass.h" />
     <ClInclude Include="LightClass.h" />
     <ClInclude Include="MarsShaderClass.h" />
     <ClInclude Include="D3DClass.h" />
@@ -196,6 +200,8 @@
     <ClInclude Include="UniverseClass.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="GUI.ps" />
+    <None Include="GUI.vs" />
     <None Include="Mars.vs" />
     <None Include="Mars.ps" />
     <None Include="Font.ps" />
@@ -205,15 +211,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="font01.tga" />
-    <Image Include="MarsColorMap8K.tif" />
-    <Image Include="MarsHeightDetail2.tif" />
-    <Image Include="MarsHeightMap46K.tif" />
-    <Image Include="MarsHeightMap8K.tif" />
-    <Image Include="MousePointer.tif" />
+    <Text Include="font01.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="font01.txt" />
+    <Image Include="Textures\font01.tga" />
+    <Image Include="Textures\GameTimeGUI.tif" />
+    <Image Include="Textures\MarsColorMap8K.tif" />
+    <Image Include="Textures\MarsHeightDetail2.tif" />
+    <Image Include="Textures\MarsHeightMap46K.tif" />
+    <Image Include="Textures\MarsHeightMap8K.tif" />
+    <Image Include="Textures\MousePointer.tif" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

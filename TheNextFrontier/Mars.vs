@@ -97,16 +97,12 @@ PixelInputType MarsVertexShader(VertexInputType input)
 
 	//Normal calculations
 	output.normal = mul(finalPos, worldMatrix);
-	//output.normal = mul(output.normal, rotationMatrix);
 	output.viewVector = (mul(cameraPos.xyz, worldMatrix) - mul(finalPos, worldMatrix));
 
 	mapCoords = normalize(finalPos);
 	output.mapCoord = float2((0.5f + (atan2(mapCoords.z, mapCoords.x) / (2 * 3.14159265f))), (0.5f - (asin(mapCoords.y) / 3.14159265f)));
-	//output.mapCoord = float2(saturate(((atan2(mapCoords.z, mapCoords.x) / 3.14159265f) + 1.0f) / 2), (0.5f - (asin(mapCoords.y) / 3.14159265f)));
-	//float2( saturate(((atan2(position.z, position.x) / pi) + 1.0) / 2.0), (0.5-(asin(position.y)/pi)) );
 
 	output.position = mul(float4(finalPos, 1.0f), worldMatrix);
-	//output.position = mul(output.position, rotationMatrix);
 	output.position = mul(output.position, viewMatrix);
 	output.position = mul(output.position, projectionMatrix);
 

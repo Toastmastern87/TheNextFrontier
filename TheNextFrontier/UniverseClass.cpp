@@ -6,6 +6,7 @@ UniverseClass::UniverseClass()
 	mCamera = 0;
 	mPosition = 0;
 	mMars = 0;
+	mMarsAtmosphere = 0;
 	mFrustum = 0;
 	mSunlight = 0;
 	mGameTime = 0;
@@ -118,6 +119,20 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 		return false;
 	}
 
+	mMarsAtmosphere = new MarsAtmosphereClass;
+	if (!mMarsAtmosphere)
+	{
+		return false;
+	}
+
+	result = mMarsAtmosphere->Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), 3389.5f);
+	if (!result)
+	{
+		MessageBox(hwnd, L"Could not initialize the Mars Atmosphere object.", L"Error", MB_OK);
+
+		return false;
+	}
+
 	mMousePointer = new MousePointerClass();
 	if (!mMousePointer)
 	{
@@ -151,6 +166,13 @@ void UniverseClass::Shutdown()
 		mMousePointer->Shutdown();
 		delete mMousePointer;
 		mMousePointer = 0;
+	}
+
+	if (mMarsAtmosphere)
+	{
+		mMarsAtmosphere->Shutdown();
+		delete mMarsAtmosphere;
+		mMarsAtmosphere = 0;
 	}
 
 	if (mMars)
@@ -217,12 +239,15 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 		return false;
 	}
 
-	altitude = mPosition->GetDistanceFromOrigo() - mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3());
-
-	result = mUI->Frame(hwnd, direct3D->GetDeviceContext(), fps, posX, posY, posZ, rotX, rotY, rotZ, (mMars->GetMarsVerticesCount() * mMars->GetInstanceCount()), altitude, mPosition->GetDistanceFromOrigo(), mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()), mGameTime->GetGameTimeSecs(), mGameTime->GetGameTimeMins(), mGameTime->GetGameTimeHours(), mGameTime->GetGameTimeDays(), mGameTime->GetGameTimeMarsYears());
-	if (!result)
+	if (mMars) 
 	{
-		return false;
+		altitude = mPosition->GetDistanceFromOrigo() - mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3());
+
+		result = mUI->Frame(hwnd, direct3D->GetDeviceContext(), fps, posX, posY, posZ, rotX, rotY, rotZ, (mMars->GetMarsVerticesCount() * mMars->GetInstanceCount()), altitude, mPosition->GetDistanceFromOrigo(), mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()), mGameTime->GetGameTimeSecs(), mGameTime->GetGameTimeMins(), mGameTime->GetGameTimeHours(), mGameTime->GetGameTimeDays(), mGameTime->GetGameTimeMarsYears());
+		if (!result)
+		{
+			return false;
+		}
 	}
 
 	result = Render(direct3D, shaderManager);
@@ -281,19 +306,22 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 		mSpeedDecreased = false;
 	}
 
-	if (mPosition->GetDistanceFromOrigo() < mPosition->MAXDISTANCEFROMORIGO) 
+	if (mMars)
 	{
-		mPosition->ZoomOut(mouseDelta, mMars->GetMarsRadius());
-	}
+		if (mPosition->GetDistanceFromOrigo() < mPosition->MAXDISTANCEFROMORIGO) 
+		{
+			mPosition->ZoomOut(mouseDelta, mMars->GetMarsRadius());
+		}
 
-	if (!mPosition->MaxZoom())
-	{
-		mPosition->ZoomIn(mouseDelta, mMars->GetMarsRadius(), mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()));
-	}
+		if (!mPosition->MaxZoom())
+		{
+			mPosition->ZoomIn(mouseDelta, mMars->GetMarsRadius(), mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()));
+		}
 
-	if (mPosition->MaxZoom())
-	{
-		mPosition->CheckAltitude(mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()));
+		if (mPosition->MaxZoom())
+		{
+			mPosition->CheckAltitude(mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()));
+		}
 	}
 
 	mPosition->GetPosition(posX, posY, posZ);
@@ -347,6 +375,13 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 	mMars->Render(direct3D->GetDeviceContext());
 
 	result = shaderManager->RenderMarsShader(direct3D->GetDeviceContext(), mMars->GetIndexCount(), mMars->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, inverseWorldMatrix, rotationMatrix, mMars->GetMarsRadius(), mMars->GetMarsMaxHeight(), mMars->GetMarsMinHeight(), mMars->GetDistanceLUT(), mPosition->GetPositionXMFLOAT3(), mMars->GetHeightMap(), mMars->GetHeightMapDetail2(), mMars->GetColorMap(), mSunlight->GetDirection(), mSunlight->GetDiffuseColor(), mMars->GetMarsPatchDelta());
+	if (!result)
+	{
+		return false;
+	}
+
+	mMarsAtmosphere->Render(direct3D->GetDeviceContext());
+	result = shaderManager->RenderMarsAtmosphereShader(direct3D->GetDeviceContext(), mMarsAtmosphere->GetIndexCount(), mMarsAtmosphere->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, (mMarsAtmosphere->GetAtmosphereHeight() + mMars->GetMarsRadius()));
 	if (!result)
 	{
 		return false;

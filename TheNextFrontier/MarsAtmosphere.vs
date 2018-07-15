@@ -24,21 +24,13 @@ struct PixelInputType
 PixelInputType MarsAtmosphereVertexShader(VertexInputType input)
 {
 	PixelInputType output;
-	float4 finalPos;
-	float3 posxr;
-	float3 posys;
+	float3 finalPos;
 
-	posxr = float3(input.r.x * input.localPosition.x, input.r.y * input.localPosition.x, input.r.z * input.localPosition.x);
-	posys = float3(input.s.x * input.localPosition.y, input.s.y * input.localPosition.y, input.s.z * input.localPosition.y);
+	finalPos = input.a + input.r * input.localPosition.x + input.s * input.localPosition.y;
 
-	finalPos.x = input.a.x + posxr.x + posys.x;
-	finalPos.y = input.a.y + posxr.y + posys.y;
-	finalPos.z = input.a.z + posxr.z + posys.z;
-	finalPos.w = 1.0f;
+	finalPos = normalize(finalPos) * (marsAtmosphereRadius.r);
 
-	finalPos = normalize(finalPos) * (marsAtmosphereRadius.r)
-
-	output.position = mul(finalPos, worldMatrix);
+	output.position = mul(float4(finalPos, 1.0f), worldMatrix);
 	output.position = mul(output.position, viewMatrix);
 	output.position = mul(output.position, projectionMatrix);
 	

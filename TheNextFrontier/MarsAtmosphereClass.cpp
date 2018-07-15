@@ -20,7 +20,7 @@ bool MarsAtmosphereClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* 
 {
 	bool result;
 	mMaxSubdivisionLevel = 3;
-	mMaxCellLevel = 3;
+	mMaxCellLevel = 2;
 
 	GenerateCellGeometry();
 
@@ -30,12 +30,13 @@ bool MarsAtmosphereClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* 
 		return false;
 	}
 
-	result = InitializeIcosphere(marsRadius);
+	result = InitializeIcosphere((marsRadius + mAtmosphereHeight));
 	if (!result)
 	{
 		return false;
 	}
 
+	GenerateCells();
 	MapCells(deviceContext);
 
 	return true;
@@ -132,6 +133,7 @@ void MarsAtmosphereClass::GenerateCellGeometry()
 	mMarsAtmosphereCellVertices.clear();
 	mMarsAtmosphereCellIndices.clear();
 
+	//0 inside pow is number each cell is divided levels
 	int mRC = 1 + (int)pow(2, mMaxCellLevel);
 
 	int rowIndex = 0;
@@ -231,14 +233,11 @@ void MarsAtmosphereClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 
 void MarsAtmosphereClass::GenerateCells()
 {
-	float vectorDistance;
-	float frac;
-
 	mMarsAtmosphereCells.clear();
 
 	for (auto triangle : mIcosphere)
 	{
-		mMarsAtmosphereCells.push_back(MarsAtmosphereCellType(triangle.level, triangle.a, triangle.b, triangle.c));
+		RecursiveTriangle(triangle.a, triangle.b, triangle.c, triangle.level, true);
 	}
 }
 
@@ -300,4 +299,63 @@ vector<int> MarsAtmosphereClass::GetIcosadronIndices()
 	};
 
 	return ret;
+}
+
+void MarsAtmosphereClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, short level, bool frustumCull)
+{
+	XMFLOAT3 A, B, C;
+
+	if (level < mMaxSubdivisionLevel) {
+		int nLevel;
+
+		float lengthA;
+		float lengthB;
+		float lengthC;
+
+		XMStoreFloat3(&A, XMLoadFloat3(&b) + XMVectorScale((XMLoadFloat3(&c) - XMLoadFloat3(&b)), 0.5f));
+		XMStoreFloat3(&B, XMLoadFloat3(&c) + XMVectorScale((XMLoadFloat3(&a) - XMLoadFloat3(&c)), 0.5f));
+		XMStoreFloat3(&C, XMLoadFloat3(&a) + XMVectorScale((XMLoadFloat3(&b) - XMLoadFloat3(&a)), 0.5f));
+
+		lengthA = XMVectorGetX(XMVector3Length(XMLoadFloat3(&A)));
+		lengthB = XMVectorGetX(XMVector3Length(XMLoadFloat3(&B)));
+		lengthC = XMVectorGetX(XMVector3Length(XMLoadFloat3(&C)));
+
+		XMStoreFloat3(&A, (XMLoadFloat3(&A) * ((mAtmosphereHeight + 3389.5f) / lengthA)));
+		XMStoreFloat3(&B, (XMLoadFloat3(&B) * ((mAtmosphereHeight + 3389.5f) / lengthB)));
+		XMStoreFloat3(&C, (XMLoadFloat3(&C) * ((mAtmosphereHeight + 3389.5f) / lengthC)));
+
+		nLevel = level + 1;
+
+		RecursiveTriangle(a, B, C, nLevel, false);
+		RecursiveTriangle(A, b, C, nLevel, false);
+		RecursiveTriangle(A, B, c, nLevel, false);
+		RecursiveTriangle(A, B, C, nLevel, false);
+	}
+	else
+	{
+		XMFLOAT3 secondCorner;
+		XMFLOAT3 thirdCorner;
+
+		XMStoreFloat3(&secondCorner, XMLoadFloat3(&b) - XMLoadFloat3(&a));
+		XMStoreFloat3(&thirdCorner, XMLoadFloat3(&c) - XMLoadFloat3(&a));
+
+		mMarsAtmosphereCells.push_back(MarsAtmosphereCellType(level, a, secondCorner, thirdCorner));
+	}
+
+	return;
+}
+
+float MarsAtmosphereClass::GetAtmosphereHeight()
+{
+	return mAtmosphereHeight;
+}
+
+int MarsAtmosphereClass::GetIndexCount()
+{
+	return (int)mMarsAtmosphereCellIndices.size();
+}
+
+int MarsAtmosphereClass::GetInstanceCount()
+{
+	return (int)mMarsAtmosphereCells.size();
 }

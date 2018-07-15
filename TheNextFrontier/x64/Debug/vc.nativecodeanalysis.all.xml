@@ -5,8 +5,8 @@
       <LINE>3</LINE>
       <COLUMN>13</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'CameraClass::mViewMatrix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>CameraClass::{ctor}</FUNCTION>
     <DECORATED>??0CameraClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -18,8 +18,8 @@
       <LINE>3</LINE>
       <COLUMN>13</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'CameraClass::mViewMatrix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>CameraClass::{ctor}</FUNCTION>
     <DECORATED>??0CameraClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -32,7 +32,7 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'CameraClass::mViewMatrix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'CameraClass::mOldRotationZ' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>CameraClass::{ctor}</FUNCTION>
     <DECORATED>??0CameraClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>22</FUNCLINE>
@@ -44,8 +44,8 @@
       <LINE>3</LINE>
       <COLUMN>15</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GameTimeClass::mGameTimeDays' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>GameTimeClass::{ctor}</FUNCTION>
     <DECORATED>??0GameTimeClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -57,8 +57,8 @@
       <LINE>3</LINE>
       <COLUMN>15</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GameTimeClass::mGameTimeSecs' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>GameTimeClass::{ctor}</FUNCTION>
     <DECORATED>??0GameTimeClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -71,7 +71,7 @@
       <COLUMN>15</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GameTimeClass::mGameTimeSecs' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'GameTimeClass::mGameTimeDays' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>GameTimeClass::{ctor}</FUNCTION>
     <DECORATED>??0GameTimeClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>7</FUNCLINE>
@@ -83,8 +83,8 @@
       <LINE>3</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GUIClass::mVertexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>GUIClass::{ctor}</FUNCTION>
     <DECORATED>??0GUIClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -96,8 +96,8 @@
       <LINE>3</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GUIClass::mVertexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>GUIClass::{ctor}</FUNCTION>
     <DECORATED>??0GUIClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -148,8 +148,8 @@
       <LINE>3</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'LightClass::mAmbientColor' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>LightClass::{ctor}</FUNCTION>
     <DECORATED>??0LightClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -161,8 +161,8 @@
       <LINE>3</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'LightClass::mAmbientColor' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>LightClass::{ctor}</FUNCTION>
     <DECORATED>??0LightClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -184,40 +184,27 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsatmosphereclass.h</FILENAME>
-      <LINE>47</LINE>
-      <COLUMN>2</COLUMN>
-    </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>MarsAtmosphereClass::TriangleType::{ctor}</FUNCTION>
-    <DECORATED>??0TriangleType@MarsAtmosphereClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>47</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT><DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>marsatmosphereclass.h</FILENAME>
-      <LINE>47</LINE>
+      <LINE>46</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsAtmosphereClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsAtmosphereClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsAtmosphereClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>47</FUNCLINE>
+    <FUNCLINE>46</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>marsatmosphereclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>21</COLUMN>
+      <FILENAME>marsatmosphereclass.h</FILENAME>
+      <LINE>46</LINE>
+      <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>MarsAtmosphereClass::{ctor}</FUNCTION>
-    <DECORATED>??0MarsAtmosphereClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
+    <FUNCTION>MarsAtmosphereClass::TriangleType::{ctor}</FUNCTION>
+    <DECORATED>??0TriangleType@MarsAtmosphereClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>46</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
@@ -236,11 +223,24 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsatmosphereclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>21</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>MarsAtmosphereClass::{ctor}</FUNCTION>
+    <DECORATED>??0MarsAtmosphereClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>marsatmosphereclass.cpp</FILENAME>
       <LINE>11</LINE>
       <COLUMN>21</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsAtmosphereClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'MarsAtmosphereClass::mAtmosphereHeight' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsAtmosphereClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsAtmosphereClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>11</FUNCLINE>
@@ -304,8 +304,8 @@
       <LINE>3</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'D3DClass::mVSyncEnabled' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -317,8 +317,8 @@
       <LINE>3</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'D3DClass::mVideoCardMemory' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -331,258 +331,11 @@
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'D3DClass::mVSyncEnabled' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'D3DClass::mVideoCardMemory' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>21</FUNCLINE>
     <PATH></PATH>
-  </DEFECT><DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>72</LINE>
-      <COLUMN>8</COLUMN>
-    </SFA>
-    <DEFECTCODE>6001</DEFECTCODE>
-    <DESCRIPTION>Using uninitialized memory 'numModes'.</DESCRIPTION>
-    <FUNCTION>D3DClass::Initialize</FUNCTION>
-    <DECORATED>?Initialize@D3DClass@@QEAA_NHH_NPEAUHWND__@@0MM@Z</DECORATED>
-    <FUNCLINE>29</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>3</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>31</LINE>
-        <COLUMN>9</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>32</LINE>
-        <COLUMN>15</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>33</LINE>
-        <COLUMN>15</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>34</LINE>
-        <COLUMN>14</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>35</LINE>
-        <COLUMN>14</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'numModes' is not initialized</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>35</LINE>
-        <COLUMN>24</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>35</LINE>
-        <COLUMN>27</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>35</LINE>
-        <COLUMN>38</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>36</LINE>
-        <COLUMN>20</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>37</LINE>
-        <COLUMN>17</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>38</LINE>
-        <COLUMN>19</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>39</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>40</LINE>
-        <COLUMN>22</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>41</LINE>
-        <COLUMN>19</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>42</LINE>
-        <COLUMN>18</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>43</LINE>
-        <COLUMN>22</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>44</LINE>
-        <COLUMN>26</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>45</LINE>
-        <COLUMN>31</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>46</LINE>
-        <COLUMN>23</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>47</LINE>
-        <COLUMN>16</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>48</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>49</LINE>
-        <COLUMN>26</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>50</LINE>
-        <COLUMN>18</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>52</LINE>
-        <COLUMN>15</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>54</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>55</LINE>
-        <COLUMN>5</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Skip this branch, (assume 'FAILED(result)' is false)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>60</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>61</LINE>
-        <COLUMN>5</COLUMN>
-        <KEYEVENT>
-          <ID>3</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Skip this branch, (assume 'FAILED(result)' is false)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>66</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>67</LINE>
-        <COLUMN>5</COLUMN>
-        <KEYEVENT>
-          <ID>4</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Skip this branch, (assume 'FAILED(result)' is false)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>72</LINE>
-        <COLUMN>8</COLUMN>
-        <KEYEVENT>
-          <ID>5</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'numModes' is an Input to 'IDXGIOutput::GetDisplayModeList' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\dxgi.h:1432)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>72</LINE>
-        <COLUMN>8</COLUMN>
-        <KEYEVENT>
-          <ID>6</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'numModes' is used, but may not have been initialized</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
   </DEFECT><DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
@@ -1470,6 +1223,253 @@
   </DEFECT><DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>d3dclass.cpp</FILENAME>
+      <LINE>72</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>6001</DEFECTCODE>
+    <DESCRIPTION>Using uninitialized memory 'numModes'.</DESCRIPTION>
+    <FUNCTION>D3DClass::Initialize</FUNCTION>
+    <DECORATED>?Initialize@D3DClass@@QEAA_NHH_NPEAUHWND__@@0MM@Z</DECORATED>
+    <FUNCLINE>29</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>3</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>31</LINE>
+        <COLUMN>9</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>32</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>33</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>34</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>35</LINE>
+        <COLUMN>14</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'numModes' is not initialized</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>35</LINE>
+        <COLUMN>24</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>35</LINE>
+        <COLUMN>27</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>35</LINE>
+        <COLUMN>38</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>36</LINE>
+        <COLUMN>20</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>37</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>38</LINE>
+        <COLUMN>19</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>39</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>40</LINE>
+        <COLUMN>22</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>41</LINE>
+        <COLUMN>19</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>42</LINE>
+        <COLUMN>18</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>43</LINE>
+        <COLUMN>22</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>44</LINE>
+        <COLUMN>26</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>45</LINE>
+        <COLUMN>31</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>46</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>47</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>48</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>49</LINE>
+        <COLUMN>26</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>50</LINE>
+        <COLUMN>18</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>52</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>54</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>55</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'FAILED(result)' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>60</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>61</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'FAILED(result)' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>66</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>67</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'FAILED(result)' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>72</LINE>
+        <COLUMN>8</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'numModes' is an Input to 'IDXGIOutput::GetDisplayModeList' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\dxgi.h:1432)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>72</LINE>
+        <COLUMN>8</COLUMN>
+        <KEYEVENT>
+          <ID>6</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'numModes' is used, but may not have been initialized</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>fontclass.cpp</FILENAME>
       <LINE>3</LINE>
       <COLUMN>11</COLUMN>
@@ -1501,7 +1501,7 @@
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'FontClass::mFont' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'FontClass::mFontHeight' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>FontClass::{ctor}</FUNCTION>
     <DECORATED>??0FontClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>9</FUNCLINE>
@@ -1539,8 +1539,8 @@
       <LINE>3</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'FPSClass::mCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>FPSClass::{ctor}</FUNCTION>
     <DECORATED>??0FPSClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1552,8 +1552,8 @@
       <LINE>3</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'FPSClass::mFPS' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>FPSClass::{ctor}</FUNCTION>
     <DECORATED>??0FPSClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1566,7 +1566,7 @@
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'FPSClass::mCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'FPSClass::mFPS' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>FPSClass::{ctor}</FUNCTION>
     <DECORATED>??0FPSClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>7</FUNCLINE>
@@ -1578,8 +1578,8 @@
       <LINE>58</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>58</FUNCLINE>
@@ -1591,8 +1591,8 @@
       <LINE>58</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>58</FUNCLINE>
@@ -1682,8 +1682,8 @@
       <LINE>3</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'InputClass::mKeyboardState' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>InputClass::{ctor}</FUNCTION>
     <DECORATED>??0InputClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1695,8 +1695,8 @@
       <LINE>3</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'InputClass::mKeyboardState' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>InputClass::{ctor}</FUNCTION>
     <DECORATED>??0InputClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1721,8 +1721,8 @@
       <LINE>3</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::mMaxSubdivisionLevel' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1734,8 +1734,8 @@
       <LINE>3</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::mMarsRadius' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1760,8 +1760,8 @@
       <LINE>3</LINE>
       <COLUMN>19</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MousePointerClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
     <DECORATED>??0MousePointerClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1773,8 +1773,8 @@
       <LINE>3</LINE>
       <COLUMN>19</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MousePointerClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
     <DECORATED>??0MousePointerClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1949,10 +1949,23 @@
       <COLUMN>15</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'PositionClass::mMaxZoom' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'PositionClass::mPositionX' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>PositionClass::{ctor}</FUNCTION>
     <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>28</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>shadermanagerclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ShaderManagerClass::mMarsAtmosphereShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ShaderManagerClass::{ctor}</FUNCTION>
+    <DECORATED>??0ShaderManagerClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
@@ -1987,8 +2000,8 @@
       <LINE>3</LINE>
       <COLUMN>13</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'SystemClass::mHInstance' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2000,8 +2013,8 @@
       <LINE>3</LINE>
       <COLUMN>13</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'SystemClass::mHInstance' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2014,7 +2027,7 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'SystemClass::mApplication' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'SystemClass::mHInstance' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>8</FUNCLINE>
@@ -2110,374 +2123,6 @@
     <DECORATED>??0TextureClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>10</FUNCLINE>
     <PATH></PATH>
-  </DEFECT><DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>textureclass.cpp</FILENAME>
-      <LINE>116</LINE>
-      <COLUMN>7</COLUMN>
-    </SFA>
-    <DEFECTCODE>6387</DEFECTCODE>
-    <DESCRIPTION>'filePtr' could be '0':  this does not adhere to the specification for the function 'fread'. </DESCRIPTION>
-    <FUNCTION>TextureClass::LoadTarga</FUNCTION>
-    <DECORATED>?LoadTarga@TextureClass@@AEAA_NPEADAEAH1@Z</DECORATED>
-    <FUNCLINE>102</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>12</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>17</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>28</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>35</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>38</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>41</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>105</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>106</LINE>
-        <COLUMN>14</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>107</LINE>
-        <COLUMN>13</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>108</LINE>
-        <COLUMN>16</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>110</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'filePtr' may be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>111</LINE>
-        <COLUMN>11</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Skip this branch, (assume 'error!=0' is false)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>116</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>3</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'filePtr' is an In/Out argument to 'fread' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h:234)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>116</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>4</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'filePtr' should not be NULL, because this is not consistent with the SAL annotation on 'fread'</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT><DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>textureclass.cpp</FILENAME>
-      <LINE>145</LINE>
-      <COLUMN>7</COLUMN>
-    </SFA>
-    <DEFECTCODE>6387</DEFECTCODE>
-    <DESCRIPTION>'filePtr' could be '0':  this does not adhere to the specification for the function 'fclose'. See line 116 for an earlier location where this can occur</DESCRIPTION>
-    <FUNCTION>TextureClass::LoadTarga</FUNCTION>
-    <DECORATED>?LoadTarga@TextureClass@@AEAA_NPEADAEAH1@Z</DECORATED>
-    <FUNCLINE>102</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>12</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>17</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>28</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>35</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>38</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>41</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>105</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>106</LINE>
-        <COLUMN>14</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>107</LINE>
-        <COLUMN>13</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>108</LINE>
-        <COLUMN>16</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>110</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'filePtr' may be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>111</LINE>
-        <COLUMN>11</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Skip this branch, (assume 'error!=0' is false)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>116</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>3</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'filePtr' is an In/Out argument to 'fread' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h:234)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>117</LINE>
-        <COLUMN>11</COLUMN>
-        <KEYEVENT>
-          <ID>4</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Skip this branch, (assume 'count!=1' is false)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>122</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>123</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>124</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>126</LINE>
-        <COLUMN>9</COLUMN>
-        <KEYEVENT>
-          <ID>5</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Skip this branch, (assume 'bpp!=32' is false)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>131</LINE>
-        <COLUMN>11</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>133</LINE>
-        <COLUMN>12</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>134</LINE>
-        <COLUMN>5</COLUMN>
-        <KEYEVENT>
-          <ID>6</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Skip this branch, (assume '!targaImage' is false)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>139</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>7</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'filePtr' is an In/Out argument to 'fread' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h:234)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>140</LINE>
-        <COLUMN>10</COLUMN>
-        <KEYEVENT>
-          <ID>8</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Skip this branch, (assume 'count!=imageSize' is false)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>145</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>9</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'filePtr' is an Input to 'fclose' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h:147)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>145</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>10</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'filePtr' should not be NULL, because this is not consistent with the SAL annotation on 'fclose'</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
   </DEFECT><DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
@@ -2872,6 +2517,374 @@
   </DEFECT><DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>textureclass.cpp</FILENAME>
+      <LINE>116</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>6387</DEFECTCODE>
+    <DESCRIPTION>'filePtr' could be '0':  this does not adhere to the specification for the function 'fread'. </DESCRIPTION>
+    <FUNCTION>TextureClass::LoadTarga</FUNCTION>
+    <DECORATED>?LoadTarga@TextureClass@@AEAA_NPEADAEAH1@Z</DECORATED>
+    <FUNCLINE>102</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>28</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>35</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>38</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>41</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>105</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>106</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>107</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>108</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>110</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'filePtr' may be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>111</LINE>
+        <COLUMN>11</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'error!=0' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>116</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'filePtr' is an In/Out argument to 'fread' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h:234)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>116</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'filePtr' should not be NULL, because this is not consistent with the SAL annotation on 'fread'</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>textureclass.cpp</FILENAME>
+      <LINE>145</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>6387</DEFECTCODE>
+    <DESCRIPTION>'filePtr' could be '0':  this does not adhere to the specification for the function 'fclose'. See line 116 for an earlier location where this can occur</DESCRIPTION>
+    <FUNCTION>TextureClass::LoadTarga</FUNCTION>
+    <DECORATED>?LoadTarga@TextureClass@@AEAA_NPEADAEAH1@Z</DECORATED>
+    <FUNCLINE>102</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>28</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>35</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>38</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>41</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>105</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>106</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>107</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>108</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>110</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'filePtr' may be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>111</LINE>
+        <COLUMN>11</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'error!=0' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>116</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'filePtr' is an In/Out argument to 'fread' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h:234)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>117</LINE>
+        <COLUMN>11</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'count!=1' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>122</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>123</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>124</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>126</LINE>
+        <COLUMN>9</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'bpp!=32' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>131</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>133</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>134</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>6</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume '!targaImage' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>139</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>7</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'filePtr' is an In/Out argument to 'fread' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h:234)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>140</LINE>
+        <COLUMN>10</COLUMN>
+        <KEYEVENT>
+          <ID>8</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'count!=imageSize' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>145</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>9</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'filePtr' is an Input to 'fclose' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h:147)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>145</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>10</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'filePtr' should not be NULL, because this is not consistent with the SAL annotation on 'fclose'</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>thenextfrontier.cpp</FILENAME>
       <LINE>3</LINE>
       <COLUMN>11</COLUMN>
@@ -2890,7 +2903,7 @@
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'TimerClass::mStartTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'TimerClass::mFrequency' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>TimerClass::{ctor}</FUNCTION>
     <DECORATED>??0TimerClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2916,7 +2929,7 @@
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'TimerClass::mStartTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'TimerClass::mFrequency' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>TimerClass::{ctor}</FUNCTION>
     <DECORATED>??0TimerClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>7</FUNCLINE>
@@ -2955,7 +2968,7 @@
       <COLUMN>9</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'UIClass::mFPSString' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'UIClass::mFont1' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>UIClass::{ctor}</FUNCTION>
     <DECORATED>??0UIClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>16</FUNCLINE>
@@ -4012,13 +4025,13 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>universeclass.cpp</FILENAME>
-      <LINE>18</LINE>
+      <LINE>19</LINE>
       <COLUMN>15</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'UniverseClass::mUI' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>UniverseClass::{ctor}</FUNCTION>
     <DECORATED>??0UniverseClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>18</FUNCLINE>
+    <FUNCLINE>19</FUNCLINE>
     <PATH></PATH>
   </DEFECT></DEFECTS>

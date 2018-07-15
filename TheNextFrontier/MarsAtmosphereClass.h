@@ -5,7 +5,6 @@
 #include <vector>
 #include <math.h>
 #include <fstream>
-#include "tiffio.h"
 using namespace DirectX;
 using namespace std;
 
@@ -69,6 +68,11 @@ public:
 	void Shutdown();
 	void Render(ID3D11DeviceContext*);
 
+	int GetIndexCount();
+	int GetInstanceCount();
+
+	float GetAtmosphereHeight();
+
 private:
 	bool InitializeBuffers(ID3D11Device*);
 	bool InitializeIcosphere(float);
@@ -80,6 +84,8 @@ private:
 	void GenerateCells();
 	void GenerateCellGeometry();
 	bool MapCells(ID3D11DeviceContext*);
+
+	void RecursiveTriangle(XMFLOAT3, XMFLOAT3, XMFLOAT3, short, bool);
 
 private:
 	float mAtmosphereHeight;

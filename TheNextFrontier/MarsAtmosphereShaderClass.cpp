@@ -59,8 +59,7 @@ bool MarsAtmosphereShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd
 	ID3D10Blob* pixelShaderBuffer;
 	D3D11_INPUT_ELEMENT_DESC polygonLayout[5];
 	unsigned int numElements;
-	D3D11_BUFFER_DESC matrixBufferDesc, morphBufferDesc, heightBufferDesc, lightBufferDesc;
-	D3D11_SAMPLER_DESC samplerDescHeight;
+	D3D11_BUFFER_DESC matrixBufferDesc;
 
 	errorMessage = 0;
 	vertexShaderBuffer = 0;

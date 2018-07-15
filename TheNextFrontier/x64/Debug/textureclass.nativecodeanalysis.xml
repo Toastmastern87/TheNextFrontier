@@ -60,376 +60,6 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>textureclass.cpp</FILENAME>
-      <LINE>116</LINE>
-      <COLUMN>7</COLUMN>
-    </SFA>
-    <DEFECTCODE>6387</DEFECTCODE>
-    <DESCRIPTION>'filePtr' could be '0':  this does not adhere to the specification for the function 'fread'. </DESCRIPTION>
-    <FUNCTION>TextureClass::LoadTarga</FUNCTION>
-    <DECORATED>?LoadTarga@TextureClass@@AEAA_NPEADAEAH1@Z</DECORATED>
-    <FUNCLINE>102</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>12</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>17</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>28</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>35</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>38</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>41</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>105</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>106</LINE>
-        <COLUMN>14</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>107</LINE>
-        <COLUMN>13</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>108</LINE>
-        <COLUMN>16</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>110</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'filePtr' may be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>111</LINE>
-        <COLUMN>11</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Skip this branch, (assume 'error!=0' is false)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>116</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>3</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'filePtr' is an In/Out argument to 'fread' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h:234)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>116</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>4</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'filePtr' should not be NULL, because this is not consistent with the SAL annotation on 'fread'</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>textureclass.cpp</FILENAME>
-      <LINE>145</LINE>
-      <COLUMN>7</COLUMN>
-    </SFA>
-    <DEFECTCODE>6387</DEFECTCODE>
-    <DESCRIPTION>'filePtr' could be '0':  this does not adhere to the specification for the function 'fclose'. See line 116 for an earlier location where this can occur</DESCRIPTION>
-    <FUNCTION>TextureClass::LoadTarga</FUNCTION>
-    <DECORATED>?LoadTarga@TextureClass@@AEAA_NPEADAEAH1@Z</DECORATED>
-    <FUNCLINE>102</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>12</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>17</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>28</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>35</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>38</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>104</LINE>
-        <COLUMN>41</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>105</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>106</LINE>
-        <COLUMN>14</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>107</LINE>
-        <COLUMN>13</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>108</LINE>
-        <COLUMN>16</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>110</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'filePtr' may be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>111</LINE>
-        <COLUMN>11</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Skip this branch, (assume 'error!=0' is false)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>116</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>3</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'filePtr' is an In/Out argument to 'fread' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h:234)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>117</LINE>
-        <COLUMN>11</COLUMN>
-        <KEYEVENT>
-          <ID>4</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Skip this branch, (assume 'count!=1' is false)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>122</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>123</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>124</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>126</LINE>
-        <COLUMN>9</COLUMN>
-        <KEYEVENT>
-          <ID>5</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Skip this branch, (assume 'bpp!=32' is false)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>131</LINE>
-        <COLUMN>11</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>133</LINE>
-        <COLUMN>12</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>134</LINE>
-        <COLUMN>5</COLUMN>
-        <KEYEVENT>
-          <ID>6</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Skip this branch, (assume '!targaImage' is false)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>139</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>7</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'filePtr' is an In/Out argument to 'fread' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h:234)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>140</LINE>
-        <COLUMN>10</COLUMN>
-        <KEYEVENT>
-          <ID>8</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Skip this branch, (assume 'count!=imageSize' is false)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>145</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>9</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'filePtr' is an Input to 'fclose' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h:147)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>textureclass.cpp</FILENAME>
-        <LINE>145</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>10</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'filePtr' should not be NULL, because this is not consistent with the SAL annotation on 'fclose'</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>textureclass.cpp</FILENAME>
       <LINE>165</LINE>
       <COLUMN>25</COLUMN>
     </SFA>
@@ -814,6 +444,376 @@
           <KIND>usage</KIND>
           <IMPORTANCE>Essential</IMPORTANCE>
           <MESSAGE>Invalid write to 'mTargaData[4]', (writable range is 0 to 3)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>textureclass.cpp</FILENAME>
+      <LINE>116</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>6387</DEFECTCODE>
+    <DESCRIPTION>'filePtr' could be '0':  this does not adhere to the specification for the function 'fread'. </DESCRIPTION>
+    <FUNCTION>TextureClass::LoadTarga</FUNCTION>
+    <DECORATED>?LoadTarga@TextureClass@@AEAA_NPEADAEAH1@Z</DECORATED>
+    <FUNCLINE>102</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>28</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>35</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>38</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>41</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>105</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>106</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>107</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>108</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>110</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'filePtr' may be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>111</LINE>
+        <COLUMN>11</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'error!=0' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>116</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'filePtr' is an In/Out argument to 'fread' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h:234)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>116</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'filePtr' should not be NULL, because this is not consistent with the SAL annotation on 'fread'</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>textureclass.cpp</FILENAME>
+      <LINE>145</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>6387</DEFECTCODE>
+    <DESCRIPTION>'filePtr' could be '0':  this does not adhere to the specification for the function 'fclose'. See line 116 for an earlier location where this can occur</DESCRIPTION>
+    <FUNCTION>TextureClass::LoadTarga</FUNCTION>
+    <DECORATED>?LoadTarga@TextureClass@@AEAA_NPEADAEAH1@Z</DECORATED>
+    <FUNCLINE>102</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>28</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>35</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>38</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>104</LINE>
+        <COLUMN>41</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>105</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>106</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>107</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>108</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>110</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'filePtr' may be NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>111</LINE>
+        <COLUMN>11</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'error!=0' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>116</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'filePtr' is an In/Out argument to 'fread' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h:234)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>117</LINE>
+        <COLUMN>11</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'count!=1' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>122</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>123</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>124</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>126</LINE>
+        <COLUMN>9</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'bpp!=32' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>131</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>133</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>134</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>6</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume '!targaImage' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>139</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>7</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'filePtr' is an In/Out argument to 'fread' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h:234)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>140</LINE>
+        <COLUMN>10</COLUMN>
+        <KEYEVENT>
+          <ID>8</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'count!=imageSize' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>145</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>9</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'filePtr' is an Input to 'fclose' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h:147)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>textureclass.cpp</FILENAME>
+        <LINE>145</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>10</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'filePtr' should not be NULL, because this is not consistent with the SAL annotation on 'fclose'</MESSAGE>
         </KEYEVENT>
       </SFA>
     </PATH>

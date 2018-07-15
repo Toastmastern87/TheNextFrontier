@@ -14,6 +14,7 @@
 #include "LightClass.h"
 #include "GameTimeClass.h"
 #include "GUIClass.h"
+#include "MarsAtmosphereClass.h"
 
 class UniverseClass
 {
@@ -35,6 +36,7 @@ private:
 	CameraClass* mCamera;
 	PositionClass* mPosition;
 	MarsClass* mMars;
+	MarsAtmosphereClass* mMarsAtmosphere;
 	FrustumClass* mFrustum;
 	LightClass* mSunlight;
 	bool mDisplayUI, mWireframe, mSpeedIncreased, mSpeedDecreased;

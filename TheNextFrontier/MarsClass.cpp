@@ -8,15 +8,6 @@ MarsClass::MarsClass()
 	mFrustum = 0;
 	mHeightMapResource = 0;
 	mHeightMapResourceView = 0;
-
-	mMarsRotateAngle = 0;
-	mOldGameTimeMS = 0;
-	mOldGameTimeSec = 0;
-
-	mRotationMatrix = XMMATRIX(cosf(-mMarsRotateAngle), 0.0f, sinf(-mMarsRotateAngle), 0.0f,
-		0.0f, 1.0f, 0.0f, 0.0f,
-		-sinf(-mMarsRotateAngle), 0.0f, cosf(-mMarsRotateAngle), 0.0f,
-		0.0f, 0.0f, 0.0f, 1.0f);
 }
 
 MarsClass::MarsClass(const MarsClass& other)
@@ -479,10 +470,6 @@ MarsClass::NextTriangle MarsClass::CheckTriangleSplit(XMFLOAT3 a, XMFLOAT3 b, XM
 	XMVECTOR centerNormalized, centerPositionSubtractionNormalized;
 	XMVECTOR aVector, bVector, cVector;
 
-	XMStoreFloat3(&a, XMVector3Transform(XMLoadFloat3(&a), mRotationMatrix));
-	XMStoreFloat3(&b, XMVector3Transform(XMLoadFloat3(&b), mRotationMatrix));
-	XMStoreFloat3(&c, XMVector3Transform(XMLoadFloat3(&c), mRotationMatrix));
-
 	//Backface Culling
 	center = XMFLOAT3(((a.x + b.x + c.x) / 3), ((a.y + b.y + c.y) / 3), ((a.z + b.z + c.z) / 3));
 	position = mPosition->GetPositionXMFLOAT3();
@@ -720,54 +707,7 @@ int MarsClass::GetHeightAtPos(XMFLOAT3 position)
 	position.y = position.y / GetVectorLength(position);
 	position.z = position.z / GetVectorLength(position);
 
-	XMStoreFloat3(&position, XMVector3Transform(XMLoadFloat3(&position), mRotationMatrix));
-
 	XMFLOAT2 uv = XMFLOAT2((0.5f + (atan2(position.z, position.x) / (2 * 3.14159265f))), (0.5f - (asin(position.y) / 3.14159265f)));
 
 	return 	(mMarsRadius + (mHeightData[(int)(uv.x * 8192.0f)][(int)(uv.y * 4096.0f)] * (mMarsMaxHeight - mMarsMinHeight)) + mMarsMinHeight);
-}
-
-void MarsClass::CalculateMarsRotation(int gameTimeMS, int gameTimeSec)
-{
-	int timeDiff;
-
-	timeDiff = 0;
-
-	if (mMarsRotateAngle > (2 * M_PI))
-	{
-		mMarsRotateAngle -= (2 * M_PI);
-	}
-
-	if (mOldGameTimeMS > gameTimeMS)
-	{
-		timeDiff += (1000 - mOldGameTimeMS) + gameTimeMS;
-	}
-	else
-	{
-		timeDiff += gameTimeMS - mOldGameTimeMS;
-
-		if (mOldGameTimeSec > gameTimeSec)
-		{
-			timeDiff += ((60 - mOldGameTimeSec) + gameTimeSec) * 1000;
-		}
-		else
-		{
-			timeDiff += (gameTimeSec - mOldGameTimeSec) * 1000;
-		}
-	}
-
-	mOldGameTimeMS = gameTimeMS;
-	mOldGameTimeSec = gameTimeSec;
-
-	mMarsRotateAngle += timeDiff * MARSROTATESPEED;
-
-	mRotationMatrix = XMMATRIX(cosf(-mMarsRotateAngle), 0.0f, sinf(-mMarsRotateAngle), 0.0f,
-							   0.0f, 1.0f, 0.0f, 0.0f,
-							   -sinf(-mMarsRotateAngle), 0.0f, cosf(-mMarsRotateAngle), 0.0f,
-							   0.0f, 0.0f, 0.0f, 1.0f);
-}
-
-XMMATRIX MarsClass::GetRotationMatrix() 
-{
-	return mRotationMatrix;
 }

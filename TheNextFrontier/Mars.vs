@@ -10,7 +10,6 @@ cbuffer MatrixBuffer
 	matrix viewMatrix;
 	matrix projectionMatrix;
 	matrix inverseWorldMatrix;
-	matrix rotationMatrix;
 	float marsRadius;
 };
 
@@ -93,7 +92,7 @@ PixelInputType MarsVertexShader(VertexInputType input)
 
 	finalPos = input.a + input.r * input.localPosition.x + input.s * input.localPosition.y;
 
-	distance = length(mul(finalPos, rotationMatrix) - cameraPos.xyz);
+	distance = length(finalPos - cameraPos.xyz);
 	morphPercentage = MorphFac(distance, input.level);
 
 	finalPos += morphPercentage * (input.r * input.localMorph.x + input.s * input.localMorph.y);
@@ -102,8 +101,8 @@ PixelInputType MarsVertexShader(VertexInputType input)
 
 	//Normal calculations
 	output.normal = mul(finalPos, worldMatrix);
-	output.normal = mul(output.normal, rotationMatrix);
-	output.viewVector = (mul(cameraPos.xyz, worldMatrix) - mul(mul(finalPos, worldMatrix), rotationMatrix));
+	//output.normal = mul(output.normal, rotationMatrix);
+	output.viewVector = (mul(cameraPos.xyz, worldMatrix) - mul(finalPos, worldMatrix));
 
 	mapCoords = normalize(finalPos);
 	output.mapCoord = float2((0.5f + (atan2(mapCoords.z, mapCoords.x) / (2 * 3.14159265f))), (0.5f - (asin(mapCoords.y) / 3.14159265f)));
@@ -111,7 +110,7 @@ PixelInputType MarsVertexShader(VertexInputType input)
 	//float2( saturate(((atan2(position.z, position.x) / pi) + 1.0) / 2.0), (0.5-(asin(position.y)/pi)) );
 
 	output.position = mul(float4(finalPos, 1.0f), worldMatrix);
-	output.position = mul(output.position, rotationMatrix);
+	//output.position = mul(output.position, rotationMatrix);
 	output.position = mul(output.position, viewMatrix);
 	output.position = mul(output.position, projectionMatrix);
 

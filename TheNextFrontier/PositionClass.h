@@ -28,7 +28,7 @@ public:
 	XMFLOAT3 GetPositionXMFLOAT3();
 	void GetRotation(float&, float&, float&);
 	float GetDistanceFromOrigo();
-	void CheckAltitude(float, XMMATRIX);
+	void CheckAltitude(float);
 	bool MaxZoom();
 
 	void SetFrameTime(float);

@@ -17,6 +17,7 @@ cbuffer LightCalculations
 	float4 lightDirection;
 	float4 diffuseColor;
 	float4 patchDelta;
+	matrix rotationMatrix;
 };
 
 float3x3 GetTBNMatrix(float3 normalVector, float3 posVector, float2 uv)
@@ -80,7 +81,7 @@ float4 MarsPixelShader(PixelInputType input) : SV_TARGET
 
 	normal = normalize(CalculateNormal(normalize(input.normal), normalize(input.viewVector), input.mapCoord));
 
-    lightIntensity = saturate(dot(normal, normalize(-lightDirection)));
+    lightIntensity = saturate(dot(normal, normalize(-1 * mul(lightDirection, rotationMatrix))));
 
     lightColor = saturate(diffuseColor * lightIntensity);
 

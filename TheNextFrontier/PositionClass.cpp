@@ -362,7 +362,7 @@ float PositionClass::GetDistanceFromOrigo()
 	return (sqrtf((mPositionX * mPositionX) + (mPositionY * mPositionY) + (mPositionZ * mPositionZ)));
 }
 
-void PositionClass::CheckAltitude(float heightAtPos, XMMATRIX rotationMatrix) 
+void PositionClass::CheckAltitude(float heightAtPos) 
 {
 	XMVECTOR posVector, posVectorNorm, deltaPosVector;
 

@@ -81,7 +81,7 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 	}
 
 	mSunlight->SetDiffuseColor(1.0f, 1.0f, 1.0f, 1.0f);
-	mSunlight->SetDirection(-1.0f, 0.0f, 0.0f, 1.0f);
+	mSunlight->SetDirection(-1.0f, 0.0f, 0.0f);
 
 	mPosition = new PositionClass;
 	if (!mPosition)
@@ -202,7 +202,7 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 
 	mGameTime->Frame();
 
-	mMars->CalculateMarsRotation(mGameTime->GetGameTimeMS(), mGameTime->GetGameTimeSecs());
+	mSunlight->CalculateDayNightCycle(mGameTime->GetGameTimeMS(), mGameTime->GetGameTimeSecs());
 
 	HandleMovementInput(input, frameTime);
 
@@ -293,7 +293,7 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 
 	if (mPosition->MaxZoom())
 	{
-		mPosition->CheckAltitude(mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()), mMars->GetRotationMatrix());
+		mPosition->CheckAltitude(mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()));
 	}
 
 	mPosition->GetPosition(posX, posY, posZ);
@@ -328,7 +328,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 	projectionMatrix = direct3D->GetProjectionMatrix();
 	mCamera->GetBaseViewMatrix(baseViewMatrix);
 	direct3D->GetOrthoMatrix(orthoMatrix);
-	rotationMatrix = mMars->GetRotationMatrix();
+	rotationMatrix = mSunlight->GetSunlightRotation();
 
 	if (mCamera->CheckMovement()) 
 	{

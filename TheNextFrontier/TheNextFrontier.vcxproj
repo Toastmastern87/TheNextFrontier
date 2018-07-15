@@ -152,6 +152,8 @@
     <ClCompile Include="GUIClass.cpp" />
     <ClCompile Include="GUIShaderClass.cpp" />
     <ClCompile Include="LightClass.cpp" />
+    <ClCompile Include="MarsAtmosphereClass.cpp" />
+    <ClCompile Include="MarsAtmosphereShaderClass.cpp" />
     <ClCompile Include="MarsShaderClass.cpp" />
     <ClCompile Include="D3DClass.cpp" />
     <ClCompile Include="FontClass.cpp" />
@@ -179,6 +181,8 @@
     <ClInclude Include="GUIClass.h" />
     <ClInclude Include="GUIShaderClass.h" />
     <ClInclude Include="LightClass.h" />
+    <ClInclude Include="MarsAtmosphereClass.h" />
+    <ClInclude Include="MarsAtmosphereShaderClass.h" />
     <ClInclude Include="MarsShaderClass.h" />
     <ClInclude Include="D3DClass.h" />
     <ClInclude Include="FontClass.h" />
@@ -206,6 +210,8 @@
     <None Include="Mars.ps" />
     <None Include="Font.ps" />
     <None Include="Font.vs" />
+    <None Include="MarsAtmosphere.ps" />
+    <None Include="MarsAtmosphere.vs" />
     <None Include="MousePointer.ps" />
     <None Include="MousePointer.vs" />
     <None Include="packages.config" />

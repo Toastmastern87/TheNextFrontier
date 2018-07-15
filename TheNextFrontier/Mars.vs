@@ -61,11 +61,9 @@ float MorphFac(float distance, int level)
 
 float GetHeight(float3 pos, float maxHeight, float minHeight)
 {
-	float2 uv, textureStretch;
+	float2 uv;
 	float heightColorValue, heightDetail2ColorValue;
 	float3 normalizePos;
-
-	textureStretch = float2(2.0f, 1.0f);
 
 	normalizePos = normalize(pos);
 
@@ -87,8 +85,6 @@ PixelInputType MarsVertexShader(VertexInputType input)
 	float morphPercentage;
 	float height;
 	matrix normalMatrix;
-
-	textureStretch = float2(2.0f, 1.0f);
 
 	finalPos = input.a + input.r * input.localPosition.x + input.s * input.localPosition.y;
 

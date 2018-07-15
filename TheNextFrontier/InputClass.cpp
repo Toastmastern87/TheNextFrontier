@@ -349,6 +349,59 @@ bool InputClass::IsF2Toggled()
 
 	return false;
 }
+bool InputClass::IsF3Toggled()
+{
+	if (mKeyboardState[DIK_F3] & 0x80)
+	{
+		if (mF3Released)
+		{
+			mF3Released = false;
+			return true;
+		}
+	}
+	else
+	{
+		mF3Released = true;
+	}
+
+	return false;
+}
+
+bool InputClass::IsF4Toggled()
+{
+	if (mKeyboardState[DIK_F4] & 0x80)
+	{
+		if (mF4Released)
+		{
+			mF4Released = false;
+			return true;
+		}
+	}
+	else
+	{
+		mF4Released = true;
+	}
+
+	return false;
+}
+
+bool InputClass::IsF5Toggled()
+{
+	if (mKeyboardState[DIK_F5] & 0x80)
+	{
+		if (mF5Released)
+		{
+			mF5Released = false;
+			return true;
+		}
+	}
+	else
+	{
+		mF5Released = true;
+	}
+
+	return false;
+}
 
 bool InputClass::IsPlusNmpPressed()
 {

@@ -1,5 +1,26 @@
-﻿  LightClass.cpp
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\lightclass.cpp(72): warning C4305: '-=': truncation from 'double' to 'float'
+﻿  MarsAtmosphereClass.cpp
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereclass.cpp(65): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereclass.cpp(95): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereclass.cpp(181): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereclass.cpp(234): warning C4101: 'vectorDistance': unreferenced local variable
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereclass.cpp(235): warning C4101: 'frac': unreferenced local variable
+  MarsAtmosphereShaderClass.cpp
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereshaderclass.cpp(63): warning C4101: 'samplerDescHeight': unreferenced local variable
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereshaderclass.cpp(62): warning C4101: 'morphBufferDesc': unreferenced local variable
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereshaderclass.cpp(62): warning C4101: 'heightBufferDesc': unreferenced local variable
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereshaderclass.cpp(62): warning C4101: 'lightBufferDesc': unreferenced local variable
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereshaderclass.cpp(245): warning C4101: 'temp': unreferenced local variable
+  ApplicationClass.cpp
+  InputClass.cpp
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\inputclass.cpp(193): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  SystemClass.cpp
+  TheNextFrontier.cpp
+  UniverseClass.cpp
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\universeclass.cpp(222): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\universeclass.cpp(291): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\universeclass.cpp(296): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Compiling...
+  Generating Code...
   TheNextFrontier.vcxproj -> C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\x64\Debug\TheNextFrontier.exe
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\cameraclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\cameraclass.cpp(3): warning C26495: Variable 'CameraClass::mViewMatrix' is uninitialized. Always initialize a member variable (type.6).
@@ -14,7 +35,14 @@ c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextf
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\guishaderclass.cpp(12): warning C26495: Variable 'GUIShaderClass::mVertexShader' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\lightclass.cpp(3): warning C26495: Variable 'LightClass::mAmbientColor' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\lightclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\lightclass.cpp(8): warning C26495: Variable 'LightClass::mAmbientColor' is uninitialized. Always initialize a member variable (type.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\lightclass.cpp(9): warning C26495: Variable 'LightClass::mAmbientColor' is uninitialized. Always initialize a member variable (type.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereclass.h(47): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereclass.h(47): warning C26495: Variable 'MarsAtmosphereClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereclass.cpp(3): warning C26495: Variable 'MarsAtmosphereClass::mMaxSubdivisionLevel' is uninitialized. Always initialize a member variable (type.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereclass.cpp(11): warning C26495: Variable 'MarsAtmosphereClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereshaderclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereshaderclass.cpp(11): warning C26495: Variable 'MarsAtmosphereShaderClass::mVertexShader' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsshaderclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsshaderclass.cpp(15): warning C26495: Variable 'MarsShaderClass::mVertexShader' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\d3dclass.cpp(3): warning C26495: Variable 'D3DClass::mVSyncEnabled' is uninitialized. Always initialize a member variable (type.6).

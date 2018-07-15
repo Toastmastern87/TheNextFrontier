@@ -96,6 +96,12 @@
     <ClCompile Include="GUIShaderClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MarsAtmosphereClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MarsAtmosphereShaderClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SystemClass.h">
@@ -170,6 +176,12 @@
     <ClInclude Include="GUIShaderClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MarsAtmosphereClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MarsAtmosphereShaderClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Font.ps">
@@ -195,6 +207,12 @@
       <Filter>Source Files\Shaders</Filter>
     </None>
     <None Include="GUI.ps">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="MarsAtmosphere.vs">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="MarsAtmosphere.ps">
       <Filter>Source Files\Shaders</Filter>
     </None>
   </ItemGroup>

@@ -40,6 +40,9 @@ public:
 
 	bool IsF1Toggled();
 	bool IsF2Toggled();
+	bool IsF3Toggled();
+	bool IsF4Toggled();
+	bool IsF5Toggled();
 
 private:
 	bool ReadKeyboard();
@@ -57,8 +60,7 @@ private:
 	int mScreenWidth, mScreenHeight;
 	int mMouseX, mMouseY, mMouseWheel, mOldMouseWheel;
 
-	bool mF1Released;
-	bool mF2Released;
+	bool mF1Released, mF2Released, mF3Released, mF4Released, mF5Released;
 };
 
 #endif

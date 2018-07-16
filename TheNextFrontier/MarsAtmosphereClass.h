@@ -5,6 +5,7 @@
 #include <vector>
 #include <math.h>
 #include <fstream>
+#include "PositionClass.h"
 using namespace DirectX;
 using namespace std;
 
@@ -73,6 +74,8 @@ public:
 
 	float GetAtmosphereHeight();
 
+	void UpdateMarsAtmosphere(ID3D11DeviceContext*, PositionClass*);
+
 private:
 	bool InitializeBuffers(ID3D11Device*);
 	bool InitializeIcosphere(float);
@@ -88,7 +91,7 @@ private:
 	void RecursiveTriangle(XMFLOAT3, XMFLOAT3, XMFLOAT3, short, bool);
 
 private:
-	float mAtmosphereHeight;
+	float mAtmosphereHeight, mMarsRadius;
 	ID3D11Buffer * mVertexBuffer, *mIndexBuffer, *mInstanceBuffer;
 
 	vector<MarsAtmosphereVertexType> mMarsAtmosphereCellVertices;
@@ -97,4 +100,6 @@ private:
 	vector<MarsAtmosphereCellType> mMarsAtmosphereCells;
 
 	int mMaxSubdivisionLevel, mMaxCellLevel;
+
+	PositionClass* mPosition;
 };

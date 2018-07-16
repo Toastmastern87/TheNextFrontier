@@ -34,7 +34,7 @@ PixelInputType MarsAtmosphereVertexShader(VertexInputType input)
 	output.position = mul(output.position, viewMatrix);
 	output.position = mul(output.position, projectionMatrix);
 	
-	output.color = float4(1.0f, 0.0f, 0.0f, 1.0f);
+	output.color = float4(0.788f, 0.584f, 0.255f, 1.0f);
 
 	return output;
 }

@@ -2,8 +2,8 @@
 
 MarsShaderClass::MarsShaderClass()
 {
-	mVertexShader = 0;
-	mPixelShader = 0;
+	mVertexFromSpaceShader = 0;
+	mPixelFromSpaceShader = 0;
 	mMatrixBuffer = 0;
 	mLayout = 0;
 	mLightBuffer = 0;
@@ -70,7 +70,7 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 	vertexShaderBuffer = 0;
 	pixelShaderBuffer = 0;
 
-	result = D3DCompileFromFile(vsFilename, NULL, NULL, "MarsVertexShader", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &vertexShaderBuffer, &errorMessage);
+	result = D3DCompileFromFile(vsFilename, NULL, NULL, "MarsFromSpaceVertexShader", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &vertexShaderBuffer, &errorMessage);
 	if (FAILED(result))
 	{
 		if (errorMessage)
@@ -85,7 +85,7 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 		return false;
 	}
 
-	result = D3DCompileFromFile(psFilename, NULL, NULL, "MarsPixelShader", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &pixelShaderBuffer, &errorMessage);
+	result = D3DCompileFromFile(psFilename, NULL, NULL, "MarsFromSpacePixelShader", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &pixelShaderBuffer, &errorMessage);
 	if (FAILED(result))
 	{
 		if (errorMessage)
@@ -100,13 +100,58 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 		return false;
 	}
 
-	result = device->CreateVertexShader(vertexShaderBuffer->GetBufferPointer(), vertexShaderBuffer->GetBufferSize(), NULL, &mVertexShader);
+	result = device->CreateVertexShader(vertexShaderBuffer->GetBufferPointer(), vertexShaderBuffer->GetBufferSize(), NULL, &mVertexFromSpaceShader);
 	if (FAILED(result))
 	{
 		return false;
 	}
 
-	result = device->CreatePixelShader(pixelShaderBuffer->GetBufferPointer(), pixelShaderBuffer->GetBufferSize(), NULL, &mPixelShader);
+	result = device->CreatePixelShader(pixelShaderBuffer->GetBufferPointer(), pixelShaderBuffer->GetBufferSize(), NULL, &mPixelFromSpaceShader);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	ZeroMemory(&vertexShaderBuffer, sizeof(vertexShaderBuffer));
+	ZeroMemory(&pixelShaderBuffer, sizeof(pixelShaderBuffer));
+
+	result = D3DCompileFromFile(vsFilename, NULL, NULL, "MarsFromAtmosphereVertexShader", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &vertexShaderBuffer, &errorMessage);
+	if (FAILED(result))
+	{
+		if (errorMessage)
+		{
+			OutputShaderErrorMessage(errorMessage, hwnd, vsFilename);
+		}
+		else
+		{
+			MessageBox(hwnd, vsFilename, L"Missing Shader File", MB_OK);
+		}
+
+		return false;
+	}
+
+	result = D3DCompileFromFile(psFilename, NULL, NULL, "MarsFromAtmospherePixelShader", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &pixelShaderBuffer, &errorMessage);
+	if (FAILED(result))
+	{
+		if (errorMessage)
+		{
+			OutputShaderErrorMessage(errorMessage, hwnd, psFilename);
+		}
+		else
+		{
+			MessageBox(hwnd, psFilename, L"Missing Shader File", MB_OK);
+		}
+
+		return false;
+	}
+
+	result = device->CreateVertexShader(vertexShaderBuffer->GetBufferPointer(), vertexShaderBuffer->GetBufferSize(), NULL, &mVertexFromAtmosphereShader);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	result = device->CreatePixelShader(pixelShaderBuffer->GetBufferPointer(), pixelShaderBuffer->GetBufferSize(), NULL, &mPixelFromAtmosphereShader);
 	if (FAILED(result))
 	{
 		return false;
@@ -287,16 +332,16 @@ void MarsShaderClass::ShutdownShader()
 		mLayout = 0;
 	}
 
-	if (mPixelShader)
+	if (mPixelFromSpaceShader)
 	{
-		mPixelShader->Release();
-		mPixelShader = 0;
+		mPixelFromSpaceShader->Release();
+		mPixelFromSpaceShader = 0;
 	}
 
-	if (mVertexShader)
+	if (mVertexFromSpaceShader)
 	{
-		mVertexShader->Release();
-		mVertexShader = 0;
+		mVertexFromSpaceShader->Release();
+		mVertexFromSpaceShader = 0;
 	}
 
 	return;
@@ -445,8 +490,8 @@ void MarsShaderClass::RenderShaders(ID3D11DeviceContext* deviceContext, int inde
 {
 	deviceContext->IASetInputLayout(mLayout);
 
-	deviceContext->VSSetShader(mVertexShader, NULL, 0);
-	deviceContext->PSSetShader(mPixelShader, NULL, 0);
+	deviceContext->VSSetShader(mVertexFromSpaceShader, NULL, 0);
+	deviceContext->PSSetShader(mPixelFromSpaceShader, NULL, 0);
 
 	deviceContext->VSSetSamplers(0, 1, &mSampleStateHeight);
 	deviceContext->PSSetSamplers(0, 1, &mSampleStateHeight);

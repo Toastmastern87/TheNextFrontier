@@ -75,7 +75,7 @@ float GetHeight(float3 pos, float maxHeight, float minHeight)
 	return (heightColorValue * (maxHeight - minHeight));
 }
 
-PixelInputType MarsVertexShader(VertexInputType input)
+PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
 {
 	PixelInputType output;
 	float3 finalPos;
@@ -109,6 +109,19 @@ PixelInputType MarsVertexShader(VertexInputType input)
 	//float heightColor = heightMapTexture.SampleLevel(sampleType, output.mapCoord, 0).r + (heightMapDetail2Texture.SampleLevel(sampleType, (output.mapCoord * textureStretch * 100), 0).r * 0.01f);
 
 	//output.color = float4(heightColor, heightColor, heightColor, 1.0f);
+
+	return output;
+}
+
+PixelInputType MarsFromAtmosphereVertexShader(VertexInputType input)
+{
+	PixelInputType output;
+
+	output.color = float4(1.0f, 1.0f, 1.0f, 1.0f);
+	output.position = float4(1.0f, 1.0f, 1.0f, 1.0f);
+	output.normal = float3(1.0f, 1.0f, 1.0f);
+	output.mapCoord = float2(1.0f, 1.0f);
+	output.viewVector = float3(1.0f, 1.0f, 1.0f);
 
 	return output;
 }

@@ -59,8 +59,8 @@ private:
 	void RenderShaders(ID3D11DeviceContext*, int, int);
 
 private:
-	ID3D11VertexShader * mVertexShader;
-	ID3D11PixelShader* mPixelShader;
+	ID3D11VertexShader *mVertexFromSpaceShader, *mVertexFromAtmosphereShader;
+	ID3D11PixelShader *mPixelFromSpaceShader, *mPixelFromAtmosphereShader;
 	ID3D11InputLayout* mLayout;
 	ID3D11Buffer *mMatrixBuffer, *mMorphBuffer, *mHeightBuffer, *mLightBuffer;
 	ID3D11SamplerState *mSampleStateHeight;

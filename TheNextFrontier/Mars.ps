@@ -73,7 +73,7 @@ float3 CalculateNormal(float3 normalVector, float3 viewVector, float2 uv)
 	return mul(N, TBN);
 }
 
-float4 MarsPixelShader(PixelInputType input) : SV_TARGET
+float4 MarsFromSpacePixelShader(PixelInputType input) : SV_TARGET
 {
 	float3 normal;
 	float lightIntensity, lightColor, increasedLigthningFactor;
@@ -90,4 +90,9 @@ float4 MarsPixelShader(PixelInputType input) : SV_TARGET
 	increasedLigthningFactor = 2.5f;
 
 	return (color * increasedLigthningFactor) * lightColor;
+}
+
+float4 MarsFromAtmospherePixelShader(PixelInputType input) : SV_TARGET
+{
+	return float4(1.0f, 1.0f, 1.0f, 1.0f);
 }

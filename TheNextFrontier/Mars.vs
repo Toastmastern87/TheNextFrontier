@@ -45,6 +45,24 @@ struct PixelInputType
 	float3 viewVector : NORMAL1;
 };
 
+cbuffer AtmosphericScatteringCalculations
+{
+	float4 lightDirection;		// The direction vector to the light source
+	float4 invWavelength;	// 1 / pow(wavelength, 4) for the red, green, and blue channels
+	float4 cameraHeight;	// The camera's current height
+	float4 cameraHeight2;	// fCameraHeight^2
+	float4 atmosphereRadius;		// The outer (atmosphere) radius
+	float4 atmosphereRadius2;	// fOuterRadius^2
+	float4 marsRadius2;	// fInnerRadius^2
+	float4 krESun;			// Kr * ESun
+	float4 kmESun;			// Km * ESun
+	float4 kr4PI;			// Kr * 4 * PI
+	float4 Km4PI;			// Km * 4 * PI
+	float4 scale;			// 1 / (atmosphereRadius - marsRadius)
+	float4 scaleDepth;		// The scale depth (i.e. the altitude at which the atmosphere's average density is found)
+	float4 scaleOverScaleDepth;	// fScale / fScaleDepth
+}
+
 float MorphFac(float distance, int level)
 {
 	float low, high, delta, a;
@@ -75,6 +93,16 @@ float GetHeight(float3 pos, float maxHeight, float minHeight)
 	return (heightColorValue * (maxHeight - minHeight));
 }
 
+// Returns the near intersection point of a line and a sphere
+float GetNearIntersection(float3 pos, float3 ray, float distance2, float radius2)
+{
+	float B = 2.0 * dot(pos, ray);
+	float C = distance2 - radius2;
+	float det = max(0.0, B*B - 4.0 * C);
+
+	return (0.5 * (-B - sqrt(det)));
+}
+
 PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
 {
 	PixelInputType output;
@@ -84,6 +112,10 @@ PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
 	float distance;
 	float morphPercentage;
 	float height;
+
+	float3 ray;
+	float far, near;
+
 	matrix normalMatrix;
 
 	finalPos = input.a + input.r * input.localPosition.x + input.s * input.localPosition.y;
@@ -94,6 +126,14 @@ PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
 	finalPos += morphPercentage * (input.r * input.localMorph.x + input.s * input.localMorph.y);
 
 	finalPos = normalize(finalPos) * (marsRadius + GetHeight(finalPos, marsMaxHeight, marsMinHeight) + marsMinHeight);
+
+	// Get the ray from the camera to the vertex and its length (which is the far point of the ray passing through the atmosphere)
+	ray = finalPos - cameraPos.xyz;
+	far = length(ray);
+	ray /= far;
+
+	// Calculate the closest intersection of the ray with the outer atmosphere (which is the near point of the ray passing through the atmosphere)
+	near = GetNearIntersection(cameraPos.xyz, ray, cameraHeight2, atmosphereRadius2);
 
 	//Normal calculations
 	output.normal = mul(finalPos, worldMatrix);

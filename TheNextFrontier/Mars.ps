@@ -3,6 +3,9 @@ Texture2D heightMapDetail2Texture : register(t1);
 Texture2D colorMapTexture : register(t2);
 SamplerState sampleType;
 
+const int samples = 2;
+const float fSamples = 2.0;
+
 struct PixelInputType
 {
 	float4 position : SV_POSITION;

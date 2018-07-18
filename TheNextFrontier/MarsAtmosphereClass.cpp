@@ -5,7 +5,7 @@ MarsAtmosphereClass::MarsAtmosphereClass()
 	mVertexBuffer = 0;
 	mInstanceBuffer = 0;
 	mIndexBuffer = 0;
-	mAtmosphereHeight = 100.3f;
+	mAtmosphereHeight = 3389.5f * 0.025f;
 	mMarsRadius = 0;
 }
 

@@ -1,5 +1,7 @@
 #pragma once
 
+#define _USE_MATH_DEFINES
+
 #include <d3d11.h>
 #include <d3dcompiler.h>
 #include <DirectXMath.h>
@@ -41,6 +43,24 @@ private:
 		XMMATRIX rotationMatrix;
 	};
 
+	struct AtmosphericScatteringBufferType
+	{
+		XMFLOAT4 lightDirection;
+		XMFLOAT4 invWavelength;
+		XMFLOAT4 cameraHeight;
+		XMFLOAT4 cameraHeight2;
+		XMFLOAT4 atmosphereRadius;
+		XMFLOAT4 atmosphereRadius2;
+		XMFLOAT4 marsRadius2;
+		XMFLOAT4 krESun;
+		XMFLOAT4 kmESun;
+		XMFLOAT4 kr4PI;
+		XMFLOAT4 km4PI;
+		XMFLOAT4 scale;
+		XMFLOAT4 scaleDepth;
+		XMFLOAT4 scaleOverScaleDepth;
+	};
+
 public:
 	MarsShaderClass();
 	MarsShaderClass(const MarsShaderClass&);
@@ -48,20 +68,20 @@ public:
 
 	bool Initialize(ID3D11Device*, HWND);
 	void Shutdown();
-	bool Render(ID3D11DeviceContext*, int, int, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, float, float, float, vector<float>, XMFLOAT3, ID3D11ShaderResourceView*, ID3D11ShaderResourceView*, ID3D11ShaderResourceView*, XMFLOAT3, XMFLOAT4, float, bool);
+	bool Render(ID3D11DeviceContext*, int, int, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, float, float, float, vector<float>, XMFLOAT3, ID3D11ShaderResourceView*, ID3D11ShaderResourceView*, ID3D11ShaderResourceView*, XMFLOAT3, XMFLOAT4, float, bool, float);
 
 private:
 	bool InitializeShader(ID3D11Device*, HWND, WCHAR*, WCHAR*);
 	void ShutdownShader();
 	void OutputShaderErrorMessage(ID3D10Blob*, HWND, WCHAR*);
 
-	bool SetShaderParameters(ID3D11DeviceContext*, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, float, float, float, vector<float>, XMFLOAT3, ID3D11ShaderResourceView*, ID3D11ShaderResourceView*, ID3D11ShaderResourceView*, XMFLOAT3, XMFLOAT4, float);
+	bool SetShaderParameters(ID3D11DeviceContext*, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, float, float, float, vector<float>, XMFLOAT3, ID3D11ShaderResourceView*, ID3D11ShaderResourceView*, ID3D11ShaderResourceView*, XMFLOAT3, XMFLOAT4, float, float);
 	void RenderShaders(ID3D11DeviceContext*, int, int, bool);
 
 private:
 	ID3D11VertexShader *mVertexFromSpaceShader, *mVertexFromAtmosphereShader;
 	ID3D11PixelShader *mPixelFromSpaceShader, *mPixelFromAtmosphereShader;
 	ID3D11InputLayout* mLayout;
-	ID3D11Buffer *mMatrixBuffer, *mMorphBuffer, *mHeightBuffer, *mLightBuffer;
+	ID3D11Buffer *mMatrixBuffer, *mMorphBuffer, *mHeightBuffer, *mLightBuffer, *mAtmosphericScatteringBuffer;
 	ID3D11SamplerState *mSampleStateHeight;
 };

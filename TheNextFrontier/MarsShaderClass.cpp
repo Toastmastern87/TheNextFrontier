@@ -10,6 +10,7 @@ MarsShaderClass::MarsShaderClass()
 	mHeightBuffer = 0;
 	mSampleStateHeight = 0;
 	mMorphBuffer = 0;
+	mAtmosphericScatteringBuffer = 0;
 }
 
 MarsShaderClass::MarsShaderClass(const MarsShaderClass& other)
@@ -40,11 +41,11 @@ void MarsShaderClass::Shutdown()
 	return;
 }
 
-bool MarsShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX inverserWorldMatrix, XMMATRIX rotationMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, ID3D11ShaderResourceView* heightDetail2Texture, ID3D11ShaderResourceView* colorMap, XMFLOAT3 lightDirection, XMFLOAT4 lightDiffuseColor, float patchDelta, bool insideAtmosphere)
+bool MarsShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX inverserWorldMatrix, XMMATRIX rotationMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, ID3D11ShaderResourceView* heightDetail2Texture, ID3D11ShaderResourceView* colorMap, XMFLOAT3 lightDirection, XMFLOAT4 lightDiffuseColor, float patchDelta, bool insideAtmosphere, float distanceFromOrigo)
 {
 	bool result;
 
-	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, inverserWorldMatrix, rotationMatrix, marsRadius,  marsMaxHeight, marsMinHeight, distanceLUT, cameraPos, heightTexture, heightDetail2Texture, colorMap, lightDirection, lightDiffuseColor, patchDelta);
+	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, inverserWorldMatrix, rotationMatrix, marsRadius,  marsMaxHeight, marsMinHeight, distanceLUT, cameraPos, heightTexture, heightDetail2Texture, colorMap, lightDirection, lightDiffuseColor, patchDelta, distanceFromOrigo);
 	if (!result)
 	{
 		return false;
@@ -63,7 +64,7 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 	ID3D10Blob* pixelShaderBuffer;
 	D3D11_INPUT_ELEMENT_DESC polygonLayout[6];
 	unsigned int numElements;
-	D3D11_BUFFER_DESC matrixBufferDesc, morphBufferDesc, heightBufferDesc, lightBufferDesc;
+	D3D11_BUFFER_DESC matrixBufferDesc, morphBufferDesc, heightBufferDesc, lightBufferDesc, atmosphericScatteringBufferDesc;
 	D3D11_SAMPLER_DESC samplerDescHeight;
 
 	errorMessage = 0;
@@ -291,11 +292,30 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 		return false;
 	}
 
+	atmosphericScatteringBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+	atmosphericScatteringBufferDesc.ByteWidth = sizeof(AtmosphericScatteringBufferType);
+	atmosphericScatteringBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	atmosphericScatteringBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	atmosphericScatteringBufferDesc.MiscFlags = 0;
+	atmosphericScatteringBufferDesc.StructureByteStride = 0;
+
+	result = device->CreateBuffer(&atmosphericScatteringBufferDesc, NULL, &mAtmosphericScatteringBuffer);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
 	return true;
 }
 
 void MarsShaderClass::ShutdownShader()
 {
+	if (mAtmosphericScatteringBuffer) 
+	{
+		mAtmosphericScatteringBuffer->Release();
+		mAtmosphericScatteringBuffer = 0;
+	}
+
 	if (mLightBuffer)
 	{
 		mLightBuffer->Release();
@@ -374,7 +394,7 @@ void MarsShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND hw
 	return;
 }
 
-bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX inverseWorldMatrix, XMMATRIX rotationMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, ID3D11ShaderResourceView* heightDetail2Texture, ID3D11ShaderResourceView* colorTexture, XMFLOAT3 lightDirection, XMFLOAT4 lightDiffuseColor, float patchDelta)
+bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX inverseWorldMatrix, XMMATRIX rotationMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, ID3D11ShaderResourceView* heightDetail2Texture, ID3D11ShaderResourceView* colorTexture, XMFLOAT3 lightDirection, XMFLOAT4 lightDiffuseColor, float patchDelta, float distanceFromOrigo)
 {
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
@@ -382,6 +402,12 @@ bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XM
 	MorphBufferType *morphDataPtr;
 	MarsHeightBufferType *heightDataPtr;
 	LightBufferType *lightDataPtr;
+	AtmosphericScatteringBufferType *atmosphericScatteringDataPtr;
+	float km, kr, eSun;
+
+	km = 0.0025f;
+	kr = 0.0015;
+	eSun = 10.0f;
 
 	unsigned int bufferNumber;
 
@@ -445,6 +471,8 @@ bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XM
 
 	deviceContext->Unmap(mHeightBuffer, 0);
 
+	ZeroMemory(&mappedResource, sizeof(mappedResource));
+
 	result = deviceContext->Map(mLightBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
 	if (FAILED(result))
 	{
@@ -460,6 +488,33 @@ bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XM
 
 	deviceContext->Unmap(mLightBuffer, 0);
 
+	ZeroMemory(&mappedResource, sizeof(mappedResource));
+
+	result = deviceContext->Map(mAtmosphericScatteringBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	atmosphericScatteringDataPtr = (AtmosphericScatteringBufferType*)mappedResource.pData;
+
+	atmosphericScatteringDataPtr->lightDirection = XMFLOAT4(lightDirection.x, lightDirection.y, lightDirection.z, 1.0f);
+	atmosphericScatteringDataPtr->invWavelength = XMFLOAT4((1.0f / powf(0.625f, 4)), (1.0f / powf(0.570f, 4)), (1.0f / powf(0.475f, 4)), 1.0f);
+	atmosphericScatteringDataPtr->cameraHeight = XMFLOAT4(distanceFromOrigo, distanceFromOrigo, distanceFromOrigo, distanceFromOrigo);
+	atmosphericScatteringDataPtr->cameraHeight2 = XMFLOAT4((distanceFromOrigo * distanceFromOrigo), (distanceFromOrigo * distanceFromOrigo), (distanceFromOrigo * distanceFromOrigo), (distanceFromOrigo * distanceFromOrigo));
+	atmosphericScatteringDataPtr->atmosphereRadius = XMFLOAT4(marsRadius * 1.025f, marsRadius * 1.025f, marsRadius * 1.025f, marsRadius * 1.025f);
+	atmosphericScatteringDataPtr->atmosphereRadius2 = XMFLOAT4((marsRadius * 1.025f * marsRadius * 1.025f), (marsRadius * 1.025f * marsRadius * 1.025f), (marsRadius * 1.025f * marsRadius * 1.025f), (marsRadius * 1.025f * marsRadius * 1.025f));
+	atmosphericScatteringDataPtr->marsRadius2 = XMFLOAT4((marsRadius * marsRadius), (marsRadius * marsRadius), (marsRadius * marsRadius), (marsRadius * marsRadius));
+	atmosphericScatteringDataPtr->krESun = XMFLOAT4((kr * eSun), (kr * eSun), (kr * eSun), (kr * eSun));
+	atmosphericScatteringDataPtr->kmESun = XMFLOAT4((km * eSun), (km * eSun), (km * eSun), (km * eSun));
+	atmosphericScatteringDataPtr->kr4PI = XMFLOAT4((kr * 4 * M_PI), (kr * 4 * M_PI), (kr * 4 * M_PI), (kr * 4 * M_PI));
+	atmosphericScatteringDataPtr->km4PI = XMFLOAT4((km * 4 * M_PI), (km * 4 * M_PI), (km * 4 * M_PI), (km * 4 * M_PI));
+	atmosphericScatteringDataPtr->scale = XMFLOAT4((1.0f / ((marsRadius * 1.025f) - marsRadius)), (1.0f / ((marsRadius * 1.025f) - marsRadius)), (1.0f / ((marsRadius * 1.025f) - marsRadius)), (1.0f / ((marsRadius * 1.025f) - marsRadius)));
+	atmosphericScatteringDataPtr->scaleDepth = XMFLOAT4(0.25f, 0.25f, 0.25f, 0.25f);
+	atmosphericScatteringDataPtr->scaleOverScaleDepth = XMFLOAT4(((1.0f / ((marsRadius * 1.025f) - marsRadius)) / 0.25f), ((1.0f / ((marsRadius * 1.025f) - marsRadius)) / 0.25f), ((1.0f / ((marsRadius * 1.025f) - marsRadius)) / 0.25f), ((1.0f / ((marsRadius * 1.025f) - marsRadius)) / 0.25f));
+
+	deviceContext->Unmap(mAtmosphericScatteringBuffer, 0);
+
 	bufferNumber = 0;
 
 	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mMatrixBuffer);
@@ -471,6 +526,10 @@ bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XM
 	bufferNumber = 2;
 
 	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mHeightBuffer);
+
+	bufferNumber = 3;
+
+	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mAtmosphericScatteringBuffer);
 
 	bufferNumber = 0;
 

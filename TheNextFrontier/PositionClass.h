@@ -42,6 +42,8 @@ public:
 	void LookUpward(bool);
 	void LookDownward(bool);
 
+	bool CheckIfInsideAtmosphere(float, float, float);
+
 private:
 	float mPositionX, mPositionY, mPositionZ;
 	float mRotationX, mRotationY, mRotationZ;

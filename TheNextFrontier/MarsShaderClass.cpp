@@ -40,7 +40,7 @@ void MarsShaderClass::Shutdown()
 	return;
 }
 
-bool MarsShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX inverserWorldMatrix, XMMATRIX rotationMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, ID3D11ShaderResourceView* heightDetail2Texture, ID3D11ShaderResourceView* colorMap, XMFLOAT3 lightDirection, XMFLOAT4 lightDiffuseColor, float patchDelta)
+bool MarsShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX inverserWorldMatrix, XMMATRIX rotationMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, ID3D11ShaderResourceView* heightDetail2Texture, ID3D11ShaderResourceView* colorMap, XMFLOAT3 lightDirection, XMFLOAT4 lightDiffuseColor, float patchDelta, bool insideAtmosphere)
 {
 	bool result;
 
@@ -50,7 +50,7 @@ bool MarsShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount,
 		return false;
 	}
 
-	RenderShaders(deviceContext, indexCount, instanceCount);
+	RenderShaders(deviceContext, indexCount, instanceCount, insideAtmosphere);
 
 	return true;
 }
@@ -486,12 +486,20 @@ bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XM
 	return true;
 }
 
-void MarsShaderClass::RenderShaders(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount)
+void MarsShaderClass::RenderShaders(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, bool insideAtmosphere)
 {
 	deviceContext->IASetInputLayout(mLayout);
 
-	deviceContext->VSSetShader(mVertexFromSpaceShader, NULL, 0);
-	deviceContext->PSSetShader(mPixelFromSpaceShader, NULL, 0);
+	if (insideAtmosphere) 
+	{
+		deviceContext->VSSetShader(mVertexFromAtmosphereShader, NULL, 0);
+		deviceContext->PSSetShader(mPixelFromAtmosphereShader, NULL, 0);
+	}
+	else 
+	{
+		deviceContext->VSSetShader(mVertexFromSpaceShader, NULL, 0);
+		deviceContext->PSSetShader(mPixelFromSpaceShader, NULL, 0);
+	}
 
 	deviceContext->VSSetSamplers(0, 1, &mSampleStateHeight);
 	deviceContext->PSSetSamplers(0, 1, &mSampleStateHeight);

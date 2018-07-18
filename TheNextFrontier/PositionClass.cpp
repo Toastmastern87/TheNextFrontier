@@ -405,3 +405,13 @@ bool PositionClass::MaxZoom()
 {
 	return mMaxZoom;
 }
+
+bool PositionClass::CheckIfInsideAtmosphere(float atmosphereHeight, float marsRadius, float altitude)
+{
+	if (altitude < (marsRadius + atmosphereHeight)) 
+	{
+		return true;
+	}
+
+	return false;
+}

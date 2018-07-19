@@ -3,9 +3,6 @@ Texture2D heightMapDetail2Texture : register(t1);
 Texture2D colorMapTexture : register(t2);
 SamplerState sampleType;
 
-const int samples = 2;
-const float fSamples = 2.0;
-
 struct PixelInputType
 {
 	float4 position : SV_POSITION;
@@ -99,7 +96,7 @@ float4 MarsFromSpacePixelShader(PixelInputType input) : SV_TARGET
 
 	increasedLigthningFactor = 2.5f;
 
-	return (color * increasedLigthningFactor) * lightColor;
+	return input.color * color * 10.0f; //(color * increasedLigthningFactor) * lightColor;
 }
 
 float4 MarsFromAtmospherePixelShader(PixelInputType input) : SV_TARGET

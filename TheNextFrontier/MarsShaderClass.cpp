@@ -405,8 +405,8 @@ bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XM
 	AtmosphericScatteringBufferType *atmosphericScatteringDataPtr;
 	float km, kr, eSun;
 
-	km = 0.0025f;
-	kr = 0.0015;
+	km = 0.000025f;
+	kr = 0.015f;
 	eSun = 10.0f;
 
 	unsigned int bufferNumber;
@@ -430,7 +430,7 @@ bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XM
 	dataPtr->world = worldMatrix;
 	dataPtr->view = viewMatrix;
 	dataPtr->projection = projectionMatrix;
-	dataPtr->inverseWorld = inverseWorldMatrix;
+	dataPtr->rotationMatrix = rotationMatrix;
 	dataPtr->marsRadius = marsRadius;
 
 	deviceContext->Unmap(mMatrixBuffer, 0);

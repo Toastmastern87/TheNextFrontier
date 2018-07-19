@@ -9,7 +9,7 @@ cbuffer MatrixBuffer
 	matrix worldMatrix;
 	matrix viewMatrix;
 	matrix projectionMatrix;
-	matrix inverseWorldMatrix;
+	matrix rotationMatrix;
 	float marsRadius;
 };
 
@@ -57,7 +57,7 @@ cbuffer AtmosphericScatteringCalculations
 	float4 krESun;			// Kr * ESun
 	float4 kmESun;			// Km * ESun
 	float4 kr4PI;			// Kr * 4 * PI
-	float4 Km4PI;			// Km * 4 * PI
+	float4 km4PI;			// Km * 4 * PI
 	float4 scale;			// 1 / (atmosphereRadius - marsRadius)
 	float4 scaleDepth;		// The scale depth (i.e. the altitude at which the atmosphere's average density is found)
 	float4 scaleOverScaleDepth;	// fScale / fScaleDepth
@@ -96,11 +96,17 @@ float GetHeight(float3 pos, float maxHeight, float minHeight)
 // Returns the near intersection point of a line and a sphere
 float GetNearIntersection(float3 pos, float3 ray, float distance2, float radius2)
 {
-	float B = 2.0 * dot(pos, ray);
+	float B = 2.0f * dot(pos, ray);
 	float C = distance2 - radius2;
-	float det = max(0.0, B*B - 4.0 * C);
+	float det = max(0.0f, B*B - 4.0f * C);
 
-	return (0.5 * (-B - sqrt(det)));
+	return (0.5f * (-B - sqrt(det)));
+}
+
+float Scale(float cos)
+{
+	float x = 1.0f - cos;
+	return (scaleDepth * exp(-0.00287f + x * (0.459f + x * (3.83f + x * (-6.80f + x * 5.25f)))));
 }
 
 PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
@@ -113,8 +119,9 @@ PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
 	float morphPercentage;
 	float height;
 
-	float3 ray;
-	float far, near;
+	float3 ray, start, sampleRay, samplePoint, frontColor, attenuate;
+	float far, near, depth, cameraAngle, lightAngle, cameraScale, lightScale, cameraOffset, temp, sampleLength, scaledLength;
+	int samples;
 
 	matrix normalMatrix;
 
@@ -127,6 +134,8 @@ PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
 
 	finalPos = normalize(finalPos) * (marsRadius + GetHeight(finalPos, marsMaxHeight, marsMinHeight) + marsMinHeight);
 
+	samples = 2;
+
 	// Get the ray from the camera to the vertex and its length (which is the far point of the ray passing through the atmosphere)
 	ray = finalPos - cameraPos.xyz;
 	far = length(ray);
@@ -134,6 +143,36 @@ PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
 
 	// Calculate the closest intersection of the ray with the outer atmosphere (which is the near point of the ray passing through the atmosphere)
 	near = GetNearIntersection(cameraPos.xyz, ray, cameraHeight2, atmosphereRadius2);
+
+	// Calculate the ray's starting position, then calculate its scattering offset
+	start = cameraPos.xyz + ray * near;
+	far -= near;
+	depth = exp((marsRadius - atmosphereRadius) / scaleDepth);
+	cameraAngle = dot(-ray, finalPos) / length(finalPos);
+	lightAngle = dot(mul(lightDirection.xyz, rotationMatrix), finalPos) / length(finalPos);
+	cameraScale = Scale(cameraAngle);
+	lightScale = Scale(lightAngle);
+	cameraOffset = depth * cameraScale;
+	temp = lightScale + cameraScale;
+
+	// Initialize the scattering loop variables
+	sampleLength = far / samples;
+	scaledLength = sampleLength * scale;
+	sampleRay = ray * sampleLength;
+	samplePoint = start + sampleRay * 0.5f;
+
+	// Now loop through the sample rays
+	frontColor = float3(0.0f, 0.0f, 0.0f);
+	[unroll(samples)]
+	for(int i = 0; i < samples; i++)
+	{
+		float height = length(samplePoint);
+		float depth = exp(scaleOverScaleDepth.x * (marsRadius - height));
+		float scatter = depth * temp - cameraOffset;
+		attenuate = exp(-scatter * (invWavelength.xyz * kr4PI.x + km4PI.x));
+		frontColor += attenuate * (depth * scaledLength);
+		samplePoint += sampleRay;
+	}
 
 	//Normal calculations
 	output.normal = mul(finalPos, worldMatrix);
@@ -148,7 +187,7 @@ PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
 
 	//float heightColor = heightMapTexture.SampleLevel(sampleType, output.mapCoord, 0).r + (heightMapDetail2Texture.SampleLevel(sampleType, (output.mapCoord * textureStretch * 100), 0).r * 0.01f);
 
-	//output.color = float4(heightColor, heightColor, heightColor, 1.0f);
+	output.color.rgb = frontColor * (invWavelength.xyz * krESun.x + kmESun.x);
 
 	return output;
 }

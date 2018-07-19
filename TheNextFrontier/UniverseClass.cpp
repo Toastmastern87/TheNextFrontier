@@ -14,6 +14,8 @@ UniverseClass::UniverseClass()
 
 	mSpeedIncreased = false;
 	mSpeedDecreased = false;
+
+	mRenderAtmosphere = true;
 }
 
 UniverseClass::UniverseClass(const UniverseClass& other)
@@ -340,6 +342,11 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 		mWireframe = !mWireframe;
 	}
 
+	if(input->IsF3Toggled())
+	{
+		mRenderAtmosphere = !mRenderAtmosphere;
+	}
+
 	return;
 }
 
@@ -380,11 +387,14 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 		return false;
 	}
 
-	mMarsAtmosphere->Render(direct3D->GetDeviceContext());
-	result = shaderManager->RenderMarsAtmosphereShader(direct3D->GetDeviceContext(), mMarsAtmosphere->GetIndexCount(), mMarsAtmosphere->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, (mMarsAtmosphere->GetAtmosphereHeight() + mMars->GetMarsRadius()));
-	if (!result)
+	if (mRenderAtmosphere) 
 	{
-		return false;
+		mMarsAtmosphere->Render(direct3D->GetDeviceContext());
+		result = shaderManager->RenderMarsAtmosphereShader(direct3D->GetDeviceContext(), mMarsAtmosphere->GetIndexCount(), mMarsAtmosphere->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, (mMarsAtmosphere->GetAtmosphereHeight() + mMars->GetMarsRadius()));
+		if (!result)
+		{
+			return false;
+		}
 	}
 
 	if (mWireframe)

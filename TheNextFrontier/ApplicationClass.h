@@ -1,7 +1,7 @@
 #ifndef _APPLICATIONCLASS_H_
 #define _APPLICATIONCLASS_H_
 
-const bool FULLSCREEN = true;
+const bool FULLSCREEN = false;
 const bool VSYNCENABLED = false;
 const float SCREENDEPTH = 10000.0f;
 const float SCREENEAR = 0.1f;

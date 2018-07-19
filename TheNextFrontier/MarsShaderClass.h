@@ -18,7 +18,7 @@ private:
 		XMMATRIX world;
 		XMMATRIX view;
 		XMMATRIX projection;
-		XMMATRIX inverseWorld;
+		XMMATRIX rotationMatrix;
 		float marsRadius;
 	};
 

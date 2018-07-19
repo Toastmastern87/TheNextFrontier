@@ -163,8 +163,8 @@ PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
 	[unroll(samples)]
 	for(int i = 0; i < samples; i++)
 	{
-		float height = length(samplePoint);
-		float depth = exp(scaleOverScaleDepth.x * (marsRadius.x - height));
+		float heightForSunlight = length(samplePoint);
+		float depth = exp(scaleOverScaleDepth.x * (marsRadius.x - heightForSunlight));
 		float scatter = depth * temp - cameraOffset;
 		attenuate = exp(-scatter * (invWavelength.xyz * (kr.x * 4 * PI) + (km.x * 4 * PI)));
 		frontColor += attenuate * (depth * scaledLength);

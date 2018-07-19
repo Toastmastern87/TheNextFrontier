@@ -1,12 +1,30 @@
 struct PixelInputType
 {
 	float4 position : SV_POSITION;
-	float4 color : COLOR;
+	float4 color : COLOR0;
+	float4 secondColor : COLOR1;
+	float3 direction : NORMAL0;
+};
+
+cbuffer AtmosphericScatteringCalculations
+{
+	matrix rotationMatrix;
+	float4 lightDirection;
+	float4 g;
 };
 
 float4 MarsAtmosphereFromSpacePixelShader(PixelInputType input) : SV_TARGET
 {
-	return input.color;
+	float4 finalColor;
+	float cos, miePhase;
+
+	cos = dot(mul(lightDirection, rotationMatrix), input.direction) / length(input.direction);
+	miePhase = 1.5f * ((1.0f - (g * g)) / (2.0f + (g * g))) * (1.0f + cos * cos) / pow((1.0f + (g * g) - 2.0f * g * cos), 1.5f);
+
+	finalColor.rgb = input.color + (miePhase * input.secondColor);
+	finalColor.a = input.color.b;
+
+	return finalColor;
 }
 
 float4 MarsAtmosphereFromAtmospherePixelShader(PixelInputType input) : SV_TARGET

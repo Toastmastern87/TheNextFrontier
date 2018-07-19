@@ -22,7 +22,7 @@ private:
 		float marsAtmosphereRadius;
 	};
 
-	struct AtmosphericScatteringBufferType
+	struct AtmosphericScatteringVSBufferType
 	{
 		XMFLOAT4 cameraPos;
 		XMFLOAT4 lightDirection;
@@ -31,7 +31,7 @@ private:
 		XMFLOAT4 cameraHeight2;
 		XMFLOAT4 atmosphereRadius;
 		XMFLOAT4 atmosphereRadius2;
-		XMFLOAT4 marsRadius2;
+		XMFLOAT4 marsRadius;
 		XMFLOAT4 krESun;
 		XMFLOAT4 kmESun;
 		XMFLOAT4 kr4PI;
@@ -39,6 +39,13 @@ private:
 		XMFLOAT4 scale;
 		XMFLOAT4 scaleDepth;
 		XMFLOAT4 scaleOverScaleDepth;
+	};
+
+	struct AtmosphericScatteringPSBufferType
+	{
+		XMMATRIX rotationMatrix;
+		XMFLOAT4 lightDirection;
+		XMFLOAT4 g;
 	};
 
 public:
@@ -62,5 +69,5 @@ private:
 	ID3D11VertexShader * mVertexFromSpaceShader, *mVertexFromAtmosphereShader;
 	ID3D11PixelShader *mPixelFromSpaceShader, *mPixelFromAtmosphereShader;
 	ID3D11InputLayout* mLayout;
-	ID3D11Buffer *mMatrixBuffer, *mAtmosphericScatteringBuffer;
+	ID3D11Buffer *mMatrixBuffer, *mAtmosphericScatteringVSBuffer, *mAtmosphericScatteringPSBuffer;
 };

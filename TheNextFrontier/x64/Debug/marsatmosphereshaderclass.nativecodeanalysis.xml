@@ -18,98 +18,112 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsatmosphereshaderclass.cpp</FILENAME>
-      <LINE>14</LINE>
+      <LINE>15</LINE>
       <COLUMN>27</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsAtmosphereShaderClass::mVertexFromSpaceShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsAtmosphereShaderClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsAtmosphereShaderClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>14</FUNCLINE>
+    <FUNCLINE>15</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsatmosphereshaderclass.cpp</FILENAME>
-      <LINE>14</LINE>
+      <LINE>15</LINE>
       <COLUMN>27</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsAtmosphereShaderClass::mPixelFromSpaceShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsAtmosphereShaderClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsAtmosphereShaderClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>14</FUNCLINE>
+    <FUNCLINE>15</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsatmosphereshaderclass.cpp</FILENAME>
-      <LINE>14</LINE>
+      <LINE>15</LINE>
       <COLUMN>27</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsAtmosphereShaderClass::mVertexFromAtmosphereShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsAtmosphereShaderClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsAtmosphereShaderClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>14</FUNCLINE>
+    <FUNCLINE>15</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsatmosphereshaderclass.cpp</FILENAME>
-      <LINE>14</LINE>
+      <LINE>15</LINE>
       <COLUMN>27</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsAtmosphereShaderClass::mPixelFromAtmosphereShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsAtmosphereShaderClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsAtmosphereShaderClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>14</FUNCLINE>
+    <FUNCLINE>15</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsatmosphereshaderclass.cpp</FILENAME>
-      <LINE>14</LINE>
+      <LINE>15</LINE>
       <COLUMN>27</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsAtmosphereShaderClass::mLayout' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsAtmosphereShaderClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsAtmosphereShaderClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>14</FUNCLINE>
+    <FUNCLINE>15</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsatmosphereshaderclass.cpp</FILENAME>
-      <LINE>14</LINE>
+      <LINE>15</LINE>
       <COLUMN>27</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsAtmosphereShaderClass::mMatrixBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsAtmosphereShaderClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsAtmosphereShaderClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>14</FUNCLINE>
+    <FUNCLINE>15</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsatmosphereshaderclass.cpp</FILENAME>
-      <LINE>14</LINE>
+      <LINE>15</LINE>
       <COLUMN>27</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsAtmosphereShaderClass::mAtmosphericScatteringBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'MarsAtmosphereShaderClass::mAtmosphericScatteringVSBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsAtmosphereShaderClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsAtmosphereShaderClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>14</FUNCLINE>
+    <FUNCLINE>15</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>marsatmosphereshaderclass.cpp</FILENAME>
+      <LINE>15</LINE>
+      <COLUMN>27</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsAtmosphereShaderClass::mAtmosphericScatteringPSBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MarsAtmosphereShaderClass::{ctor}</FUNCTION>
+    <DECORATED>??0MarsAtmosphereShaderClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>15</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
 </DEFECTS>

@@ -216,16 +216,13 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vSync, HWND hw
 	depthStencilDesc.DepthEnable = true;
 	depthStencilDesc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
 	depthStencilDesc.DepthFunc = D3D11_COMPARISON_LESS;
-
 	depthStencilDesc.StencilEnable = true;
 	depthStencilDesc.StencilReadMask = 0xFF;
 	depthStencilDesc.StencilWriteMask = 0xFF;
-
 	depthStencilDesc.FrontFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
 	depthStencilDesc.FrontFace.StencilDepthFailOp = D3D11_STENCIL_OP_INCR;
 	depthStencilDesc.FrontFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
 	depthStencilDesc.FrontFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
-
 	depthStencilDesc.BackFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
 	depthStencilDesc.BackFace.StencilDepthFailOp = D3D11_STENCIL_OP_DECR;
 	depthStencilDesc.BackFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
@@ -338,7 +335,7 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vSync, HWND hw
 
 	ZeroMemory(&blendStateDesc, sizeof(D3D11_BLEND_DESC));
 
-	blendStateDesc.AlphaToCoverageEnable = false;
+	blendStateDesc.AlphaToCoverageEnable = true;
 	blendStateDesc.IndependentBlendEnable = false;
 	blendStateDesc.RenderTarget[0].BlendEnable = true;
 	blendStateDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;

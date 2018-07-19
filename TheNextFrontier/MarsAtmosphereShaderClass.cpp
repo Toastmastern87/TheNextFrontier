@@ -7,7 +7,8 @@ MarsAtmosphereShaderClass::MarsAtmosphereShaderClass()
 	mVertexFromAtmosphereShader = 0;
 	mPixelFromAtmosphereShader = 0;
 	mMatrixBuffer = 0;
-	mAtmosphericScatteringBuffer = 0;
+	mAtmosphericScatteringVSBuffer = 0;
+	mAtmosphericScatteringPSBuffer = 0;
 	mLayout = 0;
 }
 
@@ -62,7 +63,7 @@ bool MarsAtmosphereShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd
 	ID3D10Blob* pixelShaderBuffer;
 	D3D11_INPUT_ELEMENT_DESC polygonLayout[5];
 	unsigned int numElements;
-	D3D11_BUFFER_DESC matrixBufferDesc, atmosphericScatteringBufferDesc;;
+	D3D11_BUFFER_DESC matrixBufferDesc, atmosphericScatteringVSBufferDesc, atmosphericScatteringPSBufferDesc;
 
 	errorMessage = 0;
 	vertexShaderBuffer = 0;
@@ -222,14 +223,27 @@ bool MarsAtmosphereShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd
 		return false;
 	}
 
-	atmosphericScatteringBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
-	atmosphericScatteringBufferDesc.ByteWidth = sizeof(AtmosphericScatteringBufferType);
-	atmosphericScatteringBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
-	atmosphericScatteringBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
-	atmosphericScatteringBufferDesc.MiscFlags = 0;
-	atmosphericScatteringBufferDesc.StructureByteStride = 0;
+	atmosphericScatteringVSBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+	atmosphericScatteringVSBufferDesc.ByteWidth = sizeof(AtmosphericScatteringVSBufferType);
+	atmosphericScatteringVSBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	atmosphericScatteringVSBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	atmosphericScatteringVSBufferDesc.MiscFlags = 0;
+	atmosphericScatteringVSBufferDesc.StructureByteStride = 0;
 
-	result = device->CreateBuffer(&atmosphericScatteringBufferDesc, NULL, &mAtmosphericScatteringBuffer);
+	result = device->CreateBuffer(&atmosphericScatteringVSBufferDesc, NULL, &mAtmosphericScatteringVSBuffer);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	atmosphericScatteringPSBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+	atmosphericScatteringPSBufferDesc.ByteWidth = sizeof(AtmosphericScatteringPSBufferType);
+	atmosphericScatteringPSBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	atmosphericScatteringPSBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	atmosphericScatteringPSBufferDesc.MiscFlags = 0;
+	atmosphericScatteringPSBufferDesc.StructureByteStride = 0;
+
+	result = device->CreateBuffer(&atmosphericScatteringPSBufferDesc, NULL, &mAtmosphericScatteringPSBuffer);
 	if (FAILED(result))
 	{
 		return false;
@@ -240,6 +254,18 @@ bool MarsAtmosphereShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd
 
 void MarsAtmosphereShaderClass::ShutdownShader()
 {
+	if (mAtmosphericScatteringPSBuffer)
+	{
+		mAtmosphericScatteringPSBuffer->Release();
+		mAtmosphericScatteringPSBuffer = 0;
+	}
+
+	if (mAtmosphericScatteringVSBuffer)
+	{
+		mAtmosphericScatteringVSBuffer->Release();
+		mAtmosphericScatteringVSBuffer = 0;
+	}
+
 	if (mMatrixBuffer)
 	{
 		mMatrixBuffer->Release();
@@ -311,7 +337,8 @@ bool MarsAtmosphereShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceC
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
 	MatrixBufferType *dataPtr;
-	AtmosphericScatteringBufferType *atmosphericScatteringDataPtr;
+	AtmosphericScatteringVSBufferType *atmosphericScatteringVSDataPtr;
+	AtmosphericScatteringPSBufferType *atmosphericScatteringPSDataPtr;
 	float km, kr, eSun;
 
 	km = 0.000025f;
@@ -345,31 +372,47 @@ bool MarsAtmosphereShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceC
 
 	ZeroMemory(&mappedResource, sizeof(mappedResource));
 
-	result = deviceContext->Map(mAtmosphericScatteringBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
+	result = deviceContext->Map(mAtmosphericScatteringVSBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
 	if (FAILED(result))
 	{
 		return false;
 	}
 
-	atmosphericScatteringDataPtr = (AtmosphericScatteringBufferType*)mappedResource.pData;
+	atmosphericScatteringVSDataPtr = (AtmosphericScatteringVSBufferType*)mappedResource.pData;
 
-	atmosphericScatteringDataPtr->cameraPos = XMFLOAT4(cameraPos.x, cameraPos.y, cameraPos.z, 1.0f);
-	atmosphericScatteringDataPtr->lightDirection = XMFLOAT4(lightDirection.x, lightDirection.y, lightDirection.z, 1.0f);
-	atmosphericScatteringDataPtr->invWavelength = XMFLOAT4((1.0f / powf(0.625f, 4)), (1.0f / powf(0.570f, 4)), (1.0f / powf(0.475f, 4)), 1.0f);
-	atmosphericScatteringDataPtr->cameraHeight = XMFLOAT4(distanceFromOrigo, distanceFromOrigo, distanceFromOrigo, distanceFromOrigo);
-	atmosphericScatteringDataPtr->cameraHeight2 = XMFLOAT4((distanceFromOrigo * distanceFromOrigo), (distanceFromOrigo * distanceFromOrigo), (distanceFromOrigo * distanceFromOrigo), (distanceFromOrigo * distanceFromOrigo));
-	atmosphericScatteringDataPtr->atmosphereRadius = XMFLOAT4(marsRadius * 1.025f, marsRadius * 1.025f, marsRadius * 1.025f, marsRadius * 1.025f);
-	atmosphericScatteringDataPtr->atmosphereRadius2 = XMFLOAT4((marsRadius * 1.025f * marsRadius * 1.025f), (marsRadius * 1.025f * marsRadius * 1.025f), (marsRadius * 1.025f * marsRadius * 1.025f), (marsRadius * 1.025f * marsRadius * 1.025f));
-	atmosphericScatteringDataPtr->marsRadius2 = XMFLOAT4((marsRadius * marsRadius), (marsRadius * marsRadius), (marsRadius * marsRadius), (marsRadius * marsRadius));
-	atmosphericScatteringDataPtr->krESun = XMFLOAT4((kr * eSun), (kr * eSun), (kr * eSun), (kr * eSun));
-	atmosphericScatteringDataPtr->kmESun = XMFLOAT4((km * eSun), (km * eSun), (km * eSun), (km * eSun));
-	atmosphericScatteringDataPtr->kr4PI = XMFLOAT4((kr * 4 * M_PI), (kr * 4 * M_PI), (kr * 4 * M_PI), (kr * 4 * M_PI));
-	atmosphericScatteringDataPtr->km4PI = XMFLOAT4((km * 4 * M_PI), (km * 4 * M_PI), (km * 4 * M_PI), (km * 4 * M_PI));
-	atmosphericScatteringDataPtr->scale = XMFLOAT4((1.0f / ((marsRadius * 1.025f) - marsRadius)), (1.0f / ((marsRadius * 1.025f) - marsRadius)), (1.0f / ((marsRadius * 1.025f) - marsRadius)), (1.0f / ((marsRadius * 1.025f) - marsRadius)));
-	atmosphericScatteringDataPtr->scaleDepth = XMFLOAT4(0.25f, 0.25f, 0.25f, 0.25f);
-	atmosphericScatteringDataPtr->scaleOverScaleDepth = XMFLOAT4(((1.0f / ((marsRadius * 1.025f) - marsRadius)) / 0.25f), ((1.0f / ((marsRadius * 1.025f) - marsRadius)) / 0.25f), ((1.0f / ((marsRadius * 1.025f) - marsRadius)) / 0.25f), ((1.0f / ((marsRadius * 1.025f) - marsRadius)) / 0.25f));
+	atmosphericScatteringVSDataPtr->cameraPos = XMFLOAT4(cameraPos.x, cameraPos.y, cameraPos.z, 1.0f);
+	atmosphericScatteringVSDataPtr->lightDirection = XMFLOAT4(lightDirection.x, lightDirection.y, lightDirection.z, 1.0f);
+	atmosphericScatteringVSDataPtr->invWavelength = XMFLOAT4((1.0f / powf(0.625f, 4)), (1.0f / powf(0.570f, 4)), (1.0f / powf(0.475f, 4)), 1.0f);
+	atmosphericScatteringVSDataPtr->cameraHeight = XMFLOAT4(distanceFromOrigo, distanceFromOrigo, distanceFromOrigo, distanceFromOrigo);
+	atmosphericScatteringVSDataPtr->cameraHeight2 = XMFLOAT4((distanceFromOrigo * distanceFromOrigo), (distanceFromOrigo * distanceFromOrigo), (distanceFromOrigo * distanceFromOrigo), (distanceFromOrigo * distanceFromOrigo));
+	atmosphericScatteringVSDataPtr->atmosphereRadius = XMFLOAT4(marsRadius * 1.025f, marsRadius * 1.025f, marsRadius * 1.025f, marsRadius * 1.025f);
+	atmosphericScatteringVSDataPtr->atmosphereRadius2 = XMFLOAT4((marsRadius * 1.025f * marsRadius * 1.025f), (marsRadius * 1.025f * marsRadius * 1.025f), (marsRadius * 1.025f * marsRadius * 1.025f), (marsRadius * 1.025f * marsRadius * 1.025f));
+	atmosphericScatteringVSDataPtr->marsRadius = XMFLOAT4(marsRadius, marsRadius, marsRadius, marsRadius);
+	atmosphericScatteringVSDataPtr->krESun = XMFLOAT4((kr * eSun), (kr * eSun), (kr * eSun), (kr * eSun));
+	atmosphericScatteringVSDataPtr->kmESun = XMFLOAT4((km * eSun), (km * eSun), (km * eSun), (km * eSun));
+	atmosphericScatteringVSDataPtr->kr4PI = XMFLOAT4((kr * 4 * M_PI), (kr * 4 * M_PI), (kr * 4 * M_PI), (kr * 4 * M_PI));
+	atmosphericScatteringVSDataPtr->km4PI = XMFLOAT4((km * 4 * M_PI), (km * 4 * M_PI), (km * 4 * M_PI), (km * 4 * M_PI));
+	atmosphericScatteringVSDataPtr->scale = XMFLOAT4((1.0f / ((marsRadius * 1.025f) - marsRadius)), (1.0f / ((marsRadius * 1.025f) - marsRadius)), (1.0f / ((marsRadius * 1.025f) - marsRadius)), (1.0f / ((marsRadius * 1.025f) - marsRadius)));
+	atmosphericScatteringVSDataPtr->scaleDepth = XMFLOAT4(0.25f, 0.25f, 0.25f, 0.25f);
+	atmosphericScatteringVSDataPtr->scaleOverScaleDepth = XMFLOAT4(((1.0f / ((marsRadius * 1.025f) - marsRadius)) / 0.25f), ((1.0f / ((marsRadius * 1.025f) - marsRadius)) / 0.25f), ((1.0f / ((marsRadius * 1.025f) - marsRadius)) / 0.25f), ((1.0f / ((marsRadius * 1.025f) - marsRadius)) / 0.25f));
+	
+	deviceContext->Unmap(mAtmosphericScatteringVSBuffer, 0);
 
-	deviceContext->Unmap(mAtmosphericScatteringBuffer, 0);
+	ZeroMemory(&mappedResource, sizeof(mappedResource));
+
+	result = deviceContext->Map(mAtmosphericScatteringPSBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	atmosphericScatteringPSDataPtr = (AtmosphericScatteringPSBufferType*)mappedResource.pData;
+
+	atmosphericScatteringPSDataPtr->rotationMatrix = rotationMatrix;
+	atmosphericScatteringPSDataPtr->lightDirection = XMFLOAT4(lightDirection.x, lightDirection.y, lightDirection.z, 1.0f);
+	atmosphericScatteringPSDataPtr->g = XMFLOAT4(-0.98f, -0.98f, -0.98f, -0.98f);
+
+	deviceContext->Unmap(mAtmosphericScatteringPSBuffer, 0);
 
 	bufferNumber = 0;
 
@@ -377,7 +420,11 @@ bool MarsAtmosphereShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceC
 
 	bufferNumber = 1;
 
-	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mAtmosphericScatteringBuffer);
+	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mAtmosphericScatteringVSBuffer);
+
+	bufferNumber = 0;
+
+	deviceContext->PSSetConstantBuffers(bufferNumber, 1, &mAtmosphericScatteringPSBuffer);
 
 	return true;
 }

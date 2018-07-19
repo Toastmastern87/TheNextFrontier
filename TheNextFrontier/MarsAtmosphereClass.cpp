@@ -328,7 +328,7 @@ void MarsAtmosphereClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, 
 
 	dot = XMVectorGetX(XMVector3Dot(centerNormalized, centerPositionSubtractionNormalized));
 
-	if (dot > 0.31f)
+	if (dot > 0.6f)
 	{
 		return;// NextTriangle::CULL;
 	}

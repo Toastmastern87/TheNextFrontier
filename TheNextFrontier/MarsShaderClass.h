@@ -48,14 +48,10 @@ private:
 		XMFLOAT4 lightDirection;
 		XMFLOAT4 invWavelength;
 		XMFLOAT4 cameraHeight;
-		XMFLOAT4 cameraHeight2;
 		XMFLOAT4 atmosphereRadius;
-		XMFLOAT4 atmosphereRadius2;
-		XMFLOAT4 marsRadius2;
-		XMFLOAT4 krESun;
-		XMFLOAT4 kmESun;
-		XMFLOAT4 kr4PI;
-		XMFLOAT4 km4PI;
+		XMFLOAT4 kr;
+		XMFLOAT4 km;
+		XMFLOAT4 eSun;
 		XMFLOAT4 scale;
 		XMFLOAT4 scaleDepth;
 		XMFLOAT4 scaleOverScaleDepth;

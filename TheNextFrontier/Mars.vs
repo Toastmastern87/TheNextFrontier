@@ -26,6 +26,20 @@ cbuffer HeightCalculations
 	float4 marsMinHeight;
 };
 
+cbuffer AtmosphericScatteringCalculations
+{
+	float4 lightDirection;	
+	float4 invWavelength;	
+	float4 cameraHeight;	
+	float4 atmosphereRadius;	
+	float4 kr;			
+	float4 km;			
+	float4 eSun;		
+	float4 scale;			
+	float4 scaleDepth;		
+	float4 scaleOverScaleDepth;	
+}
+
 struct VertexInputType
 {
 	float2 localPosition : TEXCOORD0;
@@ -45,24 +59,6 @@ struct PixelInputType
 	float3 normal : NORMAL0;
 	float3 viewVector : NORMAL1;
 };
-
-cbuffer AtmosphericScatteringCalculations
-{
-	float4 lightDirection;		// The direction vector to the light source
-	float4 invWavelength;	// 1 / pow(wavelength, 4) for the red, green, and blue channels
-	float4 cameraHeight;	// The camera's current height
-	float4 cameraHeight2;	// fCameraHeight^2
-	float4 atmosphereRadius;		// The outer (atmosphere) radius
-	float4 atmosphereRadius2;	// fOuterRadius^2
-	float4 marsRadius2;	// fInnerRadius^2
-	float4 krESun;			// Kr * ESun
-	float4 kmESun;			// Km * ESun
-	float4 kr4PI;			// Kr * 4 * PI
-	float4 km4PI;			// Km * 4 * PI
-	float4 scale;			// 1 / (atmosphereRadius - marsRadius)
-	float4 scaleDepth;		// The scale depth (i.e. the altitude at which the atmosphere's average density is found)
-	float4 scaleOverScaleDepth;	// fScale / fScaleDepth
-}
 
 float MorphFac(float distance, int level)
 {
@@ -95,10 +91,10 @@ float GetHeight(float3 pos, float maxHeight, float minHeight)
 }
 
 // Returns the near intersection point of a line and a sphere
-float GetNearIntersection(float3 pos, float3 ray, float distance2, float radius2)
+float GetNearIntersection(float3 pos, float3 ray, float distance, float radius)
 {
 	float B = 2.0f * dot(pos, ray);
-	float C = distance2 - radius2;
+	float C = (distance * distance) - (radius * radius);
 	float det = max(0.0f, B*B - 4.0f * C);
 
 	return (0.5f * (-B - sqrt(det)));
@@ -107,7 +103,7 @@ float GetNearIntersection(float3 pos, float3 ray, float distance2, float radius2
 float Scale(float cos)
 {
 	float x = 1.0f - cos;
-	return (scaleDepth * exp(-0.00287f + x * (0.459f + x * (3.83f + x * (-6.80f + x * 5.25f)))));
+	return (scaleDepth.x * exp(-0.00287f + x * (0.459f + x * (3.83f + x * (-6.80f + x * 5.25f)))));
 }
 
 PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
@@ -143,12 +139,12 @@ PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
 	ray /= far;
 
 	// Calculate the closest intersection of the ray with the outer atmosphere (which is the near point of the ray passing through the atmosphere)
-	near = GetNearIntersection(cameraPos.xyz, ray, cameraHeight2, atmosphereRadius2);
+	near = GetNearIntersection(cameraPos.xyz, ray, cameraHeight, atmosphereRadius);
 
 	// Calculate the ray's starting position, then calculate its scattering offset
 	start = cameraPos.xyz + ray * near;
 	far -= near;
-	depth = exp((marsRadius - atmosphereRadius) / scaleDepth);
+	depth = exp((marsRadius.x - atmosphereRadius.x) / scaleDepth);
 	cameraAngle = dot(-ray, finalPos) / length(finalPos);
 	lightAngle = dot(mul(lightDirection.xyz, rotationMatrix), finalPos) / length(finalPos);
 	cameraScale = Scale(cameraAngle);
@@ -168,9 +164,9 @@ PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
 	for(int i = 0; i < samples; i++)
 	{
 		float height = length(samplePoint);
-		float depth = exp(scaleOverScaleDepth.x * (marsRadius - height));
+		float depth = exp(scaleOverScaleDepth.x * (marsRadius.x - height));
 		float scatter = depth * temp - cameraOffset;
-		attenuate = exp(-scatter * (invWavelength.xyz * kr4PI.x + km4PI.x));
+		attenuate = exp(-scatter * (invWavelength.xyz * (kr.x * 4 * PI) + (km.x * 4 * PI)));
 		frontColor += attenuate * (depth * scaledLength);
 		samplePoint += sampleRay;
 	}
@@ -180,7 +176,7 @@ PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
 	output.viewVector = (mul(cameraPos.xyz, worldMatrix) - mul(finalPos, worldMatrix));
 
 	mapCoords = normalize(finalPos);
-	output.mapCoord = float2((0.5f + (atan2(mapCoords.z, mapCoords.x) / (2 * 3.14159265f))), (0.5f - (asin(mapCoords.y) / 3.14159265f)));
+	output.mapCoord = float2((0.5f + (atan2(mapCoords.z, mapCoords.x) / (2 * PI))), (0.5f - (asin(mapCoords.y) / PI)));
 
 	output.position = mul(float4(finalPos, 1.0f), worldMatrix);
 	output.position = mul(output.position, viewMatrix);
@@ -188,7 +184,7 @@ PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
 
 	//float heightColor = heightMapTexture.SampleLevel(sampleType, output.mapCoord, 0).r + (heightMapDetail2Texture.SampleLevel(sampleType, (output.mapCoord * textureStretch * 100), 0).r * 0.01f);
 
-	output.color.rgb = frontColor * (invWavelength.xyz * krESun.x + kmESun.x);
+	output.color.rgb = frontColor * (invWavelength.xyz * (kr.x * eSun.x) + (km.x * eSun.x));
 	output.secondColor.rgb = attenuate;
 
 	return output;

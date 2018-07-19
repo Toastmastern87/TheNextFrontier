@@ -1,5 +1,7 @@
 #pragma once
 
+#define _USE_MATH_DEFINES
+
 #include <d3d11.h>
 #include <d3dcompiler.h>
 #include <DirectXMath.h>
@@ -16,11 +18,13 @@ private:
 		XMMATRIX world;
 		XMMATRIX view;
 		XMMATRIX projection;
+		XMMATRIX rotationMatrix;
 		float marsAtmosphereRadius;
 	};
 
 	struct AtmosphericScatteringBufferType
 	{
+		XMFLOAT4 cameraPos;
 		XMFLOAT4 lightDirection;
 		XMFLOAT4 invWavelength;
 		XMFLOAT4 cameraHeight;
@@ -44,15 +48,15 @@ public:
 
 	bool Initialize(ID3D11Device*, HWND);
 	void Shutdown();
-	bool Render(ID3D11DeviceContext*, int, int, XMMATRIX, XMMATRIX, XMMATRIX, float);
+	bool Render(ID3D11DeviceContext*, int, int, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, float, bool, float, float, XMFLOAT3, XMFLOAT3);
 
 private:
 	bool InitializeShader(ID3D11Device*, HWND, WCHAR*, WCHAR*);
 	void ShutdownShader();
 	void OutputShaderErrorMessage(ID3D10Blob*, HWND, WCHAR*);
 
-	bool SetShaderParameters(ID3D11DeviceContext*, XMMATRIX, XMMATRIX, XMMATRIX, float);
-	void RenderShaders(ID3D11DeviceContext*, int, int);
+	bool SetShaderParameters(ID3D11DeviceContext*, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, float, float, float, XMFLOAT3, XMFLOAT3);
+	void RenderShaders(ID3D11DeviceContext*, int, int, bool);
 
 private:
 	ID3D11VertexShader * mVertexFromSpaceShader, *mVertexFromAtmosphereShader;

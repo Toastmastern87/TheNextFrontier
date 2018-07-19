@@ -128,9 +128,9 @@ bool ShaderManagerClass::RenderMarsShader(ID3D11DeviceContext* deviceContext, in
 	return mMarsShader->Render(deviceContext, indexCount, instanceCount, worldMatrix, viewMatrix, projectionMatrix, inverseWorldMatrix, rotationMatrix, marsRadius, marsMaxHeight, marsMinHeight, distanceLUT, cameraPos, heightMap, heightMapDetail2, colorMap, lightDirection, lightDiffuseColor, patchDelta, insideAtmosphere, distanceFromOrigo);
 }
 
-bool ShaderManagerClass::RenderMarsAtmosphereShader(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, float marsAtmosphereRadius)
+bool ShaderManagerClass::RenderMarsAtmosphereShader(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX rotationMatrix, float marsAtmosphereRadius, bool insideAtmosphere, float marsRadius, float distanceFromOrigo, XMFLOAT3 cameraPos, XMFLOAT3 lightDirection)
 {
-	return mMarsAtmosphereShader->Render(deviceContext, indexCount, instanceCount, worldMatrix, viewMatrix, projectionMatrix, marsAtmosphereRadius);
+	return mMarsAtmosphereShader->Render(deviceContext, indexCount, instanceCount, worldMatrix, viewMatrix, projectionMatrix, rotationMatrix, marsAtmosphereRadius, insideAtmosphere, marsRadius, distanceFromOrigo, cameraPos, lightDirection);
 }
 
 bool ShaderManagerClass::RenderFontShader(ID3D11DeviceContext* deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, ID3D11ShaderResourceView* texture, XMFLOAT4 color)

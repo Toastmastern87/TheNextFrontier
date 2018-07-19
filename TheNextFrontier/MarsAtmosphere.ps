@@ -4,7 +4,12 @@ struct PixelInputType
 	float4 color : COLOR;
 };
 
-float4 MarsAtmospherePixelShader(PixelInputType input) : SV_TARGET
+float4 MarsAtmosphereFromSpacePixelShader(PixelInputType input) : SV_TARGET
+{
+	return input.color;
+}
+
+float4 MarsAtmosphereFromAtmospherePixelShader(PixelInputType input) : SV_TARGET
 {
 	return input.color;
 }

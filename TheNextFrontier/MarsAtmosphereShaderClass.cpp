@@ -2,9 +2,12 @@
 
 MarsAtmosphereShaderClass::MarsAtmosphereShaderClass()
 {
-	mVertexShader = 0;
-	mPixelShader = 0;
+	mVertexFromSpaceShader = 0;
+	mPixelFromSpaceShader = 0;
+	mVertexFromAtmosphereShader = 0;
+	mPixelFromAtmosphereShader = 0;
 	mMatrixBuffer = 0;
+	mAtmosphericScatteringBuffer = 0;
 	mLayout = 0;
 }
 
@@ -59,13 +62,13 @@ bool MarsAtmosphereShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd
 	ID3D10Blob* pixelShaderBuffer;
 	D3D11_INPUT_ELEMENT_DESC polygonLayout[5];
 	unsigned int numElements;
-	D3D11_BUFFER_DESC matrixBufferDesc;
+	D3D11_BUFFER_DESC matrixBufferDesc, atmosphericScatteringBufferDesc;;
 
 	errorMessage = 0;
 	vertexShaderBuffer = 0;
 	pixelShaderBuffer = 0;
 
-	result = D3DCompileFromFile(vsFilename, NULL, NULL, "MarsAtmosphereVertexShader", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &vertexShaderBuffer, &errorMessage);
+	result = D3DCompileFromFile(vsFilename, NULL, NULL, "MarsAtmosphereFromSpaceVertexShader", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &vertexShaderBuffer, &errorMessage);
 	if (FAILED(result))
 	{
 		if (errorMessage)
@@ -80,7 +83,52 @@ bool MarsAtmosphereShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd
 		return false;
 	}
 
-	result = D3DCompileFromFile(psFilename, NULL, NULL, "MarsAtmospherePixelShader", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &pixelShaderBuffer, &errorMessage);
+	result = D3DCompileFromFile(psFilename, NULL, NULL, "MarsAtmosphereFromSpacePixelShader", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &pixelShaderBuffer, &errorMessage);
+	if (FAILED(result))
+	{
+		if (errorMessage)
+		{
+			OutputShaderErrorMessage(errorMessage, hwnd, psFilename);
+		}
+		else
+		{
+			MessageBox(hwnd, psFilename, L"Missing Shader File", MB_OK);
+		}
+
+		return false;
+	}
+
+	result = device->CreateVertexShader(vertexShaderBuffer->GetBufferPointer(), vertexShaderBuffer->GetBufferSize(), NULL, &mVertexShader);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	result = device->CreatePixelShader(pixelShaderBuffer->GetBufferPointer(), pixelShaderBuffer->GetBufferSize(), NULL, &mPixelShader);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	ZeroMemory(&vertexShaderBuffer, sizeof(vertexShaderBuffer));
+	ZeroMemory(&pixelShaderBuffer, sizeof(pixelShaderBuffer));
+
+	result = D3DCompileFromFile(vsFilename, NULL, NULL, "MarsAtmosphereFromAtmosphereVertexShader", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &vertexShaderBuffer, &errorMessage);
+	if (FAILED(result))
+	{
+		if (errorMessage)
+		{
+			OutputShaderErrorMessage(errorMessage, hwnd, vsFilename);
+		}
+		else
+		{
+			MessageBox(hwnd, vsFilename, L"Missing Shader File", MB_OK);
+		}
+
+		return false;
+	}
+
+	result = D3DCompileFromFile(psFilename, NULL, NULL, "MarsAtmosphereFromAtmospherePixelShader", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &pixelShaderBuffer, &errorMessage);
 	if (FAILED(result))
 	{
 		if (errorMessage)
@@ -174,6 +222,19 @@ bool MarsAtmosphereShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd
 		return false;
 	}
 
+	atmosphericScatteringBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+	atmosphericScatteringBufferDesc.ByteWidth = sizeof(AtmosphericScatteringBufferType);
+	atmosphericScatteringBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	atmosphericScatteringBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	atmosphericScatteringBufferDesc.MiscFlags = 0;
+	atmosphericScatteringBufferDesc.StructureByteStride = 0;
+
+	result = device->CreateBuffer(&atmosphericScatteringBufferDesc, NULL, &mAtmosphericScatteringBuffer);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
 	return true;
 }
 
@@ -191,16 +252,28 @@ void MarsAtmosphereShaderClass::ShutdownShader()
 		mLayout = 0;
 	}
 
-	if (mPixelShader)
+	if (mPixelFromSpaceShader)
 	{
-		mPixelShader->Release();
-		mPixelShader = 0;
+		mPixelFromSpaceShader->Release();
+		mPixelFromSpaceShader = 0;
 	}
 
-	if (mVertexShader)
+	if (mVertexFromSpaceShader)
 	{
-		mVertexShader->Release();
-		mVertexShader = 0;
+		mVertexFromSpaceShader->Release();
+		mVertexFromSpaceShader = 0;
+	}
+
+	if (mPixelFromAtmosphereShader)
+	{
+		mPixelFromAtmosphereShader->Release();
+		mPixelFromAtmosphereShader = 0;
+	}
+
+	if (mVertexFromAtmosphereShader)
+	{
+		mVertexFromAtmosphereShader->Release();
+		mVertexFromAtmosphereShader = 0;
 	}
 
 	return;
@@ -273,8 +346,8 @@ void MarsAtmosphereShaderClass::RenderShaders(ID3D11DeviceContext* deviceContext
 {
 	deviceContext->IASetInputLayout(mLayout);
 
-	deviceContext->VSSetShader(mVertexShader, NULL, 0);
-	deviceContext->PSSetShader(mPixelShader, NULL, 0);
+	deviceContext->VSSetShader(mVertexFromSpaceShader, NULL, 0);
+	deviceContext->PSSetShader(mPixelFromSpaceShader, NULL, 0);
 
 	deviceContext->DrawIndexedInstanced(indexCount, instanceCount, 0, 0, 0);
 

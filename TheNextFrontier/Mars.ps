@@ -6,7 +6,8 @@ SamplerState sampleType;
 struct PixelInputType
 {
 	float4 position : SV_POSITION;
-	float4 color : COLOR;
+	float4 color : COLOR0;
+	float4 secondColor : COLOR1;
 	float2 mapCoord : TEXCOORD0;
 	float3 normal : NORMAL;
 	float3 viewVector : NORMAL1;
@@ -96,7 +97,7 @@ float4 MarsFromSpacePixelShader(PixelInputType input) : SV_TARGET
 
 	increasedLigthningFactor = 2.5f;
 
-	return input.color * color * 10.0f; //(color * increasedLigthningFactor) * lightColor;
+	return input.color * color * 10.0f * input.secondColor; //(color * increasedLigthningFactor) * lightColor;
 }
 
 float4 MarsFromAtmospherePixelShader(PixelInputType input) : SV_TARGET

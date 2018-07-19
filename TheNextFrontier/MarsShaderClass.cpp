@@ -406,8 +406,8 @@ bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XM
 	float km, kr, eSun;
 
 	km = 0.000025f;
-	kr = 0.015f;
-	eSun = 10.0f;
+	kr = 0.003f;
+	eSun = 30.0f;
 
 	unsigned int bufferNumber;
 

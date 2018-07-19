@@ -39,7 +39,8 @@ struct VertexInputType
 struct PixelInputType
 {
 	float4 position : SV_POSITION;
-	float4 color : COLOR;
+	float4 color : COLOR0;
+	float4 secondColor : COLOR1;
 	float2 mapCoord : TEXCOORD0;
 	float3 normal : NORMAL0;
 	float3 viewVector : NORMAL1;
@@ -188,6 +189,7 @@ PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
 	//float heightColor = heightMapTexture.SampleLevel(sampleType, output.mapCoord, 0).r + (heightMapDetail2Texture.SampleLevel(sampleType, (output.mapCoord * textureStretch * 100), 0).r * 0.01f);
 
 	output.color.rgb = frontColor * (invWavelength.xyz * krESun.x + kmESun.x);
+	output.secondColor.rgb = attenuate;
 
 	return output;
 }

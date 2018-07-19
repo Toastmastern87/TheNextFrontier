@@ -1591,8 +1591,8 @@
       <LINE>58</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>58</FUNCLINE>
@@ -1604,8 +1604,8 @@
       <LINE>58</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>58</FUNCLINE>

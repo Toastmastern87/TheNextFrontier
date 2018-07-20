@@ -116,308 +116,336 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
-      <COLUMN>10</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'D3DClass::mVSyncEnabled' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>D3DClass::{ctor}</FUNCTION>
-    <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
-      <COLUMN>10</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'D3DClass::mAspectRatio' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>D3DClass::{ctor}</FUNCTION>
-    <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
-      <COLUMN>10</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'D3DClass::mVideoCardDescription' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>D3DClass::{ctor}</FUNCTION>
-    <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
-      <COLUMN>10</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'D3DClass::mVideoCardMemory' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>D3DClass::{ctor}</FUNCTION>
-    <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
+      <LINE>23</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'D3DClass::mSwapChain' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>23</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
+      <LINE>23</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'D3DClass::mVSyncEnabled' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>D3DClass::{ctor}</FUNCTION>
+    <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>23</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>d3dclass.cpp</FILENAME>
+      <LINE>23</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'D3DClass::mAspectRatio' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>D3DClass::{ctor}</FUNCTION>
+    <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>23</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>d3dclass.cpp</FILENAME>
+      <LINE>23</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'D3DClass::mVideoCardDescription' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>D3DClass::{ctor}</FUNCTION>
+    <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>23</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>d3dclass.cpp</FILENAME>
+      <LINE>23</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'D3DClass::mVideoCardMemory' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>D3DClass::{ctor}</FUNCTION>
+    <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>23</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>d3dclass.cpp</FILENAME>
+      <LINE>23</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'D3DClass::mDevice' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>23</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
+      <LINE>23</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'D3DClass::mDeviceContext' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>23</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
+      <LINE>23</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'D3DClass::mRenderTargetView' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>23</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
+      <LINE>23</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'D3DClass::mDepthStencilBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>23</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
+      <LINE>23</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'D3DClass::mDepthStencilState' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>23</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
+      <LINE>23</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'D3DClass::mDepthStencilView' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>23</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
+      <LINE>23</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'D3DClass::mRasterState' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>23</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
+      <LINE>23</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'D3DClass::mRasterStateNoCulling' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>23</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
+      <LINE>23</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'D3DClass::mRasterStateFrontCulling' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>D3DClass::{ctor}</FUNCTION>
+    <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>23</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>d3dclass.cpp</FILENAME>
+      <LINE>23</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'D3DClass::mRasterStateFrontCullingWireframe' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>D3DClass::{ctor}</FUNCTION>
+    <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>23</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>d3dclass.cpp</FILENAME>
+      <LINE>23</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'D3DClass::mRasterStateWireframe' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>23</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
+      <LINE>23</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'D3DClass::mProjectionMatrix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>23</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
+      <LINE>23</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'D3DClass::mWorldMatrix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>23</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
+      <LINE>23</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'D3DClass::mOrthoMatrix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>23</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
+      <LINE>23</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'D3DClass::mDepthDisabledStencilState' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>23</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
+      <LINE>23</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'D3DClass::mAlphaEnableBlendingState' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>23</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
+      <LINE>23</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'D3DClass::mAlphaDisableBlendingState' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>23</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>21</LINE>
+      <LINE>23</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'D3DClass::mAlphaEnableBlendingState2' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>D3DClass::{ctor}</FUNCTION>
     <DECORATED>??0D3DClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>23</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>72</LINE>
+      <LINE>74</LINE>
       <COLUMN>8</COLUMN>
     </SFA>
     <DEFECTCODE>6001</DEFECTCODE>
     <DESCRIPTION>Using uninitialized memory 'numModes'.</DESCRIPTION>
     <FUNCTION>D3DClass::Initialize</FUNCTION>
     <DECORATED>?Initialize@D3DClass@@QEAA_NHH_NPEAUHWND__@@0MM@Z</DECORATED>
-    <FUNCLINE>29</FUNCLINE>
+    <FUNCLINE>31</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>3</RANK>
     <CATEGORY>
@@ -427,31 +455,31 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>31</LINE>
+        <LINE>33</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>32</LINE>
-        <COLUMN>15</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>33</LINE>
-        <COLUMN>15</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>34</LINE>
-        <COLUMN>14</COLUMN>
+        <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>35</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>36</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>37</LINE>
         <COLUMN>14</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -463,127 +491,127 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>35</LINE>
+        <LINE>37</LINE>
         <COLUMN>24</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>35</LINE>
+        <LINE>37</LINE>
         <COLUMN>27</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>35</LINE>
+        <LINE>37</LINE>
         <COLUMN>38</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>36</LINE>
+        <LINE>38</LINE>
         <COLUMN>20</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>37</LINE>
+        <LINE>39</LINE>
         <COLUMN>17</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>38</LINE>
-        <COLUMN>19</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>39</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>40</LINE>
-        <COLUMN>22</COLUMN>
+        <COLUMN>19</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>41</LINE>
-        <COLUMN>19</COLUMN>
+        <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>42</LINE>
-        <COLUMN>18</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>43</LINE>
         <COLUMN>22</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>43</LINE>
+        <COLUMN>19</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>44</LINE>
-        <COLUMN>26</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>45</LINE>
-        <COLUMN>31</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>46</LINE>
-        <COLUMN>23</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>47</LINE>
-        <COLUMN>16</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>48</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>49</LINE>
-        <COLUMN>26</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>50</LINE>
         <COLUMN>18</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>45</LINE>
+        <COLUMN>22</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>46</LINE>
+        <COLUMN>26</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>47</LINE>
+        <COLUMN>31</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>48</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>49</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>50</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>51</LINE>
+        <COLUMN>26</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>52</LINE>
-        <COLUMN>15</COLUMN>
+        <COLUMN>18</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>54</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>56</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>55</LINE>
+        <LINE>57</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -595,13 +623,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>60</LINE>
+        <LINE>62</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>61</LINE>
+        <LINE>63</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -613,13 +641,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>66</LINE>
+        <LINE>68</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>67</LINE>
+        <LINE>69</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
@@ -631,7 +659,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>72</LINE>
+        <LINE>74</LINE>
         <COLUMN>8</COLUMN>
         <KEYEVENT>
           <ID>5</ID>
@@ -643,7 +671,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>72</LINE>
+        <LINE>74</LINE>
         <COLUMN>8</COLUMN>
         <KEYEVENT>
           <ID>6</ID>
@@ -658,14 +686,14 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>139</LINE>
+      <LINE>141</LINE>
       <COLUMN>49</COLUMN>
     </SFA>
     <DEFECTCODE>6001</DEFECTCODE>
     <DESCRIPTION>Using uninitialized memory 'numerator'.</DESCRIPTION>
     <FUNCTION>D3DClass::Initialize</FUNCTION>
     <DECORATED>?Initialize@D3DClass@@QEAA_NHH_NPEAUHWND__@@0MM@Z</DECORATED>
-    <FUNCLINE>29</FUNCLINE>
+    <FUNCLINE>31</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>3</RANK>
     <CATEGORY>
@@ -675,43 +703,43 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>31</LINE>
+        <LINE>33</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>32</LINE>
-        <COLUMN>15</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>33</LINE>
-        <COLUMN>15</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>34</LINE>
-        <COLUMN>14</COLUMN>
+        <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>35</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>36</LINE>
         <COLUMN>14</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>35</LINE>
+        <LINE>37</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>37</LINE>
         <COLUMN>24</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>35</LINE>
+        <LINE>37</LINE>
         <COLUMN>27</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -723,115 +751,115 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>35</LINE>
+        <LINE>37</LINE>
         <COLUMN>38</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>36</LINE>
+        <LINE>38</LINE>
         <COLUMN>20</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>37</LINE>
+        <LINE>39</LINE>
         <COLUMN>17</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>38</LINE>
-        <COLUMN>19</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>39</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>40</LINE>
-        <COLUMN>22</COLUMN>
+        <COLUMN>19</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>41</LINE>
-        <COLUMN>19</COLUMN>
+        <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>42</LINE>
-        <COLUMN>18</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>43</LINE>
         <COLUMN>22</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>43</LINE>
+        <COLUMN>19</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>44</LINE>
-        <COLUMN>26</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>45</LINE>
-        <COLUMN>31</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>46</LINE>
-        <COLUMN>23</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>47</LINE>
-        <COLUMN>16</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>48</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>49</LINE>
-        <COLUMN>26</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>50</LINE>
         <COLUMN>18</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>45</LINE>
+        <COLUMN>22</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>46</LINE>
+        <COLUMN>26</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>47</LINE>
+        <COLUMN>31</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>48</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>49</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>50</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>51</LINE>
+        <COLUMN>26</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>52</LINE>
-        <COLUMN>15</COLUMN>
+        <COLUMN>18</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>54</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>56</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>55</LINE>
+        <LINE>57</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -843,13 +871,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>60</LINE>
+        <LINE>62</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>61</LINE>
+        <LINE>63</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -861,13 +889,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>66</LINE>
+        <LINE>68</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>67</LINE>
+        <LINE>69</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
@@ -879,13 +907,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>72</LINE>
+        <LINE>74</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>73</LINE>
+        <LINE>75</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>5</ID>
@@ -897,13 +925,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>78</LINE>
+        <LINE>80</LINE>
         <COLUMN>17</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>79</LINE>
+        <LINE>81</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>6</ID>
@@ -915,13 +943,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>84</LINE>
+        <LINE>86</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>85</LINE>
+        <LINE>87</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>7</ID>
@@ -933,13 +961,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>90</LINE>
+        <LINE>92</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>90</LINE>
+        <LINE>92</LINE>
         <COLUMN>15</COLUMN>
         <KEYEVENT>
           <ID>8</ID>
@@ -951,13 +979,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>102</LINE>
+        <LINE>104</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>103</LINE>
+        <LINE>105</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>9</ID>
@@ -969,19 +997,19 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>108</LINE>
+        <LINE>110</LINE>
         <COLUMN>18</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>110</LINE>
+        <LINE>112</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>111</LINE>
+        <LINE>113</LINE>
         <COLUMN>11</COLUMN>
         <KEYEVENT>
           <ID>10</ID>
@@ -993,74 +1021,68 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>116</LINE>
+        <LINE>118</LINE>
         <COLUMN>1</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>117</LINE>
-        <COLUMN>17</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>119</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>121</LINE>
         <COLUMN>23</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>120</LINE>
+        <LINE>122</LINE>
         <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>122</LINE>
+        <LINE>124</LINE>
         <COLUMN>17</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>123</LINE>
-        <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>125</LINE>
-        <COLUMN>17</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>126</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>127</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>128</LINE>
-        <COLUMN>1</COLUMN>
+        <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>130</LINE>
-        <COLUMN>27</COLUMN>
+        <COLUMN>1</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>132</LINE>
-        <COLUMN>32</COLUMN>
+        <COLUMN>27</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>133</LINE>
-        <COLUMN>33</COLUMN>
+        <LINE>134</LINE>
+        <COLUMN>32</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
@@ -1072,6 +1094,12 @@
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>137</LINE>
+        <COLUMN>33</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>139</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>11</ID>
@@ -1083,7 +1111,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>139</LINE>
+        <LINE>141</LINE>
         <COLUMN>49</COLUMN>
         <KEYEVENT>
           <ID>12</ID>
@@ -1098,14 +1126,14 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>d3dclass.cpp</FILENAME>
-      <LINE>140</LINE>
+      <LINE>142</LINE>
       <COLUMN>51</COLUMN>
     </SFA>
     <DEFECTCODE>6001</DEFECTCODE>
     <DESCRIPTION>Using uninitialized memory 'denominator'.</DESCRIPTION>
     <FUNCTION>D3DClass::Initialize</FUNCTION>
     <DECORATED>?Initialize@D3DClass@@QEAA_NHH_NPEAUHWND__@@0MM@Z</DECORATED>
-    <FUNCLINE>29</FUNCLINE>
+    <FUNCLINE>31</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>3</RANK>
     <CATEGORY>
@@ -1115,49 +1143,49 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>31</LINE>
+        <LINE>33</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>32</LINE>
-        <COLUMN>15</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>33</LINE>
-        <COLUMN>15</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>34</LINE>
-        <COLUMN>14</COLUMN>
+        <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>35</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>36</LINE>
         <COLUMN>14</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>35</LINE>
+        <LINE>37</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>37</LINE>
         <COLUMN>24</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>35</LINE>
+        <LINE>37</LINE>
         <COLUMN>27</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>35</LINE>
+        <LINE>37</LINE>
         <COLUMN>38</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -1169,109 +1197,109 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>36</LINE>
+        <LINE>38</LINE>
         <COLUMN>20</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>37</LINE>
+        <LINE>39</LINE>
         <COLUMN>17</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>38</LINE>
-        <COLUMN>19</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>39</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>40</LINE>
-        <COLUMN>22</COLUMN>
+        <COLUMN>19</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>41</LINE>
-        <COLUMN>19</COLUMN>
+        <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>42</LINE>
-        <COLUMN>18</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>43</LINE>
         <COLUMN>22</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>43</LINE>
+        <COLUMN>19</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>44</LINE>
-        <COLUMN>26</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>45</LINE>
-        <COLUMN>31</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>46</LINE>
-        <COLUMN>23</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>47</LINE>
-        <COLUMN>16</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>48</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>49</LINE>
-        <COLUMN>26</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>50</LINE>
         <COLUMN>18</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>45</LINE>
+        <COLUMN>22</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>46</LINE>
+        <COLUMN>26</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>47</LINE>
+        <COLUMN>31</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>48</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>49</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>50</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>51</LINE>
+        <COLUMN>26</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>52</LINE>
-        <COLUMN>15</COLUMN>
+        <COLUMN>18</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>54</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>56</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>55</LINE>
+        <LINE>57</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -1283,13 +1311,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>60</LINE>
+        <LINE>62</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>61</LINE>
+        <LINE>63</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -1301,13 +1329,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>66</LINE>
+        <LINE>68</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>67</LINE>
+        <LINE>69</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
@@ -1319,13 +1347,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>72</LINE>
+        <LINE>74</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>73</LINE>
+        <LINE>75</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>5</ID>
@@ -1337,13 +1365,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>78</LINE>
+        <LINE>80</LINE>
         <COLUMN>17</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>79</LINE>
+        <LINE>81</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>6</ID>
@@ -1355,13 +1383,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>84</LINE>
+        <LINE>86</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>85</LINE>
+        <LINE>87</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>7</ID>
@@ -1373,13 +1401,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>90</LINE>
+        <LINE>92</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>90</LINE>
+        <LINE>92</LINE>
         <COLUMN>15</COLUMN>
         <KEYEVENT>
           <ID>8</ID>
@@ -1391,13 +1419,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>102</LINE>
+        <LINE>104</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>103</LINE>
+        <LINE>105</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>9</ID>
@@ -1409,19 +1437,19 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>108</LINE>
+        <LINE>110</LINE>
         <COLUMN>18</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>110</LINE>
+        <LINE>112</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>111</LINE>
+        <LINE>113</LINE>
         <COLUMN>11</COLUMN>
         <KEYEVENT>
           <ID>10</ID>
@@ -1433,74 +1461,68 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>116</LINE>
+        <LINE>118</LINE>
         <COLUMN>1</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>117</LINE>
-        <COLUMN>17</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>119</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>121</LINE>
         <COLUMN>23</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>120</LINE>
+        <LINE>122</LINE>
         <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>122</LINE>
+        <LINE>124</LINE>
         <COLUMN>17</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>123</LINE>
-        <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>125</LINE>
-        <COLUMN>17</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>126</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>127</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>128</LINE>
-        <COLUMN>1</COLUMN>
+        <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>130</LINE>
-        <COLUMN>27</COLUMN>
+        <COLUMN>1</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>132</LINE>
-        <COLUMN>32</COLUMN>
+        <COLUMN>27</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>133</LINE>
-        <COLUMN>33</COLUMN>
+        <LINE>134</LINE>
+        <COLUMN>32</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
@@ -1512,6 +1534,12 @@
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
         <LINE>137</LINE>
+        <COLUMN>33</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+        <FILENAME>d3dclass.cpp</FILENAME>
+        <LINE>139</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>11</ID>
@@ -1523,13 +1551,13 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>139</LINE>
+        <LINE>141</LINE>
         <COLUMN>49</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>d3dclass.cpp</FILENAME>
-        <LINE>140</LINE>
+        <LINE>142</LINE>
         <COLUMN>51</COLUMN>
         <KEYEVENT>
           <ID>12</ID>

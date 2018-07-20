@@ -16,6 +16,7 @@ UniverseClass::UniverseClass()
 	mSpeedDecreased = false;
 
 	mRenderAtmosphere = true;
+	mRenderMars = true;
 }
 
 UniverseClass::UniverseClass(const UniverseClass& other)
@@ -347,6 +348,11 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 		mRenderAtmosphere = !mRenderAtmosphere;
 	}
 
+	if (input->IsF4Toggled())
+	{
+		mRenderMars = !mRenderMars;
+	}
+
 	return;
 }
 
@@ -380,23 +386,40 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 		direct3D->EnableWireframe();
 	}
 
-	mMars->Render(direct3D->GetDeviceContext());
-	result = shaderManager->RenderMarsShader(direct3D->GetDeviceContext(), mMars->GetIndexCount(), mMars->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, inverseWorldMatrix, rotationMatrix, mMars->GetMarsRadius(), mMars->GetMarsMaxHeight(), mMars->GetMarsMinHeight(), mMars->GetDistanceLUT(), mPosition->GetPositionXMFLOAT3(), mMars->GetHeightMap(), mMars->GetHeightMapDetail2(), mMars->GetColorMap(), mSunlight->GetDirection(), mSunlight->GetDiffuseColor(), mMars->GetMarsPatchDelta(), mPosition->CheckIfInsideAtmosphere(mMarsAtmosphere->GetAtmosphereHeight(), mMars->GetMarsRadius(), mPosition->GetDistanceFromOrigo()), mPosition->GetDistanceFromOrigo());
-	if (!result)
+	if (mRenderMars)
 	{
-		return false;
+		mMars->Render(direct3D->GetDeviceContext());
+		result = shaderManager->RenderMarsShader(direct3D->GetDeviceContext(), mMars->GetIndexCount(), mMars->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, inverseWorldMatrix, rotationMatrix, mMars->GetMarsRadius(), mMars->GetMarsMaxHeight(), mMars->GetMarsMinHeight(), mMars->GetDistanceLUT(), mPosition->GetPositionXMFLOAT3(), mMars->GetHeightMap(), mMars->GetHeightMapDetail2(), mMars->GetColorMap(), mSunlight->GetDirection(), mSunlight->GetDiffuseColor(), mMars->GetMarsPatchDelta(), mPosition->CheckIfInsideAtmosphere(mMarsAtmosphere->GetAtmosphereHeight(), mMars->GetMarsRadius(), mPosition->GetDistanceFromOrigo()), mPosition->GetDistanceFromOrigo());
+		if (!result)
+		{
+			return false;
+		}
 	}
 
 	if (mRenderAtmosphere) 
 	{
-		direct3D->EnableAlphaBlending();
+		if (mWireframe) 
+		{
+			direct3D->EnableFrontCullingWireframe();
+		}
+		else 
+		{
+			direct3D->TurnOnFrontCulling();
+		}
 		mMarsAtmosphere->Render(direct3D->GetDeviceContext());
 		result = shaderManager->RenderMarsAtmosphereShader(direct3D->GetDeviceContext(), mMarsAtmosphere->GetIndexCount(), mMarsAtmosphere->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, rotationMatrix, (mMarsAtmosphere->GetAtmosphereHeight() + mMars->GetMarsRadius()), mPosition->CheckIfInsideAtmosphere(mMarsAtmosphere->GetAtmosphereHeight(), mMars->GetMarsRadius(), mPosition->GetDistanceFromOrigo()), mMars->GetMarsRadius(), mPosition->GetDistanceFromOrigo(), mCamera->GetPosition(), mSunlight->GetDirection());
 		if (!result)
 		{
 			return false;
 		}
-		direct3D->DisableAlphaBlending();
+		if (mWireframe)
+		{
+			direct3D->DisableFrontCullingWireframe();
+		}
+		else
+		{
+			direct3D->TurnOffFrontCulling();
+		}
 	}
 
 	if (mWireframe)

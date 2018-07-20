@@ -39,7 +39,7 @@ private:
 	MarsAtmosphereClass* mMarsAtmosphere;
 	FrustumClass* mFrustum;
 	LightClass* mSunlight;
-	bool mDisplayUI, mWireframe, mSpeedIncreased, mSpeedDecreased, mRenderAtmosphere;
+	bool mDisplayUI, mWireframe, mSpeedIncreased, mSpeedDecreased, mRenderAtmosphere, mRenderMars;
 	float mScreenDepth, mScreenNear;
 	MousePointerClass *mMousePointer;
 	GameTimeClass *mGameTime;

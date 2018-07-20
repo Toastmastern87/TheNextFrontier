@@ -11,6 +11,8 @@ D3DClass::D3DClass()
 	mDepthStencilView = 0;
 	mRasterState = 0;
 	mRasterStateNoCulling = 0;
+	mRasterStateFrontCulling = 0;
+	mRasterStateFrontCullingWireframe = 0;
 	mRasterStateWireframe = 0;
 	mDepthDisabledStencilState = 0;
 	mAlphaEnableBlendingState = 0;
@@ -277,6 +279,14 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vSync, HWND hw
 		return false;
 	}
 
+	rasterDesc.CullMode = D3D11_CULL_FRONT;
+
+	result = mDevice->CreateRasterizerState(&rasterDesc, &mRasterStateFrontCulling);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
 	rasterDesc.AntialiasedLineEnable = false;
 	rasterDesc.CullMode = D3D11_CULL_NONE;
 	rasterDesc.DepthBias = 0;
@@ -289,6 +299,23 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vSync, HWND hw
 	rasterDesc.SlopeScaledDepthBias = 0.0f;
 
 	result = mDevice->CreateRasterizerState(&rasterDesc, &mRasterStateWireframe);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	rasterDesc.AntialiasedLineEnable = false;
+	rasterDesc.CullMode = D3D11_CULL_FRONT;
+	rasterDesc.DepthBias = 0;
+	rasterDesc.DepthBiasClamp = 0.0f;
+	rasterDesc.DepthClipEnable = true;
+	rasterDesc.FillMode = D3D11_FILL_WIREFRAME;
+	rasterDesc.FrontCounterClockwise = false;
+	rasterDesc.MultisampleEnable = false;
+	rasterDesc.ScissorEnable = false;
+	rasterDesc.SlopeScaledDepthBias = 0.0f;
+
+	result = mDevice->CreateRasterizerState(&rasterDesc, &mRasterStateFrontCullingWireframe);
 	if (FAILED(result))
 	{
 		return false;
@@ -416,6 +443,12 @@ void D3DClass::Shutdown()
 	{
 		mRasterStateWireframe->Release();
 		mRasterStateWireframe = 0;
+	}
+
+	if (mRasterStateFrontCulling)
+	{
+		mRasterStateFrontCulling->Release();
+		mRasterStateFrontCulling = 0;
 	}
 
 	if (mRasterStateNoCulling)
@@ -604,6 +637,20 @@ void D3DClass::TurnOffCulling()
 	return;
 }
 
+void D3DClass::TurnOnFrontCulling()
+{
+	mDeviceContext->RSSetState(mRasterStateFrontCulling);
+
+	return;
+}
+
+void D3DClass::TurnOffFrontCulling()
+{
+	mDeviceContext->RSSetState(mRasterStateNoCulling);
+
+	return;
+}
+
 void D3DClass::EnableAlphaToCoverageBlending() 
 {
 	float blendFactor[4];
@@ -621,6 +668,20 @@ void D3DClass::EnableAlphaToCoverageBlending()
 void D3DClass::EnableWireframe()
 {
 	mDeviceContext->RSSetState(mRasterStateWireframe);
+
+	return;
+}
+
+void D3DClass::EnableFrontCullingWireframe()
+{
+	mDeviceContext->RSSetState(mRasterStateFrontCullingWireframe);
+
+	return;
+}
+
+void D3DClass::DisableFrontCullingWireframe()
+{
+	mDeviceContext->RSSetState(mRasterStateFrontCulling);
 
 	return;
 }

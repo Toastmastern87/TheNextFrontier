@@ -40,12 +40,18 @@ public:
 	void TurnOnCulling();
 	void TurnOffCulling();
 
+	void TurnOnFrontCulling();
+	void TurnOffFrontCulling();
+
 	void EnableAlphaBlending();
 	void EnableAlphaToCoverageBlending();
 	void DisableAlphaBlending();
 
 	void EnableWireframe();
 	void DisableWireframe();
+
+	void EnableFrontCullingWireframe();
+	void DisableFrontCullingWireframe();
 
 private:
 	bool mVSyncEnabled;
@@ -61,6 +67,8 @@ private:
 	ID3D11DepthStencilView* mDepthStencilView;
 	ID3D11RasterizerState* mRasterState;
 	ID3D11RasterizerState* mRasterStateNoCulling;
+	ID3D11RasterizerState* mRasterStateFrontCulling;
+	ID3D11RasterizerState* mRasterStateFrontCullingWireframe;
 	ID3D11RasterizerState* mRasterStateWireframe;
 	XMMATRIX mProjectionMatrix;
 	XMMATRIX mWorldMatrix;

@@ -328,11 +328,11 @@ void MarsAtmosphereClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, 
 
 	dot = XMVectorGetX(XMVector3Dot(centerNormalized, centerPositionSubtractionNormalized));
 
-	if (dot > 0.6f)
-	{
-		return;// NextTriangle::CULL;
-	}
-	else {
+	//if (dot > 0.6f)
+	//{
+	//	return;// NextTriangle::CULL;
+	//}
+	//else {
 		if (level < mMaxSubdivisionLevel) {
 			int nLevel;
 
@@ -357,7 +357,7 @@ void MarsAtmosphereClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, 
 			RecursiveTriangle(a, B, C, nLevel, false);
 			RecursiveTriangle(A, b, C, nLevel, false);
 			RecursiveTriangle(A, B, c, nLevel, false);
-			RecursiveTriangle(A, B, C, nLevel, false);
+			RecursiveTriangle(C, B, A, nLevel, false);
 		}
 		else
 		{
@@ -369,7 +369,7 @@ void MarsAtmosphereClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, 
 
 			mMarsAtmosphereCells.push_back(MarsAtmosphereCellType(level, a, secondCorner, thirdCorner));
 		}
-	}
+	//}
 
 	return;
 }

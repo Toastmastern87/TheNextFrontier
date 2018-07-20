@@ -314,61 +314,42 @@ void MarsAtmosphereClass::UpdateMarsAtmosphere(ID3D11DeviceContext* deviceContex
 void MarsAtmosphereClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, short level, bool frustumCull)
 {
 	XMFLOAT3 A, B, C;
-	float dot;
-	XMFLOAT3 center, position, centerPositionSubtraction;
-	XMVECTOR centerNormalized, centerPositionSubtractionNormalized;
 
-	//Backface Culling
-	center = XMFLOAT3(((a.x + b.x + c.x) / 3), ((a.y + b.y + c.y) / 3), ((a.z + b.z + c.z) / 3));
-	position = mPosition->GetPositionXMFLOAT3();
+	if (level < mMaxSubdivisionLevel) {
+		int nLevel;
 
-	centerNormalized = XMVector3Normalize(XMLoadFloat3(&center));
-	centerPositionSubtraction = XMFLOAT3((center.x - position.x), (center.y - position.y), (center.z - position.z));
-	centerPositionSubtractionNormalized = XMVector3Normalize(XMLoadFloat3(&centerPositionSubtraction));
+		float lengthA;
+		float lengthB;
+		float lengthC;
 
-	dot = XMVectorGetX(XMVector3Dot(centerNormalized, centerPositionSubtractionNormalized));
+		XMStoreFloat3(&A, XMLoadFloat3(&b) + XMVectorScale((XMLoadFloat3(&c) - XMLoadFloat3(&b)), 0.5f));
+		XMStoreFloat3(&B, XMLoadFloat3(&c) + XMVectorScale((XMLoadFloat3(&a) - XMLoadFloat3(&c)), 0.5f));
+		XMStoreFloat3(&C, XMLoadFloat3(&a) + XMVectorScale((XMLoadFloat3(&b) - XMLoadFloat3(&a)), 0.5f));
 
-	if (dot > 0.6f)
-	{
-		return;// NextTriangle::CULL;
+		lengthA = XMVectorGetX(XMVector3Length(XMLoadFloat3(&A)));
+		lengthB = XMVectorGetX(XMVector3Length(XMLoadFloat3(&B)));
+		lengthC = XMVectorGetX(XMVector3Length(XMLoadFloat3(&C)));
+
+		XMStoreFloat3(&A, (XMLoadFloat3(&A) * ((mAtmosphereHeight + mMarsRadius) / lengthA)));
+		XMStoreFloat3(&B, (XMLoadFloat3(&B) * ((mAtmosphereHeight + mMarsRadius) / lengthB)));
+		XMStoreFloat3(&C, (XMLoadFloat3(&C) * ((mAtmosphereHeight + mMarsRadius) / lengthC)));
+
+		nLevel = level + 1;
+
+		RecursiveTriangle(a, B, C, nLevel, false);
+		RecursiveTriangle(A, b, C, nLevel, false);
+		RecursiveTriangle(A, B, c, nLevel, false);
+		RecursiveTriangle(C, B, A, nLevel, false);
 	}
-	else {
-		if (level < mMaxSubdivisionLevel) {
-			int nLevel;
+	else
+	{
+		XMFLOAT3 secondCorner;
+		XMFLOAT3 thirdCorner;
 
-			float lengthA;
-			float lengthB;
-			float lengthC;
+		XMStoreFloat3(&secondCorner, XMLoadFloat3(&b) - XMLoadFloat3(&a));
+		XMStoreFloat3(&thirdCorner, XMLoadFloat3(&c) - XMLoadFloat3(&a));
 
-			XMStoreFloat3(&A, XMLoadFloat3(&b) + XMVectorScale((XMLoadFloat3(&c) - XMLoadFloat3(&b)), 0.5f));
-			XMStoreFloat3(&B, XMLoadFloat3(&c) + XMVectorScale((XMLoadFloat3(&a) - XMLoadFloat3(&c)), 0.5f));
-			XMStoreFloat3(&C, XMLoadFloat3(&a) + XMVectorScale((XMLoadFloat3(&b) - XMLoadFloat3(&a)), 0.5f));
-
-			lengthA = XMVectorGetX(XMVector3Length(XMLoadFloat3(&A)));
-			lengthB = XMVectorGetX(XMVector3Length(XMLoadFloat3(&B)));
-			lengthC = XMVectorGetX(XMVector3Length(XMLoadFloat3(&C)));
-
-			XMStoreFloat3(&A, (XMLoadFloat3(&A) * ((mAtmosphereHeight + mMarsRadius) / lengthA)));
-			XMStoreFloat3(&B, (XMLoadFloat3(&B) * ((mAtmosphereHeight + mMarsRadius) / lengthB)));
-			XMStoreFloat3(&C, (XMLoadFloat3(&C) * ((mAtmosphereHeight + mMarsRadius) / lengthC)));
-
-			nLevel = level + 1;
-
-			RecursiveTriangle(a, B, C, nLevel, false);
-			RecursiveTriangle(A, b, C, nLevel, false);
-			RecursiveTriangle(A, B, c, nLevel, false);
-			RecursiveTriangle(C, B, A, nLevel, false);
-		}
-		else
-		{
-			XMFLOAT3 secondCorner;
-			XMFLOAT3 thirdCorner;
-
-			XMStoreFloat3(&secondCorner, XMLoadFloat3(&b) - XMLoadFloat3(&a));
-			XMStoreFloat3(&thirdCorner, XMLoadFloat3(&c) - XMLoadFloat3(&a));
-
-			mMarsAtmosphereCells.push_back(MarsAtmosphereCellType(level, a, secondCorner, thirdCorner));
-		}
+		mMarsAtmosphereCells.push_back(MarsAtmosphereCellType(level, a, secondCorner, thirdCorner));
 	}
 
 	return;

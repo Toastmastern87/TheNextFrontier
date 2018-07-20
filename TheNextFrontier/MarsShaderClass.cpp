@@ -417,9 +417,9 @@ bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XM
 	AtmosphericScatteringBufferType *atmosphericScatteringDataPtr;
 	float km, kr, eSun;
 
-	km = 0.000025f;
-	kr = 0.003f;
-	eSun = 30.0f;
+	km = 0.0f;
+	kr = 0.004f;
+	eSun = 20.0f;
 
 	unsigned int bufferNumber;
 

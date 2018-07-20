@@ -569,15 +569,10 @@ void MarsClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, short leve
 
 		nLevel = level + 1;
 
-		//RecursiveTriangle(C, B, a, nLevel, nextTriangle == NextTriangle::SPLITCULL);
-		//RecursiveTriangle(b, A, C, nLevel, nextTriangle == NextTriangle::SPLITCULL);
-		//RecursiveTriangle(A, c, B, nLevel, nextTriangle == NextTriangle::SPLITCULL);
-
-		RecursiveTriangle(C, B, a, nLevel, nextTriangle == NextTriangle::SPLITCULL);//Winding is inverted
-		RecursiveTriangle(b, A, C, nLevel, nextTriangle == NextTriangle::SPLITCULL);//Winding is inverted
-		RecursiveTriangle(B, A, c, nLevel, nextTriangle == NextTriangle::SPLITCULL);//Winding is inverted
-
-		RecursiveTriangle(A, B, C, nLevel, nextTriangle == NextTriangle::SPLITCULL);
+		RecursiveTriangle(C, B, a, nLevel, nextTriangle == NextTriangle::SPLITCULL);
+		RecursiveTriangle(b, A, C, nLevel, nextTriangle == NextTriangle::SPLITCULL);
+		RecursiveTriangle(B, A, c, nLevel, nextTriangle == NextTriangle::SPLITCULL);
+		RecursiveTriangle(C, B, A, nLevel, nextTriangle == NextTriangle::SPLITCULL);
 	}
 	else
 	{

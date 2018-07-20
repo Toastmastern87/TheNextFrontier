@@ -21,7 +21,7 @@ bool MarsAtmosphereClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* 
 {
 	bool result;
 	mMaxSubdivisionLevel = 3;
-	mMaxCellLevel = 1;
+	mMaxCellLevel = 2;
 	
 	mMarsRadius = marsRadius;
 
@@ -328,11 +328,11 @@ void MarsAtmosphereClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, 
 
 	dot = XMVectorGetX(XMVector3Dot(centerNormalized, centerPositionSubtractionNormalized));
 
-	//if (dot > 0.6f)
-	//{
-	//	return;// NextTriangle::CULL;
-	//}
-	//else {
+	if (dot > 0.6f)
+	{
+		return;// NextTriangle::CULL;
+	}
+	else {
 		if (level < mMaxSubdivisionLevel) {
 			int nLevel;
 
@@ -369,7 +369,7 @@ void MarsAtmosphereClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, 
 
 			mMarsAtmosphereCells.push_back(MarsAtmosphereCellType(level, a, secondCorner, thirdCorner));
 		}
-	//}
+	}
 
 	return;
 }

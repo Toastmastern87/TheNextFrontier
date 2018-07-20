@@ -101,7 +101,7 @@ PixelInputType MarsAtmosphereFromSpaceVertexShader(VertexInputType input)
 	{
 		float heightForSunlight = length(samplePoint);
 		float depth = exp(scaleOverScaleDepth * (marsRadius - heightForSunlight));
-		float lightAngle = dot(mul(lightDirection, rotationMatrix), samplePoint) / heightForSunlight;
+		float lightAngle = dot(-mul(lightDirection, rotationMatrix), samplePoint) / heightForSunlight;
 		float cameraAngle = dot(ray, samplePoint) / heightForSunlight;
 		float scatter = (startOffset + depth * (Scale(lightAngle) - Scale(cameraAngle)));
 		attenuate = exp(-scatter * (invWavelength * kr4PI + km4PI));

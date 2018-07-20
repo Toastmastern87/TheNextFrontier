@@ -19,10 +19,14 @@ float4 MarsAtmosphereFromSpacePixelShader(PixelInputType input) : SV_TARGET
 	float cos, miePhase;
 
 	cos = dot(mul(lightDirection, rotationMatrix), input.direction) / length(input.direction);
-	miePhase = 1.5f * ((1.0f - (g * g)) / (2.0f + (g * g))) * (1.0f + cos * cos) / pow((1.0f + (g * g) - 2.0f * g * cos), 1.5f);
+	miePhase = (1.5f * ((1.0f - (g * g)) / (2.0f + (g * g))) * (1.0f + cos * cos) / pow((1.0f + (g * g) - 2.0f * g * cos), 1.5f));
 
-	finalColor.rgb = input.color + (miePhase * input.secondColor);
+	finalColor.rgb = (input.color + (miePhase * input.secondColor));
 	finalColor.a = input.color.b;
+
+	finalColor.r = 1.0f - exp(-1.0f * finalColor.r);
+	finalColor.g = 1.0f - exp(-1.0f * finalColor.g);
+	finalColor.b = 1.0f - exp(-1.0f * finalColor.b);
 
 	return finalColor;
 }

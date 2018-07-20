@@ -15,6 +15,7 @@ UniverseClass::UniverseClass()
 	mSpeedIncreased = false;
 	mSpeedDecreased = false;
 
+	mWireframe = false;
 	mRenderAtmosphere = true;
 	mRenderMars = true;
 }
@@ -406,12 +407,14 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 		{
 			direct3D->TurnOnFrontCulling();
 		}
+
 		mMarsAtmosphere->Render(direct3D->GetDeviceContext());
 		result = shaderManager->RenderMarsAtmosphereShader(direct3D->GetDeviceContext(), mMarsAtmosphere->GetIndexCount(), mMarsAtmosphere->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, rotationMatrix, (mMarsAtmosphere->GetAtmosphereHeight() + mMars->GetMarsRadius()), mPosition->CheckIfInsideAtmosphere(mMarsAtmosphere->GetAtmosphereHeight(), mMars->GetMarsRadius(), mPosition->GetDistanceFromOrigo()), mMars->GetMarsRadius(), mPosition->GetDistanceFromOrigo(), mCamera->GetPosition(), mSunlight->GetDirection());
 		if (!result)
 		{
 			return false;
 		}
+	
 		if (mWireframe)
 		{
 			direct3D->DisableFrontCullingWireframe();

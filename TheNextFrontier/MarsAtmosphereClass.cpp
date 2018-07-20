@@ -388,3 +388,8 @@ int MarsAtmosphereClass::GetInstanceCount()
 {
 	return (int)mMarsAtmosphereCells.size();
 }
+
+int MarsAtmosphereClass::GetMarsVerticesCount()
+{
+	return (int)mMarsAtmosphereCellVertices.size();
+}

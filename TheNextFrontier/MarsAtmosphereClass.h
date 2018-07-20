@@ -70,6 +70,7 @@ public:
 	void Render(ID3D11DeviceContext*);
 
 	int GetIndexCount();
+	int GetMarsVerticesCount();
 	int GetInstanceCount();
 
 	float GetAtmosphereHeight();

@@ -223,8 +223,10 @@ void UniverseClass::Shutdown()
 bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, ShaderManagerClass* shaderManager, float frameTime, int fps)
 {
 	bool result;
-	float posX, posY, posZ, rotX, rotY, rotZ, altitude;
+	float posX, posY, posZ, rotX, rotY, rotZ, altitude, numberOfVertices;
 	int mouseX, mouseY;
+
+	numberOfVertices = 0;
 
 	mGameTime->Frame();
 
@@ -243,11 +245,21 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 		return false;
 	}
 
+	if (mRenderMars) 
+	{
+		numberOfVertices += (mMars->GetMarsVerticesCount() * mMars->GetInstanceCount());
+	}
+
+	if (mRenderAtmosphere)
+	{
+		numberOfVertices += (mMarsAtmosphere->GetMarsVerticesCount() * mMarsAtmosphere->GetInstanceCount());
+	}
+
 	if (mMars) 
 	{
 		altitude = mPosition->GetDistanceFromOrigo() - mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3());
 
-		result = mUI->Frame(hwnd, direct3D->GetDeviceContext(), fps, posX, posY, posZ, rotX, rotY, rotZ, (mMars->GetMarsVerticesCount() * mMars->GetInstanceCount()), altitude, mPosition->GetDistanceFromOrigo(), mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()), mGameTime->GetGameTimeSecs(), mGameTime->GetGameTimeMins(), mGameTime->GetGameTimeHours(), mGameTime->GetGameTimeDays(), mGameTime->GetGameTimeMarsYears());
+		result = mUI->Frame(hwnd, direct3D->GetDeviceContext(), fps, posX, posY, posZ, rotX, rotY, rotZ, numberOfVertices, altitude, mPosition->GetDistanceFromOrigo(), mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()), mGameTime->GetGameTimeSecs(), mGameTime->GetGameTimeMins(), mGameTime->GetGameTimeHours(), mGameTime->GetGameTimeDays(), mGameTime->GetGameTimeMarsYears());
 		if (!result)
 		{
 			return false;

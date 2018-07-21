@@ -1,5 +1,0 @@
-Mars 92k Color Map Credits:
-
-Original datasets published by USGS Astrogeology Science Center.
-
-Extensive editing and preparation by Tuomas Kankola.

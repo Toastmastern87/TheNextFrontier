@@ -89,15 +89,18 @@ float4 MarsFromSpacePixelShader(PixelInputType input) : SV_TARGET
 
 	normal = normalize(CalculateNormal(normalize(input.normal), normalize(input.viewVector), input.mapCoord, false));
 
-    lightIntensity = saturate(dot(normal, normalize(-1 * mul(lightDirection, rotationMatrix))));
+    lightIntensity = saturate(dot(normal, normalize(mul(lightDirection, rotationMatrix))) * 0.5f);
 
     lightColor = saturate(diffuseColor * lightIntensity);
 
 	color = colorMapTexture.SampleLevel(sampleType, input.mapCoord, 0).rgba;
 
+	color.rg *= 10.0f;
+	color.b *= 7.0f;
+
 	increasedLigthningFactor = 2.5f;
 
-	return input.color * color * 10.0f * input.secondColor; //(color * increasedLigthningFactor) * lightColor;
+	return input.color * color * input.secondColor;
 }
 
 float4 MarsFromAtmospherePixelShader(PixelInputType input) : SV_TARGET
@@ -114,7 +117,10 @@ float4 MarsFromAtmospherePixelShader(PixelInputType input) : SV_TARGET
 
 	color = colorMapTexture.SampleLevel(sampleType, input.mapCoord, 0).rgba;
 
+	color.rg *= 10.0f;
+	color.b *= 7.0f;
+
 	increasedLigthningFactor = 2.5f;
 
-	return (color * increasedLigthningFactor) * lightColor;
+	return input.color * color * input.secondColor; //(color * increasedLigthningFactor) * lightColor;
 }

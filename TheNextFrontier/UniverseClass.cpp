@@ -16,6 +16,7 @@ UniverseClass::UniverseClass()
 	mSpeedDecreased = false;
 
 	mWireframe = false;
+	mDisplayUI = true;
 	mRenderAtmosphere = true;
 	mRenderMars = true;
 }
@@ -149,9 +150,6 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 		MessageBox(hwnd, L"Could not initialize the mouse object", L"Error", MB_OK);
 		return false;
 	}
-
-	mDisplayUI = true;
-	mWireframe = true;
 
 	return true;
 }

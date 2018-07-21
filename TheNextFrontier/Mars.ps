@@ -89,18 +89,25 @@ float4 MarsFromSpacePixelShader(PixelInputType input) : SV_TARGET
 
 	normal = normalize(CalculateNormal(normalize(input.normal), normalize(input.viewVector), input.mapCoord, false));
 
-    lightIntensity = saturate(dot(normal, normalize(mul(lightDirection, rotationMatrix))) * 0.5f);
+    lightIntensity = saturate(dot(normal, normalize(mul(lightDirection, rotationMatrix))));
 
     lightColor = saturate(diffuseColor * lightIntensity);
 
-	color = colorMapTexture.SampleLevel(sampleType, input.mapCoord, 0).rgba;
+	color = colorMapTexture.SampleLevel(sampleType, input.mapCoord, 0).rgba; //float4(0.86f, 0.55f, 0.25f, 1.0f);// 
 
-	color.rg *= 10.0f;
-	color.b *= 7.0f;
+	// To use when the color is decided by the GPU
+	//color.r *= 7.0f;
+	//color.g *= 4.0f;
+	//color.b *= 3.0f;
 
-	increasedLigthningFactor = 2.5f;
+	// To be used when the color is decided by a texture
+	color.r *= 7.0f;
+	color.g *= 6.0f;
+	color.b *= 3.0f;
 
-	return input.color * color * input.secondColor;
+	increasedLigthningFactor = 50.0f;
+
+	return input.color * color * input.secondColor * lightIntensity * 4.0f;
 }
 
 float4 MarsFromAtmospherePixelShader(PixelInputType input) : SV_TARGET
@@ -111,16 +118,23 @@ float4 MarsFromAtmospherePixelShader(PixelInputType input) : SV_TARGET
 
 	normal = normalize(CalculateNormal(normalize(input.normal), normalize(input.viewVector), input.mapCoord, true));
 
-    lightIntensity = saturate(dot(normal, normalize(-1 * mul(lightDirection, rotationMatrix))));
+    lightIntensity = saturate(dot(normal, normalize(mul(lightDirection, rotationMatrix))));
 
     lightColor = saturate(diffuseColor * lightIntensity);
 
-	color = colorMapTexture.SampleLevel(sampleType, input.mapCoord, 0).rgba;
+	color = colorMapTexture.SampleLevel(sampleType, input.mapCoord, 0).rgba; //float4(0.86f, 0.55f, 0.25f, 1.0f); 
 
-	color.rg *= 10.0f;
-	color.b *= 7.0f;
+	// To use when the color is decided by the GPU
+	//color.r *= 7.0f;
+	//color.g *= 4.0f;
+	//color.b *= 3.0f;
+
+	// To be used when the color is decided by a texture
+	color.r *= 7.0f;
+	color.g *= 6.0f;
+	color.b *= 3.0f;
 
 	increasedLigthningFactor = 2.5f;
 
-	return input.color * color * input.secondColor; //(color * increasedLigthningFactor) * lightColor;
+	return input.color * color * input.secondColor * lightIntensity * 4.0f; //(color * increasedLigthningFactor) * lightColor;
 }

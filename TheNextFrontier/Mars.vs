@@ -79,12 +79,22 @@ float GetHeight(float3 pos, float maxHeight, float minHeight)
 	float2 uv;
 	float heightColorValue, heightDetail2ColorValue;
 	float3 normalizePos;
+	float2 textureStretch;
+
+	textureStretch = float2(2.0f, 1.0f);
 
 	normalizePos = normalize(pos);
 
 	uv = float2((0.5f + (atan2(normalizePos.z, normalizePos.x) / (2 * PI))), (0.5f - (asin(normalizePos.y) / PI)));
 
 	heightColorValue = heightMapTexture.SampleLevel(sampleType, uv, 0).r;
+	//heightColorValue += (heightMapDetail2Texture.SampleLevel(sampleType, (uv * textureStretch * 700), 1).r * 1.0f);
+
+	//float noise = noise(2.0f);
+
+	//float noise = 1 * noise(1 * nx, 1 * ny);
+    //noise += 0.5f * noise(2 * nx, 2 * ny);
+    //noise += 0.25f * noise(4 * nx, 2 * ny);
 
 	return (heightColorValue * (maxHeight - minHeight));
 }
@@ -254,7 +264,7 @@ PixelInputType MarsFromAtmosphereVertexShader(VertexInputType input)
 	output.viewVector = (mul(cameraPos.xyz, worldMatrix) - mul(finalPos, worldMatrix));
 
 	mapCoords = normalize(finalPos);
-	output.mapCoord = float2((0.5f + (atan2(mapCoords.z, mapCoords.x) / (2 * 3.14159265f))), (0.5f - (asin(mapCoords.y) / 3.14159265f)));
+	output.mapCoord = float2((0.5f + (atan2(mapCoords.z, mapCoords.x) / (2 * PI))), (0.5f - (asin(mapCoords.y) / PI)));
 
 	output.position = mul(float4(finalPos, 1.0f), worldMatrix);
 	output.position = mul(output.position, viewMatrix);

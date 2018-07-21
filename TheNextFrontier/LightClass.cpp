@@ -3,7 +3,7 @@
 LightClass::LightClass()
 {
 	//Start angle, this gives the starting position daylight at start
-	mSunRotateAngle = -2.0f;
+	mSunRotateAngle = 1.5f;
 }
 
 LightClass::LightClass(const LightClass& other)

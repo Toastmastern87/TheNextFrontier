@@ -254,17 +254,18 @@ bool MarsAtmosphereShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd
 
 void MarsAtmosphereShaderClass::ShutdownShader()
 {
+	if (mAtmosphericScatteringVSBuffer)
+	{
+		mAtmosphericScatteringVSBuffer->Release();
+		mAtmosphericScatteringVSBuffer = 0;
+	}
+
 	if (mAtmosphericScatteringPSBuffer)
 	{
 		mAtmosphericScatteringPSBuffer->Release();
 		mAtmosphericScatteringPSBuffer = 0;
 	}
 
-	if (mAtmosphericScatteringVSBuffer)
-	{
-		mAtmosphericScatteringVSBuffer->Release();
-		mAtmosphericScatteringVSBuffer = 0;
-	}
 
 	if (mMatrixBuffer)
 	{

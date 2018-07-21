@@ -1,6 +1,7 @@
 Texture2D heightMapTexture : register(t0);
 Texture2D heightMapDetail2Texture : register(t1);
 Texture2D colorMapTexture : register(t2);
+Texture2D detailAreaMapTexture : register(t3);
 SamplerState sampleType;
 
 struct PixelInputType
@@ -92,8 +93,19 @@ float4 MarsFromSpacePixelShader(PixelInputType input) : SV_TARGET
     lightIntensity = saturate(dot(normal, normalize(mul(lightDirection, rotationMatrix))));
 
     lightColor = saturate(diffuseColor * lightIntensity);
+	
+	float4 detailArea;
 
-	color = colorMapTexture.SampleLevel(sampleType, input.mapCoord, 0).rgba; //float4(0.86f, 0.55f, 0.25f, 1.0f);// 
+	detailArea = detailAreaMapTexture.SampleLevel(sampleType, input.mapCoord, 0).rgba; 
+
+	if(detailArea.r == 1.0f && detailArea.g == 0.0f)
+	{
+		color = float4(0.0f, 1.0f, 0.0f, 1.0f);// 
+	}
+	else
+	{
+		color = colorMapTexture.SampleLevel(sampleType, input.mapCoord, 0).rgba; //float4(0.86f, 0.55f, 0.25f, 1.0f);// 
+	}
 
 	// To use when the color is decided by the GPU
 	//color.r *= 7.0f;

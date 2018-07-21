@@ -123,9 +123,9 @@ void ShaderManagerClass::Shutdown()
 	return;
 }
 
-bool ShaderManagerClass::RenderMarsShader(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX inverseWorldMatrix, XMMATRIX rotationMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightMap, ID3D11ShaderResourceView* heightMapDetail2, ID3D11ShaderResourceView* colorMap, XMFLOAT3 lightDirection, XMFLOAT4 lightDiffuseColor, float patchDelta, bool insideAtmosphere, float distanceFromOrigo)
+bool ShaderManagerClass::RenderMarsShader(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX inverseWorldMatrix, XMMATRIX rotationMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightMap, ID3D11ShaderResourceView* heightMapDetail2, ID3D11ShaderResourceView* colorMap, ID3D11ShaderResourceView* detailAreaTexture, XMFLOAT3 lightDirection, XMFLOAT4 lightDiffuseColor, float patchDelta, bool insideAtmosphere, float distanceFromOrigo)
 {
-	return mMarsShader->Render(deviceContext, indexCount, instanceCount, worldMatrix, viewMatrix, projectionMatrix, inverseWorldMatrix, rotationMatrix, marsRadius, marsMaxHeight, marsMinHeight, distanceLUT, cameraPos, heightMap, heightMapDetail2, colorMap, lightDirection, lightDiffuseColor, patchDelta, insideAtmosphere, distanceFromOrigo);
+	return mMarsShader->Render(deviceContext, indexCount, instanceCount, worldMatrix, viewMatrix, projectionMatrix, inverseWorldMatrix, rotationMatrix, marsRadius, marsMaxHeight, marsMinHeight, distanceLUT, cameraPos, heightMap, heightMapDetail2, colorMap, detailAreaTexture, lightDirection, lightDiffuseColor, patchDelta, insideAtmosphere, distanceFromOrigo);
 }
 
 bool ShaderManagerClass::RenderMarsAtmosphereShader(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX rotationMatrix, float marsAtmosphereRadius, bool insideAtmosphere, float marsRadius, float distanceFromOrigo, XMFLOAT3 cameraPos, XMFLOAT3 lightDirection)

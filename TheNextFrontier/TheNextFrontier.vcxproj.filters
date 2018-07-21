@@ -13,11 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\Shaders">
-      <UniqueIdentifier>{450cdb79-f042-46e4-82a5-b864c8bbae9b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource Files\Textures">
       <UniqueIdentifier>{2bb59a69-f8fa-43a7-a76a-249dd2055665}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shaders">
+      <UniqueIdentifier>{450cdb79-f042-46e4-82a5-b864c8bbae9b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -238,6 +238,9 @@
       <Filter>Resource Files\Textures</Filter>
     </Image>
     <Image Include="Textures\MousePointer.tif">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="Textures\MarsDetailAreaMap8K.tif">
       <Filter>Resource Files\Textures</Filter>
     </Image>
   </ItemGroup>

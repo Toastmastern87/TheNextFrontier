@@ -1,5 +1,6 @@
 Texture2D heightMapTexture : register(t0);
 Texture2D heightMapDetail2Texture : register(t1);
+Texture2D detailAreaMapTexture : register(t2);
 SamplerState sampleType;
 
 #define PI 3.141592653589793

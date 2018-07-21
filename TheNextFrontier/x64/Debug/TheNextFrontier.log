@@ -1,7 +1,5 @@
-﻿  MarsAtmosphereShaderClass.cpp
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereshaderclass.cpp(394): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereshaderclass.cpp(395): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsatmosphereshaderclass.cpp(351): warning C4101: 'temp': unreferenced local variable
+﻿  MarsShaderClass.cpp
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsshaderclass.cpp(426): warning C4101: 'temp': unreferenced local variable
   TheNextFrontier.vcxproj -> C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\x64\Debug\TheNextFrontier.exe
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\cameraclass.cpp(3): warning C26495: Variable 'CameraClass::mViewMatrix' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\cameraclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
@@ -41,8 +39,8 @@ c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextf
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\fpsclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\fpsclass.cpp(3): warning C26495: Variable 'FPSClass::mFPS' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\fpsclass.cpp(7): warning C26495: Variable 'FPSClass::mFPS' is uninitialized. Always initialize a member variable (type.6).
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsclass.h(58): warning C26495: Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsclass.h(58): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsclass.h(58): warning C26495: Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\applicationclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\applicationclass.cpp(13): warning C26495: Variable 'ApplicationClass::mInput' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\frustumclass.cpp(16): warning C26495: Variable 'FrustumClass::mPlane' is uninitialized. Always initialize a member variable (type.6).
@@ -54,7 +52,7 @@ c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextf
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\inputclass.cpp(10): warning C26495: Variable 'InputClass::mDirectInput' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsclass.cpp(3): warning C26495: Variable 'MarsClass::mMarsRadius' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsclass.cpp(13): warning C26495: Variable 'MarsClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\marsclass.cpp(17): warning C26495: Variable 'MarsClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\mousepointerclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\mousepointerclass.cpp(3): warning C26495: Variable 'MousePointerClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\mousepointerclass.cpp(7): warning C26495: Variable 'MousePointerClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).
@@ -64,12 +62,12 @@ c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextf
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\positionclass.cpp(3): warning C26495: Variable 'PositionClass::mAltitude' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\positionclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\positionclass.cpp(28): warning C26495: Variable 'PositionClass::mBackwardSpeed' is uninitialized. Always initialize a member variable (type.6).
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\shadermanagerclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\shadermanagerclass.cpp(3): warning C26495: Variable 'ShaderManagerClass::mMarsAtmosphereShader' is uninitialized. Always initialize a member variable (type.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\shadermanagerclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\shadermanagerclass.cpp(11): warning C26495: Variable 'ShaderManagerClass::mMarsShader' is uninitialized. Always initialize a member variable (type.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\systemclass.cpp(3): warning C26495: Variable 'SystemClass::mHInstance' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\systemclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\systemclass.cpp(3): warning C26495: Variable 'SystemClass::mHWND' is uninitialized. Always initialize a member variable (type.6).
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\systemclass.cpp(8): warning C26495: Variable 'SystemClass::mHWND' is uninitialized. Always initialize a member variable (type.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\systemclass.cpp(8): warning C26495: Variable 'SystemClass::mApplication' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\textclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\textclass.cpp(3): warning C26495: Variable 'TextClass::mScreenWidth' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\textclass.cpp(11): warning C26495: Variable 'TextClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).

@@ -8,6 +8,10 @@ MarsClass::MarsClass()
 	mFrustum = 0;
 	mHeightMapResource = 0;
 	mHeightMapResourceView = 0;
+	mColorMapResource = 0;
+	mColorMapResourceView = 0;
+	mDetailAreaMapResource = 0;
+	mDetailAreaMapResourceView = 0;
 }
 
 MarsClass::MarsClass(const MarsClass& other)
@@ -33,6 +37,12 @@ bool MarsClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceCont
 	mScreenWidth = screenWidth;
 
 	GenerateCellGeometry();
+
+	result = LoadDetailAreaMapTexture(device);
+	if (!result)
+	{
+		return false;
+	}
 
 	result = LoadColorMapTexture(device);
 	if (!result)
@@ -680,6 +690,22 @@ bool MarsClass::LoadColorMapTexture(ID3D11Device* device)
 	return true;
 }
 
+bool MarsClass::LoadDetailAreaMapTexture(ID3D11Device* device)
+{
+	HRESULT hResult;
+	const wchar_t *fileName;
+
+	fileName = L"../TheNextFrontier/Textures/MarsDetailAreaMap8K.tif";
+
+	hResult = CreateWICTextureFromFile(device, fileName, &mDetailAreaMapResource, &mDetailAreaMapResourceView);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	return true;
+}
+
 
 ID3D11ShaderResourceView* MarsClass::GetHeightMap()
 {
@@ -694,6 +720,11 @@ ID3D11ShaderResourceView* MarsClass::GetHeightMapDetail2()
 ID3D11ShaderResourceView* MarsClass::GetColorMap()
 {
 	return mColorMapResourceView;
+}
+
+ID3D11ShaderResourceView* MarsClass::GetDetailAreaMap()
+{
+	return mDetailAreaMapResourceView;
 }
 
 int MarsClass::GetHeightAtPos(XMFLOAT3 position)

@@ -81,6 +81,7 @@ float GetHeight(float3 pos, float maxHeight, float minHeight)
 	float heightColorValue, heightDetail2ColorValue;
 	float3 normalizePos;
 	float2 textureStretch;
+	float finalHeight;
 
 	textureStretch = float2(2.0f, 1.0f);
 
@@ -91,13 +92,10 @@ float GetHeight(float3 pos, float maxHeight, float minHeight)
 	heightColorValue = heightMapTexture.SampleLevel(sampleType, uv, 0).r;
 	//heightColorValue += (heightMapDetail2Texture.SampleLevel(sampleType, (uv * textureStretch * 700), 1).r * 1.0f);
 
-	//float noise = noise(2.0f);
+	finalHeight = (heightColorValue * (maxHeight - minHeight));
+;
 
-	//float noise = 1 * noise(1 * nx, 1 * ny);
-    //noise += 0.5f * noise(2 * nx, 2 * ny);
-    //noise += 0.25f * noise(4 * nx, 2 * ny);
-
-	return (heightColorValue * (maxHeight - minHeight));
+	return finalHeight;
 }
 
 // Returns the near intersection point of a line and a sphere

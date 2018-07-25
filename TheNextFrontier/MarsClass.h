@@ -15,6 +15,8 @@ const float MARSROTATESPEED = (2.0f * 3.141592f) / 88775000.0f;
 #include <WICTextureLoader.h>
 #include <algorithm>
 #include "tiffio.h"
+#include <future>
+#include <thread>
 using namespace DirectX;
 using namespace std;
 
@@ -105,6 +107,8 @@ public:
 
 	bool UpdateMars(ID3D11DeviceContext*, FrustumClass*, PositionClass*);
 
+	void UpdateMarsMesh();
+
 private:
 	bool InitializeBuffers(ID3D11Device*);
 	bool InitializeIcosphere();
@@ -122,12 +126,15 @@ private:
 	vector<int> GetIcosadronIndices();
 	void GenerateCells();
 	void GenerateCellGeometry();
+	void GenerateDistanceLUT();
 	void GenerateHeightMultiLUT();
 	void GenerateTriLevelDotLUT();
 	bool MapCells(ID3D11DeviceContext*);
 
 	void RecursiveTriangle(XMFLOAT3, XMFLOAT3, XMFLOAT3, short, bool);
 	NextTriangle CheckTriangleSplit(XMFLOAT3, XMFLOAT3, XMFLOAT3, short, bool);
+
+	float MorphFactor(float, int);
 
 private:
 	ID3D11Buffer *mVertexBuffer, *mIndexBuffer, *mInstanceBuffer;
@@ -144,6 +151,7 @@ private:
 
 	vector<TriangleType> mIcosphere;
 	vector<MarsCellType> mMarsCells;
+	vector<MarsCellType> mMarsCellsThreaded;
 	float mHeightData[8192][4096];
 
 	vector<float> mDistanceLUT;
@@ -160,4 +168,8 @@ private:
 	PositionClass* mPosition;
 	ID3D11Resource *mHeightMapResource, *mHeightMapDetail2Resource, *mColorMapResource, *mDetailAreaMapResource;
 	ID3D11ShaderResourceView *mHeightMapResourceView, *mHeightMapDetail2ResourceView, *mColorMapResourceView, *mDetailAreaMapResourceView;
+
+	TIFF *mTerrainTypeMap;
+
+	bool mNewMarsFinished;
 };

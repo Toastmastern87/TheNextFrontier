@@ -357,6 +357,11 @@ XMFLOAT3 PositionClass::GetPositionXMFLOAT3()
 	return XMFLOAT3(mPositionX, mPositionY, mPositionZ);
 }
 
+XMVECTOR PositionClass::GetPositionXMVECTOR()
+{
+	return XMLoadFloat3(new XMFLOAT3(mPositionX, mPositionY, mPositionZ));
+}
+
 float PositionClass::GetDistanceFromOrigo()
 {
 	return (sqrtf((mPositionX * mPositionX) + (mPositionY * mPositionY) + (mPositionZ * mPositionZ)));

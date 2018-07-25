@@ -94,6 +94,7 @@ float4 MarsFromSpacePixelShader(PixelInputType input) : SV_TARGET
 
     lightColor = saturate(diffuseColor * lightIntensity);
 	
+	// DETAIL AREA TEST
 	float4 detailArea;
 
 	detailArea = detailAreaMapTexture.SampleLevel(sampleType, input.mapCoord, 0).rgba; 
@@ -119,7 +120,7 @@ float4 MarsFromSpacePixelShader(PixelInputType input) : SV_TARGET
 
 	increasedLigthningFactor = 50.0f;
 
-	return input.color * color * input.secondColor * lightIntensity * 4.0f;
+	return input.color* color * input.secondColor * lightIntensity * 4.0f;
 }
 
 float4 MarsFromAtmospherePixelShader(PixelInputType input) : SV_TARGET

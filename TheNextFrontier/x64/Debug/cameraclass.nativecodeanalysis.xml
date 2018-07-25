@@ -7,6 +7,20 @@
       <LINE>3</LINE>
       <COLUMN>13</COLUMN>
     </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>CameraClass::{ctor}</FUNCTION>
+    <DECORATED>??0CameraClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>cameraclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>13</COLUMN>
+    </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'CameraClass::mViewMatrix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>CameraClass::{ctor}</FUNCTION>
@@ -65,20 +79,6 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'CameraClass::mFOV' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>CameraClass::{ctor}</FUNCTION>
-    <DECORATED>??0CameraClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>cameraclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>13</COLUMN>
-    </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>CameraClass::{ctor}</FUNCTION>
     <DECORATED>??0CameraClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>

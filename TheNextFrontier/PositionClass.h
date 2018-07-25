@@ -26,6 +26,7 @@ public:
 
 	void GetPosition(float&, float&, float&);
 	XMFLOAT3 GetPositionXMFLOAT3();
+	XMVECTOR GetPositionXMVECTOR();
 	void GetRotation(float&, float&, float&);
 	float GetDistanceFromOrigo();
 	void CheckAltitude(float);

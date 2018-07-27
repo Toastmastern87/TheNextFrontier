@@ -36,8 +36,6 @@ bool MarsClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceCont
 	mMaxCellLevel = 4;
 	mScreenWidth = screenWidth;
 
-	mNewMarsFinished = true;
-
 	GenerateCellGeometry();
 
 	result = LoadDetailAreaMapTexture(device);
@@ -315,21 +313,18 @@ void MarsClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 
 void MarsClass::GenerateCells()
 {
-	if (mNewMarsFinished)
-	{
-		mNewMarsFinished = false;
+	GenerateTriLevelDotLUT();
+	GenerateHeightMultiLUT();
+	GenerateDistanceLUT();
 
-		mMarsCells.clear();
-		mMarsCells = mMarsCellsThreaded;
+	mMarsCells.clear();
 
-		//future<void> test = std::async(launch::async, &MarsClass::UpdateMarsMesh, this);
-		thread t1(&MarsClass::UpdateMarsMesh, this);
-		t1.detach();
-	}
-	else
+	for (auto triangle : mIcosphere)
 	{
-		return;
+		RecursiveTriangle(triangle.a, triangle.b, triangle.c, triangle.level, true);
 	}
+
+	return;
 }
 
 void MarsClass::GenerateTriLevelDotLUT() 
@@ -602,7 +597,7 @@ void MarsClass::RecursiveTriangle(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, short leve
 		XMStoreFloat3(&secondCorner, XMLoadFloat3(&b) - XMLoadFloat3(&a));
 		XMStoreFloat3(&thirdCorner, XMLoadFloat3(&c) - XMLoadFloat3(&a));
 
-		mMarsCellsThreaded.push_back(MarsCellType(level, a, secondCorner, thirdCorner));
+		mMarsCells.push_back(MarsCellType(level, a, secondCorner, thirdCorner));
 	}
 
 	return;
@@ -745,54 +740,4 @@ int MarsClass::GetHeightAtPos(XMFLOAT3 position)
 	XMFLOAT2 uv = XMFLOAT2((0.5f + (atan2(position.z, position.x) / (2 * 3.14159265f))), (0.5f - (asin(position.y) / 3.14159265f)));
 
 	return 	(mMarsRadius + (mHeightData[(int)(uv.x * 8192.0f)][(int)(uv.y * 4096.0f)] * (mMarsMaxHeight - mMarsMinHeight)) + mMarsMinHeight);
-}
-
-float MarsClass::MorphFactor(float distance, int level)
-{
-	float low, high, delta, a;
-
-	low = mDistanceLUT[level - 1];
-	high = mDistanceLUT[level];
-
-	delta = high - low;
-
-	a = (distance - low) / delta;
-
-	return min(1.0f, max(0.0f, (a / 0.5f)));
-}
-
-void MarsClass::UpdateMarsMesh()
-{
-	float distance, morphPercentage;
-	XMVECTOR finalPos;
-
-	GenerateTriLevelDotLUT();
-	GenerateHeightMultiLUT();
-	GenerateDistanceLUT();
-
-	mMarsCellsThreaded.clear();
-
-	for (auto triangle : mIcosphere)
-	{
-		RecursiveTriangle(triangle.a, triangle.b, triangle.c, triangle.level, true);
-	}
-
-	XMVECTOR cameraPos = mPosition->GetPositionXMVECTOR();
-
-	for (auto cells : mMarsCellsThreaded)
-	{
-		for (auto vertices : mMarsCellVertices)
-		{
-			finalPos = XMLoadFloat3(&cells.a) + XMLoadFloat3(&cells.r) * vertices.pos.x + XMLoadFloat3(&cells.s) * vertices.pos.y;
-
-			distance = XMVectorGetX(XMVector3Length(finalPos - cameraPos));
-			morphPercentage = MorphFactor(distance, cells.level); 
-
-			finalPos += morphPercentage * (XMLoadFloat3(&cells.r) * vertices.morph.x + XMLoadFloat3(&cells.s) * vertices.morph.y);
-		}
-	}
-
-	mNewMarsFinished = true;
-
-	return;
 }

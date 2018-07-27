@@ -134,8 +134,6 @@ private:
 	void RecursiveTriangle(XMFLOAT3, XMFLOAT3, XMFLOAT3, short, bool);
 	NextTriangle CheckTriangleSplit(XMFLOAT3, XMFLOAT3, XMFLOAT3, short, bool);
 
-	float MorphFactor(float, int);
-
 private:
 	ID3D11Buffer *mVertexBuffer, *mIndexBuffer, *mInstanceBuffer;
 
@@ -151,7 +149,6 @@ private:
 
 	vector<TriangleType> mIcosphere;
 	vector<MarsCellType> mMarsCells;
-	vector<MarsCellType> mMarsCellsThreaded;
 	float mHeightData[8192][4096];
 
 	vector<float> mDistanceLUT;
@@ -170,6 +167,4 @@ private:
 	ID3D11ShaderResourceView *mHeightMapResourceView, *mHeightMapDetail2ResourceView, *mColorMapResourceView, *mDetailAreaMapResourceView;
 
 	TIFF *mTerrainTypeMap;
-
-	bool mNewMarsFinished;
 };

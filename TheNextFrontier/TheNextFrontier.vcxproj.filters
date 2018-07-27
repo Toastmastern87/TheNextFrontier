@@ -190,12 +190,6 @@
     <None Include="Font.vs">
       <Filter>Source Files\Shaders</Filter>
     </None>
-    <None Include="Mars.ps">
-      <Filter>Source Files\Shaders</Filter>
-    </None>
-    <None Include="Mars.vs">
-      <Filter>Source Files\Shaders</Filter>
-    </None>
     <None Include="packages.config" />
     <None Include="MousePointer.ps">
       <Filter>Source Files\Shaders</Filter>
@@ -213,6 +207,9 @@
       <Filter>Source Files\Shaders</Filter>
     </None>
     <None Include="MarsAtmosphere.ps">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="NoiseSimplexFunc.hlsl">
       <Filter>Source Files\Shaders</Filter>
     </None>
   </ItemGroup>
@@ -243,5 +240,19 @@
     <Image Include="Textures\MarsDetailAreaMap8K.tif">
       <Filter>Resource Files\Textures</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="MarsFromSpace_vs.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="MarsFromAtmosphere_vs.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="MarsFromSpace_ps.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="MarsFromAtmosphere_ps.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

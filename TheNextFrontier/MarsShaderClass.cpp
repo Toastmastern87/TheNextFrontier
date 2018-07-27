@@ -58,102 +58,60 @@ bool MarsShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount,
 
 bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* vsFilename, WCHAR* psFilename)
 {
-	HRESULT result;
-	ID3D10Blob* errorMessage;
-	ID3D10Blob* vertexShaderBuffer;
-	ID3D10Blob* pixelShaderBuffer;
+	HRESULT hResult;
+	ID3DBlob* errorMessage;
+	ID3DBlob* vertexShaderFromSpaceBuffer, *vertexShaderFromAtmosphereBuffer;
+	ID3D10Blob* pixelShaderFromSpaceBuffer, *pixelShaderFromAtmosphereBuffer;
 	D3D11_INPUT_ELEMENT_DESC polygonLayout[6];
 	unsigned int numElements;
 	D3D11_BUFFER_DESC matrixBufferDesc, morphBufferDesc, heightBufferDesc, lightBufferDesc, atmosphericScatteringBufferDesc;
 	D3D11_SAMPLER_DESC samplerDescHeight;
-
-	errorMessage = 0;
-	vertexShaderBuffer = 0;
-	pixelShaderBuffer = 0;
-
-	result = D3DCompileFromFile(vsFilename, NULL, NULL, "MarsFromSpaceVertexShader", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &vertexShaderBuffer, &errorMessage);
-	if (FAILED(result))
-	{
-		if (errorMessage)
-		{
-			OutputShaderErrorMessage(errorMessage, hwnd, vsFilename);
-		}
-		else
-		{
-			MessageBox(hwnd, vsFilename, L"Missing Shader File", MB_OK);
-		}
-
-		return false;
-	}
-
-	result = D3DCompileFromFile(psFilename, NULL, NULL, "MarsFromSpacePixelShader", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &pixelShaderBuffer, &errorMessage);
-	if (FAILED(result))
-	{
-		if (errorMessage)
-		{
-			OutputShaderErrorMessage(errorMessage, hwnd, psFilename);
-		}
-		else
-		{
-			MessageBox(hwnd, psFilename, L"Missing Shader File", MB_OK);
-		}
-
-		return false;
-	}
-
-	result = device->CreateVertexShader(vertexShaderBuffer->GetBufferPointer(), vertexShaderBuffer->GetBufferSize(), NULL, &mVertexFromSpaceShader);
-	if (FAILED(result))
+	
+	hResult = D3DReadFileToBlob(L"../x64/Debug/MarsFromSpace_vs.cso", &vertexShaderFromSpaceBuffer);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
 
-	result = device->CreatePixelShader(pixelShaderBuffer->GetBufferPointer(), pixelShaderBuffer->GetBufferSize(), NULL, &mPixelFromSpaceShader);
-	if (FAILED(result))
+	hResult = D3DReadFileToBlob(L"../x64/Debug/MarsFromAtmosphere_vs.cso", &vertexShaderFromAtmosphereBuffer);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
 
-	ZeroMemory(&vertexShaderBuffer, sizeof(vertexShaderBuffer));
-	ZeroMemory(&pixelShaderBuffer, sizeof(pixelShaderBuffer));
-
-	result = D3DCompileFromFile(vsFilename, NULL, NULL, "MarsFromAtmosphereVertexShader", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &vertexShaderBuffer, &errorMessage);
-	if (FAILED(result))
+	hResult = device->CreateVertexShader(vertexShaderFromSpaceBuffer->GetBufferPointer(), vertexShaderFromSpaceBuffer->GetBufferSize(), nullptr, &mVertexFromSpaceShader);
+	if (FAILED(hResult))
 	{
-		if (errorMessage)
-		{
-			OutputShaderErrorMessage(errorMessage, hwnd, vsFilename);
-		}
-		else
-		{
-			MessageBox(hwnd, vsFilename, L"Missing Shader File", MB_OK);
-		}
-
+		MessageBox(hwnd, (WCHAR*)"Error in MarsFromSpace", L"ERROR", MB_OK);
 		return false;
 	}
 
-	result = D3DCompileFromFile(psFilename, NULL, NULL, "MarsFromAtmospherePixelShader", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &pixelShaderBuffer, &errorMessage);
-	if (FAILED(result))
-	{
-		if (errorMessage)
-		{
-			OutputShaderErrorMessage(errorMessage, hwnd, psFilename);
-		}
-		else
-		{
-			MessageBox(hwnd, psFilename, L"Missing Shader File", MB_OK);
-		}
-
-		return false;
-	}
-
-	result = device->CreateVertexShader(vertexShaderBuffer->GetBufferPointer(), vertexShaderBuffer->GetBufferSize(), NULL, &mVertexFromAtmosphereShader);
-	if (FAILED(result))
+	hResult = device->CreateVertexShader(vertexShaderFromAtmosphereBuffer->GetBufferPointer(), vertexShaderFromAtmosphereBuffer->GetBufferSize(), nullptr, &mVertexFromAtmosphereShader);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
 
-	result = device->CreatePixelShader(pixelShaderBuffer->GetBufferPointer(), pixelShaderBuffer->GetBufferSize(), NULL, &mPixelFromAtmosphereShader);
-	if (FAILED(result))
+	hResult = D3DReadFileToBlob(L"../x64/Debug/MarsFromSpace_ps.cso", &pixelShaderFromSpaceBuffer);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	hResult = D3DReadFileToBlob(L"../x64/Debug/MarsFromAtmosphere_ps.cso", &pixelShaderFromAtmosphereBuffer);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	hResult = device->CreatePixelShader(pixelShaderFromSpaceBuffer->GetBufferPointer(), pixelShaderFromSpaceBuffer->GetBufferSize(), NULL, &mPixelFromSpaceShader);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	hResult = device->CreatePixelShader(pixelShaderFromAtmosphereBuffer->GetBufferPointer(), pixelShaderFromAtmosphereBuffer->GetBufferSize(), NULL, &mPixelFromAtmosphereShader);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
@@ -208,17 +166,27 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 
 	numElements = sizeof(polygonLayout) / sizeof(polygonLayout[0]);
 
-	result = device->CreateInputLayout(polygonLayout, numElements, vertexShaderBuffer->GetBufferPointer(), vertexShaderBuffer->GetBufferSize(), &mLayout);
-	if (FAILED(result))
+	hResult = device->CreateInputLayout(polygonLayout, numElements, vertexShaderFromSpaceBuffer->GetBufferPointer(), vertexShaderFromSpaceBuffer->GetBufferSize(), &mLayout);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
 
-	vertexShaderBuffer->Release();
-	vertexShaderBuffer = 0;
+	hResult = device->CreateInputLayout(polygonLayout, numElements, vertexShaderFromAtmosphereBuffer->GetBufferPointer(), vertexShaderFromAtmosphereBuffer->GetBufferSize(), &mLayout);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
 
-	pixelShaderBuffer->Release();
-	pixelShaderBuffer = 0;
+	vertexShaderFromSpaceBuffer->Release();
+	vertexShaderFromSpaceBuffer = 0;
+	vertexShaderFromAtmosphereBuffer->Release();
+	vertexShaderFromAtmosphereBuffer = 0;
+
+	pixelShaderFromSpaceBuffer->Release();
+	pixelShaderFromSpaceBuffer = 0;
+	pixelShaderFromAtmosphereBuffer->Release();
+	pixelShaderFromAtmosphereBuffer = 0;
 
 	matrixBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
 	matrixBufferDesc.ByteWidth = sizeof(MatrixBufferType);
@@ -227,8 +195,8 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 	matrixBufferDesc.MiscFlags = 0;
 	matrixBufferDesc.StructureByteStride = 0;
 
-	result = device->CreateBuffer(&matrixBufferDesc, NULL, &mMatrixBuffer);
-	if (FAILED(result))
+	hResult = device->CreateBuffer(&matrixBufferDesc, NULL, &mMatrixBuffer);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
@@ -240,8 +208,8 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 	morphBufferDesc.MiscFlags = 0;
 	morphBufferDesc.StructureByteStride = 0;
 
-	result = device->CreateBuffer(&morphBufferDesc, NULL, &mMorphBuffer);
-	if (FAILED(result))
+	hResult = device->CreateBuffer(&morphBufferDesc, NULL, &mMorphBuffer);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
@@ -253,8 +221,8 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 	heightBufferDesc.MiscFlags = 0;
 	heightBufferDesc.StructureByteStride = 0;
 
-	result = device->CreateBuffer(&heightBufferDesc, NULL, &mHeightBuffer);
-	if (FAILED(result))
+	hResult = device->CreateBuffer(&heightBufferDesc, NULL, &mHeightBuffer);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
@@ -273,8 +241,8 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 	samplerDescHeight.MinLOD = 0;
 	samplerDescHeight.MaxLOD = D3D11_FLOAT32_MAX;
 
-	result = device->CreateSamplerState(&samplerDescHeight, &mSampleStateHeight);
-	if (FAILED(result))
+	hResult = device->CreateSamplerState(&samplerDescHeight, &mSampleStateHeight);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
@@ -286,8 +254,8 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 	lightBufferDesc.MiscFlags = 0;
 	lightBufferDesc.StructureByteStride = 0;
 
-	result = device->CreateBuffer(&lightBufferDesc, NULL, &mLightBuffer);
-	if (FAILED(result))
+	hResult = device->CreateBuffer(&lightBufferDesc, NULL, &mLightBuffer);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
@@ -299,8 +267,8 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 	atmosphericScatteringBufferDesc.MiscFlags = 0;
 	atmosphericScatteringBufferDesc.StructureByteStride = 0;
 
-	result = device->CreateBuffer(&atmosphericScatteringBufferDesc, NULL, &mAtmosphericScatteringBuffer);
-	if (FAILED(result))
+	hResult = device->CreateBuffer(&atmosphericScatteringBufferDesc, NULL, &mAtmosphericScatteringBuffer);
+	if (FAILED(hResult))
 	{
 		return false;
 	}

@@ -36,7 +36,7 @@
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'FPSClass::mStartTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'FPSClass::mCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>FPSClass::{ctor}</FUNCTION>
     <DECORATED>??0FPSClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -50,7 +50,7 @@
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'FPSClass::mCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'FPSClass::mStartTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>FPSClass::{ctor}</FUNCTION>
     <DECORATED>??0FPSClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -78,7 +78,7 @@
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'FPSClass::mStartTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'FPSClass::mCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>FPSClass::{ctor}</FUNCTION>
     <DECORATED>??0FPSClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>7</FUNCLINE>
@@ -92,7 +92,7 @@
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'FPSClass::mCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'FPSClass::mStartTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>FPSClass::{ctor}</FUNCTION>
     <DECORATED>??0FPSClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>7</FUNCLINE>

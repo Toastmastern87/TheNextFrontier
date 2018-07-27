@@ -95,7 +95,7 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 		return false;
 	}
 
-	mPosition->SetPosition(10000.0f, 0.0f, 0.0f);
+	mPosition->SetPosition(3042.0f, 841.0f, 1428.0f);
 	mPosition->SetRotation(0.0f, 270.0f, 0.0f);
 
 	mFrustum = new FrustumClass;
@@ -400,7 +400,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 	if (mRenderMars)
 	{
 		mMars->Render(direct3D->GetDeviceContext());
-		result = shaderManager->RenderMarsShader(direct3D->GetDeviceContext(), mMars->GetIndexCount(), mMars->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, inverseWorldMatrix, rotationMatrix, mMars->GetMarsRadius(), mMars->GetMarsMaxHeight(), mMars->GetMarsMinHeight(), mMars->GetDistanceLUT(), mPosition->GetPositionXMFLOAT3(), mMars->GetHeightMap(), mMars->GetHeightMapDetail2(), mMars->GetColorMap(), mMars->GetDetailAreaMap() , mSunlight->GetDirection(), mSunlight->GetDiffuseColor(), mMars->GetMarsPatchDelta(), mPosition->CheckIfInsideAtmosphere(mMarsAtmosphere->GetAtmosphereHeight(), mMars->GetMarsRadius(), mPosition->GetDistanceFromOrigo()), mPosition->GetDistanceFromOrigo());
+		result = shaderManager->RenderMarsShader(direct3D->GetDeviceContext(), mMars->GetIndexCount(), mMars->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, inverseWorldMatrix, rotationMatrix, mMars->GetMarsRadius(), mMars->GetMarsMaxHeight(), mMars->GetMarsMinHeight(), mMars->GetDistanceLUT(), mPosition->GetPositionXMFLOAT3(), mMars->GetHeightMap(), mMars->GetHeightMapDetail2(), mMars->GetColorMap(), mMars->GetDetailAreaMap(), mMars->GetCraterHeightMap(), mSunlight->GetDirection(), mSunlight->GetDiffuseColor(), mMars->GetMarsPatchDelta(), mPosition->CheckIfInsideAtmosphere(mMarsAtmosphere->GetAtmosphereHeight(), mMars->GetMarsRadius(), mPosition->GetDistanceFromOrigo()), mPosition->GetDistanceFromOrigo());
 		if (!result)
 		{
 			return false;

@@ -1,6 +1,7 @@
 Texture2D heightMapTexture : register(t0);
 Texture2D heightMapDetail2Texture : register(t1);
 Texture2D detailAreaMapTexture : register(t2);
+Texture2D craterHeightMapTexture : register(t3);
 SamplerState sampleType;
 
 #define PI 3.141592653589793
@@ -84,6 +85,7 @@ float GetHeight(float3 pos, float maxHeight, float minHeight)
 	float3 normalizePos;
 	float2 textureStretch;
 	float finalHeight;
+	float4 craterDetails;
 
 	textureStretch = float2(2.0f, 1.0f);
 
@@ -92,10 +94,23 @@ float GetHeight(float3 pos, float maxHeight, float minHeight)
 	uv = float2((0.5f + (atan2(normalizePos.z, normalizePos.x) / (2 * PI))), (0.5f - (asin(normalizePos.y) / PI)));
 
 	heightColorValue = heightMapTexture.SampleLevel(sampleType, uv, 0).r;
+
+	float4 detailArea = detailAreaMapTexture.SampleLevel(sampleType, uv, 0).rgba;
+
 	//heightColorValue += (heightMapDetail2Texture.SampleLevel(sampleType, (uv * textureStretch * 700), 1).r * 1.0f);
 
-	finalHeight = (heightColorValue * (maxHeight - minHeight));
-	;
+	if (detailArea.r == 1.0f && detailArea.g != 1.0f)
+	{
+		float2 craterMapping = uv - float2((4669.0f / 8192.0f), (1704.0f / 4096.0f));
+		craterMapping = float2((craterMapping.x * 8192.0f), (craterMapping.y * 4096.0f));
+
+		finalHeight = craterHeightMapTexture.SampleLevel(sampleType, (craterMapping / 25.0f), 0).rgb * 5.0f;
+		finalHeight += (heightColorValue * (maxHeight - minHeight));
+	}
+	else
+	{
+		finalHeight = (heightColorValue * (maxHeight - minHeight));
+	}
 
 	return finalHeight;
 }
@@ -194,21 +209,8 @@ PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
 
 	//float heightColor = heightMapTexture.SampleLevel(sampleType, output.mapCoord, 0).r + (heightMapDetail2Texture.SampleLevel(sampleType, (output.mapCoord * textureStretch * 100), 0).r * 0.01f);
 
-	// DETAIL AREA TEST
-	float4 detailArea;
-
-	detailArea = detailAreaMapTexture.SampleLevel(sampleType, output.mapCoord, 0).rgba;
-
-	if (detailArea.r == 1.0f && detailArea.g == 0.0f)
-	{
-		output.color.rgb = float3(snoise(5.0f * finalPos), snoise(5.0f * finalPos), snoise(5.0f * finalPos));
-		output.secondColor.rgb = attenuate;
-	}
-	else
-	{
-		output.color.rgb = frontColor * (invWavelength.xyz * (kr.x * eSun.x) + (km.x * eSun.x));
-		output.secondColor.rgb = attenuate;//float4(0.86f, 0.55f, 0.25f, 1.0f);// 
-	}
+	output.color.rgb = frontColor * (invWavelength.xyz * (kr.x * eSun.x) + (km.x * eSun.x));
+	output.secondColor.rgb = attenuate;//float4(0.86f, 0.55f, 0.25f, 1.0f);// 
 
 	return output;
 }

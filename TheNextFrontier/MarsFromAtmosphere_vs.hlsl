@@ -1,6 +1,7 @@
 Texture2D heightMapTexture : register(t0);
 Texture2D heightMapDetail2Texture : register(t1);
 Texture2D detailAreaMapTexture : register(t2);
+Texture2D craterHeightMapTexture : register(t3);
 SamplerState sampleType;
 
 #define PI 3.141592653589793
@@ -94,8 +95,22 @@ float GetHeight(float3 pos, float maxHeight, float minHeight)
 	heightColorValue = heightMapTexture.SampleLevel(sampleType, uv, 0).r;
 	//heightColorValue += (heightMapDetail2Texture.SampleLevel(sampleType, (uv * textureStretch * 700), 1).r * 1.0f);
 
-	finalHeight = (heightColorValue * (maxHeight - minHeight));
-	;
+	float4 detailArea = detailAreaMapTexture.SampleLevel(sampleType, uv, 0).rgba;
+
+	//heightColorValue += (heightMapDetail2Texture.SampleLevel(sampleType, (uv * textureStretch * 700), 1).r * 1.0f);
+
+	if (detailArea.r == 1.0f && detailArea.g != 1.0f)
+	{
+		float2 craterMapping = uv - float2((4669.0f / 8192.0f), (1704.0f / 4096.0f));
+		craterMapping = float2((craterMapping.x * 8192.0f), (craterMapping.y * 4096.0f));
+
+		finalHeight = craterHeightMapTexture.SampleLevel(sampleType, (craterMapping / 25.0f), 0).rgb * 5.0f;
+		finalHeight += (heightColorValue * (maxHeight - minHeight));
+	}
+	else
+	{
+		finalHeight = (heightColorValue * (maxHeight - minHeight));
+	}
 
 	return finalHeight;
 }

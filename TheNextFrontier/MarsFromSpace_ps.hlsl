@@ -2,6 +2,7 @@ Texture2D heightMapTexture : register(t0);
 Texture2D heightMapDetail2Texture : register(t1);
 Texture2D colorMapTexture : register(t2);
 Texture2D detailAreaMapTexture : register(t3);
+Texture2D craterHeightMapTexture : register(t4);
 SamplerState sampleType;
 
 struct PixelInputType
@@ -47,17 +48,30 @@ float3x3 GetTBNMatrix(float3 normalVector, float3 posVector, float2 uv)
 float GetHeight(float2 uv, bool insideAtmosphere)
 {
 	float2 textureStretch;
+	float finalHeight;
 
 	textureStretch = float2(2.0f, 1.0f);
 
+	float4 detailArea = detailAreaMapTexture.SampleLevel(sampleType, uv, 0).rgba;
+
 	if (insideAtmosphere)
 	{
-		return (heightMapTexture.SampleLevel(sampleType, uv, 0).r * (21.229f + 8.2f)) + (heightMapDetail2Texture.SampleLevel(sampleType, (uv * textureStretch * 700), 1).r * 1.0f);
+		finalHeight = (heightMapTexture.SampleLevel(sampleType, uv, 0).r * (21.229f + 8.2f)) + (heightMapDetail2Texture.SampleLevel(sampleType, (uv * textureStretch * 700), 1).r * 1.0f);
 	}
 	else
 	{
-		return (heightMapTexture.SampleLevel(sampleType, uv, 0).r * (21.229f + 8.2f));
+		finalHeight = (heightMapTexture.SampleLevel(sampleType, uv, 0).r * (21.229f + 8.2f));
 	}
+
+	if (detailArea.r == 1.0f && detailArea.g != 1.0f)
+	{
+		float2 craterMapping = uv - float2((4669.0f / 8192.0f), (1704.0f / 4096.0f));
+		craterMapping = float2((craterMapping.x * 8192.0f), (craterMapping.y * 4096.0f));
+
+		finalHeight += craterHeightMapTexture.SampleLevel(sampleType, (craterMapping / 25.0f), 0).rgb * 5.0f;
+	}
+
+	return finalHeight;
 }
 
 float3 CalculateNormal(float3 normalVector, float3 viewVector, float2 uv, bool insideAtmosphere)
@@ -113,12 +127,5 @@ float4 MarsFromSpacePixelShader(PixelInputType input) : SV_TARGET
 
 	increasedLigthningFactor = 50.0f;
 
-	if (detailArea.r == 1.0f && detailArea.g == 0.0f)
-	{
-		return input.color;
-	}
-	else 
-	{
-		return input.color * color * input.secondColor * lightIntensity * 4.0f;
-	}
+	return input.color * color * input.secondColor * lightIntensity * 6.0f;
 }

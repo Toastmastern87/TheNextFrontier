@@ -194,8 +194,21 @@ PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
 
 	//float heightColor = heightMapTexture.SampleLevel(sampleType, output.mapCoord, 0).r + (heightMapDetail2Texture.SampleLevel(sampleType, (output.mapCoord * textureStretch * 100), 0).r * 0.01f);
 
-	output.color.rgb = frontColor * (invWavelength.xyz * (kr.x * eSun.x) + (km.x * eSun.x));
-	output.secondColor.rgb = attenuate;
+	// DETAIL AREA TEST
+	float4 detailArea;
+
+	detailArea = detailAreaMapTexture.SampleLevel(sampleType, output.mapCoord, 0).rgba;
+
+	if (detailArea.r == 1.0f && detailArea.g == 0.0f)
+	{
+		output.color.rgb = float3(snoise(5.0f * finalPos), snoise(5.0f * finalPos), snoise(5.0f * finalPos));
+		output.secondColor.rgb = attenuate;
+	}
+	else
+	{
+		output.color.rgb = frontColor * (invWavelength.xyz * (kr.x * eSun.x) + (km.x * eSun.x));
+		output.secondColor.rgb = attenuate;//float4(0.86f, 0.55f, 0.25f, 1.0f);// 
+	}
 
 	return output;
 }

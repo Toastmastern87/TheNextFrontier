@@ -99,14 +99,7 @@ float4 MarsFromSpacePixelShader(PixelInputType input) : SV_TARGET
 
 	detailArea = detailAreaMapTexture.SampleLevel(sampleType, input.mapCoord, 0).rgba;
 
-	if (detailArea.r == 1.0f && detailArea.g == 0.0f)
-	{
-		color = float4(0.0f, 1.0f, 0.0f, 1.0f);// 
-	}
-	else
-	{
-		color = colorMapTexture.SampleLevel(sampleType, input.mapCoord, 0).rgba; //float4(0.86f, 0.55f, 0.25f, 1.0f);// 
-	}
+	color = colorMapTexture.SampleLevel(sampleType, input.mapCoord, 0).rgba; //float4(0.86f, 0.55f, 0.25f, 1.0f);// 
 
 	// To use when the color is decided by the GPU
 	//color.r *= 7.0f;
@@ -120,5 +113,12 @@ float4 MarsFromSpacePixelShader(PixelInputType input) : SV_TARGET
 
 	increasedLigthningFactor = 50.0f;
 
-	return input.color* color * input.secondColor * lightIntensity * 4.0f;
+	if (detailArea.r == 1.0f && detailArea.g == 0.0f)
+	{
+		return input.color;
+	}
+	else 
+	{
+		return input.color * color * input.secondColor * lightIntensity * 4.0f;
+	}
 }

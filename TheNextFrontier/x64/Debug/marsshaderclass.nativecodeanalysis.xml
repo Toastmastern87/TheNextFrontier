@@ -196,18 +196,4 @@
     <FUNCLINE>16</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>marsshaderclass.cpp</FILENAME>
-      <LINE>85</LINE>
-      <COLUMN>27</COLUMN>
-    </SFA>
-    <DEFECTCODE>6276</DEFECTCODE>
-    <DESCRIPTION>Cast between semantically different string types:  char * to wchar_t *.  Use of invalid string can lead to undefined behavior.</DESCRIPTION>
-    <FUNCTION>MarsShaderClass::InitializeShader</FUNCTION>
-    <DECORATED>?InitializeShader@MarsShaderClass@@AEAA_NPEAUID3D11Device@@PEAUHWND__@@PEA_W2@Z</DECORATED>
-    <FUNCLINE>59</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
 </DEFECTS>

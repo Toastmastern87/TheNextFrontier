@@ -25,7 +25,7 @@ bool MarsShaderClass::Initialize(ID3D11Device* device, HWND hwnd)
 {
 	bool result;
 
-	result = InitializeShader(device, hwnd, (WCHAR*)L"../TheNextFrontier/Mars.vs", (WCHAR*)L"../TheNextFrontier/Mars.ps");
+	result = InitializeShader(device, hwnd);
 	if (!result)
 	{
 		return false;
@@ -56,7 +56,7 @@ bool MarsShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount,
 	return true;
 }
 
-bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* vsFilename, WCHAR* psFilename)
+bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd)
 {
 	HRESULT hResult;
 	ID3DBlob* errorMessage;
@@ -82,7 +82,6 @@ bool MarsShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 	hResult = device->CreateVertexShader(vertexShaderFromSpaceBuffer->GetBufferPointer(), vertexShaderFromSpaceBuffer->GetBufferSize(), nullptr, &mVertexFromSpaceShader);
 	if (FAILED(hResult))
 	{
-		MessageBox(hwnd, (WCHAR*)"Error in MarsFromSpace", L"ERROR", MB_OK);
 		return false;
 	}
 
@@ -343,33 +342,6 @@ void MarsShaderClass::ShutdownShader()
 		mVertexFromAtmosphereShader->Release();
 		mVertexFromAtmosphereShader = 0;
 	}
-
-	return;
-}
-
-void MarsShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND hwnd, WCHAR* shaderFilename)
-{
-	char* compileErrors;
-	unsigned long long bufferSize, i;
-	ofstream fout;
-
-	compileErrors = (char*)(errorMessage->GetBufferPointer());
-
-	bufferSize = errorMessage->GetBufferSize();
-
-	fout.open("Shader-error.txt");
-
-	for (i = 0; i < bufferSize; i++)
-	{
-		fout << compileErrors[i];
-	}
-
-	fout.close();
-
-	errorMessage->Release();
-	errorMessage = 0;
-
-	MessageBox(hwnd, L"Error compiling shader. check Shader-error.txt for message", shaderFilename, MB_OK);
 
 	return;
 }

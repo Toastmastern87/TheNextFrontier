@@ -59,6 +59,7 @@ struct PixelInputType
 	float4 position : SV_POSITION;
 	float4 color : COLOR0;
 	float4 secondColor : COLOR1;
+	float4 originalPosition : COLOR2;
 	float2 mapCoord : TEXCOORD0;
 	float3 normal : NORMAL0;
 	float3 viewVector : NORMAL1;
@@ -99,6 +100,12 @@ float GetHeight(float3 pos, float maxHeight, float minHeight)
 
 	//heightColorValue += (heightMapDetail2Texture.SampleLevel(sampleType, (uv * textureStretch * 700), 1).r * 1.0f);
 
+	float noiseValue = snoise(float3(pos.x, pos.y, pos.z));
+	noiseValue += 0.5f * snoise(float3((2.0f * pos.x), (2.0f * pos.y), (2.0f * pos.z)));
+	noiseValue += 0.25f * snoise(float3((4.0f * pos.x), (4.0f * pos.y), (4.0f * pos.z)));
+	noiseValue += 0.125f * snoise(float3((8.0f * pos.x), (8.0f * pos.y), (8.0f * pos.z)));
+	noiseValue += 0.0625f * snoise(float3((16.0f * pos.x), (16.0f * pos.y), (16.0f * pos.z)));
+
 	if (detailArea.r == 1.0f && detailArea.g != 1.0f)
 	{
 		float2 craterMapping = uv - float2((4669.0f / 8192.0f), (1704.0f / 4096.0f));
@@ -109,8 +116,10 @@ float GetHeight(float3 pos, float maxHeight, float minHeight)
 	}
 	else
 	{
-		finalHeight = (heightColorValue * (maxHeight - minHeight));
+		finalHeight = (heightColorValue * (maxHeight - minHeight));	
 	}
+
+	//finalHeight += noiseValue * 0.1f;
 
 	return finalHeight;
 }
@@ -197,6 +206,8 @@ PixelInputType MarsFromAtmosphereVertexShader(VertexInputType input)
 
 	mapCoords = normalize(finalPos);
 	output.mapCoord = float2((0.5f + (atan2(mapCoords.z, mapCoords.x) / (2 * PI))), (0.5f - (asin(mapCoords.y) / PI)));
+
+	output.originalPosition = float4(finalPos, 1.0f);
 
 	output.position = mul(float4(finalPos, 1.0f), worldMatrix);
 	output.position = mul(output.position, viewMatrix);

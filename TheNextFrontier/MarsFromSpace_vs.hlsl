@@ -59,6 +59,7 @@ struct PixelInputType
 	float4 position : SV_POSITION;
 	float4 color : COLOR0;
 	float4 secondColor : COLOR1;
+	float4 originalPosition : COLOR2;
 	float2 mapCoord : TEXCOORD0;
 	float3 normal : NORMAL0;
 	float3 viewVector : NORMAL1;
@@ -202,6 +203,8 @@ PixelInputType MarsFromSpaceVertexShader(VertexInputType input)
 
 	mapCoords = normalize(finalPos);
 	output.mapCoord = float2((0.5f + (atan2(mapCoords.z, mapCoords.x) / (2 * PI))), (0.5f - (asin(mapCoords.y) / PI)));
+
+	output.originalPosition = float4(finalPos, 1.0f);
 
 	output.position = mul(float4(finalPos, 1.0f), worldMatrix);
 	output.position = mul(output.position, viewMatrix);

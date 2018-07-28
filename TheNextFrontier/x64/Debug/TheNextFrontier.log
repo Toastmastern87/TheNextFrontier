@@ -1,9 +1,9 @@
-﻿C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_ps.hlsl(107,28-86): warning X3206: 'dot': implicit truncation of vector type
-C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_ps.hlsl(109,2-53): warning X3206: implicit truncation of vector type
+﻿C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_ps.hlsl(122,28-86): warning X3206: 'dot': implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_ps.hlsl(124,2-53): warning X3206: implicit truncation of vector type
   
   compilation object save succeeded; see C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\x64\Debug\MarsFromAtmosphere_ps.cso
-C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_ps.hlsl(107,28-86): warning X3206: 'dot': implicit truncation of vector type
-C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_ps.hlsl(109,2-53): warning X3206: implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_ps.hlsl(120,28-86): warning X3206: 'dot': implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_ps.hlsl(122,2-53): warning X3206: implicit truncation of vector type
   
   compilation object save succeeded; see C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\x64\Debug\MarsFromSpace_ps.cso
   TheNextFrontier.vcxproj -> C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\x64\Debug\TheNextFrontier.exe

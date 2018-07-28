@@ -68,7 +68,7 @@ float GetHeight(float2 uv, bool insideAtmosphere)
 		float2 craterMapping = uv - float2((4669.0f / 8192.0f), (1704.0f / 4096.0f));
 		craterMapping = float2((craterMapping.x * 8192.0f), (craterMapping.y * 4096.0f));
 
-		finalHeight += craterHeightMapTexture.SampleLevel(sampleType, (craterMapping / 25.0f), 0).rgb * 5.0f;
+		finalHeight += (craterHeightMapTexture.SampleLevel(sampleType, (craterMapping / 25.0f), 0).r - 0.725490196f) * 5.0f;
 	}
 
 	return finalHeight;
@@ -122,5 +122,5 @@ float4 MarsFromAtmospherePixelShader(PixelInputType input) : SV_TARGET
 
 	increasedLigthningFactor = 1.0f;
 
-	return input.color * color * input.secondColor * lightIntensity * 5.0f; //(color * increasedLigthningFactor) * lightColor;
+	return input.color * color * input.secondColor * lightIntensity * 7.0f; //(color * increasedLigthningFactor) * lightColor;
 }

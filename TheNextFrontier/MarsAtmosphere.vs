@@ -95,13 +95,13 @@ PixelInputType MarsAtmosphereFromSpaceVertexShader(VertexInputType input)
 	sampleRay = ray * sampleLength;
 	samplePoint = start + sampleRay * 0.5f;
 
-	frontColor = float3(0.0, 0.0, 0.0);
+	frontColor = float3(0.0f, 0.0f, 0.0f);
 	[unroll(samples)]
 	for(int i = 0; i < samples; i++)
 	{
 		float heightForSunlight = length(samplePoint);
 		float depth = exp(scaleOverScaleDepth * (marsRadius - heightForSunlight));
-		float lightAngle = dot(-mul(lightDirection, rotationMatrix), samplePoint) / heightForSunlight;
+		float lightAngle = dot(mul(lightDirection, rotationMatrix), samplePoint) / heightForSunlight;
 		float cameraAngle = dot(ray, samplePoint) / heightForSunlight;
 		float scatter = (startOffset + depth * (Scale(lightAngle) - Scale(cameraAngle)));
 		attenuate = exp(-scatter * (invWavelength * kr4PI + km4PI));
@@ -126,15 +126,53 @@ PixelInputType MarsAtmosphereFromAtmosphereVertexShader(VertexInputType input)
 	PixelInputType output;
 	float3 finalPos;
 
+	float3 ray, start, sampleRay, samplePoint, frontColor, attenuate;
+	float far, near, startAngle, startDepth, startOffset, sampleLength, scaledLength, height, depth;
+	int samples;
+
 	finalPos = input.a + input.r * input.localPosition.x + input.s * input.localPosition.y;
 
 	finalPos = normalize(finalPos) * (marsAtmosphereRadius.r);
+
+	samples = 2;
+
+	ray = finalPos - cameraPos;
+	far = length(ray);
+	ray /= far;
+
+	start = cameraPos;
+	height = length(start);
+	depth = exp(scaleOverScaleDepth * (marsRadius - cameraHeight));
+	startAngle = dot(ray, start) / height;
+	startOffset = depth * Scale(startAngle);
+
+	sampleLength = far / samples;
+	scaledLength = sampleLength * scale;
+	sampleRay = ray * sampleLength;
+	samplePoint = start + sampleRay * 0.5f;
+
+	frontColor = float3(0.0f, 0.0f, 0.0f);
+	[unroll(samples)]
+	for(int i = 0; i < samples; i++)
+	{
+		float heightForSunlight = length(samplePoint);
+		float depth = exp(scaleOverScaleDepth * (marsRadius - heightForSunlight));
+		float lightAngle = dot(mul(lightDirection, rotationMatrix), samplePoint) / heightForSunlight;
+		float cameraAngle = dot(ray, samplePoint) / heightForSunlight;
+		float scatter = (startOffset + depth * (Scale(lightAngle) - Scale(cameraAngle)));
+		attenuate = exp(-scatter * (invWavelength.xyz * kr4PI + km4PI));
+		frontColor += attenuate * (depth * scaledLength);
+		samplePoint += sampleRay;
+	}
 
 	output.position = mul(float4(finalPos, 1.0f), worldMatrix);
 	output.position = mul(output.position, viewMatrix);
 	output.position = mul(output.position, projectionMatrix);
 	
-	output.color = float4(0.788f, 0.584f, 0.255f, 1.0f);
+	output.secondColor.rgb = frontColor * kmESun;
+	output.color.rgb = frontColor * (invWavelength * krESun);
+
+	output.direction = cameraPos - finalPos;
 
 	return output;
 }

@@ -225,9 +225,6 @@
     <Image Include="Textures\MousePointer.tif">
       <Filter>Resource Files\Textures</Filter>
     </Image>
-    <Image Include="Textures\MarsDetailAreaMap8K.tif">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
     <Image Include="Textures\MarsCrater.tif">
       <Filter>Resource Files\Textures</Filter>
     </Image>

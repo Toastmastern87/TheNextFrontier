@@ -83,8 +83,8 @@
       <LINE>3</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GUIClass::mVertexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>GUIClass::{ctor}</FUNCTION>
     <DECORATED>??0GUIClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -96,8 +96,8 @@
       <LINE>3</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GUIClass::mVertexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>GUIClass::{ctor}</FUNCTION>
     <DECORATED>??0GUIClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1591,8 +1591,8 @@
       <LINE>60</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>60</FUNCLINE>
@@ -1604,8 +1604,8 @@
       <LINE>60</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>60</FUNCLINE>
@@ -1631,7 +1631,7 @@
       <COLUMN>18</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ApplicationClass::mShaderManager' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'ApplicationClass::mInput' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ApplicationClass::{ctor}</FUNCTION>
     <DECORATED>??0ApplicationClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>13</FUNCLINE>
@@ -1757,14 +1757,14 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsclass.cpp</FILENAME>
-      <LINE>17</LINE>
+      <LINE>23</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MarsClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>17</FUNCLINE>
+    <FUNCLINE>23</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
@@ -2052,8 +2052,8 @@
       <LINE>3</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'TextClass::mScreenWidth' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>TextClass::{ctor}</FUNCTION>
     <DECORATED>??0TextClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2065,8 +2065,8 @@
       <LINE>3</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'TextClass::mScreenWidth' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>TextClass::{ctor}</FUNCTION>
     <DECORATED>??0TextClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2954,8 +2954,8 @@
       <LINE>3</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'UIClass::mPreviousFPS' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>UIClass::{ctor}</FUNCTION>
     <DECORATED>??0UIClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2967,8 +2967,8 @@
       <LINE>3</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'UIClass::mPreviousFPS' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>UIClass::{ctor}</FUNCTION>
     <DECORATED>??0UIClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>

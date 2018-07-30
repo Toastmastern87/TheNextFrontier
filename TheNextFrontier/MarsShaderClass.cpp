@@ -41,11 +41,11 @@ void MarsShaderClass::Shutdown()
 	return;
 }
 
-bool MarsShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX inverserWorldMatrix, XMMATRIX rotationMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, ID3D11ShaderResourceView* heightDetail2Texture, ID3D11ShaderResourceView* colorMap, ID3D11ShaderResourceView* detailAreaTexture, ID3D11ShaderResourceView* craterHeightMapTexture, XMFLOAT3 lightDirection, XMFLOAT4 lightDiffuseColor, float patchDelta, bool insideAtmosphere, float distanceFromOrigo)
+bool MarsShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, int instanceCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX inverserWorldMatrix, XMMATRIX rotationMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, ID3D11ShaderResourceView* heightDetail2Texture, ID3D11ShaderResourceView* colorMap, ID3D11ShaderResourceView* detailAreaTextureX, ID3D11ShaderResourceView* detailAreaTextureY, ID3D11ShaderResourceView* detailAreaTextureWH, ID3D11ShaderResourceView* craterHeightMapTexture, XMFLOAT3 lightDirection, XMFLOAT4 lightDiffuseColor, float patchDelta, bool insideAtmosphere, float distanceFromOrigo)
 {
 	bool result;
 
-	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, inverserWorldMatrix, rotationMatrix, marsRadius,  marsMaxHeight, marsMinHeight, distanceLUT, cameraPos, heightTexture, heightDetail2Texture, colorMap, detailAreaTexture, craterHeightMapTexture, lightDirection, lightDiffuseColor, patchDelta, distanceFromOrigo);
+	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, inverserWorldMatrix, rotationMatrix, marsRadius,  marsMaxHeight, marsMinHeight, distanceLUT, cameraPos, heightTexture, heightDetail2Texture, colorMap, detailAreaTextureX, detailAreaTextureY, detailAreaTextureWH, craterHeightMapTexture, lightDirection, lightDiffuseColor, patchDelta, distanceFromOrigo);
 	if (!result)
 	{
 		return false;
@@ -346,7 +346,7 @@ void MarsShaderClass::ShutdownShader()
 	return;
 }
 
-bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX inverseWorldMatrix, XMMATRIX rotationMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, ID3D11ShaderResourceView* heightDetail2Texture, ID3D11ShaderResourceView* colorTexture, ID3D11ShaderResourceView* detailAreaTexture, ID3D11ShaderResourceView* craterHeightMapTexture, XMFLOAT3 lightDirection, XMFLOAT4 lightDiffuseColor, float patchDelta, float distanceFromOrigo)
+bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX inverseWorldMatrix, XMMATRIX rotationMatrix, float marsRadius, float marsMaxHeight, float marsMinHeight, vector<float> distanceLUT, XMFLOAT3 cameraPos, ID3D11ShaderResourceView* heightTexture, ID3D11ShaderResourceView* heightDetail2Texture, ID3D11ShaderResourceView* colorTexture, ID3D11ShaderResourceView* detailAreaTextureX, ID3D11ShaderResourceView* detailAreaTextureY, ID3D11ShaderResourceView* detailAreaTextureWH, ID3D11ShaderResourceView* craterHeightMapTexture, XMFLOAT3 lightDirection, XMFLOAT4 lightDiffuseColor, float patchDelta, float distanceFromOrigo)
 {
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
@@ -485,14 +485,18 @@ bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XM
 
 	deviceContext->VSSetShaderResources(0, 1, &heightTexture);
 	deviceContext->VSSetShaderResources(1, 1, &heightDetail2Texture);
-	deviceContext->VSSetShaderResources(2, 1, &detailAreaTexture);
+	deviceContext->VSSetShaderResources(2, 1, &detailAreaTextureX);
 	deviceContext->VSSetShaderResources(3, 1, &craterHeightMapTexture);
+	deviceContext->VSSetShaderResources(4, 1, &detailAreaTextureY);
+	deviceContext->VSSetShaderResources(5, 1, &detailAreaTextureWH);
 
 	deviceContext->PSSetShaderResources(0, 1, &heightTexture);
 	deviceContext->PSSetShaderResources(1, 1, &heightDetail2Texture);
 	deviceContext->PSSetShaderResources(2, 1, &colorTexture);
-	deviceContext->PSSetShaderResources(3, 1, &detailAreaTexture);
+	deviceContext->PSSetShaderResources(3, 1, &detailAreaTextureX);
 	deviceContext->PSSetShaderResources(4, 1, &craterHeightMapTexture);
+	deviceContext->VSSetShaderResources(5, 1, &detailAreaTextureY);
+	deviceContext->VSSetShaderResources(6, 1, &detailAreaTextureWH);
 
 	return true;
 }

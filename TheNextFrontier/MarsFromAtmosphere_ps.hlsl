@@ -1,8 +1,10 @@
 Texture2D heightMapTexture : register(t0);
 Texture2D heightMapDetail2Texture : register(t1);
 Texture2D colorMapTexture : register(t2);
-Texture2D detailAreaMapTexture : register(t3);
+Texture2D detailAreaMapTextureX : register(t3);
 Texture2D craterHeightMapTexture : register(t4);
+Texture2D detailAreaMapTextureY : register(t5);
+Texture2D detailAreaMapTextureWH : register(t6);
 SamplerState sampleType;
 
 #include "NoiseSimplexFunc.hlsl"
@@ -83,7 +85,7 @@ float3 CalculateNormal(float3 normalVector, float3 viewVector, float2 uv, bool i
 	hD = GetHeight((uv + texOffset.zy), insideAtmosphere, pos);
 	hU = GetHeight((uv - texOffset.zy), insideAtmosphere, pos);
 
-	float4 detailArea = detailAreaMapTexture.SampleLevel(sampleType, uv, 0).rgba;
+	float4 detailArea = detailAreaMapTextureX.SampleLevel(sampleType, uv, 0).rgba;
 
 	if (detailArea.r == 1.0f && detailArea.g != 1.0f)
 	{

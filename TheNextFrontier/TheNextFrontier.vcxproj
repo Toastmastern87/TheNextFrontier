@@ -228,6 +228,9 @@
     <Image Include="Textures\MarsColorMap8K.tif" />
     <Image Include="Textures\MarsCrater.tif" />
     <Image Include="Textures\MarsDetailAreaMap8K.tif" />
+    <Image Include="Textures\MarsDetailAreaMapWH8K.tif" />
+    <Image Include="Textures\MarsDetailAreaMapX8K.tif" />
+    <Image Include="Textures\MarsDetailAreaMapY8K.tif" />
     <Image Include="Textures\MarsHeightDetail2.tif" />
     <Image Include="Textures\MarsHeightMap8K.tif" />
     <Image Include="Textures\MousePointer.tif" />

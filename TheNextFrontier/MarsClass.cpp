@@ -10,8 +10,14 @@ MarsClass::MarsClass()
 	mHeightMapResourceView = 0;
 	mColorMapResource = 0;
 	mColorMapResourceView = 0;
-	mDetailAreaMapResource = 0;
-	mDetailAreaMapResourceView = 0;
+	mDetailAreaMapResourceX = 0;
+	mDetailAreaMapResourceViewX = 0;
+	mDetailAreaMapResourceY = 0;
+	mDetailAreaMapResourceViewY = 0;
+	mDetailAreaMapResourceWH = 0;
+	mDetailAreaMapResourceViewWH = 0;
+	mCraterHeightMapResource = 0;
+	mCraterHeightMapResourceView = 0;
 }
 
 MarsClass::MarsClass(const MarsClass& other)
@@ -706,9 +712,25 @@ bool MarsClass::LoadDetailAreaMapTexture(ID3D11Device* device)
 	HRESULT hResult;
 	const wchar_t *fileName;
 
-	fileName = L"../TheNextFrontier/Textures/MarsDetailAreaMap8K.tif";
+	fileName = L"../TheNextFrontier/Textures/MarsDetailAreaMapX8K.tif";
 
-	hResult = CreateWICTextureFromFile(device, fileName, &mDetailAreaMapResource, &mDetailAreaMapResourceView);
+	hResult = CreateWICTextureFromFile(device, fileName, &mDetailAreaMapResourceX, &mDetailAreaMapResourceViewX);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	fileName = L"../TheNextFrontier/Textures/MarsDetailAreaMapY8K.tif";
+
+	hResult = CreateWICTextureFromFile(device, fileName, &mDetailAreaMapResourceY, &mDetailAreaMapResourceViewY);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	fileName = L"../TheNextFrontier/Textures/MarsDetailAreaMapWH8K.tif";
+
+	hResult = CreateWICTextureFromFile(device, fileName, &mDetailAreaMapResourceWH, &mDetailAreaMapResourceViewWH);
 	if (FAILED(hResult))
 	{
 		return false;
@@ -748,9 +770,19 @@ ID3D11ShaderResourceView* MarsClass::GetColorMap()
 	return mColorMapResourceView;
 }
 
-ID3D11ShaderResourceView* MarsClass::GetDetailAreaMap()
+ID3D11ShaderResourceView* MarsClass::GetDetailAreaMapX()
 {
-	return mDetailAreaMapResourceView;
+	return mDetailAreaMapResourceViewX;
+}
+
+ID3D11ShaderResourceView* MarsClass::GetDetailAreaMapY()
+{
+	return mDetailAreaMapResourceViewX;
+}
+
+ID3D11ShaderResourceView* MarsClass::GetDetailAreaMapWH()
+{
+	return mDetailAreaMapResourceViewWH;
 }
 
 ID3D11ShaderResourceView* MarsClass::GetCraterHeightMap()

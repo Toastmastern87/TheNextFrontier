@@ -22,7 +22,7 @@ bool FontShaderClass::Initialize(ID3D11Device* device, HWND hwnd)
 {
 	bool result;
 
-	result = InitializeShader(device, hwnd, (WCHAR*)L"../TheNextFrontier/Font.vs", (WCHAR*)L"../TheNextFrontier/Font.ps");
+	result = InitializeShader(device, hwnd);
 	if (!result)
 	{
 		return false;
@@ -53,9 +53,9 @@ bool FontShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount,
 	return true;
 }
 
-bool FontShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* vsFilename, WCHAR* psFilename)
+bool FontShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd)
 {
-	HRESULT result;
+	HRESULT hResult;
 	ID3D10Blob* errorMessage;
 	ID3D10Blob* vertexShaderBuffer;
 	ID3D10Blob* pixelShaderBuffer;
@@ -69,44 +69,26 @@ bool FontShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 	vertexShaderBuffer = 0;
 	pixelShaderBuffer = 0;
 
-	result = D3DCompileFromFile(vsFilename, NULL, NULL, "FontVertexShader", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &vertexShaderBuffer, &errorMessage);
-	if (FAILED(result))
-	{
-		if (errorMessage)
-		{
-			OutputShaderErrorMessage(errorMessage, hwnd, vsFilename);
-		}
-		else
-		{
-			MessageBox(hwnd, vsFilename, L"Missing Shader File", MB_OK);
-		}
-
-		return false;
-	}
-
-	result = D3DCompileFromFile(psFilename, NULL, NULL, "FontPixelShader", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &pixelShaderBuffer, &errorMessage);
-	if (FAILED(result))
-	{
-		if (errorMessage)
-		{
-			OutputShaderErrorMessage(errorMessage, hwnd, psFilename);
-		}
-		else
-		{
-			MessageBox(hwnd, psFilename, L"Missing Shader File", MB_OK);
-		}
-
-		return false;
-	}
-
-	result = device->CreateVertexShader(vertexShaderBuffer->GetBufferPointer(), vertexShaderBuffer->GetBufferSize(), NULL, &mVertexShader);
-	if (FAILED(result))
+	hResult = D3DReadFileToBlob(L"../x64/Debug/Font_vs.cso", &vertexShaderBuffer);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
 
-	result = device->CreatePixelShader(pixelShaderBuffer->GetBufferPointer(), pixelShaderBuffer->GetBufferSize(), NULL, &mPixelShader);
-	if (FAILED(result))
+	hResult = device->CreateVertexShader(vertexShaderBuffer->GetBufferPointer(), vertexShaderBuffer->GetBufferSize(), NULL, &mVertexShader);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	hResult = D3DReadFileToBlob(L"../x64/Debug/Font_ps.cso", &pixelShaderBuffer);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	hResult = device->CreatePixelShader(pixelShaderBuffer->GetBufferPointer(), pixelShaderBuffer->GetBufferSize(), NULL, &mPixelShader);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
@@ -129,8 +111,8 @@ bool FontShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 
 	numElements = sizeof(polygonLayout) / sizeof(polygonLayout[0]);
 
-	result = device->CreateInputLayout(polygonLayout, numElements, vertexShaderBuffer->GetBufferPointer(), vertexShaderBuffer->GetBufferSize(), &mLayout);
-	if (FAILED(result))
+	hResult = device->CreateInputLayout(polygonLayout, numElements, vertexShaderBuffer->GetBufferPointer(), vertexShaderBuffer->GetBufferSize(), &mLayout);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
@@ -148,8 +130,8 @@ bool FontShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 	matrixBufferDesc.MiscFlags = 0;
 	matrixBufferDesc.StructureByteStride = 0;
 
-	result = device->CreateBuffer(&matrixBufferDesc, NULL, &mMatrixBuffer);
-	if (FAILED(result))
+	hResult = device->CreateBuffer(&matrixBufferDesc, NULL, &mMatrixBuffer);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
@@ -168,8 +150,8 @@ bool FontShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 	samplerDesc.MinLOD = 0;
 	samplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
 
-	result = device->CreateSamplerState(&samplerDesc, &mSampleState);
-	if(FAILED(result))
+	hResult = device->CreateSamplerState(&samplerDesc, &mSampleState);
+	if(FAILED(hResult))
 	{
 		return false;
 	}
@@ -181,8 +163,8 @@ bool FontShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* v
 	pixelBufferDesc.MiscFlags = 0;
 	pixelBufferDesc.StructureByteStride = 0;
 
-	result = device->CreateBuffer(&pixelBufferDesc, NULL, &mPixelBuffer);
-	if (FAILED(result))
+	hResult = device->CreateBuffer(&pixelBufferDesc, NULL, &mPixelBuffer);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
@@ -227,33 +209,6 @@ void FontShaderClass::ShutdownShader()
 		mVertexShader->Release();
 		mVertexShader = 0;
 	}
-
-	return;
-}
-
-void FontShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND hwnd, WCHAR* shaderFilename)
-{
-	char* compileErrors;
-	unsigned long long bufferSize, i;
-	ofstream fout;
-
-	compileErrors = (char*)(errorMessage->GetBufferPointer());
-
-	bufferSize = errorMessage->GetBufferSize();
-
-	fout.open("Shader-error.txt");
-
-	for (i = 0; i < bufferSize; i++)
-	{
-		fout << compileErrors[i];
-	}
-
-	fout.close();
-
-	errorMessage->Release();
-	errorMessage = 0;
-
-	MessageBox(hwnd, L"Error compiling shader. check Shader-error.txt for message", shaderFilename, MB_OK);
 
 	return;
 }

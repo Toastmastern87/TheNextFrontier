@@ -495,8 +495,8 @@ bool MarsShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, XM
 	deviceContext->PSSetShaderResources(2, 1, &colorTexture);
 	deviceContext->PSSetShaderResources(3, 1, &detailAreaTextureX);
 	deviceContext->PSSetShaderResources(4, 1, &craterHeightMapTexture);
-	deviceContext->VSSetShaderResources(5, 1, &detailAreaTextureY);
-	deviceContext->VSSetShaderResources(6, 1, &detailAreaTextureWH);
+	deviceContext->PSSetShaderResources(5, 1, &detailAreaTextureY);
+	deviceContext->PSSetShaderResources(6, 1, &detailAreaTextureWH);
 
 	return true;
 }

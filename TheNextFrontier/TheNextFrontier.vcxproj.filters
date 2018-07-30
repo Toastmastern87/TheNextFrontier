@@ -184,12 +184,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Font.ps">
-      <Filter>Source Files\Shaders</Filter>
-    </None>
-    <None Include="Font.vs">
-      <Filter>Source Files\Shaders</Filter>
-    </None>
     <None Include="packages.config" />
     <None Include="GUI.vs">
       <Filter>Source Files\Shaders</Filter>
@@ -264,6 +258,12 @@
       <Filter>Source Files\Shaders</Filter>
     </FxCompile>
     <FxCompile Include="MousePointer_vs.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Font_ps.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Font_vs.hlsl">
       <Filter>Source Files\Shaders</Filter>
     </FxCompile>
   </ItemGroup>

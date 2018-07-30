@@ -777,7 +777,7 @@ ID3D11ShaderResourceView* MarsClass::GetDetailAreaMapX()
 
 ID3D11ShaderResourceView* MarsClass::GetDetailAreaMapY()
 {
-	return mDetailAreaMapResourceViewX;
+	return mDetailAreaMapResourceViewY;
 }
 
 ID3D11ShaderResourceView* MarsClass::GetDetailAreaMapWH()

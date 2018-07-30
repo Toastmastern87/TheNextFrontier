@@ -85,16 +85,19 @@ float3 CalculateNormal(float3 normalVector, float3 viewVector, float2 uv, bool i
 	hD = GetHeight((uv + texOffset.zy), insideAtmosphere, pos);
 	hU = GetHeight((uv - texOffset.zy), insideAtmosphere, pos);
 
-	float4 detailArea = detailAreaMapTextureX.SampleLevel(sampleType, uv, 0).rgba;
+	float4 detailAreaX = detailAreaMapTextureX.SampleLevel(sampleType, uv, 0).rgba;
 
-	if (detailArea.r == 1.0f && detailArea.g != 1.0f)
+	if (detailAreaX.a == 1.0f)
 	{
 		craterHeightMapTexture.GetDimensions(craterDetailTextureWidth, craterDetailTextureHeight);
 
 		texOffsetCraterDetail = float3((1.0f / (craterDetailTextureWidth)), (1.0f / (craterDetailTextureHeight)), 0.0f);
 
-		craterDetailUV = uv - float2((4669.0f / 8192.0f), (1704.0f / 4096.0f));
-		craterDetailUV = float2((craterDetailUV.x * 8192.0f), (craterDetailUV.y * 4096.0f)) / 25.0f;
+		float4 detailAreaY = detailAreaMapTextureY.SampleLevel(sampleType, uv, 0).rgba;
+		float4 detailAreaWH = detailAreaMapTextureWH.SampleLevel(sampleType, uv, 0).rgba;
+
+		craterDetailUV = uv - float2((((round(detailAreaX.r * 255.0f) * round(detailAreaX.g * 255.0f)) + round(detailAreaX.b * 255.0f)) / 8192.0f), (((round(detailAreaY.r * 255.0f) * round(detailAreaY.g * 255.0f)) + round(detailAreaY.b * 255.0f)) / 4096.0f));
+		craterDetailUV = float2((craterDetailUV.x * 8192.0f), (craterDetailUV.y * 4096.0f)) / (round(detailAreaWH.r * 255.0f));
 
 		hL2 = GetCraterDetailHeight((craterDetailUV - texOffsetCraterDetail.xz), insideAtmosphere, pos);
 		hR2 = GetCraterDetailHeight((craterDetailUV + texOffsetCraterDetail.xz), insideAtmosphere, pos);

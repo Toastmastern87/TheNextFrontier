@@ -98,22 +98,19 @@ float GetHeight(float3 pos, float maxHeight, float minHeight)
 	heightColorValue = heightMapTexture.SampleLevel(sampleType, uv, 0).r;
 	//heightColorValue += (heightMapDetail2Texture.SampleLevel(sampleType, (uv * textureStretch * 700), 1).r * 1.0f);
 
-	float4 detailArea = detailAreaMapTextureX.SampleLevel(sampleType, uv, 0).rgba;
+	float4 detailAreaX = detailAreaMapTextureX.SampleLevel(sampleType, uv, 0).rgba;
 
 	//heightColorValue += (heightMapDetail2Texture.SampleLevel(sampleType, (uv * textureStretch * 700), 1).r * 1.0f);
 
-	float noiseValue = snoise(float3(pos.x, pos.y, pos.z));
-	noiseValue += 0.5f * snoise(float3((2.0f * pos.x), (2.0f * pos.y), (2.0f * pos.z)));
-	noiseValue += 0.25f * snoise(float3((4.0f * pos.x), (4.0f * pos.y), (4.0f * pos.z)));
-	noiseValue += 0.125f * snoise(float3((8.0f * pos.x), (8.0f * pos.y), (8.0f * pos.z)));
-	noiseValue += 0.0625f * snoise(float3((16.0f * pos.x), (16.0f * pos.y), (16.0f * pos.z)));
-
-	if (detailArea.r == 1.0f && detailArea.g != 1.0f)
+	if (detailAreaX.a == 1.0f)
 	{
-		float2 craterMapping = uv - float2((4669.0f / 8192.0f), (1704.0f / 4096.0f));
+		float4 detailAreaY = detailAreaMapTextureY.SampleLevel(sampleType, uv, 0).rgba;
+		float4 detailAreaWH = detailAreaMapTextureWH.SampleLevel(sampleType, uv, 0).rgba;
+
+		float2 craterMapping = uv - float2((((round(detailAreaX.r * 255.0f) * round(detailAreaX.g * 255.0f)) + round(detailAreaX.b * 255.0f)) / 8192.0f), (((round(detailAreaY.r * 255.0f) * round(detailAreaY.g * 255.0f)) + round(detailAreaY.b * 255.0f)) / 4096.0f));
 		craterMapping = float2((craterMapping.x * 8192.0f), (craterMapping.y * 4096.0f));
 
-		finalHeight = (craterHeightMapTexture.SampleLevel(sampleType, (craterMapping / 25.0f), 0).r - 0.725490196f) * 5.0f;
+		finalHeight = (craterHeightMapTexture.SampleLevel(sampleType, (craterMapping / (round(detailAreaWH.r * 255.0f))), 0).r - 0.725490196f) * 5.0f;
 		finalHeight += (heightColorValue * (maxHeight - minHeight));
 	}
 	else

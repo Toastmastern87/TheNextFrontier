@@ -191,12 +191,6 @@
       <Filter>Source Files\Shaders</Filter>
     </None>
     <None Include="packages.config" />
-    <None Include="MousePointer.ps">
-      <Filter>Source Files\Shaders</Filter>
-    </None>
-    <None Include="MousePointer.vs">
-      <Filter>Source Files\Shaders</Filter>
-    </None>
     <None Include="GUI.vs">
       <Filter>Source Files\Shaders</Filter>
     </None>
@@ -255,6 +249,12 @@
       <Filter>Source Files\Shaders</Filter>
     </FxCompile>
     <FxCompile Include="MarsFromAtmosphere_ps.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="MousePointer_ps.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="MousePointer_vs.hlsl">
       <Filter>Source Files\Shaders</Filter>
     </FxCompile>
   </ItemGroup>

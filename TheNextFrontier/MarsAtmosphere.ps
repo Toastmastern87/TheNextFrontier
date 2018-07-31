@@ -28,6 +28,10 @@ float4 MarsAtmosphereFromSpacePixelShader(PixelInputType input) : SV_TARGET
 	finalColor.g = 1.0f - exp(-1.0f * finalColor.g);
 	finalColor.b = 1.0f - exp(-1.0f * finalColor.b);
 
+	finalColor.r *= 1.9f;
+	finalColor.g *= 0.8f;
+	finalColor.b *= 0.3f;
+
 	return finalColor;
 }
 
@@ -46,5 +50,9 @@ float4 MarsAtmosphereFromAtmospherePixelShader(PixelInputType input) : SV_TARGET
 	finalColor.g = 1.0f - exp(-1.0f * finalColor.g);
 	finalColor.b = 1.0f - exp(-1.0f * finalColor.b);
 
-	return input.color;
+	finalColor.r *= 1.9f;
+	finalColor.g *= 0.8f;
+	finalColor.b *= 0.3f;
+
+	return finalColor;
 }

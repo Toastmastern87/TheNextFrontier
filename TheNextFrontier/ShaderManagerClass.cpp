@@ -80,11 +80,30 @@ bool ShaderManagerClass::Initialize(ID3D11Device* device, HWND hwnd)
 		return false;
 	}
 
+	mStarBoxShader = new StarBoxShaderClass();
+	if (!mStarBoxShader)
+	{
+		return false;
+	}
+
+	result = mStarBoxShader->Initialize(device, hwnd);
+	if (!result)
+	{
+		return false;
+	}
+
 	return true;
 }
 
 void ShaderManagerClass::Shutdown()
 {
+	if (mStarBoxShader)
+	{
+		mStarBoxShader->Shutdown();
+		delete mStarBoxShader;
+		mStarBoxShader = 0;
+	}
+
 	if (mGUIShader)
 	{
 		mGUIShader->Shutdown();
@@ -146,4 +165,9 @@ bool ShaderManagerClass::RenderMousePointerShader(ID3D11DeviceContext *deviceCon
 bool ShaderManagerClass::RenderGUIShader(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, ID3D11ShaderResourceView *texture)
 {
 	return mGUIShader->Render(deviceContext, indexCount, worldMatrix, viewMatrix, projectionMatrix, texture);
+}
+
+bool ShaderManagerClass::RenderStarBoxShader(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix)
+{
+	return mStarBoxShader->Render(deviceContext, indexCount, worldMatrix, viewMatrix, projectionMatrix);
 }

@@ -1,4 +1,29 @@
-float4 main( float4 pos : POSITION ) : SV_POSITION
+cbuffer MatrixBuffer
 {
-	return pos;
+	matrix worldMatrix;
+	matrix viewMatrix;
+	matrix projectionMatrix;
+};
+
+struct VertexInputType
+{
+	float4 position : POSITION;
+};
+
+struct PixelInputType
+{
+	float4 position : SV_POSITION;
+};
+
+PixelInputType StarBoxVertexShader(VertexInputType input)
+{
+	PixelInputType output;
+
+	input.position.w = 1.0f;
+
+	output.position = mul(input.position, worldMatrix);
+	output.position = mul(output.position, viewMatrix);
+	output.position = mul(output.position, projectionMatrix);
+
+	return output;
 }

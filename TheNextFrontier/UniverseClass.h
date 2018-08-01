@@ -1,5 +1,4 @@
-#ifndef _UNIVERSECLASS_H_
-#define _UNIVERSECLASS_H_
+#pragma once
 
 #include "D3DClass.h"
 #include "InputClass.h"
@@ -15,6 +14,7 @@
 #include "GameTimeClass.h"
 #include "GUIClass.h"
 #include "MarsAtmosphereClass.h"
+#include "StarBoxClass.h";
 
 class UniverseClass
 {
@@ -30,7 +30,7 @@ public:
 private:
 	void HandleMovementInput(InputClass*, float);
 	bool Render(D3DClass*, ShaderManagerClass*);
-
+	
 private:
 	UIClass * mUI;
 	CameraClass* mCamera;
@@ -44,6 +44,5 @@ private:
 	MousePointerClass *mMousePointer;
 	GameTimeClass *mGameTime;
 	GUIClass *mGUI;
+	StarBoxClass *mStarBox;
 };
-
-#endif

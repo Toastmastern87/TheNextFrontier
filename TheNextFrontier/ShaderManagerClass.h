@@ -6,6 +6,7 @@
 #include "FontShaderClass.h"
 #include "MousePointerShaderClass.h"
 #include "GUIShaderClass.h"
+#include "StarBoxShaderClass.h"
 
 class ShaderManagerClass
 {
@@ -22,6 +23,7 @@ public:
 	bool RenderFontShader(ID3D11DeviceContext*, int, XMMATRIX, XMMATRIX, XMMATRIX, ID3D11ShaderResourceView*, XMFLOAT4);
 	bool RenderMousePointerShader(ID3D11DeviceContext*, int, XMMATRIX, XMMATRIX, XMMATRIX, ID3D11ShaderResourceView*);
 	bool RenderGUIShader(ID3D11DeviceContext*, int, XMMATRIX, XMMATRIX, XMMATRIX, ID3D11ShaderResourceView*);
+	bool RenderStarBoxShader(ID3D11DeviceContext*, int, XMMATRIX, XMMATRIX, XMMATRIX);
 
 private:
 	MarsShaderClass * mMarsShader;
@@ -29,4 +31,5 @@ private:
 	FontShaderClass* mFontShader;
 	MousePointerShaderClass* mMousePointerShader;
 	GUIShaderClass* mGUIShader;
+	StarBoxShaderClass *mStarBoxShader;
 };

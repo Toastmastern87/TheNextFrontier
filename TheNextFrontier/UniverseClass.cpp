@@ -11,6 +11,7 @@ UniverseClass::UniverseClass()
 	mSunlight = 0;
 	mGameTime = 0;
 	mGUI = 0;
+	mStarBox = 0;
 
 	mSpeedIncreased = false;
 	mSpeedDecreased = false;
@@ -35,6 +36,19 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 
 	mScreenDepth = screenDepth;
 	mScreenNear = screenNear;
+
+	mStarBox = new StarBoxClass();
+	if (!mStarBox)
+	{
+		return false;
+	}
+
+	result = mStarBox->Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext());
+	if (!result)
+	{
+		MessageBox(hwnd, L"Could not initialize the Star Box object", L"Error", MB_OK);
+		return false;
+	}
 
 	mGUI = new GUIClass();
 	if (!mGUI)
@@ -156,6 +170,13 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 
 void UniverseClass::Shutdown()
 {
+	if (mStarBox)
+	{
+		mStarBox->Shutdown();
+		delete mStarBox;
+		mStarBox = 0;
+	}
+
 	if (mGUI)
 	{
 		mGUI->Shutdown();
@@ -396,6 +417,9 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 	{
 		direct3D->EnableWireframe();
 	}
+
+	mStarBox->Render(direct3D->GetDeviceContext());
+	result = shaderManager->RenderStarBoxShader(direct3D->GetDeviceContext(), mStarBox->GetIndexCount(), worldMatrix, baseViewMatrix, projectionMatrix);
 
 	if (mRenderMars)
 	{

@@ -32,6 +32,20 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>shadermanagerclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ShaderManagerClass::mStarBoxShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ShaderManagerClass::{ctor}</FUNCTION>
+    <DECORATED>??0ShaderManagerClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>shadermanagerclass.cpp</FILENAME>
       <LINE>11</LINE>
       <COLUMN>20</COLUMN>
     </SFA>
@@ -93,6 +107,20 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'ShaderManagerClass::mGUIShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ShaderManagerClass::{ctor}</FUNCTION>
+    <DECORATED>??0ShaderManagerClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>shadermanagerclass.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ShaderManagerClass::mStarBoxShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ShaderManagerClass::{ctor}</FUNCTION>
     <DECORATED>??0ShaderManagerClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>11</FUNCLINE>

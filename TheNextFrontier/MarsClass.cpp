@@ -291,6 +291,12 @@ void MarsClass::ShutdownBuffers()
 		mIndexBuffer = 0;
 	}
 
+	if (mInstanceBuffer) 
+	{
+		mInstanceBuffer->Release();
+		mInstanceBuffer = 0;
+	}
+
 	if (mVertexBuffer)
 	{
 		mVertexBuffer->Release();

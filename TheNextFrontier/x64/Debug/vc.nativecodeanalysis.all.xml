@@ -83,8 +83,8 @@
       <LINE>3</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GUIClass::mVertexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>GUIClass::{ctor}</FUNCTION>
     <DECORATED>??0GUIClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -96,8 +96,8 @@
       <LINE>3</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GUIClass::mVertexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>GUIClass::{ctor}</FUNCTION>
     <DECORATED>??0GUIClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1591,8 +1591,8 @@
       <LINE>60</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>60</FUNCLINE>
@@ -1604,8 +1604,8 @@
       <LINE>60</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>60</FUNCLINE>
@@ -1734,8 +1734,8 @@
       <LINE>3</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::mMarsRadius' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1747,8 +1747,8 @@
       <LINE>3</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::mMarsRadius' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2009,6 +2009,97 @@
   </DEFECT><DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>starboxclass.h</FILENAME>
+      <LINE>21</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>StarBoxClass::StarBoxVertexType::{ctor}</FUNCTION>
+    <DECORATED>??0StarBoxVertexType@StarBoxClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>21</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>starboxclass.h</FILENAME>
+      <LINE>21</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'StarBoxClass::StarBoxVertexType::pos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>StarBoxClass::StarBoxVertexType::{ctor}</FUNCTION>
+    <DECORATED>??0StarBoxVertexType@StarBoxClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>21</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>starboxclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>14</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>StarBoxClass::{ctor}</FUNCTION>
+    <DECORATED>??0StarBoxClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>starboxclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>14</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'StarBoxClass::mVertexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>StarBoxClass::{ctor}</FUNCTION>
+    <DECORATED>??0StarBoxClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>starboxclass.cpp</FILENAME>
+      <LINE>9</LINE>
+      <COLUMN>14</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'StarBoxClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>StarBoxClass::{ctor}</FUNCTION>
+    <DECORATED>??0StarBoxClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>9</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>starboxshaderclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>StarBoxShaderClass::{ctor}</FUNCTION>
+    <DECORATED>??0StarBoxShaderClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>starboxshaderclass.cpp</FILENAME>
+      <LINE>12</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'StarBoxShaderClass::mVertexShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>StarBoxShaderClass::{ctor}</FUNCTION>
+    <DECORATED>??0StarBoxShaderClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>12</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>systemclass.cpp</FILENAME>
       <LINE>3</LINE>
       <COLUMN>13</COLUMN>
@@ -2040,7 +2131,7 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'SystemClass::mApplication' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'SystemClass::mHInstance' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>8</FUNCLINE>

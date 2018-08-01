@@ -140,8 +140,8 @@ private:
 	ID3D11Buffer *mVertexBuffer, *mIndexBuffer, *mInstanceBuffer;
 
 	vector<MarsVertexType> mMarsCellVertices;
-
 	vector<long int> mMarsCellIndices;
+
 	FrustumClass* mFrustum;
 
 	float mMarsRadius;

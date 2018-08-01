@@ -21,7 +21,7 @@ bool GUIShaderClass::Initialize(ID3D11Device *device, HWND hwnd)
 {
 	bool result;
 
-	result = InitializeShader(device, hwnd, (WCHAR*)L"../TheNextFrontier/GUI.vs", (WCHAR*)L"../TheNextFrontier/GUI.ps");
+	result = InitializeShader(device, hwnd);
 	if (!result)
 	{
 		return false;
@@ -52,9 +52,9 @@ bool GUIShaderClass::Render(ID3D11DeviceContext *deviceContext, int indexCount, 
 	return true;
 }
 
-bool GUIShaderClass::InitializeShader(ID3D11Device *device, HWND hwnd, WCHAR* vsFilename, WCHAR* psFilename)
+bool GUIShaderClass::InitializeShader(ID3D11Device *device, HWND hwnd)
 {
-	HRESULT result;
+	HRESULT hResult;
 	ID3D10Blob *errorMessage;
 	ID3D10Blob *vertexShaderBuffer;
 	ID3D10Blob *pixelShaderBuffer;
@@ -68,44 +68,26 @@ bool GUIShaderClass::InitializeShader(ID3D11Device *device, HWND hwnd, WCHAR* vs
 	vertexShaderBuffer = 0;
 	pixelShaderBuffer = 0;
 
-	result = D3DCompileFromFile(vsFilename, NULL, NULL, "GUIVertexShader", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &vertexShaderBuffer, &errorMessage);
-	if (FAILED(result))
-	{
-		if (errorMessage)
-		{
-			OutputShaderErrorMessage(errorMessage, hwnd, vsFilename);
-		}
-		else
-		{
-			MessageBox(hwnd, vsFilename, L"Missing Shader File", MB_OK);
-		}
-
-		return false;
-	}
-
-	result = D3DCompileFromFile(psFilename, NULL, NULL, "GUIPixelShader", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, &pixelShaderBuffer, &errorMessage);
-	if (FAILED(result))
-	{
-		if (errorMessage)
-		{
-			OutputShaderErrorMessage(errorMessage, hwnd, psFilename);
-		}
-		else
-		{
-			MessageBox(hwnd, psFilename, L"Missing Shader File", MB_OK);
-		}
-
-		return false;
-	}
-
-	result = device->CreateVertexShader(vertexShaderBuffer->GetBufferPointer(), vertexShaderBuffer->GetBufferSize(), NULL, &mVertexShader);
-	if (FAILED(result))
+	hResult = D3DReadFileToBlob(L"../x64/Debug/GUI_vs.cso", &vertexShaderBuffer);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
 
-	result = device->CreatePixelShader(pixelShaderBuffer->GetBufferPointer(), pixelShaderBuffer->GetBufferSize(), NULL, &mPixelShader);
-	if (FAILED(result))
+	hResult = device->CreateVertexShader(vertexShaderBuffer->GetBufferPointer(), vertexShaderBuffer->GetBufferSize(), NULL, &mVertexShader);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	hResult = D3DReadFileToBlob(L"../x64/Debug/GUI_ps.cso", &pixelShaderBuffer);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	hResult = device->CreatePixelShader(pixelShaderBuffer->GetBufferPointer(), pixelShaderBuffer->GetBufferSize(), NULL, &mPixelShader);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
@@ -128,8 +110,8 @@ bool GUIShaderClass::InitializeShader(ID3D11Device *device, HWND hwnd, WCHAR* vs
 
 	numElements = sizeof(polygonLayout) / sizeof(polygonLayout[0]);
 
-	result = device->CreateInputLayout(polygonLayout, numElements, vertexShaderBuffer->GetBufferPointer(), vertexShaderBuffer->GetBufferSize(), &mLayout);
-	if (FAILED(result))
+	hResult = device->CreateInputLayout(polygonLayout, numElements, vertexShaderBuffer->GetBufferPointer(), vertexShaderBuffer->GetBufferSize(), &mLayout);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
@@ -147,8 +129,8 @@ bool GUIShaderClass::InitializeShader(ID3D11Device *device, HWND hwnd, WCHAR* vs
 	constantBufferDesc.MiscFlags = 0;
 	constantBufferDesc.StructureByteStride = 0;
 
-	result = device->CreateBuffer(&constantBufferDesc, NULL, &mConstantBuffer);
-	if (FAILED(result))
+	hResult = device->CreateBuffer(&constantBufferDesc, NULL, &mConstantBuffer);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
@@ -167,8 +149,8 @@ bool GUIShaderClass::InitializeShader(ID3D11Device *device, HWND hwnd, WCHAR* vs
 	samplerDesc.MinLOD = 0;
 	samplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
 
-	result = device->CreateSamplerState(&samplerDesc, &mSampleState);
-	if (FAILED(result))
+	hResult = device->CreateSamplerState(&samplerDesc, &mSampleState);
+	if (FAILED(hResult))
 	{
 		return false;
 	}
@@ -207,33 +189,6 @@ void GUIShaderClass::ShutdownShader()
 		mVertexShader->Release();
 		mVertexShader = 0;
 	}
-
-	return;
-}
-
-void GUIShaderClass::OutputShaderErrorMessage(ID3D10Blob *errorMessage, HWND hwnd, WCHAR *shaderFilename)
-{
-	char *compileErrors;
-	unsigned long long bufferSize;
-	ofstream fout;
-
-	compileErrors = (char*)(errorMessage->GetBufferPointer());
-
-	bufferSize = errorMessage->GetBufferSize();
-
-	fout.open("Shader-Error.txt");
-
-	for (int i = 0; i < bufferSize; i++)
-	{
-		fout << compileErrors[i];
-	}
-
-	fout.close();
-
-	errorMessage->Release();
-	errorMessage = 0;
-
-	MessageBox(hwnd, L"Error compiling shader. Check Shader-Error.txt", shaderFilename, MB_OK);
 
 	return;
 }

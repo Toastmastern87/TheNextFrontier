@@ -102,6 +102,12 @@
     <ClCompile Include="MarsAtmosphereShaderClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="StarBoxClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StarBoxShaderClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SystemClass.h">
@@ -182,15 +188,15 @@
     <ClInclude Include="MarsAtmosphereShaderClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="StarBoxClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StarBoxShaderClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="GUI.vs">
-      <Filter>Source Files\Shaders</Filter>
-    </None>
-    <None Include="GUI.ps">
-      <Filter>Source Files\Shaders</Filter>
-    </None>
     <None Include="MarsAtmosphere.vs">
       <Filter>Source Files\Shaders</Filter>
     </None>
@@ -261,6 +267,18 @@
       <Filter>Source Files\Shaders</Filter>
     </FxCompile>
     <FxCompile Include="Font_vs.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="GUI_vs.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="GUI_ps.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="StarBox_ps.hlsl">
+      <Filter>Source Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="StarBox_vs.hlsl">
       <Filter>Source Files\Shaders</Filter>
     </FxCompile>
   </ItemGroup>

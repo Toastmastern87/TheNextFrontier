@@ -143,7 +143,7 @@ float4 MarsFromSpacePixelShader(PixelInputType input) : SV_TARGET
 	color.g *= 6.0f;
 	color.b *= 3.0f;
 
-	increasedLigthningFactor = 50.0f;
+	finalColor = input.color * color * input.secondColor * lightIntensity * 5.0f;
 
-	return input.color * color * input.secondColor * lightIntensity * 5.0f;
+	return finalColor; //(color * increasedLigthningFactor) * lightColor; //
 }

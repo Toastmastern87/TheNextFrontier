@@ -109,7 +109,7 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 		return false;
 	}
 
-	mPosition->SetPosition(2362.0f, -62.0f, -2531.0f);
+	mPosition->SetPosition(3030.0f, 851.0f, 1433.0f);
 	mPosition->SetRotation(0.0f, 270.0f, 0.0f);
 
 	mFrustum = new FrustumClass;

@@ -107,19 +107,19 @@ bool StarBoxClass::InitializeBuffers(ID3D11Device* device)
 	vertices[13].uv = XMFLOAT2(0.5f, 1.0f);
 
 	indices = new unsigned long[mIndicesCount]{
-		0, 2, 1, 
-		1, 2, 3,
-		4, 5, 6, 
-		5, 7, 6,
-		6, 7, 8, 
-		7, 9 ,8,
-		1, 3, 4, 
-		3, 5, 4,
-		1, 11,10,
-		1, 4, 11,
-		3, 12, 5,
-		5, 12, 13
-	};
+												0, 2, 1, 
+												1, 2, 3,
+												4, 5, 6, 
+												5, 7, 6,
+												6, 7, 8, 
+												7, 9 ,8,
+												1, 3, 4, 
+												3, 5, 4,
+												1, 11,10,
+												1, 4, 11,
+												3, 12, 5,
+												5, 12, 13
+											};
 	if (!indices)
 	{
 		return false;

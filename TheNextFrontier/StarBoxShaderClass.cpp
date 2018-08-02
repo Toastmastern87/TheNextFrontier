@@ -37,11 +37,11 @@ void StarBoxShaderClass::Shutdown()
 	return;
 }
 
-bool StarBoxShaderClass::Render(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix)
+bool StarBoxShaderClass::Render(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, ID3D11ShaderResourceView* starBoxTexture)
 {
 	bool result;
 
-	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix);
+	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, starBoxTexture);
 	if (!result)
 	{
 		return false;
@@ -193,7 +193,7 @@ void StarBoxShaderClass::ShutdownShader()
 	return;
 }
 
-bool StarBoxShaderClass::SetShaderParameters(ID3D11DeviceContext *deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix)
+bool StarBoxShaderClass::SetShaderParameters(ID3D11DeviceContext *deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, ID3D11ShaderResourceView* starBoxTexture)
 {
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
@@ -221,6 +221,8 @@ bool StarBoxShaderClass::SetShaderParameters(ID3D11DeviceContext *deviceContext,
 	bufferNumber = 0;
 
 	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mConstantBuffer);
+
+	deviceContext->PSSetShaderResources(0, 1, &starBoxTexture);
 
 	return true;
 }

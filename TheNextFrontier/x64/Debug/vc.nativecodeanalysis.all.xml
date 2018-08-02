@@ -1614,27 +1614,27 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>starboxclass.h</FILENAME>
-      <LINE>21</LINE>
+      <LINE>24</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>StarBoxClass::StarBoxVertexType::{ctor}</FUNCTION>
     <DECORATED>??0StarBoxVertexType@StarBoxClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>24</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>starboxclass.h</FILENAME>
-      <LINE>21</LINE>
+      <LINE>24</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'StarBoxClass::StarBoxVertexType::pos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>StarBoxClass::StarBoxVertexType::{ctor}</FUNCTION>
     <DECORATED>??0StarBoxVertexType@StarBoxClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>21</FUNCLINE>
+    <FUNCLINE>24</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
@@ -1657,7 +1657,7 @@
       <COLUMN>18</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ApplicationClass::mInput' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'ApplicationClass::mShaderManager' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ApplicationClass::{ctor}</FUNCTION>
     <DECORATED>??0ApplicationClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>13</FUNCLINE>
@@ -1799,8 +1799,8 @@
       <LINE>3</LINE>
       <COLUMN>19</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MousePointerClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
     <DECORATED>??0MousePointerClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1812,8 +1812,8 @@
       <LINE>3</LINE>
       <COLUMN>19</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MousePointerClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
     <DECORATED>??0MousePointerClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2039,8 +2039,8 @@
       <LINE>3</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'StarBoxClass::mVertexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>StarBoxClass::{ctor}</FUNCTION>
     <DECORATED>??0StarBoxClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2052,8 +2052,8 @@
       <LINE>3</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'StarBoxClass::mVertexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>StarBoxClass::{ctor}</FUNCTION>
     <DECORATED>??0StarBoxClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2131,7 +2131,7 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'SystemClass::mApplication' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'SystemClass::mHInstance' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>8</FUNCLINE>
@@ -3045,8 +3045,8 @@
       <LINE>3</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'UIClass::mPreviousFPS' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>UIClass::{ctor}</FUNCTION>
     <DECORATED>??0UIClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -3058,8 +3058,8 @@
       <LINE>3</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'UIClass::mPreviousFPS' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>UIClass::{ctor}</FUNCTION>
     <DECORATED>??0UIClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>

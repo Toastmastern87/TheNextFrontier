@@ -419,7 +419,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 	}
 
 	mStarBox->Render(direct3D->GetDeviceContext());
-	result = shaderManager->RenderStarBoxShader(direct3D->GetDeviceContext(), mStarBox->GetIndexCount(), worldMatrix, baseViewMatrix, projectionMatrix);
+	result = shaderManager->RenderStarBoxShader(direct3D->GetDeviceContext(), mStarBox->GetIndexCount(), worldMatrix, baseViewMatrix, projectionMatrix, mStarBox->GetStarBoxTexture());
 
 	if (mRenderMars)
 	{

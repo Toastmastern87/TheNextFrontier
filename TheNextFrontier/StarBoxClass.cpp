@@ -18,6 +18,12 @@ bool StarBoxClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceC
 {
 	bool result;
 
+	result = LoadStarBoxTexture(device);
+	if (!result)
+	{
+		return false;
+	}
+
 	result = InitializeBuffers(device);
 	if (!result)
 	{
@@ -49,7 +55,7 @@ bool StarBoxClass::InitializeBuffers(ID3D11Device* device)
 	D3D11_BUFFER_DESC vertexBufferDesc, indexBufferDesc;
 	HRESULT result;
 
-	mVertexCount = 8;
+	mVertexCount = 14;
 	mIndicesCount = 36;
 
 	vertices = new StarBoxVertexType[mVertexCount];
@@ -58,69 +64,66 @@ bool StarBoxClass::InitializeBuffers(ID3D11Device* device)
 		return false;
 	}
 
-	indices = new unsigned long[mIndicesCount];
+	vertices[0].pos = XMFLOAT3(-20000.0f, 20000.0f, -20000.0f);
+	vertices[0].uv = XMFLOAT2 (0.0f, 0.333f);
+
+	vertices[1].pos = XMFLOAT3(-20000.0f, -20000.0f, -20000.0f);
+	vertices[1].uv = XMFLOAT2(0.25f, 0.333f);
+
+	vertices[2].pos = XMFLOAT3(20000.0f, 20000.0f, -20000.0f);
+	vertices[2].uv = XMFLOAT2(0.0f, 0.666f);
+
+	vertices[3].pos = XMFLOAT3(20000.0f, -20000.0f, -20000.0f);
+	vertices[3].uv = XMFLOAT2(0.25f, 0.666f);
+
+	vertices[4].pos = XMFLOAT3(-20000.0f, -20000.0f, 20000.0f);
+	vertices[4].uv = XMFLOAT2(0.5f, 0.333f);
+
+	vertices[5].pos = XMFLOAT3(20000.0f, -20000.0f, 20000.0f);
+	vertices[5].uv = XMFLOAT2(0.5f, 0.666f);
+
+	vertices[6].pos = XMFLOAT3(-20000.0f, 20000.0f, 20000.0f);
+	vertices[6].uv = XMFLOAT2(0.75f, 0.666f);
+
+	vertices[7].pos = XMFLOAT3(20000.0f, 20000.0f, 20000.0f);
+	vertices[7].uv = XMFLOAT2(0.75f, 0.666f);
+	
+	vertices[8].pos = XMFLOAT3(-20000.0f, 20000.0f, -20000.0f);
+	vertices[8].uv = XMFLOAT2(1.0f, 0.333f);
+
+	vertices[9].pos = XMFLOAT3(20000.0f, 20000.0f, -20000.0f);
+	vertices[9].uv = XMFLOAT2(1.0f, 0.666f);
+
+	vertices[10].pos = XMFLOAT3(-20000.0f, 20000.0f, -20000.0f);
+	vertices[10].uv = XMFLOAT2(0.25f, 0.0f);
+
+	vertices[11].pos = XMFLOAT3(-20000.0f, 20000.0f, 20000.0f);
+	vertices[11].uv = XMFLOAT2(0.5f, 0.0f);
+
+	vertices[12].pos = XMFLOAT3(20000.0f, 20000.0f, -20000.0f);
+	vertices[12].uv = XMFLOAT2(0.25f, 1.0f);
+
+	vertices[13].pos = XMFLOAT3(20000.0f, 20000.0f, 20000.0f);
+	vertices[13].uv = XMFLOAT2(0.5f, 1.0f);
+
+	indices = new unsigned long[mIndicesCount]{
+		0, 2, 1, 
+		1, 2, 3,
+		4, 5, 6, 
+		5, 7, 6,
+		6, 7, 8, 
+		7, 9 ,8,
+		1, 3, 4, 
+		3, 5, 4,
+		1, 11,10,
+		1, 4, 11,
+		3, 12, 5,
+		5, 12, 13
+	};
 	if (!indices)
 	{
 		return false;
 	}
-
-	vertices[0].pos = XMFLOAT3(-20000.0f, -20000.0f, 20000.0f);
-	vertices[1].pos = XMFLOAT3(20000.0f, -20000.0f, 20000.0f);
-	vertices[2].pos = XMFLOAT3(20000.0f, -20000.0f, -20000.0f);
-	vertices[3].pos = XMFLOAT3(-20000.0f, -20000.0f, -20000.0f);
-
-	vertices[4].pos = XMFLOAT3(-20000.0f, 20000.0f, 20000.0f);
-	vertices[5].pos = XMFLOAT3(20000.0f, 20000.0f, 20000.0f);
-	vertices[6].pos = XMFLOAT3(20000.0f, 20000.0f, -20000.0f);
-	vertices[7].pos = XMFLOAT3(-20000.0f, 20000.0f, -20000.0f);
-
-	indices[0] = 0;
-	indices[1] = 1;
-	indices[2] = 2;
-
-	indices[3] = 2;
-	indices[4] = 3;
-	indices[5] = 0;
-
-	indices[6] = 4;
-	indices[7] = 5;
-	indices[8] = 6;
-
-	indices[9] = 6;
-	indices[10] = 7;
-	indices[11] = 4;
-	
-	indices[12] = 0;
-	indices[13] = 4;
-	indices[14] = 5;
-
-	indices[15] = 0;
-	indices[16] = 1;
-	indices[17] = 5;
-
-	indices[18] = 1;
-	indices[19] = 2;
-	indices[20] = 6;
-
-	indices[21] = 6;
-	indices[22] = 5;
-	indices[23] = 1;
-
-	indices[24] = 2;
-	indices[25] = 6;
-	indices[26] = 3;
-
-	indices[27] = 3;
-	indices[28] = 7;
-	indices[29] = 6;
-
-	indices[30] = 0;
-	indices[31] = 3;
-	indices[32] = 7;
-
-	indices[33] = 7;
-	indices[34] = 4;
-	indices[35] = 0;
 
 	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	vertexBufferDesc.ByteWidth = sizeof(StarBoxVertexType) * mVertexCount;
@@ -199,4 +202,25 @@ void StarBoxClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 int StarBoxClass::GetIndexCount() 
 {
 	return mIndicesCount;
+}
+
+bool StarBoxClass::LoadStarBoxTexture(ID3D11Device* device)
+{
+	HRESULT hResult;
+	const wchar_t *fileName;
+
+	fileName = L"../TheNextFrontier/Textures/StarBox.tif";
+
+	hResult = CreateWICTextureFromFile(device, fileName, &mStarBoxResource, &mStarBoxResourceView);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	return true;
+}
+
+ID3D11ShaderResourceView* StarBoxClass::GetStarBoxTexture()
+{
+	return mStarBoxResourceView;
 }

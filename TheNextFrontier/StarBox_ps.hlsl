@@ -1,6 +1,10 @@
+Texture2D shaderTexture;
+SamplerState sampleType;
+
 struct PixelInputType
 {
 	float4 position : SV_POSITION;
+	float2 uvCoord : TEXCOORD0;
 };
 
 float4 StarBoxPixelShader(PixelInputType input) : SV_TARGET

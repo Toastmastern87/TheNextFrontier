@@ -8,11 +8,13 @@ cbuffer MatrixBuffer
 struct VertexInputType
 {
 	float4 position : POSITION;
+	float2 uvCoord : TEXCOORD0;
 };
 
 struct PixelInputType
 {
 	float4 position : SV_POSITION;
+	float2 uvCoord : TEXCOORD0;
 };
 
 PixelInputType StarBoxVertexShader(VertexInputType input)
@@ -24,6 +26,8 @@ PixelInputType StarBoxVertexShader(VertexInputType input)
 	output.position = mul(input.position, worldMatrix);
 	output.position = mul(output.position, viewMatrix);
 	output.position = mul(output.position, projectionMatrix);
+
+	output.uvCoord = input.uvCoord;
 
 	return output;
 }

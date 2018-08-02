@@ -1,4 +1,4 @@
-Texture2D shaderTexture;
+Texture2D starBoxTexture;
 SamplerState sampleType;
 
 struct PixelInputType
@@ -9,5 +9,9 @@ struct PixelInputType
 
 float4 StarBoxPixelShader(PixelInputType input) : SV_TARGET
 {
-	return float4((255.0f/255.0f), (6.0f/255.0f), (174.0f/255.0f), 1.0f);
+	float4 finalColor;
+
+	finalColor = starBoxTexture.SampleLevel(sampleType, input.uvCoord, 0).rgba;
+
+	return finalColor;
 }

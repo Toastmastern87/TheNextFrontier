@@ -83,7 +83,7 @@ bool StarBoxClass::InitializeBuffers(ID3D11Device* device)
 	vertices[5].uv = XMFLOAT2(0.5f, 0.666f);
 
 	vertices[6].pos = XMFLOAT3(-20000.0f, 20000.0f, 20000.0f);
-	vertices[6].uv = XMFLOAT2(0.75f, 0.666f);
+	vertices[6].uv = XMFLOAT2(0.75f, 0.333f);
 
 	vertices[7].pos = XMFLOAT3(20000.0f, 20000.0f, 20000.0f);
 	vertices[7].uv = XMFLOAT2(0.75f, 0.666f);
@@ -95,7 +95,7 @@ bool StarBoxClass::InitializeBuffers(ID3D11Device* device)
 	vertices[9].uv = XMFLOAT2(1.0f, 0.666f);
 
 	vertices[10].pos = XMFLOAT3(-20000.0f, 20000.0f, -20000.0f);
-	vertices[10].uv = XMFLOAT2(0.25f, 0.0f);
+	vertices[10].uv = XMFLOAT2(0.25f, 0.0f); //test
 
 	vertices[11].pos = XMFLOAT3(-20000.0f, 20000.0f, 20000.0f);
 	vertices[11].uv = XMFLOAT2(0.5f, 0.0f);

@@ -83,13 +83,15 @@ void PositionClass::SetFrameTime(float time)
 	return;
 }
 
-void PositionClass::OrbitNorth(bool keyDown) 
+void PositionClass::OrbitNorth(bool keyDown)
 {
 	float altitude = GetDistanceFromOrigo();
 
 	if (keyDown) 
 	{
-		mOrbitAngleY += mFrameTime * 0.1;
+		mOrbitSpeed = GetDistanceFromOrigo() / 100000.0f;
+
+		mOrbitAngleY += mFrameTime * mOrbitSpeed;
 
 		if (mOrbitAngleY > (2 * XM_PI))
 		{
@@ -110,7 +112,9 @@ void PositionClass::OrbitSouth(bool keyDown)
 
 	if (keyDown)
 	{
-		mOrbitAngleY -= mFrameTime * 0.1;
+		mOrbitSpeed = GetDistanceFromOrigo() / 100000.0f;
+
+		mOrbitAngleY -= mFrameTime * mOrbitSpeed;
 
 		if (mOrbitAngleY < 0.0f)
 		{
@@ -256,7 +260,9 @@ void PositionClass::OrbitLeft(bool keyDown)
 
 	if (keyDown)
 	{
-		mOrbitAngleXZ -= mFrameTime * 0.1;
+		mOrbitSpeed = GetDistanceFromOrigo() / 100000.0f;
+
+		mOrbitAngleXZ -= mFrameTime * mOrbitSpeed;
 
 		if (mOrbitAngleXZ < 0.0f)
 		{
@@ -276,7 +282,9 @@ void PositionClass::OrbitRight(bool keyDown)
 
 	if (keyDown)
 	{
-		mOrbitAngleXZ += mFrameTime * 0.1;
+		mOrbitSpeed = GetDistanceFromOrigo() / 100000.0f;
+
+		mOrbitAngleXZ += mFrameTime * mOrbitSpeed;
 
 		if (mOrbitAngleXZ > (2 * XM_PI))
 		{

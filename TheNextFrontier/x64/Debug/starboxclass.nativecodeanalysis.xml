@@ -7,6 +7,20 @@
       <LINE>24</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>StarBoxClass::StarBoxVertexType::{ctor}</FUNCTION>
+    <DECORATED>??0StarBoxVertexType@StarBoxClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>24</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>starboxclass.h</FILENAME>
+      <LINE>24</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'StarBoxClass::StarBoxVertexType::pos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>StarBoxClass::StarBoxVertexType::{ctor}</FUNCTION>
@@ -31,15 +45,15 @@
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>starboxclass.h</FILENAME>
-      <LINE>24</LINE>
-      <COLUMN>2</COLUMN>
+      <FILENAME>starboxclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>StarBoxClass::StarBoxVertexType::{ctor}</FUNCTION>
-    <DECORATED>??0StarBoxVertexType@StarBoxClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>24</FUNCLINE>
+    <FUNCTION>StarBoxClass::{ctor}</FUNCTION>
+    <DECORATED>??0StarBoxClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
@@ -93,20 +107,6 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'StarBoxClass::mStarBoxResourceView' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>StarBoxClass::{ctor}</FUNCTION>
-    <DECORATED>??0StarBoxClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>starboxclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>14</COLUMN>
-    </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>StarBoxClass::{ctor}</FUNCTION>
     <DECORATED>??0StarBoxClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>

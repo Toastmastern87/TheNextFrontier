@@ -167,7 +167,7 @@ bool ShaderManagerClass::RenderGUIShader(ID3D11DeviceContext *deviceContext, int
 	return mGUIShader->Render(deviceContext, indexCount, worldMatrix, viewMatrix, projectionMatrix, texture);
 }
 
-bool ShaderManagerClass::RenderStarBoxShader(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, ID3D11ShaderResourceView* starBoxTexture)
+bool ShaderManagerClass::RenderStarBoxShader(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX rotationMatrix, ID3D11ShaderResourceView* starBoxTexture)
 {
-	return mStarBoxShader->Render(deviceContext, indexCount, worldMatrix, viewMatrix, projectionMatrix, starBoxTexture);
+	return mStarBoxShader->Render(deviceContext, indexCount, worldMatrix, viewMatrix, projectionMatrix, rotationMatrix, starBoxTexture);
 }

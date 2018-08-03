@@ -26,6 +26,7 @@ public:
 	XMFLOAT3 GetDirection();
 	XMFLOAT3 GetPosition();
 	XMMATRIX GetSunlightRotation();
+	XMMATRIX GetSunlightOppositeRotation();
 
 private:
 	XMFLOAT4 mAmbientColor;

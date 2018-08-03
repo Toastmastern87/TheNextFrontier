@@ -3,6 +3,7 @@ cbuffer MatrixBuffer
 	matrix worldMatrix;
 	matrix viewMatrix;
 	matrix projectionMatrix;
+	matrix rotationMatrix;
 };
 
 struct VertexInputType
@@ -23,7 +24,8 @@ PixelInputType StarBoxVertexShader(VertexInputType input)
 
 	input.position.w = 1.0f;
 
-	output.position = mul(input.position, worldMatrix);
+	output.position = mul(input.position, rotationMatrix);
+	output.position = mul(output.position, worldMatrix);
 	output.position = mul(output.position, viewMatrix);
 	output.position = mul(output.position, projectionMatrix);
 

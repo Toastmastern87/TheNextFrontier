@@ -37,11 +37,11 @@ void StarBoxShaderClass::Shutdown()
 	return;
 }
 
-bool StarBoxShaderClass::Render(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, ID3D11ShaderResourceView* starBoxTexture)
+bool StarBoxShaderClass::Render(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX rotationMatrix, ID3D11ShaderResourceView* starBoxTexture)
 {
 	bool result;
 
-	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, starBoxTexture);
+	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, rotationMatrix, starBoxTexture);
 	if (!result)
 	{
 		return false;
@@ -193,7 +193,7 @@ void StarBoxShaderClass::ShutdownShader()
 	return;
 }
 
-bool StarBoxShaderClass::SetShaderParameters(ID3D11DeviceContext *deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, ID3D11ShaderResourceView* starBoxTexture)
+bool StarBoxShaderClass::SetShaderParameters(ID3D11DeviceContext *deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX rotationMatrix, ID3D11ShaderResourceView* starBoxTexture)
 {
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
@@ -211,10 +211,12 @@ bool StarBoxShaderClass::SetShaderParameters(ID3D11DeviceContext *deviceContext,
 	worldMatrix = XMMatrixTranspose(worldMatrix);
 	viewMatrix = XMMatrixTranspose(viewMatrix);
 	projectionMatrix = XMMatrixTranspose(projectionMatrix);
+	rotationMatrix = XMMatrixTranspose(rotationMatrix);
 
 	dataPtr->world = worldMatrix;
 	dataPtr->view = viewMatrix;
 	dataPtr->projection = projectionMatrix;
+	dataPtr->rotation = rotationMatrix;
 
 	deviceContext->Unmap(mConstantBuffer, 0);
 

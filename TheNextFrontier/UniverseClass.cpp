@@ -37,6 +37,19 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 	mScreenDepth = screenDepth;
 	mScreenNear = screenNear;
 
+	mHeartOfGold = new BFSClass();
+	if (!mHeartOfGold)
+	{
+		return false;
+	}
+
+	result = mHeartOfGold->Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext());
+	if (!result)
+	{
+		MessageBox(hwnd, L"Could not initialize the BFS object", L"Error", MB_OK);
+		return false;
+	}
+
 	mStarBox = new StarBoxClass();
 	if (!mStarBox)
 	{

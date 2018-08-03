@@ -51,10 +51,40 @@ bool BFSClass::InitializeBuffers(ID3D11Device *device)
 
 	BFS = ObjLoaderClass::LoadObject((char*)"../TheNextFrontier/Objects/CubeMeshTest.obj");
 
+	ofstream fOut;
+
+	fOut.open("Debug.txt", ios::out | ios::app);
+
+	for (int i = 0; i < BFS.vertices.size(); i++) 
+	{
+		fOut << "BFS.vertices[";
+		fOut << i;
+		fOut << "] x: ";
+		fOut << BFS.vertices[i].x;
+		fOut << " y: ";
+		fOut << BFS.vertices[i].y;
+		fOut << " z: ";
+		fOut << BFS.vertices[i].z;
+		fOut << "\r\n";
+	}
+
+	fOut << "\r\n";
+
+	for (int i = 0; i < BFS.indices.size(); i++)
+	{
+		fOut << "BFS.indices[";
+		fOut << i;
+		fOut << "]: ";
+		fOut << BFS.indices[i];
+		fOut << "\r\n";
+	}
+
+	fOut.close();
+
 	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-	vertexBufferDesc.ByteWidth = sizeof(VertexType) * BFS.vertices.size();
+	vertexBufferDesc.ByteWidth = sizeof(XMFLOAT3) * BFS.vertices.size();
 	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-	vertexBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	vertexBufferDesc.CPUAccessFlags = 0;
 	vertexBufferDesc.MiscFlags = 0;
 	vertexBufferDesc.StructureByteStride = 0;
 

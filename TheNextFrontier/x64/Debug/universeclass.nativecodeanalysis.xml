@@ -259,6 +259,20 @@
       <LINE>3</LINE>
       <COLUMN>15</COLUMN>
     </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'UniverseClass::mHeartOfGold' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>UniverseClass::{ctor}</FUNCTION>
+    <DECORATED>??0UniverseClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>universeclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>UniverseClass::{ctor}</FUNCTION>
@@ -527,6 +541,20 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'UniverseClass::mStarBox' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>UniverseClass::{ctor}</FUNCTION>
+    <DECORATED>??0UniverseClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>universeclass.cpp</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'UniverseClass::mHeartOfGold' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>UniverseClass::{ctor}</FUNCTION>
     <DECORATED>??0UniverseClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>25</FUNCLINE>

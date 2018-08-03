@@ -15,6 +15,7 @@
 #include "GUIClass.h"
 #include "MarsAtmosphereClass.h"
 #include "StarBoxClass.h";
+#include "BFSClass.h";
 
 class UniverseClass
 {
@@ -45,4 +46,5 @@ private:
 	GameTimeClass *mGameTime;
 	GUIClass *mGUI;
 	StarBoxClass *mStarBox;
+	BFSClass *mHeartOfGold;
 };

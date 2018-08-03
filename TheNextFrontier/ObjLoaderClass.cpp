@@ -50,13 +50,13 @@ ObjLoaderClass::Object ObjLoaderClass::LoadObject(char* filename)
 			if (input == ' ')
 			{
 				objFileStream >> tempLong >> input2 >> input2 >> input2;
-				obj.indices.push_back(tempLong);
+				obj.indices.push_back(tempLong - 1);
 
 				objFileStream >> tempLong >> input2 >> input2 >> input2;
-				obj.indices.push_back(tempLong);
+				obj.indices.push_back(tempLong - 1);
 
 				objFileStream >> tempLong >> input2 >> input2 >> input2;
-				obj.indices.push_back(tempLong);
+				obj.indices.push_back(tempLong - 1);
 			}
 		}
 

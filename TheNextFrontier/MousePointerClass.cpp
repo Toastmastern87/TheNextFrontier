@@ -2,6 +2,8 @@
 
 MousePointerClass::MousePointerClass()
 {
+	mVertexBuffer = 0;
+	mIndexBuffer = 0;
 }
 
 MousePointerClass::MousePointerClass(const MousePointerClass& other)

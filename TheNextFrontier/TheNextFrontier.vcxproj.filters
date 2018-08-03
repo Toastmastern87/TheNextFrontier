@@ -19,6 +19,9 @@
     <Filter Include="Source Files\Shaders">
       <UniqueIdentifier>{450cdb79-f042-46e4-82a5-b864c8bbae9b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Objects">
+      <UniqueIdentifier>{b7a8d437-664c-45b1-8d49-82d3cb649dd7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TheNextFrontier.cpp">
@@ -108,6 +111,9 @@
     <ClCompile Include="StarBoxShaderClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ObjLoaderClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SystemClass.h">
@@ -192,6 +198,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StarBoxShaderClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLoaderClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -284,5 +293,10 @@
     <FxCompile Include="StarBox_vs.hlsl">
       <Filter>Source Files\Shaders</Filter>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="FBX\CubeMeshTest.obj">
+      <Filter>Resource Files\Objects</Filter>
+    </Object>
   </ItemGroup>
 </Project>

@@ -22,6 +22,12 @@
     <Filter Include="Resource Files\Objects">
       <UniqueIdentifier>{b7a8d437-664c-45b1-8d49-82d3cb649dd7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Math">
+      <UniqueIdentifier>{cdd0e2cc-6978-41f2-a5bf-2622e7c44984}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Math">
+      <UniqueIdentifier>{7c71f2e3-bd13-4951-ac37-6611c8434a3a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TheNextFrontier.cpp">
@@ -114,6 +120,12 @@
     <ClCompile Include="ObjLoaderClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GeometryClass.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="BFSClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SystemClass.h">
@@ -202,6 +214,12 @@
     </ClInclude>
     <ClInclude Include="ObjLoaderClass.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BFSClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeometryClass.h">
+      <Filter>Header Files\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -295,7 +313,7 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <Object Include="FBX\CubeMeshTest.obj">
+    <Object Include="Objects\CubeMeshTest.obj">
       <Filter>Resource Files\Objects</Filter>
     </Object>
   </ItemGroup>

@@ -154,8 +154,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BFSClass.cpp" />
     <ClCompile Include="CameraClass.cpp" />
     <ClCompile Include="GameTimeClass.cpp" />
+    <ClCompile Include="GeometryClass.cpp" />
     <ClCompile Include="GUIClass.cpp" />
     <ClCompile Include="GUIShaderClass.cpp" />
     <ClCompile Include="LightClass.cpp" />
@@ -186,8 +188,10 @@
     <ClCompile Include="UniverseClass.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BFSClass.h" />
     <ClInclude Include="CameraClass.h" />
     <ClInclude Include="GameTimeClass.h" />
+    <ClInclude Include="GeometryClass.h" />
     <ClInclude Include="GUIClass.h" />
     <ClInclude Include="GUIShaderClass.h" />
     <ClInclude Include="LightClass.h" />
@@ -333,7 +337,7 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <Object Include="FBX\CubeMeshTest.obj">
+    <Object Include="Objects\CubeMeshTest.obj">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </Object>
   </ItemGroup>

@@ -3,6 +3,7 @@
 #include <d3d11.h>
 #include <DirectXMath.h>
 #include <vector>
+#include <fstream>
 using namespace DirectX;
 using namespace std;
 
@@ -12,6 +13,7 @@ public:
 	struct Object
 	{
 		vector<XMFLOAT3> vertices;
+		vector<unsigned long> indices;
 	};
 
 public:
@@ -19,6 +21,6 @@ public:
 	ObjLoaderClass(const ObjLoaderClass&);
 	~ObjLoaderClass();
 
-	static Object LoadObject();
+	static Object LoadObject(char*);
 
 };

@@ -65,46 +65,46 @@ bool StarBoxClass::InitializeBuffers(ID3D11Device* device)
 	}
 
 	vertices[0].pos = XMFLOAT3(-20000.0f, 20000.0f, -20000.0f);
-	vertices[0].uv = XMFLOAT2 (0.0f, 0.333f);
+	vertices[0].uv = XMFLOAT2 (0.0f, 0.25f);
 
 	vertices[1].pos = XMFLOAT3(-20000.0f, -20000.0f, -20000.0f);
-	vertices[1].uv = XMFLOAT2(0.25f, 0.333f);
+	vertices[1].uv = XMFLOAT2(0.25f, 0.25f);
 
 	vertices[2].pos = XMFLOAT3(20000.0f, 20000.0f, -20000.0f);
-	vertices[2].uv = XMFLOAT2(0.0f, 0.666f);
+	vertices[2].uv = XMFLOAT2(0.0f, 0.5f);
 
 	vertices[3].pos = XMFLOAT3(20000.0f, -20000.0f, -20000.0f);
-	vertices[3].uv = XMFLOAT2(0.25f, 0.666f);
+	vertices[3].uv = XMFLOAT2(0.25f, 0.5f);
 
 	vertices[4].pos = XMFLOAT3(-20000.0f, -20000.0f, 20000.0f);
-	vertices[4].uv = XMFLOAT2(0.5f, 0.333f);
+	vertices[4].uv = XMFLOAT2(0.5f, 0.25f);
 
 	vertices[5].pos = XMFLOAT3(20000.0f, -20000.0f, 20000.0f);
-	vertices[5].uv = XMFLOAT2(0.5f, 0.666f);
+	vertices[5].uv = XMFLOAT2(0.5f, 0.5f);
 
 	vertices[6].pos = XMFLOAT3(-20000.0f, 20000.0f, 20000.0f);
-	vertices[6].uv = XMFLOAT2(0.75f, 0.333f);
+	vertices[6].uv = XMFLOAT2(0.75f, 0.25f);
 
 	vertices[7].pos = XMFLOAT3(20000.0f, 20000.0f, 20000.0f);
-	vertices[7].uv = XMFLOAT2(0.75f, 0.666f);
+	vertices[7].uv = XMFLOAT2(0.75f, 0.5f);
 	
 	vertices[8].pos = XMFLOAT3(-20000.0f, 20000.0f, -20000.0f);
-	vertices[8].uv = XMFLOAT2(1.0f, 0.333f);
+	vertices[8].uv = XMFLOAT2(1.0f, 0.25f);
 
 	vertices[9].pos = XMFLOAT3(20000.0f, 20000.0f, -20000.0f);
-	vertices[9].uv = XMFLOAT2(1.0f, 0.666f);
+	vertices[9].uv = XMFLOAT2(1.0f, 0.5f);
 
 	vertices[10].pos = XMFLOAT3(-20000.0f, 20000.0f, -20000.0f);
-	vertices[10].uv = XMFLOAT2(0.25f, 0.0f); //test
+	vertices[10].uv = XMFLOAT2(0.25f, 0.0f);
 
 	vertices[11].pos = XMFLOAT3(-20000.0f, 20000.0f, 20000.0f);
 	vertices[11].uv = XMFLOAT2(0.5f, 0.0f);
 
 	vertices[12].pos = XMFLOAT3(20000.0f, 20000.0f, -20000.0f);
-	vertices[12].uv = XMFLOAT2(0.25f, 1.0f);
+	vertices[12].uv = XMFLOAT2(0.25f, 0.75f);
 
 	vertices[13].pos = XMFLOAT3(20000.0f, 20000.0f, 20000.0f);
-	vertices[13].uv = XMFLOAT2(0.5f, 1.0f);
+	vertices[13].uv = XMFLOAT2(0.5f, 0.75f);
 
 	indices = new unsigned long[mIndicesCount]{
 												0, 2, 1, 

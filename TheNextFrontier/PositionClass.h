@@ -55,7 +55,7 @@ private:
 	float mZoomInSpeed, mZoomOutSpeed;
 	float mOrbitAngleXZ, mOrbitAngleY;
 	float mAltitude;
-	float mLookUpSpeed, mLookDownSpeed, mMaxZoomSpeed;
+	float mLookUpSpeed, mLookDownSpeed, mMaxZoomSpeed, mOrbitSpeed;
 
 	bool mMaxZoom;
 };

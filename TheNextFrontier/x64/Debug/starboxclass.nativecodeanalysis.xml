@@ -3,43 +3,43 @@
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>starboxclass.h</FILENAME>
-      <LINE>24</LINE>
-      <COLUMN>2</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'StarBoxClass::StarBoxVertexType::pos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>StarBoxClass::StarBoxVertexType::{ctor}</FUNCTION>
-    <DECORATED>??0StarBoxVertexType@StarBoxClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>24</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>starboxclass.h</FILENAME>
-      <LINE>24</LINE>
-      <COLUMN>2</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'StarBoxClass::StarBoxVertexType::uv' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>StarBoxClass::StarBoxVertexType::{ctor}</FUNCTION>
-    <DECORATED>??0StarBoxVertexType@StarBoxClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>24</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>starboxclass.h</FILENAME>
-      <LINE>24</LINE>
+      <FILENAME>geometryclass.h</FILENAME>
+      <LINE>22</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>StarBoxClass::StarBoxVertexType::{ctor}</FUNCTION>
-    <DECORATED>??0StarBoxVertexType@StarBoxClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>24</FUNCLINE>
+    <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
+    <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>geometryclass.h</FILENAME>
+      <LINE>22</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GeometryClass::VertexType::pos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
+    <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>geometryclass.h</FILENAME>
+      <LINE>22</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GeometryClass::VertexType::uv' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
+    <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
@@ -49,22 +49,8 @@
       <LINE>3</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'StarBoxClass::mVertexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>StarBoxClass::{ctor}</FUNCTION>
-    <DECORATED>??0StarBoxClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>starboxclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>14</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'StarBoxClass::mIndicesCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>StarBoxClass::{ctor}</FUNCTION>
     <DECORATED>??0StarBoxClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -102,20 +88,6 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>starboxclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>14</COLUMN>
-    </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>StarBoxClass::{ctor}</FUNCTION>
-    <DECORATED>??0StarBoxClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>starboxclass.cpp</FILENAME>
       <LINE>9</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
@@ -134,35 +106,7 @@
       <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'StarBoxClass::mVertexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>StarBoxClass::{ctor}</FUNCTION>
-    <DECORATED>??0StarBoxClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>9</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>starboxclass.cpp</FILENAME>
-      <LINE>9</LINE>
-      <COLUMN>14</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'StarBoxClass::mIndexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>StarBoxClass::{ctor}</FUNCTION>
-    <DECORATED>??0StarBoxClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>9</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>starboxclass.cpp</FILENAME>
-      <LINE>9</LINE>
-      <COLUMN>14</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'StarBoxClass::mIndicesCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>StarBoxClass::{ctor}</FUNCTION>
     <DECORATED>??0StarBoxClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>9</FUNCLINE>

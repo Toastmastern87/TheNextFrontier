@@ -4,6 +4,8 @@ StarBoxClass::StarBoxClass()
 {
 	mVertexBuffer = 0;
 	mIndexBuffer = 0;
+	mStarBoxResource = 0;
+	mStarBoxResourceView = 0;
 }
 
 StarBoxClass::StarBoxClass(const StarBoxClass& other)
@@ -49,90 +51,22 @@ void StarBoxClass::Render(ID3D11DeviceContext* deviceContext)
 
 bool StarBoxClass::InitializeBuffers(ID3D11Device* device)
 {
-	StarBoxVertexType* vertices;
-	unsigned long* indices;
 	D3D11_SUBRESOURCE_DATA vertexData, indexData;
 	D3D11_BUFFER_DESC vertexBufferDesc, indexBufferDesc;
 	HRESULT result;
 
-	mVertexCount = 14;
-	mIndicesCount = 36;
+	mVertices = GeometryClass::GetCubeVertices(20000.0f);
 
-	vertices = new StarBoxVertexType[mVertexCount];
-	if (!vertices)
-	{
-		return false;
-	}
-
-	vertices[0].pos = XMFLOAT3(-20000.0f, 20000.0f, -20000.0f);
-	vertices[0].uv = XMFLOAT2 (0.0f, 0.25f);
-
-	vertices[1].pos = XMFLOAT3(-20000.0f, -20000.0f, -20000.0f);
-	vertices[1].uv = XMFLOAT2(0.25f, 0.25f);
-
-	vertices[2].pos = XMFLOAT3(20000.0f, 20000.0f, -20000.0f);
-	vertices[2].uv = XMFLOAT2(0.0f, 0.5f);
-
-	vertices[3].pos = XMFLOAT3(20000.0f, -20000.0f, -20000.0f);
-	vertices[3].uv = XMFLOAT2(0.25f, 0.5f);
-
-	vertices[4].pos = XMFLOAT3(-20000.0f, -20000.0f, 20000.0f);
-	vertices[4].uv = XMFLOAT2(0.5f, 0.25f);
-
-	vertices[5].pos = XMFLOAT3(20000.0f, -20000.0f, 20000.0f);
-	vertices[5].uv = XMFLOAT2(0.5f, 0.5f);
-
-	vertices[6].pos = XMFLOAT3(-20000.0f, 20000.0f, 20000.0f);
-	vertices[6].uv = XMFLOAT2(0.75f, 0.25f);
-
-	vertices[7].pos = XMFLOAT3(20000.0f, 20000.0f, 20000.0f);
-	vertices[7].uv = XMFLOAT2(0.75f, 0.5f);
-	
-	vertices[8].pos = XMFLOAT3(-20000.0f, 20000.0f, -20000.0f);
-	vertices[8].uv = XMFLOAT2(1.0f, 0.25f);
-
-	vertices[9].pos = XMFLOAT3(20000.0f, 20000.0f, -20000.0f);
-	vertices[9].uv = XMFLOAT2(1.0f, 0.5f);
-
-	vertices[10].pos = XMFLOAT3(-20000.0f, 20000.0f, -20000.0f);
-	vertices[10].uv = XMFLOAT2(0.25f, 0.0f);
-
-	vertices[11].pos = XMFLOAT3(-20000.0f, 20000.0f, 20000.0f);
-	vertices[11].uv = XMFLOAT2(0.5f, 0.0f);
-
-	vertices[12].pos = XMFLOAT3(20000.0f, 20000.0f, -20000.0f);
-	vertices[12].uv = XMFLOAT2(0.25f, 0.75f);
-
-	vertices[13].pos = XMFLOAT3(20000.0f, 20000.0f, 20000.0f);
-	vertices[13].uv = XMFLOAT2(0.5f, 0.75f);
-
-	indices = new unsigned long[mIndicesCount]{
-												0, 2, 1, 
-												1, 2, 3,
-												4, 5, 6, 
-												5, 7, 6,
-												6, 7, 8, 
-												7, 9 ,8,
-												1, 3, 4, 
-												3, 5, 4,
-												1, 11,10,
-												1, 4, 11,
-												3, 12, 5,
-												5, 12, 13
-											};
-	if (!indices)
-	{
-		return false;
-	}
+	mIndices = GeometryClass::GetCubeIndices();
 
 	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-	vertexBufferDesc.ByteWidth = sizeof(StarBoxVertexType) * mVertexCount;
+	vertexBufferDesc.ByteWidth = sizeof(GeometryClass::VertexType) * mVertices.size();
 	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	vertexBufferDesc.CPUAccessFlags = 0;
 	vertexBufferDesc.MiscFlags = 0;
 	vertexBufferDesc.StructureByteStride = 0;
 
-	vertexData.pSysMem = vertices;
+	vertexData.pSysMem = &mVertices[0];
 	vertexData.SysMemPitch = 0;
 	vertexData.SysMemSlicePitch = 0;
 
@@ -143,13 +77,13 @@ bool StarBoxClass::InitializeBuffers(ID3D11Device* device)
 	}
 
 	indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-	indexBufferDesc.ByteWidth = sizeof(unsigned long) * mIndicesCount;
+	indexBufferDesc.ByteWidth = sizeof(int) * mIndices.size();
 	indexBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
 	indexBufferDesc.CPUAccessFlags = 0;
 	indexBufferDesc.MiscFlags = 0;
 	indexBufferDesc.StructureByteStride = 0;
 
-	indexData.pSysMem = indices;
+	indexData.pSysMem = &mIndices[0];
 	indexData.SysMemPitch = 0;
 	indexData.SysMemSlicePitch = 0;
 
@@ -185,7 +119,7 @@ void StarBoxClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 	unsigned int offset;
 	ID3D11Buffer* bufferPointer;
 
-	stride = sizeof(StarBoxVertexType);
+	stride = sizeof(GeometryClass::VertexType);
 	offset = 0;
 
 	bufferPointer = mVertexBuffer;
@@ -201,7 +135,7 @@ void StarBoxClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 
 int StarBoxClass::GetIndexCount() 
 {
-	return mIndicesCount;
+	return mIndices.size();
 }
 
 bool StarBoxClass::LoadStarBoxTexture(ID3D11Device* device)

@@ -71,3 +71,46 @@ vector<int> GeometryClass::GetIcosadronIndices()
 
 	return ret;
 }
+
+vector<GeometryClass::VertexType> GeometryClass::GetCubeVertices(float scale)
+{
+	vector<VertexType> ret;
+
+	ret.push_back(VertexType(XMFLOAT3(-scale, scale, -scale), XMFLOAT2(0.0f, 0.25f)));
+	ret.push_back(VertexType(XMFLOAT3(-scale, -scale, -scale), XMFLOAT2(0.25f, 0.25f)));
+	ret.push_back(VertexType(XMFLOAT3(scale, scale, -scale), XMFLOAT2(0.0f, 0.5f)));
+	ret.push_back(VertexType(XMFLOAT3(scale, -scale, -scale), XMFLOAT2(0.25f, 0.5f)));
+	ret.push_back(VertexType(XMFLOAT3(-scale, -scale, scale), XMFLOAT2(0.5f, 0.25f)));
+	ret.push_back(VertexType(XMFLOAT3(scale, -scale, scale), XMFLOAT2(0.5f, 0.5f)));
+	ret.push_back(VertexType(XMFLOAT3(-scale, scale, scale), XMFLOAT2(0.75f, 0.25f)));
+	ret.push_back(VertexType(XMFLOAT3(scale, scale, scale), XMFLOAT2(0.75f, 0.5f)));
+	ret.push_back(VertexType(XMFLOAT3(-scale, scale, -scale), XMFLOAT2(1.0f, 0.25f)));
+	ret.push_back(VertexType(XMFLOAT3(scale, scale, -scale), XMFLOAT2(1.0f, 0.5f)));
+	ret.push_back(VertexType(XMFLOAT3(-scale, scale, -scale), XMFLOAT2(0.25f, 0.0f)));
+	ret.push_back(VertexType(XMFLOAT3(-scale, scale, scale), XMFLOAT2(0.5f, 0.0f)));
+	ret.push_back(VertexType(XMFLOAT3(scale, scale, -scale), XMFLOAT2(0.25f, 0.75f)));
+	ret.push_back(VertexType(XMFLOAT3(scale, scale, scale), XMFLOAT2(0.5f, 0.75f)));
+
+	return ret;
+}
+
+vector<int> GeometryClass::GetCubeIndices() 
+{
+	vector<int> ret
+	{
+			0, 2, 1,
+			1, 2, 3,
+			4, 5, 6,
+			5, 7, 6,
+			6, 7, 8,
+			7, 9, 8,
+			1, 3, 4,
+			3, 5, 4,
+			1, 11, 10,
+			1, 4, 11,
+			3, 12, 5,
+			5, 12, 13
+	};
+
+	return ret;
+}

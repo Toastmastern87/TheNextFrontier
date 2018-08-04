@@ -43,7 +43,7 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 		return false;
 	}
 
-	result = mHeartOfGold->Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext());
+	result = mHeartOfGold->Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), XMFLOAT3(0.0f, 0.0f, 0.0f), 10.0f);
 	if (!result)
 	{
 		MessageBox(hwnd, L"Could not initialize the BFS object", L"Error", MB_OK);

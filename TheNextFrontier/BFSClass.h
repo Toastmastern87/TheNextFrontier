@@ -11,19 +11,16 @@ using namespace std;
 class BFSClass
 {
 public:
-	struct VertexType
-	{
-		XMFLOAT3 position;
-	};
-
-public:
 	BFSClass();
 	BFSClass(const BFSClass&);
 	~BFSClass();
 
-	bool Initialize(ID3D11Device*, ID3D11DeviceContext*);
+	bool Initialize(ID3D11Device*, ID3D11DeviceContext*, XMFLOAT3, float);
 	void Shutdown();
 	void Render(ID3D11DeviceContext*);
+
+	XMMATRIX GetPositionMatrix();
+	XMMATRIX GetScaleMatrix();
 
 private:
 	bool InitializeBuffers(ID3D11Device*);
@@ -32,4 +29,6 @@ private:
 
 private:
 	ID3D11Buffer *mVertexBuffer, *mIndexBuffer;
+	XMMATRIX mPositionMatrix, mScaleMatrix;
+	XMFLOAT3 mPosition;
 };

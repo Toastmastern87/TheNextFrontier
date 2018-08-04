@@ -6,6 +6,7 @@
 #include <math.h>
 #include <fstream>
 #include "PositionClass.h"
+#include "GeometryClass.h"
 using namespace DirectX;
 using namespace std;
 
@@ -83,8 +84,6 @@ private:
 	void ShutdownBuffers();
 	void RenderBuffers(ID3D11DeviceContext*);
 
-	vector<XMFLOAT3> GetIcosadronPositions(int);
-	vector<int> GetIcosadronIndices();
 	void GenerateCells();
 	void GenerateCellGeometry();
 	bool MapCells(ID3D11DeviceContext*);

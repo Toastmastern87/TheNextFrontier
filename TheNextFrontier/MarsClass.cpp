@@ -258,8 +258,8 @@ bool MarsClass::InitializeIcosphere()
 	vector<XMFLOAT3> icoPositions;
 	vector<int> icoIndices;
 
-	icoPositions = GetIcosadronPositions(mMarsRadius);
-	icoIndices = GetIcosadronIndices();
+	icoPositions = GeometryClass::GetIcosadronVertices(mMarsRadius);
+	icoIndices = GeometryClass::GetIcosadronIndices();
 
 	for (size_t i = 0; i < icoIndices.size(); i += 3)
 	{
@@ -433,66 +433,6 @@ float MarsClass::GetVectorDistance(XMFLOAT3 vector1, XMFLOAT3 vector2)
 	distance = sqrt(((vector1.x - vector2.x) * (vector1.x - vector2.x)) + ((vector1.y - vector2.y) * (vector1.y - vector2.y)) + ((vector1.z - vector2.z) * (vector1.z - vector2.z)));
 
 	return distance;
-}
-
-vector<XMFLOAT3> MarsClass::GetIcosadronPositions(int radius)
-{
-	vector<XMFLOAT3> ret;
-
-	float ratio = (float)((1.0f + sqrt(5.0f)) / 2.0f);
-	float scale = mMarsRadius / sqrt(ratio * ratio + 1.0f);
-
-	ratio *= scale;
-
-	ret.push_back(XMFLOAT3(ratio, 0.0f, -scale));
-	ret.push_back(XMFLOAT3(-ratio, 0.0f, -scale));
-	ret.push_back(XMFLOAT3(ratio, 0.0f, scale));
-	ret.push_back(XMFLOAT3(-ratio, 0.0f, scale));
-
-	ret.push_back(XMFLOAT3(0.0f, -scale, ratio));
-	ret.push_back(XMFLOAT3(0.0f, -scale, -ratio));
-	ret.push_back(XMFLOAT3(0.0f, scale, ratio));
-	ret.push_back(XMFLOAT3(0.0f, scale, -ratio));
-
-	ret.push_back(XMFLOAT3(-scale, ratio, 0.0f));
-	ret.push_back(XMFLOAT3(-scale, -ratio, 0.0f));
-	ret.push_back(XMFLOAT3(scale, ratio, 0.0f));
-	ret.push_back(XMFLOAT3(scale, -ratio, 0.0f));
-	
-	return ret;
-}
-
-vector<int> MarsClass::GetIcosadronIndices()
-{
-	vector<int> ret
-	{
-		1, 3, 8,
-		3, 1, 9,
-		2, 0, 10,
-		0, 2, 11,
-
-		5, 7, 0,
-		7, 5, 1,
-		6, 4, 2,
-		4, 6, 3,
-
-		9, 11, 4,
-		11, 9, 5,
-		10, 8, 6,
-		8, 10, 7,
-
-		7, 1, 8,
-		1, 5, 9,
-		0, 7, 10,
-		5, 0, 11,
-
-		3, 6, 8,
-		4, 3, 9,
-		6, 2, 10,
-		2, 4, 11
-	};
-
-	return ret;
 }
 
 MarsClass::NextTriangle MarsClass::CheckTriangleSplit(XMFLOAT3 a, XMFLOAT3 b, XMFLOAT3 c, short level, bool frustumCull)

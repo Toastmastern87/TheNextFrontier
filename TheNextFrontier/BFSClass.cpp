@@ -14,15 +14,20 @@ BFSClass::~BFSClass()
 {
 }
 
-bool BFSClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceContext)
+bool BFSClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceContext, XMFLOAT3 startPosition, float scale)
 {
 	bool result;
+
+	mPosition = startPosition;
 
 	result = InitializeBuffers(device);
 	if (!result)
 	{
 		return false;
 	}
+
+	mPositionMatrix = XMMatrixTranslationFromVector(XMLoadFloat3(&mPosition));
+	mScaleMatrix = XMMatrixScaling(scale, scale, scale);
 
 	return true;
 }
@@ -139,7 +144,7 @@ void BFSClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 {
 	unsigned int stride, offset;
 
-	stride = sizeof(VertexType);
+	stride = sizeof(XMFLOAT3);
 	offset = 0;
 
 	deviceContext->IASetVertexBuffers(0, 1, &mVertexBuffer, &stride, &offset);
@@ -147,4 +152,14 @@ void BFSClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 	deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	return;
+}
+
+XMMATRIX BFSClass::GetPositionMatrix() 
+{
+	return mPositionMatrix;
+}
+
+XMMATRIX BFSClass::GetScaleMatrix() 
+{
+	return mScaleMatrix;
 }

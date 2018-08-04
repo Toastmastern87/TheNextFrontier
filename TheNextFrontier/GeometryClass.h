@@ -12,6 +12,6 @@ public:
 	GeometryClass(const GeometryClass&);
 	~GeometryClass();
 
-	static vector<XMFLOAT3> GetIcosadron(int);
+	static vector<XMFLOAT3> GetIcosadronVertices(float);
 	static vector<int> GetIcosadronIndices();
 };

@@ -17,6 +17,7 @@ const float MARSROTATESPEED = (2.0f * 3.141592f) / 88775000.0f;
 #include "tiffio.h"
 #include <future>
 #include <thread>
+#include "GeometryClass.h"
 using namespace DirectX;
 using namespace std;
 
@@ -124,8 +125,6 @@ private:
 	float GetVectorLength(XMFLOAT3);
 	float GetVectorDistance(XMFLOAT3, XMFLOAT3);
 
-	vector<XMFLOAT3> GetIcosadronPositions(int);
-	vector<int> GetIcosadronIndices();
 	void GenerateCells();
 	void GenerateCellGeometry();
 	void GenerateDistanceLUT();

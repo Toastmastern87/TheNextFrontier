@@ -14,11 +14,12 @@ BFSClass::~BFSClass()
 {
 }
 
-bool BFSClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceContext, XMFLOAT3 startPosition, float scale)
+bool BFSClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceContext, XMFLOAT3 startPosition, XMFLOAT3 scale)
 {
 	bool result;
 
 	mPosition = startPosition;
+	mScale = scale;
 
 	result = InitializeBuffers(device);
 	if (!result)
@@ -27,7 +28,7 @@ bool BFSClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceConte
 	}
 
 	mPositionMatrix = XMMatrixTranslationFromVector(XMLoadFloat3(&mPosition));
-	mScaleMatrix = XMMatrixScaling(scale, scale, scale);
+	mScaleMatrix = XMMatrixScalingFromVector(XMLoadFloat3(&mScale));
 
 	return true;
 }
@@ -53,7 +54,7 @@ bool BFSClass::InitializeBuffers(ID3D11Device *device)
 	D3D11_SUBRESOURCE_DATA vertexData, indexData;
 	HRESULT hResult;
 	bool result;
-
+	
 	BFS = ObjLoaderClass::LoadObject((char*)"../TheNextFrontier/Objects/CubeMeshTest.obj");
 
 	//ofstream fOut;
@@ -93,7 +94,7 @@ bool BFSClass::InitializeBuffers(ID3D11Device *device)
 	vertexBufferDesc.MiscFlags = 0;
 	vertexBufferDesc.StructureByteStride = 0;
 
-	vertexData.pSysMem = &BFS.vertices;
+	vertexData.pSysMem = &BFS.vertices[0];
 	vertexData.SysMemPitch = 0;
 	vertexData.SysMemSlicePitch = 0;
 
@@ -110,7 +111,7 @@ bool BFSClass::InitializeBuffers(ID3D11Device *device)
 	indexBufferDesc.MiscFlags = 0;
 	indexBufferDesc.StructureByteStride = 0;
 
-	indexData.pSysMem = &BFS.indices;
+	indexData.pSysMem = &BFS.indices[0];
 	indexData.SysMemPitch = 0;
 	indexData.SysMemSlicePitch = 0;
 
@@ -119,6 +120,8 @@ bool BFSClass::InitializeBuffers(ID3D11Device *device)
 	{
 		return false;
 	}
+
+	mIndexCount = BFS.indices.size();
 
 	return true;
 }
@@ -152,6 +155,11 @@ void BFSClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 	deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	return;
+}
+
+int BFSClass::GetIndexCount() 
+{
+	return mIndexCount;
 }
 
 XMMATRIX BFSClass::GetPositionMatrix() 

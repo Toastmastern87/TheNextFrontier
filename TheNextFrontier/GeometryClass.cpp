@@ -76,6 +76,7 @@ vector<GeometryClass::VertexType> GeometryClass::GetCubeVertices(float scale)
 {
 	vector<VertexType> ret;
 
+	// The first XMFLOAT3 is the positions of the vertices and the second, XMFLOAT2 is the UV-coordinates
 	ret.push_back(VertexType(XMFLOAT3(-scale, scale, -scale), XMFLOAT2(0.0f, 0.25f)));
 	ret.push_back(VertexType(XMFLOAT3(-scale, -scale, -scale), XMFLOAT2(0.25f, 0.25f)));
 	ret.push_back(VertexType(XMFLOAT3(scale, scale, -scale), XMFLOAT2(0.0f, 0.5f)));

@@ -54,16 +54,13 @@ bool BFSShaderClass::Render(ID3D11DeviceContext *deviceContext, int indexCount, 
 bool BFSShaderClass::InitializeShader(ID3D11Device *device, HWND hwnd)
 {
 	HRESULT hResult;
-	ID3D10Blob *errorMessage;
 	ID3D10Blob *vertexShaderBuffer;
 	ID3D10Blob *pixelShaderBuffer;
 	D3D11_INPUT_ELEMENT_DESC polygonLayout[1];
 	unsigned int numElements;
 	D3D11_BUFFER_DESC constantBufferDesc;
-	D3D11_SAMPLER_DESC samplerDesc;
 	D3D11_BUFFER_DESC pixelBufferDesc;
 
-	errorMessage = 0;
 	vertexShaderBuffer = 0;
 	pixelShaderBuffer = 0;
 

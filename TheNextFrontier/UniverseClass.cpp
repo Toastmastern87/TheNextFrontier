@@ -12,6 +12,7 @@ UniverseClass::UniverseClass()
 	mGameTime = 0;
 	mGUI = 0;
 	mStarBox = 0;
+	mHeartOfGold = 0;
 
 	mSpeedIncreased = false;
 	mSpeedDecreased = false;
@@ -43,7 +44,7 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 		return false;
 	}
 
-	result = mHeartOfGold->Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), XMFLOAT3(0.0f, 0.0f, 0.0f), 10.0f);
+	result = mHeartOfGold->Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), XMFLOAT3(9500.0f, 0.0f, 0.0f), XMFLOAT3(5.0f, 5.0f, 5.0f));
 	if (!result)
 	{
 		MessageBox(hwnd, L"Could not initialize the BFS object", L"Error", MB_OK);
@@ -433,6 +434,10 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 
 	mStarBox->Render(direct3D->GetDeviceContext());
 	result = shaderManager->RenderStarBoxShader(direct3D->GetDeviceContext(), mStarBox->GetIndexCount(), worldMatrix, baseViewMatrix, projectionMatrix, rotationMatrix, mStarBox->GetStarBoxTexture());
+	if (!result)
+	{
+		return false;
+	}
 
 	if (mRenderMars)
 	{
@@ -470,6 +475,13 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 		{
 			direct3D->TurnOffFrontCulling();
 		}
+	}
+
+	mHeartOfGold->Render(direct3D->GetDeviceContext());
+	result = shaderManager->RenderBFSShader(direct3D->GetDeviceContext(), mHeartOfGold->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, mHeartOfGold->GetPositionMatrix(), mHeartOfGold->GetScaleMatrix());
+	if (!result)
+	{
+		return false;
 	}
 
 	if (mWireframe)

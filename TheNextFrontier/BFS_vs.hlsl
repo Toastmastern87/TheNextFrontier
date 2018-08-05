@@ -23,12 +23,11 @@ PixelInputType BFSVertexShader(VertexInputType input)
 
 	input.position.w = 1.0f;
 
-	output.position = mul(input.position, positionMatrix);
+	output.position = mul(input.position, worldMatrix);
 	output.position = mul(output.position, scaleMatrix);
-	output.position = mul(output.position, worldMatrix);
+	output.position = mul(output.position, positionMatrix);
 	output.position = mul(output.position, viewMatrix);
 	output.position = mul(output.position, projectionMatrix);
-
 
 	return output;
 }

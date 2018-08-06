@@ -184,6 +184,13 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 
 void UniverseClass::Shutdown()
 {
+	if (mHeartOfGold)
+	{
+		mHeartOfGold->Shutdown();
+		delete mHeartOfGold;
+		mHeartOfGold = 0;
+	}
+
 	if (mStarBox)
 	{
 		mStarBox->Shutdown();
@@ -432,6 +439,13 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 		direct3D->EnableWireframe();
 	}
 
+	mHeartOfGold->Render(direct3D->GetDeviceContext());
+	result = shaderManager->RenderBFSShader(direct3D->GetDeviceContext(), mHeartOfGold->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, mHeartOfGold->GetPositionMatrix(), mHeartOfGold->GetScaleMatrix());
+	if (!result)
+	{
+		return false;
+	}
+
 	mStarBox->Render(direct3D->GetDeviceContext());
 	result = shaderManager->RenderStarBoxShader(direct3D->GetDeviceContext(), mStarBox->GetIndexCount(), worldMatrix, baseViewMatrix, projectionMatrix, rotationMatrix, mStarBox->GetStarBoxTexture());
 	if (!result)
@@ -475,13 +489,6 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 		{
 			direct3D->TurnOffFrontCulling();
 		}
-	}
-
-	mHeartOfGold->Render(direct3D->GetDeviceContext());
-	result = shaderManager->RenderBFSShader(direct3D->GetDeviceContext(), mHeartOfGold->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, mHeartOfGold->GetPositionMatrix(), mHeartOfGold->GetScaleMatrix());
-	if (!result)
-	{
-		return false;
 	}
 
 	if (mWireframe)

@@ -14,7 +14,7 @@ ObjLoaderClass::~ObjLoaderClass()
 
 ObjLoaderClass::Object ObjLoaderClass::LoadObject(char* filename)
 {
-	char input, input2;
+	char input;
 	unsigned long tempLong;
 	Object obj;
 	ifstream objFileStream;
@@ -49,14 +49,61 @@ ObjLoaderClass::Object ObjLoaderClass::LoadObject(char* filename)
 			// Read in the indices.
 			if (input == ' ')
 			{
-				objFileStream >> tempLong >> input2 >> input2 >> input2;
-				obj.indices.push_back(tempLong - 1);
+				objFileStream >> tempLong;
 
-				objFileStream >> tempLong >> input2 >> input2 >> input2;
-				obj.indices.push_back(tempLong - 1);
+				objFileStream.get(input);
+				
+				// Test if the indices is 2 numbered
+				if (input != '/') 
+				{
+					obj.indices.push_back((tempLong * 10) + input - 1);
+				}
+				else 
+				{
+					obj.indices.push_back(tempLong - 1);
+				}
 
-				objFileStream >> tempLong >> input2 >> input2 >> input2;
-				obj.indices.push_back(tempLong - 1);
+				// Loop until the next indice arrives
+				objFileStream.get(input);
+				while (input != ' ') 
+				{
+					objFileStream.get(input);
+				}
+
+				objFileStream >> tempLong;
+
+				objFileStream.get(input);
+
+				// Test if the indices is 2 numbered
+				if (input != '/')
+				{
+					obj.indices.push_back((tempLong * 10) + input - 1);
+				}
+				else
+				{
+					obj.indices.push_back(tempLong - 1);
+				}
+
+				// Loop until the next indice arrives
+				objFileStream.get(input);
+				while (input != ' ')
+				{
+					objFileStream.get(input);
+				}
+
+				objFileStream >> tempLong;
+
+				objFileStream.get(input);
+
+				// Test if the indices is 2 numbered
+				if (input != '/')
+				{
+					obj.indices.push_back((tempLong * 10) + input - 1);
+				}
+				else
+				{
+					obj.indices.push_back(tempLong - 1);
+				}
 			}
 		}
 

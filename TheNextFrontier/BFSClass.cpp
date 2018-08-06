@@ -14,12 +14,13 @@ BFSClass::~BFSClass()
 {
 }
 
-bool BFSClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceContext, XMFLOAT3 startPosition, XMFLOAT3 scale)
+bool BFSClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceContext, XMFLOAT3 startPosition, XMFLOAT3 scale, XMFLOAT3 rotation, float rotationRadians)
 {
 	bool result;
 
 	mPosition = startPosition;
 	mScale = scale;
+	mRotation = rotation;
 
 	result = LoadTexture(device);
 	if (!result)
@@ -35,6 +36,7 @@ bool BFSClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceConte
 
 	mPositionMatrix = XMMatrixTranslationFromVector(XMLoadFloat3(&mPosition));
 	mScaleMatrix = XMMatrixScalingFromVector(XMLoadFloat3(&mScale));
+	mRotationMatrix = XMMatrixRotationNormal(XMLoadFloat3(&mRotation), rotationRadians);
 
 	return true;
 }
@@ -203,6 +205,11 @@ XMMATRIX BFSClass::GetPositionMatrix()
 XMMATRIX BFSClass::GetScaleMatrix() 
 {
 	return mScaleMatrix;
+}
+
+XMMATRIX BFSClass::GetRotationMatrix()
+{
+	return mRotationMatrix;
 }
 
 ID3D11ShaderResourceView* BFSClass::GetTexture()

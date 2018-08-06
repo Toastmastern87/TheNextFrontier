@@ -5,6 +5,7 @@ cbuffer PerFrameBuffer
 	matrix projectionMatrix;
 	matrix positionMatrix;
 	matrix scaleMatrix;
+	matrix rotationMatrix;
 };
 
 struct VertexInputType
@@ -27,6 +28,7 @@ PixelInputType BFSVertexShader(VertexInputType input)
 
 	output.position = mul(input.position, worldMatrix);
 	output.position = mul(output.position, scaleMatrix);
+	output.position = mul(output.position, rotationMatrix);
 	output.position = mul(output.position, positionMatrix);
 	output.position = mul(output.position, viewMatrix);
 	output.position = mul(output.position, projectionMatrix);

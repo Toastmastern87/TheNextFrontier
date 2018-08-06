@@ -193,7 +193,7 @@ bool ShaderManagerClass::RenderStarBoxShader(ID3D11DeviceContext *deviceContext,
 	return mStarBoxShader->Render(deviceContext, indexCount, worldMatrix, viewMatrix, projectionMatrix, rotationMatrix, starBoxTexture);
 }
 
-bool ShaderManagerClass::RenderBFSShader(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX positionMatrix, XMMATRIX scaleMatrix, ID3D11ShaderResourceView* texture)
+bool ShaderManagerClass::RenderBFSShader(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX positionMatrix, XMMATRIX scaleMatrix, XMMATRIX rotationMatrix, ID3D11ShaderResourceView* texture)
 {
-	return mBFSShader->Render(deviceContext, indexCount, worldMatrix, viewMatrix, projectionMatrix, positionMatrix, scaleMatrix, texture);
+	return mBFSShader->Render(deviceContext, indexCount, worldMatrix, viewMatrix, projectionMatrix, positionMatrix, scaleMatrix, rotationMatrix, texture);
 }

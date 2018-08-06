@@ -16,13 +16,14 @@ public:
 	BFSClass(const BFSClass&);
 	~BFSClass();
 
-	bool Initialize(ID3D11Device*, ID3D11DeviceContext*, XMFLOAT3, XMFLOAT3);
+	bool Initialize(ID3D11Device*, ID3D11DeviceContext*, XMFLOAT3, XMFLOAT3, XMFLOAT3, float);
 	void Shutdown();
 	void Render(ID3D11DeviceContext*);
 
 	int GetIndexCount();
 	XMMATRIX GetPositionMatrix();
 	XMMATRIX GetScaleMatrix();
+	XMMATRIX GetRotationMatrix();
 	ID3D11ShaderResourceView* GetTexture();
 
 private:
@@ -35,8 +36,8 @@ private:
 private:
 	int mIndexCount;
 	ID3D11Buffer *mVertexBuffer, *mIndexBuffer;
-	XMMATRIX mPositionMatrix, mScaleMatrix;
-	XMFLOAT3 mPosition, mScale;
+	XMMATRIX mPositionMatrix, mScaleMatrix, mRotationMatrix;
+	XMFLOAT3 mPosition, mScale, mRotation;
 
 	ID3D11Resource *mTextureResource;
 	ID3D11ShaderResourceView *mTextureResourceView;

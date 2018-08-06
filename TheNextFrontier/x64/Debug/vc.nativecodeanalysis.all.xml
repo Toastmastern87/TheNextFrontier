@@ -19,7 +19,7 @@
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'BFSClass::mPositionMatrix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'BFSClass::mIndexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>BFSClass::{ctor}</FUNCTION>
     <DECORATED>??0BFSClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -32,7 +32,7 @@
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'BFSClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'BFSClass::mIndexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>BFSClass::{ctor}</FUNCTION>
     <DECORATED>??0BFSClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>9</FUNCLINE>
@@ -44,8 +44,8 @@
       <LINE>3</LINE>
       <COLUMN>16</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'BFSShaderClass::mSampleState' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>BFSShaderClass::{ctor}</FUNCTION>
     <DECORATED>??0BFSShaderClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -57,8 +57,8 @@
       <LINE>3</LINE>
       <COLUMN>16</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'BFSShaderClass::mSampleState' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>BFSShaderClass::{ctor}</FUNCTION>
     <DECORATED>??0BFSShaderClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -200,8 +200,8 @@
       <LINE>3</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GUIClass::mVertexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>GUIClass::{ctor}</FUNCTION>
     <DECORATED>??0GUIClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -213,8 +213,8 @@
       <LINE>3</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GUIClass::mVertexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>GUIClass::{ctor}</FUNCTION>
     <DECORATED>??0GUIClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -1708,8 +1708,8 @@
       <LINE>61</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>61</FUNCLINE>
@@ -1721,8 +1721,8 @@
       <LINE>61</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>61</FUNCLINE>

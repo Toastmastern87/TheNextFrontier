@@ -36,11 +36,11 @@ void BFSShaderClass::Shutdown()
 	return;
 }
 
-bool BFSShaderClass::Render(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX positionMatrix, XMMATRIX scaleMatrix, ID3D11ShaderResourceView* texture)
+bool BFSShaderClass::Render(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX positionMatrix, XMMATRIX scaleMatrix, XMMATRIX rotationMatrix, ID3D11ShaderResourceView* texture)
 {
 	bool result;
 
-	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, positionMatrix, scaleMatrix, texture);
+	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, positionMatrix, scaleMatrix, rotationMatrix, texture);
 	if (!result)
 	{
 		return false;
@@ -184,7 +184,7 @@ void BFSShaderClass::ShutdownShader()
 	return;
 }
 
-bool BFSShaderClass::SetShaderParameters(ID3D11DeviceContext *deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX positionMatrix, XMMATRIX scaleMatrix, ID3D11ShaderResourceView* texture)
+bool BFSShaderClass::SetShaderParameters(ID3D11DeviceContext *deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX positionMatrix, XMMATRIX scaleMatrix, XMMATRIX rotationMatrix, ID3D11ShaderResourceView* texture)
 {
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
@@ -204,12 +204,14 @@ bool BFSShaderClass::SetShaderParameters(ID3D11DeviceContext *deviceContext, XMM
 	projectionMatrix = XMMatrixTranspose(projectionMatrix);
 	positionMatrix = XMMatrixTranspose(positionMatrix);
 	scaleMatrix = XMMatrixTranspose(scaleMatrix);
+	rotationMatrix = XMMatrixTranspose(rotationMatrix);
 
 	dataPtr->world = worldMatrix;
 	dataPtr->view = viewMatrix;
 	dataPtr->projection = projectionMatrix;
 	dataPtr->position = positionMatrix;
 	dataPtr->scale = scaleMatrix;
+	dataPtr->rotation = rotationMatrix;
 
 	deviceContext->Unmap(mConstantBuffer, 0);
 

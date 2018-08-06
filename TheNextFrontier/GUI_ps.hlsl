@@ -11,9 +11,9 @@ float4 GUIPixelShader(PixelInputType input) : SV_TARGET
 {
 	float4 color;
 
-color = shaderTexture.Sample(sampleType, input.tex);
+	color = shaderTexture.Sample(sampleType, input.tex);
 
-color.rgb *= color.a;
+	color.rgb *= color.a;
 
-return color;
+	return color;
 }

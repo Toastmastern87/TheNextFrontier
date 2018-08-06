@@ -13,6 +13,7 @@ public:
 	struct Object
 	{
 		vector<XMFLOAT3> vertices;
+		vector<XMFLOAT2> uv;
 		vector<unsigned long> indices;
 	};
 

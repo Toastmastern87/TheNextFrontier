@@ -19,6 +19,7 @@ ObjLoaderClass::Object ObjLoaderClass::LoadObject(char* filename)
 	Object obj;
 	ifstream objFileStream;
 	XMFLOAT3 tempXMFLOAT3;
+	XMFLOAT2 tempXMFLOAT2;
 
 	objFileStream.open(filename);
 
@@ -38,6 +39,22 @@ ObjLoaderClass::Object ObjLoaderClass::LoadObject(char* filename)
 				tempXMFLOAT3.z *= -1.0f;
 
 				obj.vertices.push_back(tempXMFLOAT3);
+			}
+
+			// UV coords
+			if (input == 't')
+			{
+				objFileStream.get(input);
+
+				// Read in the vertices.
+				if (input == ' ')
+				{
+					objFileStream >> tempXMFLOAT2.x >> tempXMFLOAT2.y;
+
+					tempXMFLOAT2.y = 1.0f - tempXMFLOAT2.y;
+
+					obj.uv.push_back(tempXMFLOAT2);
+				}
 			}
 		}
 

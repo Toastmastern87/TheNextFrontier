@@ -10,11 +10,13 @@ cbuffer PerFrameBuffer
 struct VertexInputType
 {
 	float4 position : POSITION;
+	float2 tex : TEXCOORD0;
 };
 
 struct PixelInputType
 {
 	float4 position : SV_POSITION;
+	float2 tex : TEXCOORD0;
 };
 
 PixelInputType BFSVertexShader(VertexInputType input)
@@ -29,5 +31,7 @@ PixelInputType BFSVertexShader(VertexInputType input)
 	output.position = mul(output.position, viewMatrix);
 	output.position = mul(output.position, projectionMatrix);
 
+	output.tex = input.tex;
+	
 	return output;
 }

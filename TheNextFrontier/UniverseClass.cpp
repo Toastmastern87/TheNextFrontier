@@ -440,7 +440,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 	}
 
 	mHeartOfGold->Render(direct3D->GetDeviceContext());
-	result = shaderManager->RenderBFSShader(direct3D->GetDeviceContext(), mHeartOfGold->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, mHeartOfGold->GetPositionMatrix(), mHeartOfGold->GetScaleMatrix());
+	result = shaderManager->RenderBFSShader(direct3D->GetDeviceContext(), mHeartOfGold->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, mHeartOfGold->GetPositionMatrix(), mHeartOfGold->GetScaleMatrix(), mHeartOfGold->GetTexture());
 	if (!result)
 	{
 		return false;

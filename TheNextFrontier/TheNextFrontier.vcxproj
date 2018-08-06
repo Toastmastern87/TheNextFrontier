@@ -231,6 +231,7 @@
     <Text Include="font01.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Textures\BFS.tif" />
     <Image Include="Textures\font01.tga" />
     <Image Include="Textures\GameTimeGUI.tif" />
     <Image Include="Textures\MarsColorMap8K.tif" />
@@ -354,6 +355,9 @@
   </ItemGroup>
   <ItemGroup>
     <Object Include="Objects\CubeMeshTest.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="Objects\CylinderMeshTest.obj">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </Object>
   </ItemGroup>

@@ -21,6 +21,12 @@ bool BFSClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceConte
 	mPosition = startPosition;
 	mScale = scale;
 
+	result = LoadTexture(device);
+	if (!result)
+	{
+		return false;
+	}
+
 	result = InitializeBuffers(device);
 	if (!result)
 	{
@@ -82,6 +88,17 @@ bool BFSClass::InitializeBuffers(ID3D11Device *device)
 		fOut << i;
 		fOut << "]: ";
 		fOut << BFS.indices[i];
+		fOut << "\r\n";
+	}
+
+	for (int i = 0; i < BFS.uv.size(); i++)
+	{
+		fOut << "BFS.uvs[";
+		fOut << i;
+		fOut << "] x: ";
+		fOut << BFS.uv[i].x;
+		fOut << " y: ";
+		fOut << BFS.uv[i].y;
 		fOut << "\r\n";
 	}
 
@@ -157,6 +174,22 @@ void BFSClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 	return;
 }
 
+bool BFSClass::LoadTexture(ID3D11Device* device)
+{
+	HRESULT hResult;
+	const wchar_t *fileName;
+
+	fileName = L"../TheNextFrontier/Textures/BFS.tif";
+
+	hResult = CreateWICTextureFromFile(device, fileName, &mTextureResource, &mTextureResourceView);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	return true;
+}
+
 int BFSClass::GetIndexCount() 
 {
 	return mIndexCount;
@@ -170,4 +203,9 @@ XMMATRIX BFSClass::GetPositionMatrix()
 XMMATRIX BFSClass::GetScaleMatrix() 
 {
 	return mScaleMatrix;
+}
+
+ID3D11ShaderResourceView* BFSClass::GetTexture()
+{
+	return mTextureResourceView;
 }

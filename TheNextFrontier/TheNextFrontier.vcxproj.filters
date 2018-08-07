@@ -129,6 +129,9 @@
     <ClCompile Include="BFSShaderClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BoundingBoxClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SystemClass.h">
@@ -225,6 +228,9 @@
       <Filter>Header Files\Math</Filter>
     </ClInclude>
     <ClInclude Include="BFSShaderClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BoundingBoxClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

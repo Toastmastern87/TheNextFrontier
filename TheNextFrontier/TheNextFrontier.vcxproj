@@ -156,6 +156,7 @@
   <ItemGroup>
     <ClCompile Include="BFSClass.cpp" />
     <ClCompile Include="BFSShaderClass.cpp" />
+    <ClCompile Include="BoundingBoxClass.cpp" />
     <ClCompile Include="CameraClass.cpp" />
     <ClCompile Include="GameTimeClass.cpp" />
     <ClCompile Include="GeometryClass.cpp" />
@@ -191,6 +192,7 @@
   <ItemGroup>
     <ClInclude Include="BFSClass.h" />
     <ClInclude Include="BFSShaderClass.h" />
+    <ClInclude Include="BoundingBoxClass.h" />
     <ClInclude Include="CameraClass.h" />
     <ClInclude Include="GameTimeClass.h" />
     <ClInclude Include="GeometryClass.h" />

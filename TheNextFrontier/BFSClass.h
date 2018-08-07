@@ -6,6 +6,7 @@
 #include <fstream>
 #include "ObjLoaderClass.h"
 #include <WICTextureLoader.h>
+#include "BoundingBoxClass.h"
 using namespace DirectX;
 using namespace std;
 
@@ -25,6 +26,7 @@ public:
 	XMMATRIX GetScaleMatrix();
 	XMMATRIX GetRotationMatrix();
 	ID3D11ShaderResourceView* GetTexture();
+	BoundingBoxClass* GetBoundingBox();
 
 private:
 	bool InitializeBuffers(ID3D11Device*);
@@ -43,4 +45,5 @@ private:
 	ID3D11ShaderResourceView *mTextureResourceView;
 
 	bool mPicked;
+	BoundingBoxClass* mBoundingBox;
 };

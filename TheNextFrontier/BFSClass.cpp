@@ -4,6 +4,8 @@ BFSClass::BFSClass()
 {
 	mVertexBuffer = 0;
 	mIndexBuffer = 0;
+
+	mBoundingBox = 0;
 }
 
 BFSClass::BFSClass(const BFSClass& other)
@@ -21,6 +23,18 @@ bool BFSClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceConte
 	mPosition = startPosition;
 	mScale = scale;
 	mRotation = rotation;
+
+	mBoundingBox = new BoundingBoxClass();
+	if (!mBoundingBox) 
+	{
+		return false;
+	}
+
+	result = mBoundingBox->Initialize(device, deviceContext);
+	if (!result)
+	{
+		return false;
+	}
 
 	result = LoadTexture(device);
 	if (!result)
@@ -63,48 +77,48 @@ bool BFSClass::InitializeBuffers(ID3D11Device *device)
 	HRESULT hResult;
 	bool result;
 	
-	ofstream fOut;
+	//ofstream fOut;
 
-	fOut.open("Debug.txt", ios::out | ios::app);
+	//fOut.open("Debug.txt", ios::out | ios::app);
 
 	BFS = ObjLoaderClass::LoadObject((char*)"../TheNextFrontier/Objects/CylinderMeshTest.obj");
 
-	for (int i = 0; i < BFS.vertices.size(); i++) 
-	{
-		fOut << "BFS.vertices[";
-		fOut << i;
-		fOut << "] x: ";
-		fOut << BFS.vertices[i].x;
-		fOut << " y: ";
-		fOut << BFS.vertices[i].y;
-		fOut << " z: ";
-		fOut << BFS.vertices[i].z;
-		fOut << "\r\n";
-	}
+	//for (int i = 0; i < BFS.vertices.size(); i++) 
+	//{
+	//	fOut << "BFS.vertices[";
+	//	fOut << i;
+	//	fOut << "] x: ";
+	//	fOut << BFS.vertices[i].x;
+	//	fOut << " y: ";
+	//	fOut << BFS.vertices[i].y;
+	//	fOut << " z: ";
+	//	fOut << BFS.vertices[i].z;
+	//	fOut << "\r\n";
+	//}
 
-	fOut << "\r\n";
+	//fOut << "\r\n";
 
-	for (int i = 0; i < BFS.indices.size(); i++)
-	{
-		fOut << "BFS.indices[";
-		fOut << i;
-		fOut << "]: ";
-		fOut << BFS.indices[i];
-		fOut << "\r\n";
-	}
+	//for (int i = 0; i < BFS.indices.size(); i++)
+	//{
+	//	fOut << "BFS.indices[";
+	//	fOut << i;
+	//	fOut << "]: ";
+	//	fOut << BFS.indices[i];
+	//	fOut << "\r\n";
+	//}
 
-	for (int i = 0; i < BFS.uv.size(); i++)
-	{
-		fOut << "BFS.uvs[";
-		fOut << i;
-		fOut << "] x: ";
-		fOut << BFS.uv[i].x;
-		fOut << " y: ";
-		fOut << BFS.uv[i].y;
-		fOut << "\r\n";
-	}
+	//for (int i = 0; i < BFS.uv.size(); i++)
+	//{
+	//	fOut << "BFS.uvs[";
+	//	fOut << i;
+	//	fOut << "] x: ";
+	//	fOut << BFS.uv[i].x;
+	//	fOut << " y: ";
+	//	fOut << BFS.uv[i].y;
+	//	fOut << "\r\n";
+	//}
 
-	fOut.close();
+	//fOut.close();
 
 	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	vertexBufferDesc.ByteWidth = sizeof(XMFLOAT3) * BFS.vertices.size();
@@ -215,4 +229,9 @@ XMMATRIX BFSClass::GetRotationMatrix()
 ID3D11ShaderResourceView* BFSClass::GetTexture()
 {
 	return mTextureResourceView;
+}
+
+BoundingBoxClass* BFSClass::GetBoundingBox() 
+{
+	return mBoundingBox;
 }

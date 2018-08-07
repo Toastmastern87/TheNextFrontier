@@ -5,6 +5,7 @@ Texture2D detailAreaMapTextureX : register(t3);
 Texture2D craterHeightMapTexture : register(t4);
 Texture2D detailAreaMapTextureY : register(t5);
 Texture2D detailAreaMapTextureWH : register(t6);
+Texture2D crater2HeightMapTexture : register(t7);
 SamplerState sampleType;
 
 #include "NoiseSimplexFunc.hlsl"
@@ -68,6 +69,15 @@ float GetCraterDetailHeight(float2 uv, bool insideAtmosphere, float4 pos)
 	return finalHeight;
 }
 
+float GetCrater2DetailHeight(float2 uv, bool insideAtmosphere, float4 pos)
+{
+	float finalHeight;
+
+	finalHeight = (crater2HeightMapTexture.SampleLevel(sampleType, uv, 0).r * (21.229f + 8.2f));
+
+	return finalHeight;
+}
+
 float3 CalculateNormal(float3 normalVector, float3 viewVector, float2 uv, bool insideAtmosphere, float4 pos)
 {
 	float textureWidth, textureHeight, hL, hR, hD, hU;
@@ -87,7 +97,7 @@ float3 CalculateNormal(float3 normalVector, float3 viewVector, float2 uv, bool i
 
 	float4 detailAreaX = detailAreaMapTextureX.SampleLevel(sampleType, uv, 0).rgba;
 
-	if (detailAreaX.a == 1.0f)
+	if (round(detailAreaX.a * 255.0f) == 255.0f)
 	{
 		craterHeightMapTexture.GetDimensions(craterDetailTextureWidth, craterDetailTextureHeight);
 
@@ -103,6 +113,25 @@ float3 CalculateNormal(float3 normalVector, float3 viewVector, float2 uv, bool i
 		hR2 = GetCraterDetailHeight((craterDetailUV + texOffsetCraterDetail.xz), insideAtmosphere, pos);
 		hD2 = GetCraterDetailHeight((craterDetailUV + texOffsetCraterDetail.zy), insideAtmosphere, pos);
 		hU2 = GetCraterDetailHeight((craterDetailUV - texOffsetCraterDetail.zy), insideAtmosphere, pos);
+
+		N = normalize(float3((hL2 - hR2), (hU2 - hD2), 2.0f));
+	}
+	else if (round(detailAreaX.a * 255.0f) == 254.0f)
+	{
+		crater2HeightMapTexture.GetDimensions(craterDetailTextureWidth, craterDetailTextureHeight);
+
+		texOffsetCraterDetail = float3((1.0f / (craterDetailTextureWidth)), (1.0f / (craterDetailTextureHeight)), 0.0f);
+
+		float4 detailAreaY = detailAreaMapTextureY.SampleLevel(sampleType, uv, 0).rgba;
+		float4 detailAreaWH = detailAreaMapTextureWH.SampleLevel(sampleType, uv, 0).rgba;
+
+		craterDetailUV = uv - float2((((round(detailAreaX.r * 255.0f) * round(detailAreaX.g * 255.0f)) + round(detailAreaX.b * 255.0f)) / 8192.0f), (((round(detailAreaY.r * 255.0f) * round(detailAreaY.g * 255.0f)) + round(detailAreaY.b * 255.0f)) / 4096.0f));
+		craterDetailUV = float2((craterDetailUV.x * 8192.0f), (craterDetailUV.y * 4096.0f)) / (round(detailAreaWH.r * 255.0f));
+
+		hL2 = GetCrater2DetailHeight((craterDetailUV - texOffsetCraterDetail.xz), insideAtmosphere, pos);
+		hR2 = GetCrater2DetailHeight((craterDetailUV + texOffsetCraterDetail.xz), insideAtmosphere, pos);
+		hD2 = GetCrater2DetailHeight((craterDetailUV + texOffsetCraterDetail.zy), insideAtmosphere, pos);
+		hU2 = GetCrater2DetailHeight((craterDetailUV - texOffsetCraterDetail.zy), insideAtmosphere, pos);
 
 		N = normalize(float3((hL2 - hR2), (hU2 - hD2), 2.0f));
 	}

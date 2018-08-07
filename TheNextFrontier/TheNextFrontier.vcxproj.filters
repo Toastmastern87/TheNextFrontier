@@ -282,6 +282,9 @@
     <Image Include="Textures\BFS.tif">
       <Filter>Resource Files\Textures</Filter>
     </Image>
+    <Image Include="Textures\MarsCrater2.tif">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="MarsFromSpace_vs.hlsl">

@@ -62,7 +62,7 @@ bool MarsClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceCont
 		return false;
 	}
 
-	result = LoadCraterHeightMapTexture(device);
+	result = LoadCraterHeightMapTextures(device);
 	if (!result)
 	{
 		return false;
@@ -685,7 +685,7 @@ bool MarsClass::LoadDetailAreaMapTexture(ID3D11Device* device)
 	return true;
 }
 
-bool MarsClass::LoadCraterHeightMapTexture(ID3D11Device* device)
+bool MarsClass::LoadCraterHeightMapTextures(ID3D11Device* device)
 {
 	HRESULT hResult;
 	const wchar_t *fileName;
@@ -693,6 +693,14 @@ bool MarsClass::LoadCraterHeightMapTexture(ID3D11Device* device)
 	fileName = L"../TheNextFrontier/Textures/MarsCrater.tif";
 
 	hResult = CreateWICTextureFromFile(device, fileName, &mCraterHeightMapResource, &mCraterHeightMapResourceView);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	fileName = L"../TheNextFrontier/Textures/MarsCrater2.tif";
+
+	hResult = CreateWICTextureFromFile(device, fileName, &mCrater2HeightMapResource, &mCrater2HeightMapResourceView);
 	if (FAILED(hResult))
 	{
 		return false;
@@ -734,6 +742,11 @@ ID3D11ShaderResourceView* MarsClass::GetDetailAreaMapWH()
 ID3D11ShaderResourceView* MarsClass::GetCraterHeightMap()
 {
 	return mCraterHeightMapResourceView;
+}
+
+ID3D11ShaderResourceView* MarsClass::GetCrater2HeightMap()
+{
+	return mCrater2HeightMapResourceView;
 }
 
 int MarsClass::GetHeightAtPos(XMFLOAT3 position)

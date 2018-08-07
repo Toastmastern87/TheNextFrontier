@@ -4,6 +4,7 @@ Texture2D detailAreaMapTextureX : register(t2);
 Texture2D craterHeightMapTexture : register(t3);
 Texture2D detailAreaMapTextureY : register(t4);
 Texture2D detailAreaMapTextureWH : register(t5);
+Texture2D crater2HeightMapTexture : register(t6);
 SamplerState sampleType;
 
 #define PI 3.141592653589793
@@ -101,7 +102,7 @@ float GetHeight(float3 pos, float maxHeight, float minHeight)
 	float4 detailAreaX = detailAreaMapTextureX.SampleLevel(sampleType, uv, 0).rgba;
 	//heightColorValue += (heightMapDetail2Texture.SampleLevel(sampleType, (uv * textureStretch * 700), 1).r * 1.0f);
 
-	if (detailAreaX.a == 1.0f)
+	if (round(detailAreaX.a * 255.0f) == 255.0f)
 	{
 		float4 detailAreaY = detailAreaMapTextureY.SampleLevel(sampleType, uv, 0).rgba;
 		float4 detailAreaWH = detailAreaMapTextureWH.SampleLevel(sampleType, uv, 0).rgba;
@@ -110,6 +111,17 @@ float GetHeight(float3 pos, float maxHeight, float minHeight)
 		craterMapping = float2((craterMapping.x * 8192.0f), (craterMapping.y * 4096.0f));
 
 		finalHeight = (craterHeightMapTexture.SampleLevel(sampleType, (craterMapping / (round(detailAreaWH.r * 255.0f))) , 0).r - 0.725490196f) * 5.0f;
+		finalHeight += (heightColorValue * (maxHeight - minHeight));
+	}
+	else if (round(detailAreaX.a * 255.0f) == 254.0f)
+	{
+		float4 detailAreaY = detailAreaMapTextureY.SampleLevel(sampleType, uv, 0).rgba;
+		float4 detailAreaWH = detailAreaMapTextureWH.SampleLevel(sampleType, uv, 0).rgba;
+
+		float2 craterMapping = uv - float2((((round(detailAreaX.r * 255.0f) * round(detailAreaX.g * 255.0f)) + round(detailAreaX.b * 255.0f)) / 8192.0f), (((round(detailAreaY.r * 255.0f) * round(detailAreaY.g * 255.0f)) + round(detailAreaY.b * 255.0f)) / 4096.0f));
+		craterMapping = float2((craterMapping.x * 8192.0f), (craterMapping.y * 4096.0f));
+
+		finalHeight = (crater2HeightMapTexture.SampleLevel(sampleType, (craterMapping / (round(detailAreaWH.r * 255.0f))), 0).r - 0.45f) * 5.0f;
 		finalHeight += (heightColorValue * (maxHeight - minHeight));
 	}
 	else

@@ -7,20 +7,6 @@
       <LINE>3</LINE>
       <COLUMN>19</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
-    <DECORATED>??0MousePointerClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>mousepointerclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>19</COLUMN>
-    </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MousePointerClass::mMousePointerResource' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
@@ -65,6 +51,20 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'MousePointerClass::mIndexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
+    <DECORATED>??0MousePointerClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>mousepointerclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>19</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MousePointerClass::{ctor}</FUNCTION>
     <DECORATED>??0MousePointerClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>

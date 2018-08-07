@@ -108,6 +108,7 @@ public:
 	ID3D11ShaderResourceView* GetDetailAreaMapY();
 	ID3D11ShaderResourceView* GetDetailAreaMapWH();
 	ID3D11ShaderResourceView* GetCraterHeightMap();
+	ID3D11ShaderResourceView* GetCrater2HeightMap();
 
 	bool UpdateMars(ID3D11DeviceContext*, FrustumClass*, PositionClass*);
 
@@ -118,7 +119,7 @@ private:
 	void RenderBuffers(ID3D11DeviceContext*);
 
 	bool LoadHeightMapTexture(ID3D11Device*);
-	bool LoadCraterHeightMapTexture(ID3D11Device*);
+	bool LoadCraterHeightMapTextures(ID3D11Device*);
 	bool LoadColorMapTexture(ID3D11Device*);
 	bool LoadDetailAreaMapTexture(ID3D11Device*);
 
@@ -164,8 +165,8 @@ private:
 	float mHeightDataImage;
 
 	PositionClass* mPosition;
-	ID3D11Resource *mHeightMapResource, *mHeightMapDetail2Resource, *mColorMapResource, *mDetailAreaMapResourceX, *mDetailAreaMapResourceY, *mDetailAreaMapResourceWH, *mCraterHeightMapResource;
-	ID3D11ShaderResourceView *mHeightMapResourceView, *mHeightMapDetail2ResourceView, *mColorMapResourceView, *mDetailAreaMapResourceViewX, *mDetailAreaMapResourceViewY, *mDetailAreaMapResourceViewWH, *mCraterHeightMapResourceView;
+	ID3D11Resource *mHeightMapResource, *mHeightMapDetail2Resource, *mColorMapResource, *mDetailAreaMapResourceX, *mDetailAreaMapResourceY, *mDetailAreaMapResourceWH, *mCraterHeightMapResource, *mCrater2HeightMapResource;
+	ID3D11ShaderResourceView *mHeightMapResourceView, *mHeightMapDetail2ResourceView, *mColorMapResourceView, *mDetailAreaMapResourceViewX, *mDetailAreaMapResourceViewY, *mDetailAreaMapResourceViewWH, *mCraterHeightMapResourceView, *mCrater2HeightMapResourceView;
 
 	TIFF *mTerrainTypeMap;
 };

@@ -1,1 +1,38 @@
-﻿  TheNextFrontier.vcxproj -> C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\x64\Debug\TheNextFrontier.exe
+﻿C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_vs.hlsl(176,49-97): warning X3206: 'GetHeight': implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_vs.hlsl(176,49-97): warning X3206: 'GetHeight': implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_vs.hlsl(176,13-114): warning X3206: implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_vs.hlsl(181,8-27): warning X3206: implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_vs.hlsl(186,2-18): warning X3206: implicit truncation of vector type
+  compilation object save succeeded; see C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\x64\Debug\MarsFromAtmosphere_vs.cso
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_vs.hlsl(187,2-56): warning X3206: implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_vs.hlsl(189,19-57): warning X3206: 'mul': implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_vs.hlsl(189,15-68): warning X3206: 'dot': implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_vs.hlsl(197,2-36): warning X3206: implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_vs.hlsl(207,9-77): warning X3206: implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_vs.hlsl(209,31-66): warning X3206: implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_vs.hlsl(209,31-85): warning X3206: implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_vs.hlsl(215,18-43): warning X3206: 'mul': implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_vs.hlsl(215,2-43): warning X3206: implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_vs.hlsl(216,23-53): warning X3206: 'mul': implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_vs.hlsl(216,57-82): warning X3206: 'mul': implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_vs.hlsl(216,2-83): warning X3206: implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_vs.hlsl(154,45-68): warning X3578: Output value 'MarsFromAtmosphereVertexShader' is not completely initialized
+  
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_vs.hlsl(174,49-97): warning X3206: 'GetHeight': implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_vs.hlsl(174,49-97): warning X3206: 'GetHeight': implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_vs.hlsl(174,13-114): warning X3206: implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_vs.hlsl(184,9-79): warning X3206: 'GetNearIntersection': implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_vs.hlsl(184,9-79): warning X3206: 'GetNearIntersection': implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_vs.hlsl(189,2-62): warning X3206: implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_vs.hlsl(191,19-57): warning X3206: 'mul': implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_vs.hlsl(191,15-68): warning X3206: 'dot': implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_vs.hlsl(199,2-36): warning X3206: implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_vs.hlsl(217,18-43): warning X3206: 'mul': implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_vs.hlsl(217,2-43): warning X3206: implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_vs.hlsl(218,23-53): warning X3206: 'mul': implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_vs.hlsl(218,57-82): warning X3206: 'mul': implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_vs.hlsl(218,2-83): warning X3206: implicit truncation of vector type
+C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromSpace_vs.hlsl(151,40-63): warning X3578: Output value 'MarsFromSpaceVertexShader' is not completely initialized
+  
+  compilation object save succeeded; see C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\x64\Debug\MarsFromSpace_vs.cso
+  TheNextFrontier.vcxproj -> C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\x64\Debug\TheNextFrontier.exe

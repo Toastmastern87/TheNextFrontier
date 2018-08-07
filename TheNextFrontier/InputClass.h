@@ -44,6 +44,8 @@ public:
 	bool IsF4Toggled();
 	bool IsF5Toggled();
 
+	bool IsM1Pressed();
+
 private:
 	bool ReadKeyboard();
 	bool ReadMouse();

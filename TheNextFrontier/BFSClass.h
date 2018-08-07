@@ -41,4 +41,6 @@ private:
 
 	ID3D11Resource *mTextureResource;
 	ID3D11ShaderResourceView *mTextureResourceView;
+
+	bool mPicked;
 };

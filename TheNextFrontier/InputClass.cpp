@@ -422,3 +422,13 @@ bool InputClass::IsMinusNmpPressed()
 
 	return false;
 }
+
+bool InputClass::IsM1Pressed()
+{
+	if (GetKeyState(VK_LBUTTON) & 0x80)
+	{
+		return true;
+	}
+
+	return false;
+}

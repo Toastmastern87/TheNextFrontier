@@ -122,7 +122,7 @@ float GetHeight(float3 pos, float maxHeight, float minHeight)
 		float2 craterMapping = uv - float2((((round(detailAreaX.r * 255.0f) * round(detailAreaX.g * 255.0f)) + round(detailAreaX.b * 255.0f)) / 8192.0f), (((round(detailAreaY.r * 255.0f) * round(detailAreaY.g * 255.0f)) + round(detailAreaY.b * 255.0f)) / 4096.0f));
 		craterMapping = float2((craterMapping.x * 8192.0f), (craterMapping.y * 4096.0f));
 
-		finalHeight = (crater2HeightMapTexture.SampleLevel(sampleType, (craterMapping / (round(detailAreaWH.r * 255.0f))), 0).r - 0.725490196f) * 5.0f;
+		finalHeight = (crater2HeightMapTexture.SampleLevel(sampleType, (craterMapping / (round(detailAreaWH.r * 255.0f))), 0).r - 0.45f) * 5.0f;
 		finalHeight += (heightColorValue * (maxHeight - minHeight));
 	}
 	else

@@ -29,7 +29,7 @@ public:
 	bool Frame(HWND, D3DClass*, InputClass*, ShaderManagerClass*, float, int);
 
 private:
-	void HandleMovementInput(InputClass*, float);
+	void HandleMovementInput(InputClass*, float, D3DClass*);
 	bool Render(D3DClass*, ShaderManagerClass*);
 	
 private:
@@ -40,8 +40,9 @@ private:
 	MarsAtmosphereClass* mMarsAtmosphere;
 	FrustumClass* mFrustum;
 	LightClass* mSunlight;
-	bool mDisplayUI, mWireframe, mSpeedIncreased, mSpeedDecreased, mRenderAtmosphere, mRenderMars;
+	bool mDisplayUI, mWireframe, mSpeedIncreased, mSpeedDecreased, mRenderAtmosphere, mRenderMars, mLeftMouseButtonClicked;
 	float mScreenDepth, mScreenNear;
+	int  mScreenWidth, mScreenHeight;
 	MousePointerClass *mMousePointer;
 	GameTimeClass *mGameTime;
 	GUIClass *mGUI;

@@ -24,6 +24,8 @@ public:
 
 	bool UpdateMousePointerPos(ID3D11DeviceContext*, int, int);
 
+	XMFLOAT3 GetPickingRay(XMFLOAT2, int, int, XMMATRIX, XMMATRIX);
+
 private:
 	bool InitializeMousePointer(ID3D11Device*, ID3D11DeviceContext*, int, int);
 	void ShutdownBuffers();

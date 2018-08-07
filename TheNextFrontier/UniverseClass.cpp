@@ -21,6 +21,8 @@ UniverseClass::UniverseClass()
 	mDisplayUI = true;
 	mRenderAtmosphere = true;
 	mRenderMars = true;
+
+	mLeftMouseButtonClicked = false;
 }
 
 UniverseClass::UniverseClass(const UniverseClass& other)
@@ -37,6 +39,8 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 
 	mScreenDepth = screenDepth;
 	mScreenNear = screenNear;
+	mScreenWidth = screenWidth;
+	mScreenHeight = screenHeight;
 
 	mHeartOfGold = new BFSClass();
 	if (!mHeartOfGold)
@@ -265,17 +269,13 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 	bool result;
 	float posX, posY, posZ, rotX, rotY, rotZ, altitude, numberOfVertices;
 	int mouseX, mouseY;
+	XMFLOAT3 pickingRay;
 
 	numberOfVertices = 0;
 
 	mGameTime->Frame();
 
 	mSunlight->CalculateDayNightCycle(mGameTime->GetGameTimeMS(), mGameTime->GetGameTimeSecs());
-
-	HandleMovementInput(input, frameTime);
-
-	mPosition->GetPosition(posX, posY, posZ);
-	mPosition->GetRotation(rotX, rotY, rotZ);
 
 	input->GetMouseLocation(mouseX, mouseY);
 
@@ -284,6 +284,11 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 	{
 		return false;
 	}
+
+	HandleMovementInput(input, frameTime, direct3D);
+
+	mPosition->GetPosition(posX, posY, posZ);
+	mPosition->GetRotation(rotX, rotY, rotZ);
 
 	if (mRenderMars) 
 	{
@@ -306,6 +311,13 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 		}
 	}
 
+	if (mLeftMouseButtonClicked) 
+	{
+		pickingRay = mMousePointer->GetPickingRay(XMFLOAT2(mouseX, mouseY), mScreenWidth, mScreenHeight, direct3D->GetProjectionMatrix(), mCamera->GetViewMatrix());
+
+		mLeftMouseButtonClicked = false;
+	}
+
 	result = Render(direct3D, shaderManager);
 	if (!result) {
 		return false;
@@ -314,7 +326,7 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 	return true;
 }
 
-void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
+void UniverseClass::HandleMovementInput(InputClass* input, float frameTime, D3DClass *direct3D)
 {
 	bool keyDown;
 	float posX, posY, posZ, rotX, rotY, rotZ;
@@ -404,6 +416,12 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime)
 	if (input->IsF4Toggled())
 	{
 		mRenderMars = !mRenderMars;
+	}
+
+	// Check if anything got picked by the mouse
+	if (input->IsM1Pressed())
+	{
+		mLeftMouseButtonClicked = true;
 	}
 
 	return;

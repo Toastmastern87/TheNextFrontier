@@ -1076,3 +1076,120 @@ Origin x: 3576.52 y: -32.1239 z: 17.9212
 Direction x: -0.980508 y: 0.173738 z: 0.0917575
 mPicked: 0
 
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 9592.78 y: 0 z: -2824.64
+Direction x: -0.977395 y: -0.127453 z: 0.168688
+mPicked: 0
+
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 9222 y: 0 z: -3867.14
+Direction x: -0.929639 y: -0.189682 z: 0.315899
+mPicked: 0
+
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 5508.19 y: 0 z: 66.3202
+Direction x: -0.990917 y: -0.0988123 z: 0.0912114
+mPicked: 0
+
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 5505.3 y: 0 z: 66.2854
+Direction x: -0.990917 y: -0.0988123 z: 0.0912114
+mPicked: 0
+
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3405.77 y: -460.558 z: -222.344
+Direction x: -0.995253 y: -0.0648908 z: 0.072525
+mPicked: 0
+
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3405.77 y: -460.558 z: -222.344
+Direction x: -0.995253 y: -0.0648908 z: 0.072525
+mPicked: 0
+
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3507.17 y: -474.27 z: -228.964
+Direction x: -0.984374 y: -0.132893 z: -0.115527
+mPicked: 0
+
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3837.88 y: -734.186 z: -467.696
+Direction x: -0.974861 y: -0.22209 z: 0.0179467
+mPicked: 0
+
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3461.82 y: -790.949 z: -431.265
+Direction x: -0.992856 y: -0.104337 z: 0.0578803
+mPicked: 0
+

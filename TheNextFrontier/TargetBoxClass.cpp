@@ -120,12 +120,12 @@ void TargetBoxClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 
 	deviceContext->IASetIndexBuffer(mIndexBuffer, DXGI_FORMAT_R32_UINT, 0);
 
-	deviceContext->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_LINELIST);
+	deviceContext->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	return;
 }
 
-int TargetBoxClass::GetIndexCount()
+int TargetBoxClass::GetIndicesCount()
 {
 	return mIndices.size();
 }

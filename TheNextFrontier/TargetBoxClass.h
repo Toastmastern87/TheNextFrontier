@@ -18,7 +18,7 @@ public:
 	void Shutdown();
 	void Render(ID3D11DeviceContext*);
 
-	int GetIndexCount();
+	int GetIndicesCount();
 
 private:
 	bool InitializeBuffers(ID3D11Device*);
@@ -26,8 +26,7 @@ private:
 	void RenderBuffers(ID3D11DeviceContext*);
 
 private:
-	ID3D11Buffer *mVertexBuffer, *mIndexBuffer;
+	ID3D11Buffer * mVertexBuffer, *mIndexBuffer;
 	vector<GeometryClass::VertexType> mVertices;
 	vector<int> mIndices;
-
 };

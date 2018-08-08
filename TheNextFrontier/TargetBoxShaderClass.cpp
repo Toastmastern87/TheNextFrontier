@@ -36,11 +36,11 @@ void TargetBoxShaderClass::Shutdown()
 	return;
 }
 
-bool TargetBoxShaderClass::Render(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX positionMatrix, XMMATRIX scaleMatrix, XMMATRIX rotationMatrix, ID3D11ShaderResourceView* texture)
+bool TargetBoxShaderClass::Render(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX positionMatrix, XMFLOAT3 scale, XMMATRIX rotationMatrix, ID3D11ShaderResourceView* texture)
 {
 	bool result;
 
-	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, positionMatrix, scaleMatrix, rotationMatrix, texture);
+	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, positionMatrix, scale, rotationMatrix, texture);
 	if (!result)
 	{
 		return false;
@@ -184,7 +184,7 @@ void TargetBoxShaderClass::ShutdownShader()
 	return;
 }
 
-bool TargetBoxShaderClass::SetShaderParameters(ID3D11DeviceContext *deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX positionMatrix, XMMATRIX scaleMatrix, XMMATRIX rotationMatrix, ID3D11ShaderResourceView* texture)
+bool TargetBoxShaderClass::SetShaderParameters(ID3D11DeviceContext *deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX positionMatrix, XMFLOAT3 scale, XMMATRIX rotationMatrix, ID3D11ShaderResourceView* texture)
 {
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
@@ -198,6 +198,10 @@ bool TargetBoxShaderClass::SetShaderParameters(ID3D11DeviceContext *deviceContex
 	}
 
 	dataPtr = (ConstantBufferType*)mappedResource.pData;
+
+	scale = XMFLOAT3(scale.x * 1.1f, scale.y * 1.1f, scale.z * 1.1f);
+
+	XMMATRIX scaleMatrix = XMMatrixScalingFromVector(XMLoadFloat3(&scale));
 
 	worldMatrix = XMMatrixTranspose(worldMatrix);
 	viewMatrix = XMMatrixTranspose(viewMatrix);

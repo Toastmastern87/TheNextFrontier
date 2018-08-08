@@ -5,8 +5,8 @@
       <LINE>22</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GeometryClass::VertexType::pos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
     <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>22</FUNCLINE>
@@ -18,8 +18,8 @@
       <LINE>22</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GeometryClass::VertexType::uv' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
     <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>22</FUNCLINE>
@@ -31,8 +31,8 @@
       <LINE>3</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'BFSClass::mIndexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>BFSClass::{ctor}</FUNCTION>
     <DECORATED>??0BFSClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -44,8 +44,8 @@
       <LINE>3</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'BFSClass::mIndexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>BFSClass::{ctor}</FUNCTION>
     <DECORATED>??0BFSClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -67,53 +67,14 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>bfsclass.cpp</FILENAME>
-      <LINE>74</LINE>
-      <COLUMN>19</COLUMN>
-    </SFA>
-    <DEFECTCODE>6200</DEFECTCODE>
-    <DESCRIPTION>Index '7' is out of valid index range '0' to '0' for non-stack buffer 'corners'.</DESCRIPTION>
-    <FUNCTION>BFSClass::Initialize</FUNCTION>
-    <DECORATED>?Initialize@BFSClass@@QEAA_NPEAUID3D11Device@@PEAUID3D11DeviceContext@@UXMFLOAT3@DirectX@@22M@Z</DECORATED>
-    <FUNCLINE>19</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT><DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>bfsclass.cpp</FILENAME>
-      <LINE>76</LINE>
-      <COLUMN>19</COLUMN>
-    </SFA>
-    <DEFECTCODE>6200</DEFECTCODE>
-    <DESCRIPTION>Index '7' is out of valid index range '0' to '0' for non-stack buffer 'corners'.</DESCRIPTION>
-    <FUNCTION>BFSClass::Initialize</FUNCTION>
-    <DECORATED>?Initialize@BFSClass@@QEAA_NPEAUID3D11Device@@PEAUID3D11DeviceContext@@UXMFLOAT3@DirectX@@22M@Z</DECORATED>
-    <FUNCLINE>19</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT><DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>bfsclass.cpp</FILENAME>
-      <LINE>78</LINE>
-      <COLUMN>19</COLUMN>
-    </SFA>
-    <DEFECTCODE>6200</DEFECTCODE>
-    <DESCRIPTION>Index '7' is out of valid index range '0' to '0' for non-stack buffer 'corners'.</DESCRIPTION>
-    <FUNCTION>BFSClass::Initialize</FUNCTION>
-    <DECORATED>?Initialize@BFSClass@@QEAA_NPEAUID3D11Device@@PEAUID3D11DeviceContext@@UXMFLOAT3@DirectX@@22M@Z</DECORATED>
-    <FUNCLINE>19</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT><DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>bfsclass.cpp</FILENAME>
-      <LINE>63</LINE>
+      <LINE>295</LINE>
       <COLUMN>32</COLUMN>
     </SFA>
-    <DEFECTCODE>6386</DEFECTCODE>
-    <DESCRIPTION>Buffer overrun while writing to 'corners':  the writable size is '1*12' bytes, but '96' bytes might be written.</DESCRIPTION>
-    <FUNCTION>BFSClass::Initialize</FUNCTION>
-    <DECORATED>?Initialize@BFSClass@@QEAA_NPEAUID3D11Device@@PEAUID3D11DeviceContext@@UXMFLOAT3@DirectX@@22M@Z</DECORATED>
-    <FUNCLINE>19</FUNCLINE>
+    <DEFECTCODE>6387</DEFECTCODE>
+    <DESCRIPTION>'retCorners' could be '0':  this does not adhere to the specification for the function 'DirectX::BoundingOrientedBox::GetCorners'. </DESCRIPTION>
+    <FUNCTION>BFSClass::GetBoundingOrientBoxCorners</FUNCTION>
+    <DECORATED>?GetBoundingOrientBoxCorners@BFSClass@@QEAAPEAUXMFLOAT3@DirectX@@XZ</DECORATED>
+    <FUNCLINE>292</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>4</RANK>
     <CATEGORY>
@@ -123,464 +84,37 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>21</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>23</LINE>
-        <COLUMN>11</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>24</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>25</LINE>
-        <COLUMN>11</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>27</LINE>
-        <COLUMN>22</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>29</LINE>
-        <COLUMN>14</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>30</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>35</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>36</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>41</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>42</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>47</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>48</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>53</LINE>
-        <COLUMN>17</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>54</LINE>
-        <COLUMN>14</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>55</LINE>
-        <COLUMN>17</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>57</LINE>
-        <COLUMN>31</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>58</LINE>
-        <COLUMN>31</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>59</LINE>
-        <COLUMN>31</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>62</LINE>
+        <LINE>294</LINE>
         <COLUMN>10</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
           <KIND>declaration</KIND>
           <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'corners' is an array of 1 elements (12 bytes)</MESSAGE>
+          <MESSAGE>'retCorners' is NULL</MESSAGE>
         </KEYEVENT>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>63</LINE>
+        <LINE>295</LINE>
         <COLUMN>32</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
           <KIND>declaration</KIND>
           <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'corners' is an In/Out argument to 'DirectX::BoundingOrientedBox::GetCorners' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\um\directxcollision.h:187)</MESSAGE>
+          <MESSAGE>'retCorners' is an In/Out argument to 'DirectX::BoundingOrientedBox::GetCorners' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\um\directxcollision.h:187)</MESSAGE>
         </KEYEVENT>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>63</LINE>
+        <LINE>295</LINE>
         <COLUMN>32</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
           <KIND>usage</KIND>
           <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>Invalid write to 'corners[7]', (writable range is 0 to 0)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT><DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>bfsclass.cpp</FILENAME>
-      <LINE>74</LINE>
-      <COLUMN>7</COLUMN>
-    </SFA>
-    <DEFECTCODE>6385</DEFECTCODE>
-    <DESCRIPTION>Reading invalid data from 'corners':  the readable size is '1*12' bytes, but '24' bytes may be read.</DESCRIPTION>
-    <FUNCTION>BFSClass::Initialize</FUNCTION>
-    <DECORATED>?Initialize@BFSClass@@QEAA_NPEAUID3D11Device@@PEAUID3D11DeviceContext@@UXMFLOAT3@DirectX@@22M@Z</DECORATED>
-    <FUNCLINE>19</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>21</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>23</LINE>
-        <COLUMN>11</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>24</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>25</LINE>
-        <COLUMN>11</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>27</LINE>
-        <COLUMN>22</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>29</LINE>
-        <COLUMN>14</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>30</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>35</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>36</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>41</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>42</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>47</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>48</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>53</LINE>
-        <COLUMN>17</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>54</LINE>
-        <COLUMN>14</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>55</LINE>
-        <COLUMN>17</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>57</LINE>
-        <COLUMN>31</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>58</LINE>
-        <COLUMN>31</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>59</LINE>
-        <COLUMN>31</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>62</LINE>
-        <COLUMN>10</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'corners' is an array of 1 elements (12 bytes)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>63</LINE>
-        <COLUMN>32</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'corners' is an In/Out argument to 'DirectX::BoundingOrientedBox::GetCorners' (declared at c:\program files (x86)\windows kits\10\include\10.0.17134.0\um\directxcollision.h:187)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>65</LINE>
-        <COLUMN>10</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>67</LINE>
-        <COLUMN>10</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>69</LINE>
-        <COLUMN>10</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>69</LINE>
-        <COLUMN>19</COLUMN>
-        <KEYEVENT>
-          <ID>3</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Enter this loop, (assume 'i&lt;8')</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>71</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>72</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>73</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>74</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>75</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>76</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>77</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>78</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>79</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>69</LINE>
-        <COLUMN>25</COLUMN>
-        <KEYEVENT>
-          <ID>4</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'i' may equal 1</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>69</LINE>
-        <COLUMN>19</COLUMN>
-        <KEYEVENT>
-          <ID>5</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Continue this loop, (assume 'i&lt;8')</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>71</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>72</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>6</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'i' is an In/Out argument to 'std::basic_ostream&lt;char,std::char_traits&lt;char&gt; &gt;::&lt;&lt;' (declared at c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.14.26428\include\ostream:295)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>73</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>74</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>7</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'i' is an In/Out argument to 'std::basic_ostream&lt;char,std::char_traits&lt;char&gt; &gt;::&lt;&lt;' (declared at c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.14.26428\include\ostream:420)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>74</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>8</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>Invalid read from 'corners[1]', (readable range is 0 to 0)</MESSAGE>
+          <MESSAGE>'retCorners' should not be NULL, because this is not consistent with the SAL annotation on 'DirectX::BoundingOrientedBox::GetCorners'</MESSAGE>
         </KEYEVENT>
       </SFA>
     </PATH>
@@ -626,66 +160,66 @@
   </DEFECT><DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>boundingboxclass.cpp</FILENAME>
+      <FILENAME>targetboxclass.cpp</FILENAME>
       <LINE>3</LINE>
-      <COLUMN>18</COLUMN>
+      <COLUMN>16</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>BoundingBoxClass::{ctor}</FUNCTION>
-    <DECORATED>??0BoundingBoxClass@@QEAA@XZ</DECORATED>
+    <FUNCTION>TargetBoxClass::{ctor}</FUNCTION>
+    <DECORATED>??0TargetBoxClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>boundingboxclass.cpp</FILENAME>
+      <FILENAME>targetboxclass.cpp</FILENAME>
       <LINE>9</LINE>
-      <COLUMN>18</COLUMN>
+      <COLUMN>16</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'BoundingBoxClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>BoundingBoxClass::{ctor}</FUNCTION>
-    <DECORATED>??0BoundingBoxClass@@QEAA@AEBV0@@Z</DECORATED>
+    <DESCRIPTION>Variable 'TargetBoxClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>TargetBoxClass::{ctor}</FUNCTION>
+    <DECORATED>??0TargetBoxClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>9</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>boundingboxshaderclass.cpp</FILENAME>
+      <FILENAME>targetboxshaderclass.cpp</FILENAME>
       <LINE>3</LINE>
-      <COLUMN>24</COLUMN>
+      <COLUMN>22</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>BoundingBoxShaderClass::{ctor}</FUNCTION>
-    <DECORATED>??0BoundingBoxShaderClass@@QEAA@XZ</DECORATED>
+    <FUNCTION>TargetBoxShaderClass::{ctor}</FUNCTION>
+    <DECORATED>??0TargetBoxShaderClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>boundingboxshaderclass.cpp</FILENAME>
+      <FILENAME>targetboxshaderclass.cpp</FILENAME>
       <LINE>3</LINE>
-      <COLUMN>24</COLUMN>
+      <COLUMN>22</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'BoundingBoxShaderClass::mSampleState' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>BoundingBoxShaderClass::{ctor}</FUNCTION>
-    <DECORATED>??0BoundingBoxShaderClass@@QEAA@XZ</DECORATED>
+    <DESCRIPTION>Variable 'TargetBoxShaderClass::mSampleState' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>TargetBoxShaderClass::{ctor}</FUNCTION>
+    <DECORATED>??0TargetBoxShaderClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>boundingboxshaderclass.cpp</FILENAME>
+      <FILENAME>targetboxshaderclass.cpp</FILENAME>
       <LINE>11</LINE>
-      <COLUMN>24</COLUMN>
+      <COLUMN>22</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'BoundingBoxShaderClass::mVertexShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>BoundingBoxShaderClass::{ctor}</FUNCTION>
-    <DECORATED>??0BoundingBoxShaderClass@@QEAA@AEBV0@@Z</DECORATED>
+    <DESCRIPTION>Variable 'TargetBoxShaderClass::mVertexShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>TargetBoxShaderClass::{ctor}</FUNCTION>
+    <DECORATED>??0TargetBoxShaderClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>11</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
@@ -2334,7 +1868,7 @@
       <COLUMN>18</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ApplicationClass::mInput' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'ApplicationClass::mUniverse' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ApplicationClass::{ctor}</FUNCTION>
     <DECORATED>??0ApplicationClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>13</FUNCLINE>
@@ -2690,8 +2224,8 @@
       <LINE>3</LINE>
       <COLUMN>20</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ShaderManagerClass::mMarsAtmosphereShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ShaderManagerClass::{ctor}</FUNCTION>
     <DECORATED>??0ShaderManagerClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2703,8 +2237,8 @@
       <LINE>3</LINE>
       <COLUMN>20</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ShaderManagerClass::mMarsAtmosphereShader' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>ShaderManagerClass::{ctor}</FUNCTION>
     <DECORATED>??0ShaderManagerClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2781,8 +2315,8 @@
       <LINE>3</LINE>
       <COLUMN>13</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'SystemClass::mHInstance' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2794,8 +2328,8 @@
       <LINE>3</LINE>
       <COLUMN>13</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'SystemClass::mHInstance' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2808,7 +2342,7 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'SystemClass::mHInstance' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'SystemClass::mApplication' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>8</FUNCLINE>
@@ -2820,8 +2354,8 @@
       <LINE>3</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'TextClass::mScreenWidth' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>TextClass::{ctor}</FUNCTION>
     <DECORATED>??0TextClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2833,8 +2367,8 @@
       <LINE>3</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'TextClass::mScreenWidth' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>TextClass::{ctor}</FUNCTION>
     <DECORATED>??0TextClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -3722,8 +3256,8 @@
       <LINE>3</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'UIClass::mPreviousFPS' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>UIClass::{ctor}</FUNCTION>
     <DECORATED>??0UIClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -3735,8 +3269,8 @@
       <LINE>3</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'UIClass::mPreviousFPS' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>UIClass::{ctor}</FUNCTION>
     <DECORATED>??0UIClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -4783,8 +4317,8 @@
       <LINE>3</LINE>
       <COLUMN>15</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'UniverseClass::mScreenDepth' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>UniverseClass::{ctor}</FUNCTION>
     <DECORATED>??0UniverseClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -4796,8 +4330,8 @@
       <LINE>3</LINE>
       <COLUMN>15</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'UniverseClass::mScreenDepth' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>UniverseClass::{ctor}</FUNCTION>
     <DECORATED>??0UniverseClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -4810,7 +4344,7 @@
       <COLUMN>15</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'UniverseClass::mSunlight' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'UniverseClass::mUI' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>UniverseClass::{ctor}</FUNCTION>
     <DECORATED>??0UniverseClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>28</FUNCLINE>

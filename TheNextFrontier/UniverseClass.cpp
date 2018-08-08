@@ -474,26 +474,26 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 
 	// BFS rendering
 	mHeartOfGold->Render(direct3D->GetDeviceContext());
-	result = shaderManager->RenderBFSShader(direct3D->GetDeviceContext(), mHeartOfGold->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, mHeartOfGold->GetPositionMatrix(), mHeartOfGold->GetScaleMatrix(), mHeartOfGold->GetRotationMatrix(), mHeartOfGold->GetTexture());
+	result = shaderManager->RenderBFSShader(direct3D->GetDeviceContext(), mHeartOfGold->GetIndicesCount(), worldMatrix, viewMatrix, projectionMatrix, mHeartOfGold->GetPositionMatrix(), mHeartOfGold->GetScaleMatrix(), mHeartOfGold->GetRotationMatrix(), mHeartOfGold->GetTexture());
 	if (!result)
 	{
 		return false;
 	}
 
-	if (mHeartOfGold->IsPicked()) 
-	{
-		direct3D->EnableAlphaBlending();
+	//if (mHeartOfGold->IsPicked()) 
+	//{
+	//	direct3D->EnableAlphaBlending();
 
-		mHeartOfGold->GetBoundingBox()->Render(direct3D->GetDeviceContext());
+		mHeartOfGold->GetTargetBox()->Render(direct3D->GetDeviceContext());
 
-		result = shaderManager->RenderBoundingBoxShader(direct3D->GetDeviceContext(), mHeartOfGold->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, mHeartOfGold->GetPositionMatrix(), mHeartOfGold->GetScaleMatrix(), mHeartOfGold->GetRotationMatrix(), mHeartOfGold->GetTexture());
+		result = shaderManager->RenderTargetBoxShader(direct3D->GetDeviceContext(), mHeartOfGold->GetTargetBox()->GetIndicesCount(), worldMatrix, viewMatrix, projectionMatrix, mHeartOfGold->GetPositionMatrix(), mHeartOfGold->GetScale(), mHeartOfGold->GetRotationMatrix(), mHeartOfGold->GetTexture());
 		if (!result)
 		{
 			return false;
 		}
 
-		direct3D->DisableAlphaBlending();
-	}
+	//	direct3D->DisableAlphaBlending();
+	//}
 
 	// Star box rendering
 	mStarBox->Render(direct3D->GetDeviceContext());

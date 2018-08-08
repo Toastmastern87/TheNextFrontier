@@ -8,7 +8,7 @@ ShaderManagerClass::ShaderManagerClass()
 	mGUIShader = 0;
 	mStarBoxShader = 0;
 	mBFSShader = 0;
-	mBoundingBoxShader = 0;
+	mTargetBoxShader = 0;
 }
 
 ShaderManagerClass::ShaderManagerClass(const ShaderManagerClass& other)
@@ -107,13 +107,13 @@ bool ShaderManagerClass::Initialize(ID3D11Device* device, HWND hwnd)
 		return false;
 	}
 
-	mBoundingBoxShader = new BoundingBoxShaderClass;
-	if (!mBoundingBoxShader)
+	mTargetBoxShader = new TargetBoxShaderClass;
+	if (!mTargetBoxShader)
 	{
 		return false;
 	}
 
-	result = mBoundingBoxShader->Initialize(device, hwnd);
+	result = mTargetBoxShader->Initialize(device, hwnd);
 	if (!result)
 	{
 		return false;
@@ -124,11 +124,11 @@ bool ShaderManagerClass::Initialize(ID3D11Device* device, HWND hwnd)
 
 void ShaderManagerClass::Shutdown()
 {
-	if (mBoundingBoxShader)
+	if (mTargetBoxShader)
 	{
-		mBoundingBoxShader->Shutdown();
-		delete mBoundingBoxShader;
-		mBoundingBoxShader = 0;
+		mTargetBoxShader->Shutdown();
+		delete mTargetBoxShader;
+		mTargetBoxShader = 0;
 	}
 
 	if (mBFSShader)
@@ -218,7 +218,7 @@ bool ShaderManagerClass::RenderBFSShader(ID3D11DeviceContext *deviceContext, int
 	return mBFSShader->Render(deviceContext, indexCount, worldMatrix, viewMatrix, projectionMatrix, positionMatrix, scaleMatrix, rotationMatrix, texture);
 }
 
-bool ShaderManagerClass::RenderBoundingBoxShader(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX positionMatrix, XMMATRIX scaleMatrix, XMMATRIX rotationMatrix, ID3D11ShaderResourceView* texture)
+bool ShaderManagerClass::RenderTargetBoxShader(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX positionMatrix, XMFLOAT3 scale, XMMATRIX rotationMatrix, ID3D11ShaderResourceView* texture)
 {
-	return mBoundingBoxShader->Render(deviceContext, indexCount, worldMatrix, viewMatrix, projectionMatrix, positionMatrix, scaleMatrix, rotationMatrix, texture);
+	return mTargetBoxShader->Render(deviceContext, indexCount, worldMatrix, viewMatrix, projectionMatrix, positionMatrix, scale, rotationMatrix, texture);
 }

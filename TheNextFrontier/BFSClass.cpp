@@ -5,7 +5,7 @@ BFSClass::BFSClass()
 	mVertexBuffer = 0;
 	mIndexBuffer = 0;
 
-	mBoundingBox = 0;
+	mTargetBox = 0;
 }
 
 BFSClass::BFSClass(const BFSClass& other)
@@ -26,13 +26,13 @@ bool BFSClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceConte
 
 	mBoundingOrientedBox = BoundingOrientedBox(XMFLOAT3(0.0f, 0.0f, 0.0f), XMFLOAT3(1.0f, 1.0f, 1.0f), XMFLOAT4(1.0f, 0.0f, 0.0f, 0.0f));
 
-	mBoundingBox = new BoundingBoxClass();
-	if (!mBoundingBox) 
+	mTargetBox = new TargetBoxClass();
+	if (!mTargetBox) 
 	{
 		return false;
 	}
 
-	result = mBoundingBox->Initialize(device, deviceContext);
+	result = mTargetBox->Initialize(device, deviceContext);
 	if (!result)
 	{
 		return false;
@@ -190,10 +190,9 @@ bool BFSClass::InitializeBuffers(ID3D11Device *device)
 
 void BFSClass::ShutdownBuffers()
 {
-	if (mBoundingBox)
+	if (mTargetBox)
 	{
-		mBoundingBox->Shutdown();
-		mVertexBuffer = 0;
+		mTargetBox->Shutdown();
 	}
 
 	if (mVertexBuffer)
@@ -241,7 +240,7 @@ bool BFSClass::LoadTexture(ID3D11Device* device)
 	return true;
 }
 
-int BFSClass::GetIndexCount() 
+int BFSClass::GetIndicesCount() 
 {
 	return mIndexCount;
 }
@@ -256,6 +255,11 @@ XMMATRIX BFSClass::GetScaleMatrix()
 	return mScaleMatrix;
 }
 
+XMFLOAT3 BFSClass::GetScale() 
+{
+	return mScale;
+}
+
 XMMATRIX BFSClass::GetRotationMatrix()
 {
 	return mRotationMatrix;
@@ -266,9 +270,9 @@ ID3D11ShaderResourceView* BFSClass::GetTexture()
 	return mTextureResourceView;
 }
 
-BoundingBoxClass* BFSClass::GetBoundingBox() 
+TargetBoxClass* BFSClass::GetTargetBox()
 {
-	return mBoundingBox;
+	return mTargetBox;
 }
 
 bool BFSClass::IsPicked() 

@@ -7,34 +7,6 @@
       <LINE>3</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GUIClass::mGameTimeResource' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>GUIClass::{ctor}</FUNCTION>
-    <DECORATED>??0GUIClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>guiclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>10</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GUIClass::mGameTimeResourceView' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>GUIClass::{ctor}</FUNCTION>
-    <DECORATED>??0GUIClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>guiclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>10</COLUMN>
-    </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>GUIClass::{ctor}</FUNCTION>
@@ -46,39 +18,11 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>guiclass.cpp</FILENAME>
-      <LINE>7</LINE>
-      <COLUMN>10</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GUIClass::mGameTimeResource' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>GUIClass::{ctor}</FUNCTION>
-    <DECORATED>??0GUIClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>7</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>guiclass.cpp</FILENAME>
-      <LINE>7</LINE>
-      <COLUMN>10</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GUIClass::mGameTimeResourceView' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>GUIClass::{ctor}</FUNCTION>
-    <DECORATED>??0GUIClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>7</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>guiclass.cpp</FILENAME>
       <LINE>84</LINE>
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>6386</DEFECTCODE>
-    <DESCRIPTION>Buffer overrun while writing to 'indices':  the writable size is 'mIndexCount.public: unsigned long &amp; __cdecl std::vector&lt;unsigned long,class std::allocator&lt;unsigned long&gt; &gt;::operator[](unsigned __int64)(mIndexCount.public: unsigned __int64 __cdecl std::vector&lt;unsigned long,class std::allocator&lt;unsigned long&gt; &gt;::size(void)const ()-1)*4' bytes, but '8' bytes might be written.</DESCRIPTION>
+    <DESCRIPTION>Buffer overrun while writing to 'indices':  the writable size is 'mIndexCounts.public: unsigned long &amp; __cdecl std::vector&lt;unsigned long,class std::allocator&lt;unsigned long&gt; &gt;::operator[](unsigned __int64)(mIndexCounts.public: unsigned __int64 __cdecl std::vector&lt;unsigned long,class std::allocator&lt;unsigned long&gt; &gt;::size(void)const ()-1)*4' bytes, but '8' bytes might be written.</DESCRIPTION>
     <FUNCTION>GUIClass::InitializeBaseGUI</FUNCTION>
     <DECORATED>?InitializeBaseGUI@GUIClass@@AEAA_NPEAUID3D11Device@@PEAUID3D11DeviceContext@@HH@Z</DECORATED>
     <FUNCLINE>48</FUNCLINE>
@@ -170,13 +114,13 @@
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>guiclass.cpp</FILENAME>
         <LINE>65</LINE>
-        <COLUMN>23</COLUMN>
+        <COLUMN>24</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>guiclass.cpp</FILENAME>
         <LINE>66</LINE>
-        <COLUMN>22</COLUMN>
+        <COLUMN>23</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
@@ -248,7 +192,7 @@
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>guiclass.cpp</FILENAME>
         <LINE>82</LINE>
-        <COLUMN>59</COLUMN>
+        <COLUMN>61</COLUMN>
         <KEYEVENT>
           <ID>5</ID>
           <KIND>declaration</KIND>

@@ -45,6 +45,7 @@ public:
 	bool IsF5Toggled();
 
 	bool IsLeftMouseButtonClicked();
+	bool IsRightMouseButtonClicked();
 
 private:
 	bool ReadKeyboard();
@@ -62,7 +63,7 @@ private:
 	int mScreenWidth, mScreenHeight;
 	int mMouseX, mMouseY, mMouseWheel, mOldMouseWheel;
 
-	bool mF1Released, mF2Released, mF3Released, mF4Released, mF5Released, mLeftMouseButtonReleased;
+	bool mF1Released, mF2Released, mF3Released, mF4Released, mF5Released, mLeftMouseButtonReleased, mRightMouseButtonReleased;
 };
 
 #endif

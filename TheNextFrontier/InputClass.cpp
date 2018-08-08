@@ -87,6 +87,7 @@ bool InputClass::Initialize(HINSTANCE hInstance, HWND hwnd, int screenWidth, int
 	mF4Released = true;
 	mF5Released = true;
 	mLeftMouseButtonReleased = true;
+	mRightMouseButtonReleased = true;
 
 	return true;
 }
@@ -441,6 +442,25 @@ bool InputClass::IsLeftMouseButtonClicked()
 	else
 	{
 		mLeftMouseButtonReleased = true;
+	}
+
+	return false;
+}
+
+bool InputClass::IsRightMouseButtonClicked()
+{
+	if (mMouseState.rgbButtons[3] & 0x80)
+	{
+		if (mRightMouseButtonReleased)
+		{
+			mRightMouseButtonReleased = false;
+
+			return true;
+		}
+	}
+	else
+	{
+		mRightMouseButtonReleased = true;
 	}
 
 	return false;

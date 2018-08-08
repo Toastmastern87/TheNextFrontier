@@ -62,30 +62,30 @@ bool GUIClass::InitializeBaseGUI(ID3D11Device *device, ID3D11DeviceContext *devi
 		return false;
 	}
 
-	mVertexCount.push_back(6);
-	mIndexCount.push_back(6);
+	mVertexCounts.push_back(6);
+	mIndexCounts.push_back(6);
 
-	vertices = new VertexType[mVertexCount[mVertexCount.size() - 1]];
+	vertices = new VertexType[mVertexCounts[mVertexCounts.size() - 1]];
 	if (!vertices)
 	{
 		return false;
 	}
 
-	indices = new unsigned long[mIndexCount[mIndexCount.size() - 1]];
+	indices = new unsigned long[mIndexCounts[mIndexCounts.size() - 1]];
 	if (!indices)
 	{
 		return false;
 	}
 
-	memset(vertices, 0, (sizeof(VertexType) * mVertexCount[mVertexCount.size() - 1]));
+	memset(vertices, 0, (sizeof(VertexType) * mVertexCounts[mVertexCounts.size() - 1]));
 
-	for (int i = 0; i < mIndexCount[mIndexCount.size() - 1]; i++)
+	for (int i = 0; i < mIndexCounts[mIndexCounts.size() - 1]; i++)
 	{
 		indices[i] = i;
 	}
 
 	vertexBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
-	vertexBufferDesc.ByteWidth = sizeof(VertexType) * mVertexCount[mVertexCount.size() - 1];
+	vertexBufferDesc.ByteWidth = sizeof(VertexType) * mVertexCounts[mVertexCounts.size() - 1];
 	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	vertexBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 	vertexBufferDesc.MiscFlags = 0;
@@ -95,16 +95,16 @@ bool GUIClass::InitializeBaseGUI(ID3D11Device *device, ID3D11DeviceContext *devi
 	vertexData.SysMemPitch = 0;
 	vertexData.SysMemSlicePitch = 0;
 
-	mVertexBuffer.push_back(nullptr);
+	mVertexBuffers.push_back(nullptr);
 
-	hResult = device->CreateBuffer(&vertexBufferDesc, &vertexData, &mVertexBuffer[mVertexBuffer.size() - 1]);
+	hResult = device->CreateBuffer(&vertexBufferDesc, &vertexData, &mVertexBuffers[mVertexBuffers.size() - 1]);
 	if (FAILED(hResult))
 	{
 		return false;
 	}
 
 	indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-	indexBufferDesc.ByteWidth = sizeof(unsigned long) * mIndexCount[mIndexCount.size() - 1];
+	indexBufferDesc.ByteWidth = sizeof(unsigned long) * mIndexCounts[mIndexCounts.size() - 1];
 	indexBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
 	indexBufferDesc.CPUAccessFlags = 0;
 	indexBufferDesc.MiscFlags = 0;
@@ -114,15 +114,15 @@ bool GUIClass::InitializeBaseGUI(ID3D11Device *device, ID3D11DeviceContext *devi
 	indexData.SysMemPitch = 0;
 	indexData.SysMemSlicePitch = 0;
 
-	mIndexBuffer.push_back(nullptr);
+	mIndexBuffers.push_back(nullptr);
 
-	hResult = device->CreateBuffer(&indexBufferDesc, &indexData, &mIndexBuffer[mIndexCount.size() - 1]);
+	hResult = device->CreateBuffer(&indexBufferDesc, &indexData, &mIndexBuffers[mIndexCounts.size() - 1]);
 	if (FAILED(hResult))
 	{
 		return false;
 	}
 
-	memset(vertices, 0, (sizeof(VertexType) * mVertexCount[mVertexCount.size() - 1]));
+	memset(vertices, 0, (sizeof(VertexType) * mVertexCounts[mVertexCounts.size() - 1]));
 
 	vertices[0].position = XMFLOAT3(((screenWidth / 2) - 272), (screenHeight / 2), 0.0f);
 	vertices[0].texture = XMFLOAT2(0.0f, 0.0f);
@@ -142,7 +142,7 @@ bool GUIClass::InitializeBaseGUI(ID3D11Device *device, ID3D11DeviceContext *devi
 	vertices[5].position = XMFLOAT3((screenWidth / 2), ((screenHeight / 2) - 63), 0.0f);
 	vertices[5].texture = XMFLOAT2(1.0f, 1.0f);
 
-	hResult = deviceContext->Map(mVertexBuffer[mVertexBuffer.size() - 1], 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
+	hResult = deviceContext->Map(mVertexBuffers[mVertexBuffers.size() - 1], 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
 	if (FAILED(hResult))
 	{
 		return false;
@@ -150,9 +150,9 @@ bool GUIClass::InitializeBaseGUI(ID3D11Device *device, ID3D11DeviceContext *devi
 
 	verticesPtr = (VertexType*)mappedResource.pData;
 
-	memcpy(verticesPtr, (void*)vertices, (sizeof(VertexType) * mVertexCount[mVertexCount.size() - 1]));
+	memcpy(verticesPtr, (void*)vertices, (sizeof(VertexType) * mVertexCounts[mVertexCounts.size() - 1]));
 
-	deviceContext->Unmap(mVertexBuffer[mVertexBuffer.size() - 1], 0);
+	deviceContext->Unmap(mVertexBuffers[mVertexBuffers.size() - 1], 0);
 
 	delete[] vertices;
 	vertices = 0;
@@ -165,21 +165,21 @@ bool GUIClass::InitializeBaseGUI(ID3D11Device *device, ID3D11DeviceContext *devi
 
 void GUIClass::ShutdownBuffers()
 {
-	for(int i = 0; i < mVertexBuffer.size(); i++)
+	for(int i = 0; i < mVertexBuffers.size(); i++)
 	{
-		if (mVertexBuffer[i])
+		if (mVertexBuffers[i])
 		{
-			mVertexBuffer[i]->Release();
-			mVertexBuffer[i] = 0;
+			mVertexBuffers[i]->Release();
+			mVertexBuffers[i] = 0;
 		}
 	}
 
-	for (int i = 0; i < mIndexBuffer.size(); i++)
+	for (int i = 0; i < mIndexBuffers.size(); i++)
 	{
-		if (mIndexBuffer[i])
+		if (mIndexBuffers[i])
 		{
-			mIndexBuffer[i]->Release();
-			mIndexBuffer[i] = 0;
+			mIndexBuffers[i]->Release();
+			mIndexBuffers[i] = 0;
 		}
 	}
 	return;
@@ -192,13 +192,13 @@ bool GUIClass::RenderGUI(D3DClass *direct3D, ShaderManagerClass *shaderManager, 
 	stride = sizeof(VertexType);
 	offset = 0;
 
-	for (int i = 0; i < mVertexBuffer.size(); i++) 
+	for (int i = 0; i < mVertexBuffers.size(); i++) 
 	{
-		direct3D->GetDeviceContext()->IASetVertexBuffers(0, 1, &mVertexBuffer[i], &stride, &offset);
-		direct3D->GetDeviceContext()->IASetIndexBuffer(mIndexBuffer[i], DXGI_FORMAT_R32_UINT, 0);
+		direct3D->GetDeviceContext()->IASetVertexBuffers(0, 1, &mVertexBuffers[i], &stride, &offset);
+		direct3D->GetDeviceContext()->IASetIndexBuffer(mIndexBuffers[i], DXGI_FORMAT_R32_UINT, 0);
 		direct3D->GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-		shaderManager->RenderGUIShader(direct3D->GetDeviceContext(), mIndexCount[i], worldMatrix, viewMatrix, orthoMatrix, mGameTimeResourceView);
+		shaderManager->RenderGUIShader(direct3D->GetDeviceContext(), mIndexCounts[i], worldMatrix, viewMatrix, orthoMatrix, mResourceViews[i]);
 	}
 
 	return true;
@@ -211,7 +211,10 @@ bool GUIClass::LoadGameTimeTexture(ID3D11Device* device)
 
 	fileName = L"../TheNextFrontier/Textures/GameTimeGUI.tif";
 
-	hResult = CreateWICTextureFromFile(device, fileName, &mGameTimeResource, &mGameTimeResourceView);
+	mResources.push_back(nullptr);
+	mResourceViews.push_back(nullptr);
+
+	hResult = CreateWICTextureFromFile(device, fileName, &mResources[mResources.size() - 1], &mResourceViews[mResourceViews.size() - 1]);
 	if (FAILED(hResult))
 	{
 		return false;
@@ -227,11 +230,14 @@ bool GUIClass::LoadPopUpBaseTexture(ID3D11Device* device)
 
 	fileName = L"../TheNextFrontier/Textures/PopUpBaseTexture.tif";
 
-	//hResult = CreateWICTextureFromFile(device, fileName, &mGameTimeResource, &mGameTimeResourceView);
-	//if (FAILED(hResult))
-	//{
-	//	return false;
-	//}
+	mResources.push_back(nullptr);
+	mResourceViews.push_back(nullptr);
+
+	hResult = CreateWICTextureFromFile(device, fileName, &mResources[mResources.size() - 1], &mResourceViews[mResourceViews.size() - 1]);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
 
 	return true;
 }

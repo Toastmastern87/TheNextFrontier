@@ -998,3 +998,81 @@ Origin x: 10000 y: 0 z: 0
 Direction x: -1 y: 0 z: -1.19209e-07
 mPicked: 1
 
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 50.6173
+Origin x: 3450.83 y: 3.24646 z: -16.1434
+Direction x: -0.925198 y: -0.0447101 z: 0.376842
+mPicked: 1
+
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3573.24 y: -33.393 z: 41.775
+Direction x: -0.983034 y: 0.103305 z: -0.151564
+mPicked: 0
+
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 176.383
+Origin x: 3576.52 y: -32.1239 z: 17.9212
+Direction x: -0.978088 y: 0.179311 z: -0.105786
+mPicked: 1
+
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3576.52 y: -32.1239 z: 17.9212
+Direction x: -0.997911 y: 0.0627677 z: 0.0153092
+mPicked: 0
+
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 176.581
+Origin x: 3576.52 y: -32.1239 z: 17.9212
+Direction x: -0.976991 y: 0.187353 z: -0.10192
+mPicked: 1
+
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3576.52 y: -32.1239 z: 17.9212
+Direction x: -0.980508 y: 0.173738 z: 0.0917575
+mPicked: 0
+

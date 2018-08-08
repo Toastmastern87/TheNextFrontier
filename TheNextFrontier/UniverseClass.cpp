@@ -269,7 +269,7 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 	bool result;
 	float posX, posY, posZ, rotX, rotY, rotZ, altitude, numberOfVertices;
 	int mouseX, mouseY;
-	XMFLOAT3 pickingRay;
+	XMVECTOR pickingRay;
 
 	numberOfVertices = 0;
 
@@ -315,22 +315,7 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 	{
 		pickingRay = mMousePointer->GetPickingRay(XMFLOAT2(mouseX, mouseY), mScreenWidth, mScreenHeight, direct3D->GetProjectionMatrix(), mCamera->GetViewMatrix());
 		
-		mHeartOfGold->CheckRayIntersection(XMLoadFloat3(&mCamera->GetPosition()), XMLoadFloat3(&pickingRay));
-
-		// Test
-		if (mHeartOfGold->IsPicked())
-		{
-			ofstream fOut;
-
-			fOut.open("Debug.txt", ios::out | ios::app);
-
-			fOut << "Heart of Gold has been clicked one!!";
-			fOut << "\r\n";
-
-			fOut.close();
-		}
-
-		mLeftMouseButtonClicked = false;
+		mHeartOfGold->CheckRayIntersection(XMLoadFloat3(&mCamera->GetPosition()), pickingRay);
 	}
 
 	result = Render(direct3D, shaderManager);
@@ -433,10 +418,27 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime, D3DC
 		mRenderMars = !mRenderMars;
 	}
 
+	if (input->IsF5Toggled())
+	{
+		ofstream fOut;
+
+		fOut.open("Debug.txt", ios::out | ios::app);
+
+		fOut << "F5 Click!";
+		fOut << "\r\n";
+
+		fOut.close();
+
+	}
+
 	// Check if anything got picked by the mouse
-	if (input->IsM1Pressed())
+	if (input->IsLeftMouseButtonClicked())
 	{
 		mLeftMouseButtonClicked = true;
+	}
+	else 
+	{
+		mLeftMouseButtonClicked = false;
 	}
 
 	return;
@@ -480,8 +482,8 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 		return false;
 	}
 
-	//if (mHeartOfGold->IsPicked()) 
-	//{
+	if (mHeartOfGold->IsPicked()) 
+	{
 		direct3D->EnableAlphaBlending();
 
 		mHeartOfGold->GetTargetBox()->Render(direct3D->GetDeviceContext());
@@ -493,7 +495,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 		}
 
 		direct3D->DisableAlphaBlending();
-	//}
+	}
 
 	// Star box rendering
 	mStarBox->Render(direct3D->GetDeviceContext());

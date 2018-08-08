@@ -1,1 +1,714 @@
+mouseX: 51
+mouseY: 89
+pointX: 0.053125
+pointY: -0.164815
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 6921.9 y: 0 z: -73.0111
+Direction x: -0.996919 y: -0.0680582 z: 0.0389996
+mPicked: 0
+
+mouseX: 243
+mouseY: 17
+pointX: 0.253125
+pointY: -0.0314815
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 204.297
+Origin x: 3604.82 y: 0 z: -38.0231
+Direction x: -0.982987 y: -0.0128182 z: 0.183225
+mPicked: 1
+
+mouseX: 268
+mouseY: -20
+pointX: 0.279167
+pointY: 0.037037
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3487.75 y: 0 z: -1.69241
+Direction x: -0.979406 y: 0.0150253 z: 0.201339
+mPicked: 0
+
+mouseX: 71
+mouseY: -60
+pointX: 0.0739583
+pointY: 0.111111
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 82.416
+Origin x: 3486.21 y: 0 z: -1.69167
+Direction x: -0.997468 y: 0.0459072 z: 0.0543234
+mPicked: 1
+
+mouseX: -347
+mouseY: -34
+pointX: -0.361458
+pointY: 0.062963
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3485.96 y: 0 z: 37.331
+Direction x: -0.966047 y: 0.0251946 z: -0.257133
+mPicked: 0
+
+mouseX: -476
+mouseY: -32
+pointX: -0.495833
+pointY: 0.0592593
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 94.2915
+Origin x: 3485.96 y: 0 z: 37.331
+Direction x: -0.939095 y: 0.023051 z: -0.342884
+mPicked: 1
+
+mouseX: -375
+mouseY: -58
+pointX: -0.390625
+pointY: 0.107407
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3485.96 y: 0 z: 37.331
+Direction x: -0.960154 y: 0.0427169 z: -0.276187
+mPicked: 0
+
+mouseX: -471
+mouseY: -61
+pointX: -0.490625
+pointY: 0.112963
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 95.2421
+Origin x: 3485.96 y: 0 z: 37.331
+Direction x: -0.939592 y: 0.0439643 z: -0.339462
+mPicked: 1
+
+mouseX: -343
+mouseY: -35
+pointX: -0.357292
+pointY: 0.0648148
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3485.96 y: 0 z: 37.331
+Direction x: -0.966762 y: 0.0259548 z: -0.254357
+mPicked: 0
+
+mouseX: -545
+mouseY: 74
+pointX: -0.567708
+pointY: -0.137037
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 88.9593
+Origin x: 3485.96 y: 0 z: 37.331
+Direction x: -0.921361 y: -0.0522988 z: -0.385174
+mPicked: 1
+
+mouseX: -545
+mouseY: 145
+pointX: -0.567708
+pointY: -0.268519
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3485.96 y: 0 z: 37.331
+Direction x: -0.917804 y: -0.102082 z: -0.383687
+mPicked: 0
+
+mouseX: -608
+mouseY: 72
+pointX: -0.633333
+pointY: -0.133333
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 90.5524
+Origin x: 3485.96 y: 0 z: 37.331
+Direction x: -0.905152 y: -0.0499902 z: -0.422139
+mPicked: 1
+
+mouseX: -575
+mouseY: 153
+pointX: -0.598958
+pointY: -0.283333
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3485.96 y: 0 z: 37.331
+Direction x: -0.909727 y: -0.106766 z: -0.401245
+mPicked: 0
+
+mouseX: -688
+mouseY: 67
+pointX: -0.716667
+pointY: -0.124074
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3485.96 y: 0 z: 37.331
+Direction x: -0.883487 y: -0.0454052 z: -0.46625
+mPicked: 0
+
+mouseX: -482
+mouseY: 51
+pointX: -0.502083
+pointY: -0.0944444
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 93.2945
+Origin x: 3485.96 y: 0 z: 37.331
+Direction x: -0.937315 y: -0.0366679 z: -0.346548
+mPicked: 1
+
+mouseX: -389
+mouseY: 34
+pointX: -0.405208
+pointY: -0.062963
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3485.96 y: 0 z: 37.331
+Direction x: -0.957951 y: -0.0249835 z: -0.28584
+mPicked: 0
+
+mouseX: -438
+mouseY: 45
+pointX: -0.45625
+pointY: -0.0833333
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3485.96 y: 0 z: 37.331
+Direction x: -0.947423 y: -0.032703 z: -0.318309
+mPicked: 0
+
+mouseX: -441
+mouseY: 46
+pointX: -0.459375
+pointY: -0.0851852
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3485.96 y: 0 z: 37.331
+Direction x: -0.946741 y: -0.0334056 z: -0.320258
+mPicked: 0
+
+mouseX: -710
+mouseY: -19
+pointX: -0.739583
+pointY: 0.0351852
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3485.96 y: 0 z: 37.331
+Direction x: -0.878134 y: 0.0127981 z: -0.478244
+mPicked: 0
+
+mouseX: -516
+mouseY: -105
+pointX: -0.5375
+pointY: 0.194444
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3485.96 y: 0 z: 37.2368
+Direction x: -0.927219 y: 0.0746797 z: -0.366997
+mPicked: 0
+
+mouseX: -567
+mouseY: -123
+pointX: -0.590625
+pointY: 0.227778
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3485.96 y: 0 z: 37.2368
+Direction x: -0.913609 y: 0.0861978 z: -0.397351
+mPicked: 0
+
+mouseX: -556
+mouseY: -78
+pointX: -0.579167
+pointY: 0.144444
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 89.2417
+Origin x: 3485.96 y: 0 z: 37.2368
+Direction x: -0.918448 y: 0.0549515 z: -0.391706
+mPicked: 1
+
+mouseX: 81
+mouseY: 0
+pointX: 0.084375
+pointY: -0
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 141.245
+Origin x: 3544.97 y: 0 z: -8.2873
+Direction x: -0.998075 y: 0 z: 0.0620125
+mPicked: 1
+
+mouseX: 217
+mouseY: 94
+pointX: 0.226042
+pointY: -0.174074
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3546.03 y: 0 z: -8.28976
+Direction x: -0.983943 y: -0.070946 z: 0.16378
+mPicked: 0
+
+mouseX: 67
+mouseY: -2
+pointX: 0.0697917
+pointY: 0.0037037
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 142.537
+Origin x: 3546.35 y: 0 z: -8.29052
+Direction x: -0.998681 y: 0.0015321 z: 0.0513254
+mPicked: 1
+
+mouseX: 419
+mouseY: 69
+pointX: 0.436458
+pointY: -0.127778
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3546.43 y: 0 z: -8.29071
+Direction x: -0.95083 y: -0.0503249 z: 0.305596
+mPicked: 0
+
+mouseX: 81
+mouseY: -5
+pointX: 0.084375
+pointY: 0.00925926
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 142.726
+Origin x: 3546.45 y: 0 z: -8.29076
+Direction x: -0.998068 y: 0.0038279 z: 0.062012
+mPicked: 1
+
+mouseX: 422
+mouseY: 57
+pointX: 0.439583
+pointY: -0.105556
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3546.45 y: 0 z: -8.29076
+Direction x: -0.950575 y: -0.0415616 z: 0.307701
+mPicked: 0
+
+mouseX: 65
+mouseY: -15
+pointX: 0.0677083
+pointY: 0.0277778
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 142.638
+Origin x: 3546.45 y: 0 z: -8.29076
+Direction x: -0.998693 y: 0.0114909 z: 0.0497939
+mPicked: 1
+
+mouseX: 475
+mouseY: -16
+pointX: 0.494792
+pointY: 0.0296296
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3503.78 y: -17.19 z: -20.4778
+Direction x: -0.939514 y: 0.0115307 z: 0.342316
+mPicked: 0
+
+mouseX: 333
+mouseY: -310
+pointX: 0.346875
+pointY: 0.574074
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 63.0761
+Origin x: 3458.29 y: -16.9668 z: -20.2119
+Direction x: -0.944157 y: 0.224511 z: 0.241168
+mPicked: 1
+
+mouseX: 174
+mouseY: -119
+pointX: 0.18125
+pointY: 0.22037
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3491 y: -17.1273 z: -20.4031
+Direction x: -0.987178 y: 0.09011 z: 0.131757
+mPicked: 0
+
+mouseX: 210
+mouseY: -171
+pointX: 0.21875
+pointY: 0.316667
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 97.8476
+Origin x: 3495.97 y: -17.1517 z: -20.4321
+Direction x: -0.979098 y: 0.128426 z: 0.157716
+mPicked: 1
+
+mouseX: 176
+mouseY: -115
+pointX: 0.183333
+pointY: 0.212963
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3496.07 y: -17.1522 z: -20.4327
+Direction x: -0.987245 y: 0.087087 z: 0.133281
+mPicked: 0
+
+mouseX: 179
+mouseY: -114
+pointX: 0.186458
+pointY: 0.211111
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3496.08 y: -17.1522 z: -20.4328
+Direction x: -0.987008 y: 0.086309 z: 0.13552
+mPicked: 0
+
+mouseX: 255
+mouseY: -136
+pointX: 0.265625
+pointY: 0.251852
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3496.08 y: -17.1522 z: -20.4328
+Direction x: -0.976299 y: 0.101848 z: 0.190965
+mPicked: 0
+
+mouseX: 282
+mouseY: -138
+pointX: 0.29375
+pointY: 0.255556
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3496.08 y: -17.1522 z: -20.4328
+Direction x: -0.972205 y: 0.102912 z: 0.210299
+mPicked: 0
+
+mouseX: 262
+mouseY: -147
+pointX: 0.272917
+pointY: 0.272222
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3496.08 y: -17.1522 z: -20.4328
+Direction x: -0.974461 y: 0.109878 z: 0.195838
+mPicked: 0
+
+mouseX: 262
+mouseY: -153
+pointX: 0.272917
+pointY: 0.283333
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3496.08 y: -17.1522 z: -20.4328
+Direction x: -0.973971 y: 0.114306 z: 0.195739
+mPicked: 0
+
+mouseX: 262
+mouseY: -154
+pointX: 0.272917
+pointY: 0.285185
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3496.08 y: -17.1522 z: -20.4328
+Direction x: -0.973888 y: 0.115043 z: 0.195723
+mPicked: 0
+
+mouseX: 259
+mouseY: -158
+pointX: 0.269792
+pointY: 0.292593
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 102.949
+Origin x: 3496.08 y: -17.1522 z: -20.4328
+Direction x: -0.973974 y: 0.118042 z: 0.193498
+mPicked: 1
+
+mouseX: 245
+mouseY: -35
+pointX: 0.255208
+pointY: 0.0648148
+corner[0] x: 3394 y: -5 z: -5
+corner[1] x: 3394 y: 5 z: -5
+corner[2] x: 3404 y: 5 z: -5
+corner[3] x: 3404 y: -5 z: -5
+corner[4] x: 3394 y: -5 z: 5
+corner[5] x: 3394 y: 5 z: 5
+corner[6] x: 3404 y: 5 z: 5
+corner[7] x: 3404 y: -5 z: 5
+Distance: 0
+Origin x: 3496.08 y: -17.1522 z: -20.4328
+Direction x: -0.982454 y: 0.0263761 z: 0.184633
+mPicked: 0
 

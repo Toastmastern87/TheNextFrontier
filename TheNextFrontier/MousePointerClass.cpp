@@ -232,12 +232,13 @@ bool MousePointerClass::LoadMousePointerTexture(ID3D11Device* device, ID3D11Devi
 	return true;
 }
 
-XMFLOAT3 MousePointerClass::GetPickingRay(XMFLOAT2 mouseLocation, int screenWidth, int screenHeight, XMMATRIX projectionMatrix, XMMATRIX viewMatrix) 
+XMVECTOR MousePointerClass::GetPickingRay(XMFLOAT2 mouseLocation, int screenWidth, int screenHeight, XMMATRIX projectionMatrix, XMMATRIX viewMatrix) 
 {
 	float pointX, pointY;
 	XMFLOAT4X4 projectionMatrixXMFLOAT4X4, inverseViewMatrixXMFLOAT4X4;
+	XMMATRIX viewProjectionMatrix, inverseViewProjectionMatrix;
+	XMFLOAT3 tnear, tfar, ret;
 	XMMATRIX inverseViewMatrix;
-	XMFLOAT3 ret;
 
 	XMStoreFloat4x4(&projectionMatrixXMFLOAT4X4, projectionMatrix);
 
@@ -245,8 +246,8 @@ XMFLOAT3 MousePointerClass::GetPickingRay(XMFLOAT2 mouseLocation, int screenWidt
 	XMStoreFloat4x4(&inverseViewMatrixXMFLOAT4X4, inverseViewMatrix);
 
 	//// Move the mouse cursor coordinates into the -1 to +1 range.
-	pointX = ((2.0f * (float)mouseLocation.x) / (float)screenWidth) - 1.0f;
-	pointY = (((2.0f * (float)mouseLocation.y) / (float)screenHeight) - 1.0f) * -1.0f;
+	pointX = ((2.0f * (float)mouseLocation.x) / (float)screenWidth);
+	pointY = ((2.0f * (float)mouseLocation.y) / (float)screenHeight) * -1.0f;
 
 	//// Adjust the points using the projection matrix to account for the aspect ratio of the viewport.
 	pointX = pointX / projectionMatrixXMFLOAT4X4._11;
@@ -257,5 +258,5 @@ XMFLOAT3 MousePointerClass::GetPickingRay(XMFLOAT2 mouseLocation, int screenWidt
 	ret.y = (pointX * inverseViewMatrixXMFLOAT4X4._12) + (pointY * inverseViewMatrixXMFLOAT4X4._22) + inverseViewMatrixXMFLOAT4X4._32;
 	ret.z = (pointX * inverseViewMatrixXMFLOAT4X4._13) + (pointY * inverseViewMatrixXMFLOAT4X4._23) + inverseViewMatrixXMFLOAT4X4._33;
 
-	return ret;
+	return XMVector3Normalize(XMLoadFloat3(&ret));
 }

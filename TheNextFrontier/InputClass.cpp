@@ -83,6 +83,10 @@ bool InputClass::Initialize(HINSTANCE hInstance, HWND hwnd, int screenWidth, int
 
 	mF1Released = true;
 	mF2Released = true;
+	mF3Released = true;
+	mF4Released = true;
+	mF5Released = true;
+	mLeftMouseButtonReleased = true;
 
 	return true;
 }
@@ -423,11 +427,20 @@ bool InputClass::IsMinusNmpPressed()
 	return false;
 }
 
-bool InputClass::IsM1Pressed()
+bool InputClass::IsLeftMouseButtonClicked()
 {
-	if (GetKeyState(VK_LBUTTON) & 0x80)
+	if (mMouseState.rgbButtons[0] & 0x80)
 	{
-		return true;
+		if (mLeftMouseButtonReleased)
+		{
+			mLeftMouseButtonReleased = false;
+
+			return true;
+		}
+	}
+	else
+	{
+		mLeftMouseButtonReleased = true;
 	}
 
 	return false;

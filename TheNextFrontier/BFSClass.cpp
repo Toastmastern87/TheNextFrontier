@@ -20,6 +20,8 @@ bool BFSClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceConte
 {
 	bool result;
 
+	mPicked = false;
+
 	mPosition = startPosition;
 	mScale = scale;
 	mRotation = rotation;
@@ -283,8 +285,57 @@ bool BFSClass::IsPicked()
 void BFSClass::CheckRayIntersection(XMVECTOR origin, XMVECTOR dir)
 {
 	float dist;
+	XMFLOAT3 ori, di;
 
-	mPicked = mBoundingOrientedBox.Intersects(origin, XMVector3Normalize(dir), dist);
+	XMStoreFloat3(&ori, origin);
+	XMStoreFloat3(&di, dir);
+
+	mPicked = mBoundingOrientedBox.Intersects(origin, dir, dist);
+
+	ofstream fOut;
+
+	fOut.open("Debug.txt", ios::out | ios::app);
+
+	//Debugging
+	XMFLOAT3 corners[8];
+	mBoundingOrientedBox.GetCorners(&corners[0]);
+
+	for (int i = 0; i < 8; i++) 
+	{
+		fOut << "corner[";
+		fOut << i;
+		fOut << "] x: ";
+		fOut << corners[i].x;
+		fOut << " y: ";
+		fOut << corners[i].y;
+		fOut << " z: ";
+		fOut << corners[i].z;
+		fOut << "\r\n";
+	}
+	
+	fOut << "Distance: ";
+	fOut << dist;
+	fOut << "\r\n";
+	fOut << "Origin x: ";
+	fOut << ori.x;
+	fOut << " y: ";
+	fOut << ori.y;
+	fOut << " z: ";
+	fOut << ori.z;
+	fOut << "\r\n";
+	fOut << "Direction x: ";
+	fOut << di.x;
+	fOut << " y: ";
+	fOut << di.y;
+	fOut << " z: ";
+	fOut << di.z;
+	fOut << "\r\n";
+	fOut << "mPicked: ";
+	fOut << mPicked;
+	fOut << "\r\n";
+	fOut << "\r\n";
+
+	fOut.close();
 
 	return;
 }

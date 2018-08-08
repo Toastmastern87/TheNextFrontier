@@ -7,20 +7,6 @@
       <LINE>22</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
-    <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>22</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>geometryclass.h</FILENAME>
-      <LINE>22</LINE>
-      <COLUMN>2</COLUMN>
-    </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'GeometryClass::VertexType::pos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
@@ -45,15 +31,15 @@
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>bfsclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>10</COLUMN>
+      <FILENAME>geometryclass.h</FILENAME>
+      <LINE>22</LINE>
+      <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>BFSClass::{ctor}</FUNCTION>
-    <DECORATED>??0BFSClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
+    <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
+    <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
@@ -191,6 +177,20 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'BFSClass::mPicked' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>BFSClass::{ctor}</FUNCTION>
+    <DECORATED>??0BFSClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>bfsclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>BFSClass::{ctor}</FUNCTION>
     <DECORATED>??0BFSClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -382,14 +382,14 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>bfsclass.cpp</FILENAME>
-      <LINE>295</LINE>
+      <LINE>346</LINE>
       <COLUMN>32</COLUMN>
     </SFA>
     <DEFECTCODE>6387</DEFECTCODE>
     <DESCRIPTION>'retCorners' could be '0':  this does not adhere to the specification for the function 'DirectX::BoundingOrientedBox::GetCorners'. </DESCRIPTION>
     <FUNCTION>BFSClass::GetBoundingOrientBoxCorners</FUNCTION>
     <DECORATED>?GetBoundingOrientBoxCorners@BFSClass@@QEAAPEAUXMFLOAT3@DirectX@@XZ</DECORATED>
-    <FUNCLINE>292</FUNCLINE>
+    <FUNCLINE>343</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>4</RANK>
     <CATEGORY>
@@ -399,7 +399,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>294</LINE>
+        <LINE>345</LINE>
         <COLUMN>10</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -411,7 +411,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>295</LINE>
+        <LINE>346</LINE>
         <COLUMN>32</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -423,7 +423,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>295</LINE>
+        <LINE>346</LINE>
         <COLUMN>32</COLUMN>
         <KEYEVENT>
           <ID>3</ID>

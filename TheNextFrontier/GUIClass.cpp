@@ -2,7 +2,6 @@
 
 GUIClass::GUIClass()
 {
-	mVertexBuffer = 0;
 }
 
 GUIClass::GUIClass(const GUIClass& other)
@@ -17,7 +16,7 @@ bool GUIClass::Initialize(ID3D11Device *device, ID3D11DeviceContext *deviceConte
 {
 	bool result;
 
-	result = InitializeGUI(device, deviceContext, screenWidth, screenHeight);
+	result = InitializeBaseGUI(device, deviceContext, screenWidth, screenHeight);
 	if (!result)
 	{
 		return false;
@@ -46,7 +45,7 @@ bool GUIClass::Render(D3DClass *direct3D, ShaderManagerClass *shaderManager, XMM
 	return true;
 }
 
-bool GUIClass::InitializeGUI(ID3D11Device *device, ID3D11DeviceContext *deviceContext, int screenWidth, int screenHeight)
+bool GUIClass::InitializeBaseGUI(ID3D11Device *device, ID3D11DeviceContext *deviceContext, int screenWidth, int screenHeight)
 {
 	VertexType *vertices, *verticesPtr;
 	unsigned long *indices;
@@ -56,36 +55,37 @@ bool GUIClass::InitializeGUI(ID3D11Device *device, ID3D11DeviceContext *deviceCo
 	bool result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
 
+	// Game time buffers is created first
 	result = LoadGameTimeTexture(device);
 	if (!result)
 	{
 		return false;
 	}
 
-	mVertexCount = 6;
-	mIndexCount = 6;
+	mVertexCount.push_back(6);
+	mIndexCount.push_back(6);
 
-	vertices = new VertexType[mVertexCount];
+	vertices = new VertexType[mVertexCount[mVertexCount.size() - 1]];
 	if (!vertices)
 	{
 		return false;
 	}
 
-	indices = new unsigned long[mIndexCount];
+	indices = new unsigned long[mIndexCount[mIndexCount.size() - 1]];
 	if (!indices)
 	{
 		return false;
 	}
 
-	memset(vertices, 0, (sizeof(VertexType) * mVertexCount));
+	memset(vertices, 0, (sizeof(VertexType) * mVertexCount[mVertexCount.size() - 1]));
 
-	for (int i = 0; i < mIndexCount; i++)
+	for (int i = 0; i < mIndexCount[mIndexCount.size() - 1]; i++)
 	{
 		indices[i] = i;
 	}
 
 	vertexBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
-	vertexBufferDesc.ByteWidth = sizeof(VertexType) * mVertexCount;
+	vertexBufferDesc.ByteWidth = sizeof(VertexType) * mVertexCount[mVertexCount.size() - 1];
 	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	vertexBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 	vertexBufferDesc.MiscFlags = 0;
@@ -95,14 +95,16 @@ bool GUIClass::InitializeGUI(ID3D11Device *device, ID3D11DeviceContext *deviceCo
 	vertexData.SysMemPitch = 0;
 	vertexData.SysMemSlicePitch = 0;
 
-	hResult = device->CreateBuffer(&vertexBufferDesc, &vertexData, &mVertexBuffer);
+	mVertexBuffer.push_back(nullptr);
+
+	hResult = device->CreateBuffer(&vertexBufferDesc, &vertexData, &mVertexBuffer[mVertexBuffer.size() - 1]);
 	if (FAILED(hResult))
 	{
 		return false;
 	}
 
 	indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-	indexBufferDesc.ByteWidth = sizeof(unsigned long) * mIndexCount;
+	indexBufferDesc.ByteWidth = sizeof(unsigned long) * mIndexCount[mIndexCount.size() - 1];
 	indexBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
 	indexBufferDesc.CPUAccessFlags = 0;
 	indexBufferDesc.MiscFlags = 0;
@@ -112,13 +114,15 @@ bool GUIClass::InitializeGUI(ID3D11Device *device, ID3D11DeviceContext *deviceCo
 	indexData.SysMemPitch = 0;
 	indexData.SysMemSlicePitch = 0;
 
-	hResult = device->CreateBuffer(&indexBufferDesc, &indexData, &mIndexBuffer);
+	mIndexBuffer.push_back(nullptr);
+
+	hResult = device->CreateBuffer(&indexBufferDesc, &indexData, &mIndexBuffer[mIndexCount.size() - 1]);
 	if (FAILED(hResult))
 	{
 		return false;
 	}
 
-	memset(vertices, 0, (sizeof(VertexType) * mVertexCount));
+	memset(vertices, 0, (sizeof(VertexType) * mVertexCount[mVertexCount.size() - 1]));
 
 	vertices[0].position = XMFLOAT3(((screenWidth / 2) - 272), (screenHeight / 2), 0.0f);
 	vertices[0].texture = XMFLOAT2(0.0f, 0.0f);
@@ -138,7 +142,7 @@ bool GUIClass::InitializeGUI(ID3D11Device *device, ID3D11DeviceContext *deviceCo
 	vertices[5].position = XMFLOAT3((screenWidth / 2), ((screenHeight / 2) - 63), 0.0f);
 	vertices[5].texture = XMFLOAT2(1.0f, 1.0f);
 
-	hResult = deviceContext->Map(mVertexBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
+	hResult = deviceContext->Map(mVertexBuffer[mVertexBuffer.size() - 1], 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
 	if (FAILED(hResult))
 	{
 		return false;
@@ -146,9 +150,9 @@ bool GUIClass::InitializeGUI(ID3D11Device *device, ID3D11DeviceContext *deviceCo
 
 	verticesPtr = (VertexType*)mappedResource.pData;
 
-	memcpy(verticesPtr, (void*)vertices, (sizeof(VertexType) * mVertexCount));
+	memcpy(verticesPtr, (void*)vertices, (sizeof(VertexType) * mVertexCount[mVertexCount.size() - 1]));
 
-	deviceContext->Unmap(mVertexBuffer, 0);
+	deviceContext->Unmap(mVertexBuffer[mVertexBuffer.size() - 1], 0);
 
 	delete[] vertices;
 	vertices = 0;
@@ -161,18 +165,23 @@ bool GUIClass::InitializeGUI(ID3D11Device *device, ID3D11DeviceContext *deviceCo
 
 void GUIClass::ShutdownBuffers()
 {
-	if (mVertexBuffer)
+	for(int i = 0; i < mVertexBuffer.size(); i++)
 	{
-		mVertexBuffer->Release();
-		mVertexBuffer = 0;
+		if (mVertexBuffer[i])
+		{
+			mVertexBuffer[i]->Release();
+			mVertexBuffer[i] = 0;
+		}
 	}
 
-	if (mIndexBuffer)
+	for (int i = 0; i < mIndexBuffer.size(); i++)
 	{
-		mIndexBuffer->Release();
-		mIndexBuffer = 0;
+		if (mIndexBuffer[i])
+		{
+			mIndexBuffer[i]->Release();
+			mIndexBuffer[i] = 0;
+		}
 	}
-
 	return;
 }
 
@@ -183,11 +192,14 @@ bool GUIClass::RenderGUI(D3DClass *direct3D, ShaderManagerClass *shaderManager, 
 	stride = sizeof(VertexType);
 	offset = 0;
 
-	direct3D->GetDeviceContext()->IASetVertexBuffers(0, 1, &mVertexBuffer, &stride, &offset);
-	direct3D->GetDeviceContext()->IASetIndexBuffer(mIndexBuffer, DXGI_FORMAT_R32_UINT, 0);
-	direct3D->GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	for (int i = 0; i < mVertexBuffer.size(); i++) 
+	{
+		direct3D->GetDeviceContext()->IASetVertexBuffers(0, 1, &mVertexBuffer[i], &stride, &offset);
+		direct3D->GetDeviceContext()->IASetIndexBuffer(mIndexBuffer[i], DXGI_FORMAT_R32_UINT, 0);
+		direct3D->GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-	shaderManager->RenderGUIShader(direct3D->GetDeviceContext(), mIndexCount, worldMatrix, viewMatrix, orthoMatrix, mGameTimeResourceView);
+		shaderManager->RenderGUIShader(direct3D->GetDeviceContext(), mIndexCount[i], worldMatrix, viewMatrix, orthoMatrix, mGameTimeResourceView);
+	}
 
 	return true;
 }
@@ -204,6 +216,22 @@ bool GUIClass::LoadGameTimeTexture(ID3D11Device* device)
 	{
 		return false;
 	}
+
+	return true;
+}
+
+bool GUIClass::LoadPopUpBaseTexture(ID3D11Device* device)
+{
+	HRESULT hResult;
+	const wchar_t *fileName;
+
+	fileName = L"../TheNextFrontier/Textures/PopUpBaseTexture.tif";
+
+	//hResult = CreateWICTextureFromFile(device, fileName, &mGameTimeResource, &mGameTimeResourceView);
+	//if (FAILED(hResult))
+	//{
+	//	return false;
+	//}
 
 	return true;
 }

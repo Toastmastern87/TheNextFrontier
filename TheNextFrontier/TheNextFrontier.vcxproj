@@ -247,6 +247,7 @@
     <Image Include="Textures\MarsHeightDetail2.tif" />
     <Image Include="Textures\MarsHeightMap8K.tif" />
     <Image Include="Textures\MousePointer.tif" />
+    <Image Include="Textures\PopUpBaseTexture.tif" />
     <Image Include="Textures\StarBox.tif" />
   </ItemGroup>
   <ItemGroup>

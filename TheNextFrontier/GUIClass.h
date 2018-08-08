@@ -3,6 +3,7 @@
 #include "D3DClass.h"
 #include <WICTextureLoader.h>
 #include "ShaderManagerClass.h"
+#include <vector>
 using namespace std;
 
 class GUIClass
@@ -25,15 +26,16 @@ public:
 	bool Render(D3DClass*, ShaderManagerClass*, XMMATRIX, XMMATRIX, XMMATRIX);
 
 private:
-	bool InitializeGUI(ID3D11Device*, ID3D11DeviceContext*, int, int);
+	bool InitializeBaseGUI(ID3D11Device*, ID3D11DeviceContext*, int, int);
 	void ShutdownBuffers();
 	bool RenderGUI(D3DClass*, ShaderManagerClass*, XMMATRIX, XMMATRIX, XMMATRIX);
 
 	bool LoadGameTimeTexture(ID3D11Device*);
+	bool LoadPopUpBaseTexture(ID3D11Device*);
 
 private:
-	ID3D11Buffer * mVertexBuffer, *mIndexBuffer;
-	int mVertexCount, mIndexCount;
+	vector<ID3D11Buffer*> mVertexBuffer, mIndexBuffer;
+	vector<unsigned long> mVertexCount, mIndexCount;
 	ID3D11Resource *mGameTimeResource;
 	ID3D11ShaderResourceView *mGameTimeResourceView;
 };

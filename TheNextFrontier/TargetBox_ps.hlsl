@@ -1,4 +1,4 @@
-Texture2D shaderTexture;
+Texture2D TargetBoxTexture;
 SamplerState sampleType;
 
 struct PixelInputType
@@ -9,9 +9,9 @@ struct PixelInputType
 
 float4 TargetBoxPixelShader(PixelInputType input) : SV_TARGET
 {
-	float4 color;
+	float4 finalColor;
 
-	color = float4(1.0f, 0.0f, 0.0f, 0.0f);
+	finalColor = TargetBoxTexture.Sample(sampleType, input.tex);
 
-	return color;
+	return finalColor;
 }

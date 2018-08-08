@@ -482,17 +482,17 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 
 	//if (mHeartOfGold->IsPicked()) 
 	//{
-	//	direct3D->EnableAlphaBlending();
+		direct3D->EnableAlphaBlending();
 
 		mHeartOfGold->GetTargetBox()->Render(direct3D->GetDeviceContext());
 
-		result = shaderManager->RenderTargetBoxShader(direct3D->GetDeviceContext(), mHeartOfGold->GetTargetBox()->GetIndicesCount(), worldMatrix, viewMatrix, projectionMatrix, mHeartOfGold->GetPositionMatrix(), mHeartOfGold->GetScale(), mHeartOfGold->GetRotationMatrix(), mHeartOfGold->GetTexture());
+		result = shaderManager->RenderTargetBoxShader(direct3D->GetDeviceContext(), mHeartOfGold->GetTargetBox()->GetIndicesCount(), worldMatrix, viewMatrix, projectionMatrix, mHeartOfGold->GetPositionMatrix(), mHeartOfGold->GetScale(), mHeartOfGold->GetRotationMatrix(), mHeartOfGold->GetTargetBox()->GetTexture());
 		if (!result)
 		{
 			return false;
 		}
 
-	//	direct3D->DisableAlphaBlending();
+		direct3D->DisableAlphaBlending();
 	//}
 
 	// Star box rendering

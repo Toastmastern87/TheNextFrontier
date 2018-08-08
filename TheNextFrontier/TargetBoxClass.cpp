@@ -24,6 +24,12 @@ bool TargetBoxClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* devic
 		return false;
 	}
 
+	result = LoadTexture(device);
+	if (!result)
+	{
+		return false;
+	}
+
 	return true;
 }
 
@@ -128,4 +134,25 @@ void TargetBoxClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 int TargetBoxClass::GetIndicesCount()
 {
 	return mIndices.size();
+}
+
+bool TargetBoxClass::LoadTexture(ID3D11Device* device)
+{
+	HRESULT hResult;
+	const wchar_t *fileName;
+
+	fileName = L"../TheNextFrontier/Textures/TargetBox.tif";
+
+	hResult = CreateWICTextureFromFile(device, fileName, &mTextureResource, &mTextureResourceView);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	return true;
+}
+
+ID3D11ShaderResourceView* TargetBoxClass::GetTexture()
+{
+	return mTextureResourceView;
 }

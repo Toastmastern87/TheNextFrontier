@@ -4,6 +4,7 @@
 #include <DirectXMath.h>
 #include <vector>
 #include "GeometryClass.h"
+#include <WICTextureLoader.h>
 using namespace DirectX;
 using namespace std;
 
@@ -18,6 +19,8 @@ public:
 	void Shutdown();
 	void Render(ID3D11DeviceContext*);
 
+	ID3D11ShaderResourceView* GetTexture();
+
 	int GetIndicesCount();
 
 private:
@@ -25,8 +28,13 @@ private:
 	void ShutdownBuffers();
 	void RenderBuffers(ID3D11DeviceContext*);
 
+	bool LoadTexture(ID3D11Device*);
+
 private:
 	ID3D11Buffer * mVertexBuffer, *mIndexBuffer;
 	vector<GeometryClass::VertexType> mVertices;
 	vector<int> mIndices;
+
+	ID3D11Resource *mTextureResource;
+	ID3D11ShaderResourceView *mTextureResourceView;
 };

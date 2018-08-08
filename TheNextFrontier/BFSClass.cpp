@@ -24,6 +24,8 @@ bool BFSClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceConte
 	mScale = scale;
 	mRotation = rotation;
 
+	mBoundingOrientedBox = BoundingOrientedBox(XMFLOAT3(0.0f, 0.0f, 0.0f), XMFLOAT3(1.0f, 1.0f, 1.0f), XMFLOAT4(1.0f, 0.0f, 0.0f, 0.0f));
+
 	mBoundingBox = new BoundingBoxClass();
 	if (!mBoundingBox) 
 	{
@@ -51,6 +53,33 @@ bool BFSClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceConte
 	mPositionMatrix = XMMatrixTranslationFromVector(XMLoadFloat3(&mPosition));
 	mScaleMatrix = XMMatrixScalingFromVector(XMLoadFloat3(&mScale));
 	mRotationMatrix = XMMatrixRotationNormal(XMLoadFloat3(&mRotation), rotationRadians);
+
+	mBoundingOrientedBox.Transform(mBoundingOrientedBox, mScaleMatrix);
+	mBoundingOrientedBox.Transform(mBoundingOrientedBox, mRotationMatrix);
+	mBoundingOrientedBox.Transform(mBoundingOrientedBox, mPositionMatrix);
+
+	//Debugging
+	//XMFLOAT3 *corners = new XMFLOAT3(1.0f, 1.0f, 1.0f);
+	//mBoundingOrientedBox.GetCorners(corners);
+
+	//ofstream fOut;
+
+	//fOut.open("Debug.txt", ios::out | ios::app);
+
+	//for (int i = 0; i < 8; i++) 
+	//{
+	//	fOut << "corner[";
+	//	fOut << i;
+	//	fOut << "] x: ";
+	//	fOut << corners[i].x;
+	//	fOut << " y: ";
+	//	fOut << corners[i].y;
+	//	fOut << " z: ";
+	//	fOut << corners[i].z;
+	//	fOut << "\r\n";
+	//}
+
+	//fOut.close();
 
 	return true;
 }
@@ -161,6 +190,12 @@ bool BFSClass::InitializeBuffers(ID3D11Device *device)
 
 void BFSClass::ShutdownBuffers()
 {
+	if (mBoundingBox)
+	{
+		mBoundingBox->Shutdown();
+		mVertexBuffer = 0;
+	}
+
 	if (mVertexBuffer)
 	{
 		mVertexBuffer->Release();
@@ -234,4 +269,26 @@ ID3D11ShaderResourceView* BFSClass::GetTexture()
 BoundingBoxClass* BFSClass::GetBoundingBox() 
 {
 	return mBoundingBox;
+}
+
+bool BFSClass::IsPicked() 
+{
+	return mPicked;
+}
+
+void BFSClass::CheckRayIntersection(XMVECTOR origin, XMVECTOR dir)
+{
+	float dist;
+
+	mPicked = mBoundingOrientedBox.Intersects(origin, XMVector3Normalize(dir), dist);
+
+	return;
+}
+
+XMFLOAT3* BFSClass::GetBoundingOrientBoxCorners() 
+{
+	XMFLOAT3 *retCorners = NULL;
+	mBoundingOrientedBox.GetCorners(retCorners);
+
+	return retCorners;
 }

@@ -8,35 +8,21 @@
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'TimerClass::mStartTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>TimerClass::{ctor}</FUNCTION>
-    <DECORATED>??0TimerClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>timerclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>12</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'TimerClass::mFrameTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>TimerClass::{ctor}</FUNCTION>
-    <DECORATED>??0TimerClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>timerclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>12</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'TimerClass::mFrequency' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>TimerClass::{ctor}</FUNCTION>
+    <DECORATED>??0TimerClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>timerclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'TimerClass::mEndTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>TimerClass::{ctor}</FUNCTION>
     <DECORATED>??0TimerClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -64,7 +50,21 @@
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'TimerClass::mEndTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'TimerClass::mStartTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>TimerClass::{ctor}</FUNCTION>
+    <DECORATED>??0TimerClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>timerclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'TimerClass::mFrameTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>TimerClass::{ctor}</FUNCTION>
     <DECORATED>??0TimerClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -92,35 +92,21 @@
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'TimerClass::mStartTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>TimerClass::{ctor}</FUNCTION>
-    <DECORATED>??0TimerClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>7</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>timerclass.cpp</FILENAME>
-      <LINE>7</LINE>
-      <COLUMN>12</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'TimerClass::mFrameTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>TimerClass::{ctor}</FUNCTION>
-    <DECORATED>??0TimerClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>7</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>timerclass.cpp</FILENAME>
-      <LINE>7</LINE>
-      <COLUMN>12</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'TimerClass::mFrequency' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>TimerClass::{ctor}</FUNCTION>
+    <DECORATED>??0TimerClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>timerclass.cpp</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'TimerClass::mEndTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>TimerClass::{ctor}</FUNCTION>
     <DECORATED>??0TimerClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>7</FUNCLINE>
@@ -148,7 +134,21 @@
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'TimerClass::mEndTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'TimerClass::mStartTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>TimerClass::{ctor}</FUNCTION>
+    <DECORATED>??0TimerClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>timerclass.cpp</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'TimerClass::mFrameTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>TimerClass::{ctor}</FUNCTION>
     <DECORATED>??0TimerClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>7</FUNCLINE>

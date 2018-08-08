@@ -314,6 +314,21 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 	if (mLeftMouseButtonClicked) 
 	{
 		pickingRay = mMousePointer->GetPickingRay(XMFLOAT2(mouseX, mouseY), mScreenWidth, mScreenHeight, direct3D->GetProjectionMatrix(), mCamera->GetViewMatrix());
+		
+		mHeartOfGold->CheckRayIntersection(XMLoadFloat3(&mCamera->GetPosition()), XMLoadFloat3(&pickingRay));
+
+		// Test
+		if (mHeartOfGold->IsPicked())
+		{
+			ofstream fOut;
+
+			fOut.open("Debug.txt", ios::out | ios::app);
+
+			fOut << "Heart of Gold has been clicked one!!";
+			fOut << "\r\n";
+
+			fOut.close();
+		}
 
 		mLeftMouseButtonClicked = false;
 	}
@@ -457,6 +472,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 		direct3D->EnableWireframe();
 	}
 
+	// BFS rendering
 	mHeartOfGold->Render(direct3D->GetDeviceContext());
 	result = shaderManager->RenderBFSShader(direct3D->GetDeviceContext(), mHeartOfGold->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, mHeartOfGold->GetPositionMatrix(), mHeartOfGold->GetScaleMatrix(), mHeartOfGold->GetRotationMatrix(), mHeartOfGold->GetTexture());
 	if (!result)
@@ -464,6 +480,22 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 		return false;
 	}
 
+	if (mHeartOfGold->IsPicked()) 
+	{
+		direct3D->EnableAlphaBlending();
+
+		mHeartOfGold->GetBoundingBox()->Render(direct3D->GetDeviceContext());
+
+		result = shaderManager->RenderBoundingBoxShader(direct3D->GetDeviceContext(), mHeartOfGold->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, mHeartOfGold->GetPositionMatrix(), mHeartOfGold->GetScaleMatrix(), mHeartOfGold->GetRotationMatrix(), mHeartOfGold->GetTexture());
+		if (!result)
+		{
+			return false;
+		}
+
+		direct3D->DisableAlphaBlending();
+	}
+
+	// Star box rendering
 	mStarBox->Render(direct3D->GetDeviceContext());
 	result = shaderManager->RenderStarBoxShader(direct3D->GetDeviceContext(), mStarBox->GetIndexCount(), worldMatrix, baseViewMatrix, projectionMatrix, rotationMatrix, mStarBox->GetStarBoxTexture());
 	if (!result)

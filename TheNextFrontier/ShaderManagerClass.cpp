@@ -8,6 +8,7 @@ ShaderManagerClass::ShaderManagerClass()
 	mGUIShader = 0;
 	mStarBoxShader = 0;
 	mBFSShader = 0;
+	mBoundingBoxShader = 0;
 }
 
 ShaderManagerClass::ShaderManagerClass(const ShaderManagerClass& other)
@@ -106,11 +107,30 @@ bool ShaderManagerClass::Initialize(ID3D11Device* device, HWND hwnd)
 		return false;
 	}
 
+	mBoundingBoxShader = new BoundingBoxShaderClass;
+	if (!mBoundingBoxShader)
+	{
+		return false;
+	}
+
+	result = mBoundingBoxShader->Initialize(device, hwnd);
+	if (!result)
+	{
+		return false;
+	}
+
 	return true;
 }
 
 void ShaderManagerClass::Shutdown()
 {
+	if (mBoundingBoxShader)
+	{
+		mBoundingBoxShader->Shutdown();
+		delete mBoundingBoxShader;
+		mBoundingBoxShader = 0;
+	}
+
 	if (mBFSShader)
 	{
 		mBFSShader->Shutdown();
@@ -196,4 +216,9 @@ bool ShaderManagerClass::RenderStarBoxShader(ID3D11DeviceContext *deviceContext,
 bool ShaderManagerClass::RenderBFSShader(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX positionMatrix, XMMATRIX scaleMatrix, XMMATRIX rotationMatrix, ID3D11ShaderResourceView* texture)
 {
 	return mBFSShader->Render(deviceContext, indexCount, worldMatrix, viewMatrix, projectionMatrix, positionMatrix, scaleMatrix, rotationMatrix, texture);
+}
+
+bool ShaderManagerClass::RenderBoundingBoxShader(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX positionMatrix, XMMATRIX scaleMatrix, XMMATRIX rotationMatrix, ID3D11ShaderResourceView* texture)
+{
+	return mBoundingBoxShader->Render(deviceContext, indexCount, worldMatrix, viewMatrix, projectionMatrix, positionMatrix, scaleMatrix, rotationMatrix, texture);
 }

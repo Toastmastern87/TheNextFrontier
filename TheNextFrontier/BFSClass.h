@@ -7,6 +7,7 @@
 #include "ObjLoaderClass.h"
 #include <WICTextureLoader.h>
 #include "BoundingBoxClass.h"
+#include <DirectXCollision.h>
 using namespace DirectX;
 using namespace std;
 
@@ -26,7 +27,11 @@ public:
 	XMMATRIX GetScaleMatrix();
 	XMMATRIX GetRotationMatrix();
 	ID3D11ShaderResourceView* GetTexture();
+
 	BoundingBoxClass* GetBoundingBox();
+	XMFLOAT3* GetBoundingOrientBoxCorners();
+	bool IsPicked();
+	void CheckRayIntersection(XMVECTOR, XMVECTOR);
 
 private:
 	bool InitializeBuffers(ID3D11Device*);
@@ -46,4 +51,5 @@ private:
 
 	bool mPicked;
 	BoundingBoxClass* mBoundingBox;
+	BoundingOrientedBox mBoundingOrientedBox;
 };

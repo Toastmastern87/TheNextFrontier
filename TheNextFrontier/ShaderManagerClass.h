@@ -8,6 +8,7 @@
 #include "GUIShaderClass.h"
 #include "StarBoxShaderClass.h"
 #include "BFSShaderClass.h"
+#include "BoundingBoxShaderClass.h"
 
 class ShaderManagerClass
 {
@@ -26,6 +27,7 @@ public:
 	bool RenderGUIShader(ID3D11DeviceContext*, int, XMMATRIX, XMMATRIX, XMMATRIX, ID3D11ShaderResourceView*);
 	bool RenderStarBoxShader(ID3D11DeviceContext*, int, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, ID3D11ShaderResourceView*);
 	bool RenderBFSShader(ID3D11DeviceContext*, int, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, ID3D11ShaderResourceView*);
+	bool RenderBoundingBoxShader(ID3D11DeviceContext*, int, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, XMMATRIX, ID3D11ShaderResourceView*);
 
 private:
 	MarsShaderClass * mMarsShader;
@@ -35,4 +37,5 @@ private:
 	GUIShaderClass* mGUIShader;
 	StarBoxShaderClass *mStarBoxShader;
 	BFSShaderClass *mBFSShader;
+	BoundingBoxShaderClass *mBoundingBoxShader;
 };

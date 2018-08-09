@@ -1,5 +1,3 @@
-﻿C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_ps.hlsl(124,28-86): warning X3206: 'dot': implicit truncation of vector type
-C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\TheNextFrontier\MarsFromAtmosphere_ps.hlsl(126,2-53): warning X3206: implicit truncation of vector type
-FXC : error X3501: 'main': entrypoint not found
+﻿FXC : error X3501: 'main': entrypoint not found
   
   compilation failed; no code produced

@@ -62,7 +62,7 @@ bool GUIClass::InitializeBaseGUI(ID3D11Device *device, ID3D11DeviceContext *devi
 		return false;
 	}
 
-	mVertexCounts.push_back(6);
+	mVertexCounts.push_back(4);
 	mIndexCounts.push_back(6);
 
 	vertices = new VertexType[mVertexCounts[mVertexCounts.size() - 1]];
@@ -79,10 +79,9 @@ bool GUIClass::InitializeBaseGUI(ID3D11Device *device, ID3D11DeviceContext *devi
 
 	memset(vertices, 0, (sizeof(VertexType) * mVertexCounts[mVertexCounts.size() - 1]));
 
-	for (int i = 0; i < mIndexCounts[mIndexCounts.size() - 1]; i++)
-	{
-		indices[i] = i;
-	}
+	indices[0] = 1;
+	indices[1] = 2;	indices[2] = 0;	indices[3] = 1;	indices[4] = 3;
+	indices[5] = 2;
 
 	vertexBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
 	vertexBufferDesc.ByteWidth = sizeof(VertexType) * mVertexCounts[mVertexCounts.size() - 1];
@@ -133,14 +132,8 @@ bool GUIClass::InitializeBaseGUI(ID3D11Device *device, ID3D11DeviceContext *devi
 	vertices[2].position = XMFLOAT3(((screenWidth / 2) - 272), ((screenHeight / 2) - 63), 0.0f);
 	vertices[2].texture = XMFLOAT2(0.0f, 1.0f);
 
-	vertices[3].position = XMFLOAT3(((screenWidth / 2) - 272), (screenHeight / 2), 0.0f);
-	vertices[3].texture = XMFLOAT2(0.0f, 0.0f);
-
-	vertices[4].position = XMFLOAT3((screenWidth / 2), (screenHeight / 2), 0.0f);
-	vertices[4].texture = XMFLOAT2(1.0f, 0.0f);
-
-	vertices[5].position = XMFLOAT3((screenWidth / 2), ((screenHeight / 2) - 63), 0.0f);
-	vertices[5].texture = XMFLOAT2(1.0f, 1.0f);
+	vertices[3].position = XMFLOAT3((screenWidth / 2), (screenHeight / 2), 0.0f);
+	vertices[3].texture = XMFLOAT2(1.0f, 0.0f);
 
 	hResult = deviceContext->Map(mVertexBuffers[mVertexBuffers.size() - 1], 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
 	if (FAILED(hResult))
@@ -196,7 +189,7 @@ bool GUIClass::RenderGUI(D3DClass *direct3D, ShaderManagerClass *shaderManager, 
 	{
 		direct3D->GetDeviceContext()->IASetVertexBuffers(0, 1, &mVertexBuffers[i], &stride, &offset);
 		direct3D->GetDeviceContext()->IASetIndexBuffer(mIndexBuffers[i], DXGI_FORMAT_R32_UINT, 0);
-		direct3D->GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+		direct3D->GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
 
 		shaderManager->RenderGUIShader(direct3D->GetDeviceContext(), mIndexCounts[i], worldMatrix, viewMatrix, orthoMatrix, mResourceViews[i]);
 	}

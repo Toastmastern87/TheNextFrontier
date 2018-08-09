@@ -50,7 +50,7 @@
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'FontClass::mFont' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'FontClass::mFontHeight' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>FontClass::{ctor}</FUNCTION>
     <DECORATED>??0FontClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>9</FUNCLINE>
@@ -64,7 +64,7 @@
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'FontClass::mFontHeight' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'FontClass::mFont' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>FontClass::{ctor}</FUNCTION>
     <DECORATED>??0FontClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>9</FUNCLINE>

@@ -53,4 +53,7 @@ private:
 	bool mPicked;
 	TargetBoxClass* mTargetBox;
 	BoundingOrientedBox mBoundingOrientedBox;
+
+	char* shipName;
+	float fuelLeft;
 };

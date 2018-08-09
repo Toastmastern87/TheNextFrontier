@@ -60,7 +60,7 @@ bool StarBoxClass::InitializeBuffers(ID3D11Device* device)
 	mIndices = GeometryClass::GetCubeIndices();
 
 	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-	vertexBufferDesc.ByteWidth = sizeof(GeometryClass::VertexType) * mVertices.size();
+	vertexBufferDesc.ByteWidth = sizeof(GeometryClass::VertexType3D) * mVertices.size();
 	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	vertexBufferDesc.CPUAccessFlags = 0;
 	vertexBufferDesc.MiscFlags = 0;
@@ -119,7 +119,7 @@ void StarBoxClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 	unsigned int offset;
 	ID3D11Buffer* bufferPointer;
 
-	stride = sizeof(GeometryClass::VertexType);
+	stride = sizeof(GeometryClass::VertexType3D);
 	offset = 0;
 
 	bufferPointer = mVertexBuffer;

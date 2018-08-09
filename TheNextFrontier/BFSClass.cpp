@@ -112,22 +112,22 @@ bool BFSClass::InitializeBuffers(ID3D11Device *device)
 
 	//fOut.open("Debug.txt", ios::out | ios::app);
 
-	BFS = ObjLoaderClass::LoadObject((char*)"../TheNextFrontier/Objects/CylinderMeshTest.obj");
+	BFS = ObjLoaderClass::LoadObject((char*)"../TheNextFrontier/Objects/CylinderTest2Mesh.obj");
 
 	//for (int i = 0; i < BFS.vertices.size(); i++) 
 	//{
 	//	fOut << "BFS.vertices[";
 	//	fOut << i;
 	//	fOut << "] x: ";
-	//	fOut << BFS.vertices[i].x;
+	//	fOut << BFS.vertices[i].pos.x;
 	//	fOut << " y: ";
-	//	fOut << BFS.vertices[i].y;
+	//	fOut << BFS.vertices[i].pos.y;
 	//	fOut << " z: ";
-	//	fOut << BFS.vertices[i].z;
+	//	fOut << BFS.vertices[i].pos.z;
 	//	fOut << "\r\n";
 	//}
 
-	//fOut << "\r\n";
+	////fOut << "\r\n";
 
 	//for (int i = 0; i < BFS.indices.size(); i++)
 	//{
@@ -138,21 +138,21 @@ bool BFSClass::InitializeBuffers(ID3D11Device *device)
 	//	fOut << "\r\n";
 	//}
 
-	//for (int i = 0; i < BFS.uv.size(); i++)
+	//for (int i = 0; i < BFS.vertices.size(); i++)
 	//{
 	//	fOut << "BFS.uvs[";
 	//	fOut << i;
 	//	fOut << "] x: ";
-	//	fOut << BFS.uv[i].x;
+	//	fOut << BFS.vertices[i].uv.x;
 	//	fOut << " y: ";
-	//	fOut << BFS.uv[i].y;
+	//	fOut << BFS.vertices[i].uv.y;
 	//	fOut << "\r\n";
 	//}
 
 	//fOut.close();
 
 	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-	vertexBufferDesc.ByteWidth = sizeof(XMFLOAT3) * BFS.vertices.size();
+	vertexBufferDesc.ByteWidth = sizeof(ObjLoaderClass::VertexType) * BFS.vertices.size();
 	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	vertexBufferDesc.CPUAccessFlags = 0;
 	vertexBufferDesc.MiscFlags = 0;
@@ -216,7 +216,7 @@ void BFSClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 {
 	unsigned int stride, offset;
 
-	stride = sizeof(XMFLOAT3);
+	stride = sizeof(ObjLoaderClass::VertexType);
 	offset = 0;
 
 	deviceContext->IASetVertexBuffers(0, 1, &mVertexBuffer, &stride, &offset);
@@ -292,50 +292,50 @@ void BFSClass::CheckRayIntersection(XMVECTOR origin, XMVECTOR dir)
 
 	mPicked = mBoundingOrientedBox.Intersects(origin, dir, dist);
 
-	ofstream fOut;
+	//ofstream fOut;
 
-	fOut.open("Debug.txt", ios::out | ios::app);
+	//fOut.open("Debug.txt", ios::out | ios::app);
 
 	//Debugging
-	XMFLOAT3 corners[8];
-	mBoundingOrientedBox.GetCorners(&corners[0]);
+	//XMFLOAT3 corners[8];
+	//mBoundingOrientedBox.GetCorners(&corners[0]);
 
-	for (int i = 0; i < 8; i++) 
-	{
-		fOut << "corner[";
-		fOut << i;
-		fOut << "] x: ";
-		fOut << corners[i].x;
-		fOut << " y: ";
-		fOut << corners[i].y;
-		fOut << " z: ";
-		fOut << corners[i].z;
-		fOut << "\r\n";
-	}
-	
-	fOut << "Distance: ";
-	fOut << dist;
-	fOut << "\r\n";
-	fOut << "Origin x: ";
-	fOut << ori.x;
-	fOut << " y: ";
-	fOut << ori.y;
-	fOut << " z: ";
-	fOut << ori.z;
-	fOut << "\r\n";
-	fOut << "Direction x: ";
-	fOut << di.x;
-	fOut << " y: ";
-	fOut << di.y;
-	fOut << " z: ";
-	fOut << di.z;
-	fOut << "\r\n";
-	fOut << "mPicked: ";
-	fOut << mPicked;
-	fOut << "\r\n";
-	fOut << "\r\n";
+	//for (int i = 0; i < 8; i++) 
+	//{
+	//	fOut << "corner[";
+	//	fOut << i;
+	//	fOut << "] x: ";
+	//	fOut << corners[i].x;
+	//	fOut << " y: ";
+	//	fOut << corners[i].y;
+	//	fOut << " z: ";
+	//	fOut << corners[i].z;
+	//	fOut << "\r\n";
+	//}
+	//
+	//fOut << "Distance: ";
+	//fOut << dist;
+	//fOut << "\r\n";
+	//fOut << "Origin x: ";
+	//fOut << ori.x;
+	//fOut << " y: ";
+	//fOut << ori.y;
+	//fOut << " z: ";
+	//fOut << ori.z;
+	//fOut << "\r\n";
+	//fOut << "Direction x: ";
+	//fOut << di.x;
+	//fOut << " y: ";
+	//fOut << di.y;
+	//fOut << " z: ";
+	//fOut << di.z;
+	//fOut << "\r\n";
+	//fOut << "mPicked: ";
+	//fOut << mPicked;
+	//fOut << "\r\n";
+	//fOut << "\r\n";
 
-	fOut.close();
+	//fOut.close();
 
 	return;
 }

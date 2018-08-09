@@ -8,18 +8,18 @@ using namespace std;
 class GeometryClass
 {
 public:
-	struct VertexType
+	struct VertexType3D
 	{
 		XMFLOAT3 pos;
 		XMFLOAT2 uv;
 
-		VertexType(XMFLOAT3 position, XMFLOAT2 uvCoords)
+		VertexType3D(XMFLOAT3 position, XMFLOAT2 uvCoords)
 		{
 			pos = position;
 			uv = uvCoords;
 		}
 
-		VertexType()
+		VertexType3D()
 		{
 		}
 	};
@@ -32,6 +32,6 @@ public:
 	static vector<XMFLOAT3> GetIcosadronVertices(float);
 	static vector<int> GetIcosadronIndices();
 
-	static vector<VertexType> GetCubeVertices(float);
+	static vector<VertexType3D> GetCubeVertices(float);
 	static vector<int> GetCubeIndices();
 };

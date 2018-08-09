@@ -12,12 +12,18 @@ struct VertexInputType
 {
 	float4 position : POSITION;
 	float2 tex : TEXCOORD0;
+	float3 normal : NORMAL0;
+	float3 tangent: NORMAL1;
+	float3 bitangent : NORMAL2;
 };
 
 struct PixelInputType
 {
 	float4 position : SV_POSITION;
 	float2 tex : TEXCOORD0;
+	float3 normal : NORMAL0;
+	float3 tangent: NORMAL1;
+	float3 bitangent : NORMAL2;
 };
 
 PixelInputType BFSVertexShader(VertexInputType input)

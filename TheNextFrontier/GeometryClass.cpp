@@ -72,25 +72,25 @@ vector<int> GeometryClass::GetIcosadronIndices()
 	return ret;
 }
 
-vector<GeometryClass::VertexType> GeometryClass::GetCubeVertices(float scale)
+vector<GeometryClass::VertexType3D> GeometryClass::GetCubeVertices(float scale)
 {
-	vector<VertexType> ret;
+	vector<VertexType3D> ret;
 
 	// The first XMFLOAT3 is the positions of the vertices and the second, XMFLOAT2 is the UV-coordinates
-	ret.push_back(VertexType(XMFLOAT3(-scale, scale, -scale), XMFLOAT2(0.0f, 0.25f)));
-	ret.push_back(VertexType(XMFLOAT3(-scale, -scale, -scale), XMFLOAT2(0.25f, 0.25f)));
-	ret.push_back(VertexType(XMFLOAT3(scale, scale, -scale), XMFLOAT2(0.0f, 0.5f)));
-	ret.push_back(VertexType(XMFLOAT3(scale, -scale, -scale), XMFLOAT2(0.25f, 0.5f)));
-	ret.push_back(VertexType(XMFLOAT3(-scale, -scale, scale), XMFLOAT2(0.5f, 0.25f)));
-	ret.push_back(VertexType(XMFLOAT3(scale, -scale, scale), XMFLOAT2(0.5f, 0.5f)));
-	ret.push_back(VertexType(XMFLOAT3(-scale, scale, scale), XMFLOAT2(0.75f, 0.25f)));
-	ret.push_back(VertexType(XMFLOAT3(scale, scale, scale), XMFLOAT2(0.75f, 0.5f)));
-	ret.push_back(VertexType(XMFLOAT3(-scale, scale, -scale), XMFLOAT2(1.0f, 0.25f)));
-	ret.push_back(VertexType(XMFLOAT3(scale, scale, -scale), XMFLOAT2(1.0f, 0.5f)));
-	ret.push_back(VertexType(XMFLOAT3(-scale, scale, -scale), XMFLOAT2(0.25f, 0.0f)));
-	ret.push_back(VertexType(XMFLOAT3(-scale, scale, scale), XMFLOAT2(0.5f, 0.0f)));
-	ret.push_back(VertexType(XMFLOAT3(scale, scale, -scale), XMFLOAT2(0.25f, 0.75f)));
-	ret.push_back(VertexType(XMFLOAT3(scale, scale, scale), XMFLOAT2(0.5f, 0.75f)));
+	ret.push_back(VertexType3D(XMFLOAT3(-scale, scale, -scale), XMFLOAT2(0.0f, 0.25f)));
+	ret.push_back(VertexType3D(XMFLOAT3(-scale, -scale, -scale), XMFLOAT2(0.25f, 0.25f)));
+	ret.push_back(VertexType3D(XMFLOAT3(scale, scale, -scale), XMFLOAT2(0.0f, 0.5f)));
+	ret.push_back(VertexType3D(XMFLOAT3(scale, -scale, -scale), XMFLOAT2(0.25f, 0.5f)));
+	ret.push_back(VertexType3D(XMFLOAT3(-scale, -scale, scale), XMFLOAT2(0.5f, 0.25f)));
+	ret.push_back(VertexType3D(XMFLOAT3(scale, -scale, scale), XMFLOAT2(0.5f, 0.5f)));
+	ret.push_back(VertexType3D(XMFLOAT3(-scale, scale, scale), XMFLOAT2(0.75f, 0.25f)));
+	ret.push_back(VertexType3D(XMFLOAT3(scale, scale, scale), XMFLOAT2(0.75f, 0.5f)));
+	ret.push_back(VertexType3D(XMFLOAT3(-scale, scale, -scale), XMFLOAT2(1.0f, 0.25f)));
+	ret.push_back(VertexType3D(XMFLOAT3(scale, scale, -scale), XMFLOAT2(1.0f, 0.5f)));
+	ret.push_back(VertexType3D(XMFLOAT3(-scale, scale, -scale), XMFLOAT2(0.25f, 0.0f)));
+	ret.push_back(VertexType3D(XMFLOAT3(-scale, scale, scale), XMFLOAT2(0.5f, 0.0f)));
+	ret.push_back(VertexType3D(XMFLOAT3(scale, scale, -scale), XMFLOAT2(0.25f, 0.75f)));
+	ret.push_back(VertexType3D(XMFLOAT3(scale, scale, scale), XMFLOAT2(0.5f, 0.75f)));
 
 	return ret;
 }

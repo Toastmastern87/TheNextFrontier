@@ -18,8 +18,8 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>guiclass.cpp</FILENAME>
-      <LINE>84</LINE>
-      <COLUMN>13</COLUMN>
+      <LINE>83</LINE>
+      <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>6386</DEFECTCODE>
     <DESCRIPTION>Buffer overrun while writing to 'indices':  the writable size is 'mIndexCounts.public: unsigned long &amp; __cdecl std::vector&lt;unsigned long,class std::allocator&lt;unsigned long&gt; &gt;::operator[](unsigned __int64)(mIndexCounts.public: unsigned __int64 __cdecl std::vector&lt;unsigned long,class std::allocator&lt;unsigned long&gt; &gt;::size(void)const ()-1)*4' bytes, but '8' bytes might be written.</DESCRIPTION>
@@ -168,57 +168,15 @@
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>guiclass.cpp</FILENAME>
         <LINE>82</LINE>
-        <COLUMN>10</COLUMN>
+        <COLUMN>12</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>guiclass.cpp</FILENAME>
-        <LINE>82</LINE>
-        <COLUMN>19</COLUMN>
+        <LINE>83</LINE>
+        <COLUMN>12</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Enter this loop, (assume '&lt;branch condition&gt;')</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>guiclass.cpp</FILENAME>
-        <LINE>84</LINE>
-        <COLUMN>13</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>guiclass.cpp</FILENAME>
-        <LINE>82</LINE>
-        <COLUMN>61</COLUMN>
-        <KEYEVENT>
-          <ID>5</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'i' may equal 1</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>guiclass.cpp</FILENAME>
-        <LINE>82</LINE>
-        <COLUMN>19</COLUMN>
-        <KEYEVENT>
-          <ID>6</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Continue this loop, (assume '&lt;branch condition&gt;')</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-        <FILENAME>guiclass.cpp</FILENAME>
-        <LINE>84</LINE>
-        <COLUMN>13</COLUMN>
-        <KEYEVENT>
-          <ID>7</ID>
           <KIND>usage</KIND>
           <IMPORTANCE>Essential</IMPORTANCE>
           <MESSAGE>Invalid write to 'indices[1]', (writable range is 0 to 0)</MESSAGE>

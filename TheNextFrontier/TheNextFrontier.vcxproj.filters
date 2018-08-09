@@ -291,13 +291,16 @@
     <Image Include="Textures\StarBox.tif">
       <Filter>Resource Files\Textures</Filter>
     </Image>
-    <Image Include="Textures\BFS.tif">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
     <Image Include="Textures\MarsCrater2.tif">
       <Filter>Resource Files\Textures</Filter>
     </Image>
     <Image Include="Textures\PopUpBaseTexture.tif">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="Textures\BFS.tif">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="Textures\TestTexture.tif">
       <Filter>Resource Files\Textures</Filter>
     </Image>
   </ItemGroup>
@@ -356,6 +359,9 @@
       <Filter>Resource Files\Objects</Filter>
     </Object>
     <Object Include="Objects\CylinderMeshTest.obj">
+      <Filter>Resource Files\Objects</Filter>
+    </Object>
+    <Object Include="Objects\CylinderTest2Mesh.obj">
       <Filter>Resource Files\Objects</Filter>
     </Object>
   </ItemGroup>

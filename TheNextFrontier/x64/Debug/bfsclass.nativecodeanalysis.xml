@@ -49,8 +49,8 @@
       <LINE>256</LINE>
       <COLUMN>4</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'aiString::data' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiString::{ctor}</FUNCTION>
     <DECORATED>??0aiString@@QEAA@XZ</DECORATED>
     <FUNCLINE>256</FUNCLINE>
@@ -63,8 +63,8 @@
       <LINE>256</LINE>
       <COLUMN>4</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiString::data' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiString::{ctor}</FUNCTION>
     <DECORATED>??0aiString@@QEAA@XZ</DECORATED>
     <FUNCLINE>256</FUNCLINE>
@@ -91,8 +91,8 @@
       <LINE>195</LINE>
       <COLUMN>4</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'aiTexture::achFormatHint' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiTexture::{ctor}</FUNCTION>
     <DECORATED>??0aiTexture@@QEAA@XZ</DECORATED>
     <FUNCLINE>195</FUNCLINE>
@@ -105,8 +105,8 @@
       <LINE>195</LINE>
       <COLUMN>4</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiTexture::achFormatHint' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiTexture::{ctor}</FUNCTION>
     <DECORATED>??0aiTexture@@QEAA@XZ</DECORATED>
     <FUNCLINE>195</FUNCLINE>
@@ -147,20 +147,6 @@
       <LINE>214</LINE>
       <COLUMN>4</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>aiVertexWeight::{ctor}</FUNCTION>
-    <DECORATED>??0aiVertexWeight@@QEAA@XZ</DECORATED>
-    <FUNCLINE>214</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
-      <FILENAME>mesh.h</FILENAME>
-      <LINE>214</LINE>
-      <COLUMN>4</COLUMN>
-    </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiVertexWeight::mWeight' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiVertexWeight::{ctor}</FUNCTION>
@@ -177,6 +163,20 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiVertexWeight::mVertexId' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>aiVertexWeight::{ctor}</FUNCTION>
+    <DECORATED>??0aiVertexWeight@@QEAA@XZ</DECORATED>
+    <FUNCLINE>214</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
+      <FILENAME>mesh.h</FILENAME>
+      <LINE>214</LINE>
+      <COLUMN>4</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiVertexWeight::{ctor}</FUNCTION>
     <DECORATED>??0aiVertexWeight@@QEAA@XZ</DECORATED>
     <FUNCLINE>214</FUNCLINE>
@@ -217,20 +217,6 @@
       <LINE>388</LINE>
       <COLUMN>4</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>aiAnimMesh::{ctor}</FUNCTION>
-    <DECORATED>??0aiAnimMesh@@QEAA@XZ</DECORATED>
-    <FUNCLINE>388</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
-      <FILENAME>mesh.h</FILENAME>
-      <LINE>388</LINE>
-      <COLUMN>4</COLUMN>
-    </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiAnimMesh::mColors' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiAnimMesh::{ctor}</FUNCTION>
@@ -256,14 +242,14 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>mesh.h</FILENAME>
-      <LINE>647</LINE>
+      <LINE>388</LINE>
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>aiMesh::{ctor}</FUNCTION>
-    <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
-    <FUNCLINE>647</FUNCLINE>
+    <FUNCTION>aiAnimMesh::{ctor}</FUNCTION>
+    <DECORATED>??0aiAnimMesh@@QEAA@XZ</DECORATED>
+    <FUNCLINE>388</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
@@ -274,7 +260,7 @@
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiMesh::mTextureCoords' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'aiMesh::mColors' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiMesh::{ctor}</FUNCTION>
     <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
     <FUNCLINE>647</FUNCLINE>
@@ -302,7 +288,21 @@
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiMesh::mColors' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'aiMesh::mTextureCoords' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>aiMesh::{ctor}</FUNCTION>
+    <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
+    <FUNCLINE>647</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
+      <FILENAME>mesh.h</FILENAME>
+      <LINE>647</LINE>
+      <COLUMN>4</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiMesh::{ctor}</FUNCTION>
     <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
     <FUNCLINE>647</FUNCLINE>
@@ -399,20 +399,6 @@
       <LINE>164</LINE>
       <COLUMN>4</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>aiMeshKey::{ctor}</FUNCTION>
-    <DECORATED>??0aiMeshKey@@QEAA@XZ</DECORATED>
-    <FUNCLINE>164</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
-      <FILENAME>anim.h</FILENAME>
-      <LINE>164</LINE>
-      <COLUMN>4</COLUMN>
-    </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiMeshKey::mTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiMeshKey::{ctor}</FUNCTION>
@@ -429,6 +415,20 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiMeshKey::mValue' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>aiMeshKey::{ctor}</FUNCTION>
+    <DECORATED>??0aiMeshKey@@QEAA@XZ</DECORATED>
+    <FUNCLINE>164</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
+      <FILENAME>anim.h</FILENAME>
+      <LINE>164</LINE>
+      <COLUMN>4</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiMeshKey::{ctor}</FUNCTION>
     <DECORATED>??0aiMeshKey@@QEAA@XZ</DECORATED>
     <FUNCLINE>164</FUNCLINE>
@@ -581,20 +581,6 @@
       <LINE>22</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
-    <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>22</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>geometryclass.h</FILENAME>
-      <LINE>22</LINE>
-      <COLUMN>2</COLUMN>
-    </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'GeometryClass::VertexType::pos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
@@ -619,29 +605,15 @@
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>bfsclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>10</COLUMN>
+      <FILENAME>geometryclass.h</FILENAME>
+      <LINE>22</LINE>
+      <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>BFSClass::{ctor}</FUNCTION>
-    <DECORATED>??0BFSClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>bfsclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>10</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'BFSClass::mIndexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>BFSClass::{ctor}</FUNCTION>
-    <DECORATED>??0BFSClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
+    <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
+    <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
@@ -793,6 +765,34 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'BFSClass::mTargeted' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>BFSClass::{ctor}</FUNCTION>
+    <DECORATED>??0BFSClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>bfsclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'BFSClass::mIndexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>BFSClass::{ctor}</FUNCTION>
+    <DECORATED>??0BFSClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>bfsclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'BFSClass::mPopupActive' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>BFSClass::{ctor}</FUNCTION>
     <DECORATED>??0BFSClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -830,11 +830,25 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>bfsclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>BFSClass::{ctor}</FUNCTION>
+    <DECORATED>??0BFSClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>bfsclass.cpp</FILENAME>
       <LINE>11</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'BFSClass::mIndexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'BFSClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>BFSClass::{ctor}</FUNCTION>
     <DECORATED>??0BFSClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>11</FUNCLINE>
@@ -849,20 +863,6 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'BFSClass::mIndexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>BFSClass::{ctor}</FUNCTION>
-    <DECORATED>??0BFSClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>11</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>bfsclass.cpp</FILENAME>
-      <LINE>11</LINE>
-      <COLUMN>10</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'BFSClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>BFSClass::{ctor}</FUNCTION>
     <DECORATED>??0BFSClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>11</FUNCLINE>
@@ -1017,6 +1017,34 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'BFSClass::mTargeted' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>BFSClass::{ctor}</FUNCTION>
+    <DECORATED>??0BFSClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>bfsclass.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'BFSClass::mIndexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>BFSClass::{ctor}</FUNCTION>
+    <DECORATED>??0BFSClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>bfsclass.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'BFSClass::mPopupActive' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>BFSClass::{ctor}</FUNCTION>
     <DECORATED>??0BFSClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>11</FUNCLINE>
@@ -1068,14 +1096,14 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>bfsclass.cpp</FILENAME>
-      <LINE>386</LINE>
+      <LINE>387</LINE>
       <COLUMN>32</COLUMN>
     </SFA>
     <DEFECTCODE>6387</DEFECTCODE>
     <DESCRIPTION>'retCorners' could be '0':  this does not adhere to the specification for the function 'DirectX::BoundingOrientedBox::GetCorners'. </DESCRIPTION>
     <FUNCTION>BFSClass::GetBoundingOrientBoxCorners</FUNCTION>
     <DECORATED>?GetBoundingOrientBoxCorners@BFSClass@@QEAAPEAUXMFLOAT3@DirectX@@XZ</DECORATED>
-    <FUNCLINE>383</FUNCLINE>
+    <FUNCLINE>384</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>4</RANK>
     <CATEGORY>
@@ -1085,7 +1113,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>385</LINE>
+        <LINE>386</LINE>
         <COLUMN>10</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -1097,7 +1125,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>386</LINE>
+        <LINE>387</LINE>
         <COLUMN>32</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -1109,7 +1137,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>386</LINE>
+        <LINE>387</LINE>
         <COLUMN>32</COLUMN>
         <KEYEVENT>
           <ID>3</ID>

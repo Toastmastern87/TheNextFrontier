@@ -35,6 +35,7 @@ private:
 
 	bool LoadGameTimeTexture(ID3D11Device*);
 	bool LoadPopUpBaseTexture(ID3D11Device*);
+	bool LoadPopUpConnectorTexture(ID3D11Device*);
 
 private:
 	vector<ID3D11Buffer*> mVertexBuffers, mIndexBuffers;

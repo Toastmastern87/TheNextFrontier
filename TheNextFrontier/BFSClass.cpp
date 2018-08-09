@@ -21,6 +21,7 @@ bool BFSClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceConte
 	bool result;
 
 	mTargeted = false;
+	mPopupActive = false;
 
 	mPosition = startPosition;
 	mScale = scale;

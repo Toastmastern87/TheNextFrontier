@@ -14,6 +14,9 @@ using namespace std;
 class BFSClass
 {
 public:
+	bool mPopupActive;
+
+public:
 	BFSClass();
 	BFSClass(const BFSClass&);
 	~BFSClass();

@@ -188,6 +188,25 @@ bool GUIClass::LoadPopUpBaseTexture(ID3D11Device* device)
 	return true;
 }
 
+bool GUIClass::LoadPopUpConnectorTexture(ID3D11Device* device)
+{
+	HRESULT hResult;
+	const wchar_t *fileName;
+
+	fileName = L"../TheNextFrontier/Textures/PopUpConnector.tif";
+
+	mResources.push_back(nullptr);
+	mResourceViews.push_back(nullptr);
+
+	hResult = CreateWICTextureFromFile(device, fileName, &mResources[mResources.size() - 1], &mResourceViews[mResourceViews.size() - 1]);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	return true;
+}
+
 void GUIClass::AddBFSPopUpGUI(ID3D11Device *device, float popUpStartPosX, float popUpStartY, float popUpWidth, float popUpHeight)
 {
 	vector<GeometryClass::VertexType> vertices;

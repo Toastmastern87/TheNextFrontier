@@ -317,39 +317,13 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 		pickingRay = mMousePointer->GetPickingRay(XMFLOAT2(mouseX, mouseY), mScreenWidth, mScreenHeight, direct3D->GetProjectionMatrix(), mCamera->GetViewMatrix());
 		
 		mHeartOfGold->CheckRayIntersection(XMLoadFloat3(&mCamera->GetPosition()), pickingRay, mLeftMouseButtonClicked, mRightMouseButtonClicked);
-
-		ofstream fOut;
-
-		fOut.open("Debug.txt", ios::out | ios::app);
-
-		fOut << "mouseX: ";
-		fOut << mouseX;
-		fOut << "\r\n";
-		fOut << "mouseY: ";
-		fOut << mouseY;
-		fOut << "\r\n";
-		fOut << "\r\n";
-
-		fOut.close();
 	}
 
-	if (mHeartOfGold->IsTargeted() && mRightMouseButtonClicked)
+	if (mHeartOfGold->IsTargeted() && mRightMouseButtonClicked && !mHeartOfGold->mPopupActive)
 	{
-		ofstream fOut;
-
-		fOut.open("Debug.txt", ios::out | ios::app);
-
-		fOut << "mouseX: ";
-		fOut << mouseX;
-		fOut << "\r\n";
-		fOut << "mouseY: ";
-		fOut << mouseY;
-		fOut << "\r\n";
-		fOut << "\r\n";
-
-		fOut.close();
-
 		mGUI->AddBFSPopUpGUI(direct3D->GetDevice(), mouseX, (-1 * mouseY), 100.0f, 100.0f);
+
+		mHeartOfGold->mPopupActive = true;
 	}
 
 	result = Render(direct3D, shaderManager);

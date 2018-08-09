@@ -22,12 +22,14 @@ public:
 	GUIClass(const GUIClass&);
 	~GUIClass();
 
-	bool Initialize(ID3D11Device*, ID3D11DeviceContext*, int, int);
+	bool Initialize(ID3D11Device*, int, int);
 	void Shutdown();
 	bool Render(D3DClass*, ShaderManagerClass*, XMMATRIX, XMMATRIX, XMMATRIX);
 
+	void AddBFSPopUpGUI(ID3D11Device*, float, float, float, float);
+
 private:
-	bool InitializeBaseGUI(ID3D11Device*, ID3D11DeviceContext*, int, int);
+	bool InitializeBaseGUI(ID3D11Device*, int, int);
 	void ShutdownBuffers();
 	bool RenderGUI(D3DClass*, ShaderManagerClass*, XMMATRIX, XMMATRIX, XMMATRIX);
 

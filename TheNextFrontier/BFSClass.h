@@ -30,8 +30,9 @@ public:
 
 	TargetBoxClass* GetTargetBox();
 	XMFLOAT3* GetBoundingOrientBoxCorners();
-	bool IsPicked();
-	void CheckRayIntersection(XMVECTOR, XMVECTOR);
+	bool IsTargeted();
+	void CheckRayIntersection(XMVECTOR, XMVECTOR, bool, bool);
+	void Untarget();
 
 private:
 	bool InitializeBuffers(ID3D11Device*);
@@ -50,7 +51,7 @@ private:
 	ID3D11Resource *mTextureResource, *mNormalMapResource;
 	ID3D11ShaderResourceView *mTextureResourceView, *mNormalMapResourceView;
 
-	bool mPicked;
+	bool mTargeted;
 	TargetBoxClass* mTargetBox;
 	BoundingOrientedBox mBoundingOrientedBox;
 

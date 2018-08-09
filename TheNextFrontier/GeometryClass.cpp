@@ -116,15 +116,15 @@ vector<int> GeometryClass::GetCubeIndices()
 	return ret;
 }
 
-vector<GeometryClass::VertexType> GeometryClass::GetPlaneVertices(float width, float height, float startPosX, float startPosY)
+vector<GeometryClass::VertexType> GeometryClass::GetPlaneVertices(float startPosX, float startPosY, float width, float height)
 {
 	vector<VertexType> ret;
 
 	// The first XMFLOAT3 is the positions of the vertices and the second, XMFLOAT2 is the UV-coordinates
-	ret.push_back(VertexType(XMFLOAT3(startPosX, startPosY, 0.0f), XMFLOAT2(0.0f, 1.0f)));
-	ret.push_back(VertexType(XMFLOAT3(startPosX, (startPosY + height), 0.0f), XMFLOAT2(0.0f, 0.0f)));
-	ret.push_back(VertexType(XMFLOAT3((startPosX + width), (startPosY + height), 0.0f), XMFLOAT2(1.0f, 0.0f)));
-	ret.push_back(VertexType(XMFLOAT3((startPosX + width), startPosY, 0.0f), XMFLOAT2(1.0f, 1.0f)));
+	ret.push_back(VertexType(XMFLOAT3(startPosX, startPosY, 0.0f), XMFLOAT2(0.0f, 0.0f)));
+	ret.push_back(VertexType(XMFLOAT3((startPosX + width), (startPosY - height), 0.0f), XMFLOAT2(1.0f, 1.0f)));
+	ret.push_back(VertexType(XMFLOAT3(startPosX, (startPosY - height), 0.0f), XMFLOAT2(0.0f, 1.0f)));
+	ret.push_back(VertexType(XMFLOAT3((startPosX + width), startPosY, 0.0f), XMFLOAT2(1.0f, 0.0f)));
 
 	return ret;
 }

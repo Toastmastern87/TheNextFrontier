@@ -20,7 +20,7 @@ bool BFSClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceConte
 {
 	bool result;
 
-	mPicked = false;
+	mTargeted = false;
 
 	mPosition = startPosition;
 	mScale = scale;
@@ -310,12 +310,19 @@ TargetBoxClass* BFSClass::GetTargetBox()
 	return mTargetBox;
 }
 
-bool BFSClass::IsPicked() 
+bool BFSClass::IsTargeted() 
 {
-	return mPicked;
+	return mTargeted;
 }
 
-void BFSClass::CheckRayIntersection(XMVECTOR origin, XMVECTOR dir)
+void BFSClass::Untarget()
+{
+	mTargeted = false;
+
+	return;
+}
+
+void BFSClass::CheckRayIntersection(XMVECTOR origin, XMVECTOR dir, bool leftMouseButtonClicked, bool rightMouseButtonClicked)
 {
 	float dist;
 	XMFLOAT3 ori, di;
@@ -323,7 +330,7 @@ void BFSClass::CheckRayIntersection(XMVECTOR origin, XMVECTOR dir)
 	XMStoreFloat3(&ori, origin);
 	XMStoreFloat3(&di, dir);
 
-	mPicked = mBoundingOrientedBox.Intersects(origin, dir, dist);
+	mTargeted = mBoundingOrientedBox.Intersects(origin, dir, dist);
 
 	//ofstream fOut;
 

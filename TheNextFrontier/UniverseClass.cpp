@@ -23,6 +23,7 @@ UniverseClass::UniverseClass()
 	mRenderMars = true;
 
 	mLeftMouseButtonClicked = false;
+	mRightMouseButtonClicked = false;
 }
 
 UniverseClass::UniverseClass(const UniverseClass& other)
@@ -74,7 +75,7 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 		return false;
 	}
 
-	result = mGUI->Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight);
+	result = mGUI->Initialize(direct3D->GetDevice(), screenWidth, screenHeight);
 	if (!result)
 	{
 		MessageBox(hwnd, L"Could not initialize the Game GUI object", L"Error", MB_OK);
@@ -311,11 +312,44 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 		}
 	}
 
-	if (mLeftMouseButtonClicked) 
+	if (mLeftMouseButtonClicked || mRightMouseButtonClicked) 
 	{
 		pickingRay = mMousePointer->GetPickingRay(XMFLOAT2(mouseX, mouseY), mScreenWidth, mScreenHeight, direct3D->GetProjectionMatrix(), mCamera->GetViewMatrix());
 		
-		mHeartOfGold->CheckRayIntersection(XMLoadFloat3(&mCamera->GetPosition()), pickingRay);
+		mHeartOfGold->CheckRayIntersection(XMLoadFloat3(&mCamera->GetPosition()), pickingRay, mLeftMouseButtonClicked, mRightMouseButtonClicked);
+
+		ofstream fOut;
+
+		fOut.open("Debug.txt", ios::out | ios::app);
+
+		fOut << "mouseX: ";
+		fOut << mouseX;
+		fOut << "\r\n";
+		fOut << "mouseY: ";
+		fOut << mouseY;
+		fOut << "\r\n";
+		fOut << "\r\n";
+
+		fOut.close();
+	}
+
+	if (mHeartOfGold->IsTargeted() && mRightMouseButtonClicked)
+	{
+		ofstream fOut;
+
+		fOut.open("Debug.txt", ios::out | ios::app);
+
+		fOut << "mouseX: ";
+		fOut << mouseX;
+		fOut << "\r\n";
+		fOut << "mouseY: ";
+		fOut << mouseY;
+		fOut << "\r\n";
+		fOut << "\r\n";
+
+		fOut.close();
+
+		mGUI->AddBFSPopUpGUI(direct3D->GetDevice(), mouseX, (-1 * mouseY), 100.0f, 100.0f);
 	}
 
 	result = Render(direct3D, shaderManager);
@@ -441,6 +475,15 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime, D3DC
 		mLeftMouseButtonClicked = false;
 	}
 
+	if (input->IsRightMouseButtonClicked())
+	{
+		mRightMouseButtonClicked = true;
+	}
+	else
+	{
+		mRightMouseButtonClicked = false;
+	}
+
 	return;
 }
 
@@ -482,7 +525,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 		return false;
 	}
 
-	if (mHeartOfGold->IsPicked()) 
+	if (mHeartOfGold->IsTargeted())
 	{
 		direct3D->EnableAlphaBlending();
 

@@ -1,4 +1,13 @@
-﻿  GeometryClass.cpp
+﻿  GUIClass.cpp
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\guiclass.h(7): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\guiclass.cpp(66): warning C4267: 'argument': conversion from 'size_t' to 'unsigned long', possible loss of data
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\guiclass.cpp(69): warning C4267: 'argument': conversion from 'size_t' to 'unsigned long', possible loss of data
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\guiclass.cpp(72): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\guiclass.cpp(56): warning C4101: 'mappedResource': unreferenced local variable
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\guiclass.cpp(208): warning C4267: 'argument': conversion from 'size_t' to 'unsigned long', possible loss of data
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\guiclass.cpp(211): warning C4267: 'argument': conversion from 'size_t' to 'unsigned long', possible loss of data
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\guiclass.cpp(214): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\guiclass.cpp(199): warning C4101: 'mappedResource': unreferenced local variable
   TheNextFrontier.vcxproj -> C:\Users\JOKA8837\OneDrive\C++ Projects\TheNextFrontier\TheNextFrontier\x64\Debug\TheNextFrontier.exe
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\types.h(125): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\types.h(143): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
@@ -17,7 +26,7 @@ c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\mesh.h(388): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\mesh.h(388): warning C26495: Variable 'aiAnimMesh::mColors' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\mesh.h(647): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\mesh.h(647): warning C26495: Variable 'aiMesh::mColors' is uninitialized. Always initialize a member variable (type.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\mesh.h(647): warning C26495: Variable 'aiMesh::mTextureCoords' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\light.h(239): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\camera.h(176): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\material.h(485): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
@@ -34,11 +43,11 @@ c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\metadata.h(130): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\objloaderclass.h(34): warning C26495: Variable 'ObjLoaderClass::VertexType::normal' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\geometryclass.h(22): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\geometryclass.h(22): warning C26495: Variable 'GeometryClass::VertexType::uv' is uninitialized. Always initialize a member variable (type.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\geometryclass.h(22): warning C26495: Variable 'GeometryClass::VertexType::pos' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\bfsclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\bfsclass.cpp(3): warning C26495: Variable 'BFSClass::mIndexCount' is uninitialized. Always initialize a member variable (type.6).
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\bfsclass.cpp(11): warning C26495: Variable 'BFSClass::mIndexBuffer' is uninitialized. Always initialize a member variable (type.6).
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\bfsclass.cpp(379): warning C6387: 'retCorners' could be '0':  this does not adhere to the specification for the function 'DirectX::BoundingOrientedBox::GetCorners'. 
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\bfsclass.cpp(11): warning C26495: Variable 'BFSClass::mIndexCount' is uninitialized. Always initialize a member variable (type.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\bfsclass.cpp(386): warning C6387: 'retCorners' could be '0':  this does not adhere to the specification for the function 'DirectX::BoundingOrientedBox::GetCorners'. 
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\quaternion.h(62): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\color4.h(61): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\vector3.h(69): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
@@ -121,8 +130,8 @@ c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextf
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\starboxshaderclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\starboxshaderclass.cpp(12): warning C26495: Variable 'StarBoxShaderClass::mVertexShader' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\systemclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\systemclass.cpp(3): warning C26495: Variable 'SystemClass::mHInstance' is uninitialized. Always initialize a member variable (type.6).
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\systemclass.cpp(8): warning C26495: Variable 'SystemClass::mApplication' is uninitialized. Always initialize a member variable (type.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\systemclass.cpp(3): warning C26495: Variable 'SystemClass::mApplicationName' is uninitialized. Always initialize a member variable (type.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\systemclass.cpp(8): warning C26495: Variable 'SystemClass::mApplicationName' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\textclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\textclass.cpp(3): warning C26495: Variable 'TextClass::mScreenWidth' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\textclass.cpp(11): warning C26495: Variable 'TextClass::mVertexBuffer' is uninitialized. Always initialize a member variable (type.6).
@@ -150,4 +159,4 @@ c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextf
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\uiclass.cpp(566): warning C6054: String 'tempString' might not be zero-terminated.
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\universeclass.cpp(3): warning C26495: Variable 'UniverseClass::mScreenDepth' is uninitialized. Always initialize a member variable (type.6).
 c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\universeclass.cpp(3): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
-c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\universeclass.cpp(28): warning C26495: Variable 'UniverseClass::mUI' is uninitialized. Always initialize a member variable (type.6).
+c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\universeclass.cpp(29): warning C26495: Variable 'UniverseClass::mUI' is uninitialized. Always initialize a member variable (type.6).

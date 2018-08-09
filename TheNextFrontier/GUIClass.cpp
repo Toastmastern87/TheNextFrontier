@@ -12,11 +12,11 @@ GUIClass::~GUIClass()
 {
 }
 
-bool GUIClass::Initialize(ID3D11Device *device, ID3D11DeviceContext *deviceContext, int screenWidth, int screenHeight)
+bool GUIClass::Initialize(ID3D11Device *device, int screenWidth, int screenHeight)
 {
 	bool result;
 
-	result = InitializeBaseGUI(device, deviceContext, screenWidth, screenHeight);
+	result = InitializeBaseGUI(device, screenWidth, screenHeight);
 	if (!result)
 	{
 		return false;
@@ -45,7 +45,7 @@ bool GUIClass::Render(D3DClass *direct3D, ShaderManagerClass *shaderManager, XMM
 	return true;
 }
 
-bool GUIClass::InitializeBaseGUI(ID3D11Device *device, ID3D11DeviceContext *deviceContext, int screenWidth, int screenHeight)
+bool GUIClass::InitializeBaseGUI(ID3D11Device *device, int screenWidth, int screenHeight)
 {
 	vector<GeometryClass::VertexType> vertices;
 	vector<int> indices;
@@ -62,7 +62,7 @@ bool GUIClass::InitializeBaseGUI(ID3D11Device *device, ID3D11DeviceContext *devi
 		return false;
 	}
 
-	vertices = GeometryClass::GetPlaneVertices(272.0f, 63.0f, ((screenWidth / 2.0f) - 272.0f), ((screenHeight / 2.0f) - 63.0f));
+	vertices = GeometryClass::GetPlaneVertices(((screenWidth / 2.0f) - 272.0f), ((screenHeight / 2.0f)), 272.0f, 63.0f);
 	mVertexCounts.push_back(vertices.size());
 
 	indices = GeometryClass::GetPlaneIndices();
@@ -105,24 +105,6 @@ bool GUIClass::InitializeBaseGUI(ID3D11Device *device, ID3D11DeviceContext *devi
 	{
 		return false;
 	}
-
-	//vertices[0].position = XMFLOAT3(((screenWidth / 2) - 272), (screenHeight / 2), 0.0f);
-	//vertices[0].texture = XMFLOAT2(0.0f, 0.0f);
-
-	//vertices[1].position = XMFLOAT3((screenWidth / 2), ((screenHeight / 2) - 63), 0.0f);
-	//vertices[1].texture = XMFLOAT2(1.0f, 1.0f);
-
-	//vertices[2].position = XMFLOAT3(((screenWidth / 2) - 272), ((screenHeight / 2) - 63), 0.0f);
-	//vertices[2].texture = XMFLOAT2(0.0f, 1.0f);
-
-	//vertices[3].position = XMFLOAT3((screenWidth / 2), (screenHeight / 2), 0.0f);
-	//vertices[3].texture = XMFLOAT2(1.0f, 0.0f);
-
-	//hResult = deviceContext->Map(mVertexBuffers[mVertexBuffers.size() - 1], 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
-	//if (FAILED(hResult))
-	//{
-	//	return false;
-	//}
 
 	return true;
 }
@@ -204,4 +186,67 @@ bool GUIClass::LoadPopUpBaseTexture(ID3D11Device* device)
 	}
 
 	return true;
+}
+
+void GUIClass::AddBFSPopUpGUI(ID3D11Device *device, float popUpStartPosX, float popUpStartY, float popUpWidth, float popUpHeight)
+{
+	vector<GeometryClass::VertexType> vertices;
+	vector<int> indices;
+	D3D11_BUFFER_DESC vertexBufferDesc, indexBufferDesc;
+	D3D11_SUBRESOURCE_DATA vertexData, indexData;
+	HRESULT hResult;
+	bool result;
+	D3D11_MAPPED_SUBRESOURCE mappedResource;
+
+	result = LoadPopUpBaseTexture(device);
+	if (!result)
+	{
+		return;
+	}
+
+	vertices = GeometryClass::GetPlaneVertices(popUpStartPosX, popUpStartY, popUpWidth, popUpHeight);
+	mVertexCounts.push_back(vertices.size());
+
+	indices = GeometryClass::GetPlaneIndices();
+	mIndexCounts.push_back(indices.size());
+
+	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
+	vertexBufferDesc.ByteWidth = sizeof(GeometryClass::VertexType) * vertices.size();
+	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	vertexBufferDesc.CPUAccessFlags = 0;
+	vertexBufferDesc.MiscFlags = 0;
+	vertexBufferDesc.StructureByteStride = 0;
+
+	vertexData.pSysMem = &vertices[0];
+	vertexData.SysMemPitch = 0;
+	vertexData.SysMemSlicePitch = 0;
+
+	mVertexBuffers.push_back(nullptr);
+
+	hResult = device->CreateBuffer(&vertexBufferDesc, &vertexData, &mVertexBuffers[mVertexBuffers.size() - 1]);
+	if (FAILED(hResult))
+	{
+		return;
+	}
+
+	indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
+	indexBufferDesc.ByteWidth = sizeof(unsigned long) * mIndexCounts[mIndexCounts.size() - 1];
+	indexBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
+	indexBufferDesc.CPUAccessFlags = 0;
+	indexBufferDesc.MiscFlags = 0;
+	indexBufferDesc.StructureByteStride = 0;
+
+	indexData.pSysMem = &indices[0];
+	indexData.SysMemPitch = 0;
+	indexData.SysMemSlicePitch = 0;
+
+	mIndexBuffers.push_back(nullptr);
+
+	hResult = device->CreateBuffer(&indexBufferDesc, &indexData, &mIndexBuffers[mIndexCounts.size() - 1]);
+	if (FAILED(hResult))
+	{
+		return;
+	}
+
+	return;
 }

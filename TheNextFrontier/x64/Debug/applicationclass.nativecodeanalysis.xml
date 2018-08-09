@@ -22,7 +22,7 @@
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GeometryClass::VertexType::pos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'GeometryClass::VertexType::uv' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
     <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>22</FUNCLINE>
@@ -36,7 +36,7 @@
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GeometryClass::VertexType::uv' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'GeometryClass::VertexType::pos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
     <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>22</FUNCLINE>
@@ -484,7 +484,7 @@
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiMesh::mNumUVComponents' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'aiMesh::mTextureCoords' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiMesh::{ctor}</FUNCTION>
     <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
     <FUNCLINE>647</FUNCLINE>
@@ -498,7 +498,7 @@
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiMesh::mTextureCoords' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'aiMesh::mNumUVComponents' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiMesh::{ctor}</FUNCTION>
     <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
     <FUNCLINE>647</FUNCLINE>
@@ -736,34 +736,6 @@
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::tangent' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
-    <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
-    <FUNCLINE>34</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>objloaderclass.h</FILENAME>
-      <LINE>34</LINE>
-      <COLUMN>2</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::biTangent' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
-    <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
-    <FUNCLINE>34</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>objloaderclass.h</FILENAME>
-      <LINE>34</LINE>
-      <COLUMN>2</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::normal' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
     <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
@@ -779,6 +751,34 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::uv' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
+    <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
+    <FUNCLINE>34</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>objloaderclass.h</FILENAME>
+      <LINE>34</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::tangent' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
+    <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
+    <FUNCLINE>34</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>objloaderclass.h</FILENAME>
+      <LINE>34</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::biTangent' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
     <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
     <FUNCLINE>34</FUNCLINE>

@@ -449,7 +449,7 @@ bool InputClass::IsLeftMouseButtonClicked()
 
 bool InputClass::IsRightMouseButtonClicked()
 {
-	if (mMouseState.rgbButtons[3] & 0x80)
+	if (mMouseState.rgbButtons[1] & 0x80)
 	{
 		if (mRightMouseButtonReleased)
 		{

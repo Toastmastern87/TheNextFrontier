@@ -274,7 +274,7 @@
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiMesh::mColors' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'aiMesh::mTextureCoords' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiMesh::{ctor}</FUNCTION>
     <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
     <FUNCLINE>647</FUNCLINE>
@@ -302,7 +302,7 @@
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiMesh::mTextureCoords' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'aiMesh::mColors' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiMesh::{ctor}</FUNCTION>
     <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
     <FUNCLINE>647</FUNCLINE>
@@ -596,7 +596,7 @@
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GeometryClass::VertexType::uv' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'GeometryClass::VertexType::pos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
     <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>22</FUNCLINE>
@@ -610,7 +610,7 @@
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GeometryClass::VertexType::pos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'GeometryClass::VertexType::uv' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
     <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>22</FUNCLINE>
@@ -792,7 +792,7 @@
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'BFSClass::mPicked' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'BFSClass::mTargeted' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>BFSClass::{ctor}</FUNCTION>
     <DECORATED>??0BFSClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -834,7 +834,7 @@
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'BFSClass::mIndexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'BFSClass::mIndexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>BFSClass::{ctor}</FUNCTION>
     <DECORATED>??0BFSClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>11</FUNCLINE>
@@ -848,7 +848,7 @@
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'BFSClass::mIndexCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'BFSClass::mIndexBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>BFSClass::{ctor}</FUNCTION>
     <DECORATED>??0BFSClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>11</FUNCLINE>
@@ -1016,7 +1016,7 @@
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'BFSClass::mPicked' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'BFSClass::mTargeted' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>BFSClass::{ctor}</FUNCTION>
     <DECORATED>??0BFSClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>11</FUNCLINE>
@@ -1068,14 +1068,14 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>bfsclass.cpp</FILENAME>
-      <LINE>379</LINE>
+      <LINE>386</LINE>
       <COLUMN>32</COLUMN>
     </SFA>
     <DEFECTCODE>6387</DEFECTCODE>
     <DESCRIPTION>'retCorners' could be '0':  this does not adhere to the specification for the function 'DirectX::BoundingOrientedBox::GetCorners'. </DESCRIPTION>
     <FUNCTION>BFSClass::GetBoundingOrientBoxCorners</FUNCTION>
     <DECORATED>?GetBoundingOrientBoxCorners@BFSClass@@QEAAPEAUXMFLOAT3@DirectX@@XZ</DECORATED>
-    <FUNCLINE>376</FUNCLINE>
+    <FUNCLINE>383</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>4</RANK>
     <CATEGORY>
@@ -1085,7 +1085,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>378</LINE>
+        <LINE>385</LINE>
         <COLUMN>10</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -1097,7 +1097,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>379</LINE>
+        <LINE>386</LINE>
         <COLUMN>32</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -1109,7 +1109,7 @@
       <SFA>
         <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
         <FILENAME>bfsclass.cpp</FILENAME>
-        <LINE>379</LINE>
+        <LINE>386</LINE>
         <COLUMN>32</COLUMN>
         <KEYEVENT>
           <ID>3</ID>

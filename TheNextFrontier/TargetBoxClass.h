@@ -32,7 +32,7 @@ private:
 
 private:
 	ID3D11Buffer * mVertexBuffer, *mIndexBuffer;
-	vector<GeometryClass::VertexType3D> mVertices;
+	vector<GeometryClass::VertexType> mVertices;
 	vector<int> mIndices;
 
 	ID3D11Resource *mTextureResource;

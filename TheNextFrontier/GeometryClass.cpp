@@ -72,25 +72,25 @@ vector<int> GeometryClass::GetIcosadronIndices()
 	return ret;
 }
 
-vector<GeometryClass::VertexType3D> GeometryClass::GetCubeVertices(float scale)
+vector<GeometryClass::VertexType> GeometryClass::GetCubeVertices(float scale)
 {
-	vector<VertexType3D> ret;
+	vector<VertexType> ret;
 
 	// The first XMFLOAT3 is the positions of the vertices and the second, XMFLOAT2 is the UV-coordinates
-	ret.push_back(VertexType3D(XMFLOAT3(-scale, scale, -scale), XMFLOAT2(0.0f, 0.25f)));
-	ret.push_back(VertexType3D(XMFLOAT3(-scale, -scale, -scale), XMFLOAT2(0.25f, 0.25f)));
-	ret.push_back(VertexType3D(XMFLOAT3(scale, scale, -scale), XMFLOAT2(0.0f, 0.5f)));
-	ret.push_back(VertexType3D(XMFLOAT3(scale, -scale, -scale), XMFLOAT2(0.25f, 0.5f)));
-	ret.push_back(VertexType3D(XMFLOAT3(-scale, -scale, scale), XMFLOAT2(0.5f, 0.25f)));
-	ret.push_back(VertexType3D(XMFLOAT3(scale, -scale, scale), XMFLOAT2(0.5f, 0.5f)));
-	ret.push_back(VertexType3D(XMFLOAT3(-scale, scale, scale), XMFLOAT2(0.75f, 0.25f)));
-	ret.push_back(VertexType3D(XMFLOAT3(scale, scale, scale), XMFLOAT2(0.75f, 0.5f)));
-	ret.push_back(VertexType3D(XMFLOAT3(-scale, scale, -scale), XMFLOAT2(1.0f, 0.25f)));
-	ret.push_back(VertexType3D(XMFLOAT3(scale, scale, -scale), XMFLOAT2(1.0f, 0.5f)));
-	ret.push_back(VertexType3D(XMFLOAT3(-scale, scale, -scale), XMFLOAT2(0.25f, 0.0f)));
-	ret.push_back(VertexType3D(XMFLOAT3(-scale, scale, scale), XMFLOAT2(0.5f, 0.0f)));
-	ret.push_back(VertexType3D(XMFLOAT3(scale, scale, -scale), XMFLOAT2(0.25f, 0.75f)));
-	ret.push_back(VertexType3D(XMFLOAT3(scale, scale, scale), XMFLOAT2(0.5f, 0.75f)));
+	ret.push_back(VertexType(XMFLOAT3(-scale, scale, -scale), XMFLOAT2(0.0f, 0.25f)));
+	ret.push_back(VertexType(XMFLOAT3(-scale, -scale, -scale), XMFLOAT2(0.25f, 0.25f)));
+	ret.push_back(VertexType(XMFLOAT3(scale, scale, -scale), XMFLOAT2(0.0f, 0.5f)));
+	ret.push_back(VertexType(XMFLOAT3(scale, -scale, -scale), XMFLOAT2(0.25f, 0.5f)));
+	ret.push_back(VertexType(XMFLOAT3(-scale, -scale, scale), XMFLOAT2(0.5f, 0.25f)));
+	ret.push_back(VertexType(XMFLOAT3(scale, -scale, scale), XMFLOAT2(0.5f, 0.5f)));
+	ret.push_back(VertexType(XMFLOAT3(-scale, scale, scale), XMFLOAT2(0.75f, 0.25f)));
+	ret.push_back(VertexType(XMFLOAT3(scale, scale, scale), XMFLOAT2(0.75f, 0.5f)));
+	ret.push_back(VertexType(XMFLOAT3(-scale, scale, -scale), XMFLOAT2(1.0f, 0.25f)));
+	ret.push_back(VertexType(XMFLOAT3(scale, scale, -scale), XMFLOAT2(1.0f, 0.5f)));
+	ret.push_back(VertexType(XMFLOAT3(-scale, scale, -scale), XMFLOAT2(0.25f, 0.0f)));
+	ret.push_back(VertexType(XMFLOAT3(-scale, scale, scale), XMFLOAT2(0.5f, 0.0f)));
+	ret.push_back(VertexType(XMFLOAT3(scale, scale, -scale), XMFLOAT2(0.25f, 0.75f)));
+	ret.push_back(VertexType(XMFLOAT3(scale, scale, scale), XMFLOAT2(0.5f, 0.75f)));
 
 	return ret;
 }
@@ -111,6 +111,30 @@ vector<int> GeometryClass::GetCubeIndices()
 			1, 4, 11,
 			3, 12, 5,
 			5, 12, 13
+	};
+
+	return ret;
+}
+
+vector<GeometryClass::VertexType> GeometryClass::GetPlaneVertices(float width, float height, float startPosX, float startPosY)
+{
+	vector<VertexType> ret;
+
+	// The first XMFLOAT3 is the positions of the vertices and the second, XMFLOAT2 is the UV-coordinates
+	ret.push_back(VertexType(XMFLOAT3(startPosX, startPosY, 0.0f), XMFLOAT2(0.0f, 1.0f)));
+	ret.push_back(VertexType(XMFLOAT3(startPosX, (startPosY + height), 0.0f), XMFLOAT2(0.0f, 0.0f)));
+	ret.push_back(VertexType(XMFLOAT3((startPosX + width), (startPosY + height), 0.0f), XMFLOAT2(1.0f, 0.0f)));
+	ret.push_back(VertexType(XMFLOAT3((startPosX + width), startPosY, 0.0f), XMFLOAT2(1.0f, 1.0f)));
+
+	return ret;
+}
+
+vector<int> GeometryClass::GetPlaneIndices()
+{
+	vector<int> ret
+	{
+		1, 2, 0,
+		1, 3, 2,
 	};
 
 	return ret;

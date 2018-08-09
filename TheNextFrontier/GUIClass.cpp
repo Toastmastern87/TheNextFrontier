@@ -47,8 +47,8 @@ bool GUIClass::Render(D3DClass *direct3D, ShaderManagerClass *shaderManager, XMM
 
 bool GUIClass::InitializeBaseGUI(ID3D11Device *device, ID3D11DeviceContext *deviceContext, int screenWidth, int screenHeight)
 {
-	VertexType *vertices, *verticesPtr;
-	unsigned long *indices;
+	vector<GeometryClass::VertexType> vertices;
+	vector<int> indices;
 	D3D11_BUFFER_DESC vertexBufferDesc, indexBufferDesc;
 	D3D11_SUBRESOURCE_DATA vertexData, indexData;
 	HRESULT hResult;
@@ -62,35 +62,20 @@ bool GUIClass::InitializeBaseGUI(ID3D11Device *device, ID3D11DeviceContext *devi
 		return false;
 	}
 
-	mVertexCounts.push_back(4);
-	mIndexCounts.push_back(6);
+	vertices = GeometryClass::GetPlaneVertices(272.0f, 63.0f, ((screenWidth / 2.0f) - 272.0f), ((screenHeight / 2.0f) - 63.0f));
+	mVertexCounts.push_back(vertices.size());
 
-	vertices = new VertexType[mVertexCounts[mVertexCounts.size() - 1]];
-	if (!vertices)
-	{
-		return false;
-	}
+	indices = GeometryClass::GetPlaneIndices();
+	mIndexCounts.push_back(indices.size());
 
-	indices = new unsigned long[mIndexCounts[mIndexCounts.size() - 1]];
-	if (!indices)
-	{
-		return false;
-	}
-
-	memset(vertices, 0, (sizeof(VertexType) * mVertexCounts[mVertexCounts.size() - 1]));
-
-	indices[0] = 1;
-	indices[1] = 2;	indices[2] = 0;	indices[3] = 1;	indices[4] = 3;
-	indices[5] = 2;
-
-	vertexBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
-	vertexBufferDesc.ByteWidth = sizeof(VertexType) * mVertexCounts[mVertexCounts.size() - 1];
+	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
+	vertexBufferDesc.ByteWidth = sizeof(GeometryClass::VertexType) * vertices.size();
 	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-	vertexBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	vertexBufferDesc.CPUAccessFlags = 0;
 	vertexBufferDesc.MiscFlags = 0;
 	vertexBufferDesc.StructureByteStride = 0;
 
-	vertexData.pSysMem = vertices;
+	vertexData.pSysMem = &vertices[0];
 	vertexData.SysMemPitch = 0;
 	vertexData.SysMemSlicePitch = 0;
 
@@ -109,7 +94,7 @@ bool GUIClass::InitializeBaseGUI(ID3D11Device *device, ID3D11DeviceContext *devi
 	indexBufferDesc.MiscFlags = 0;
 	indexBufferDesc.StructureByteStride = 0;
 
-	indexData.pSysMem = indices;
+	indexData.pSysMem = &indices[0];
 	indexData.SysMemPitch = 0;
 	indexData.SysMemSlicePitch = 0;
 
@@ -121,37 +106,23 @@ bool GUIClass::InitializeBaseGUI(ID3D11Device *device, ID3D11DeviceContext *devi
 		return false;
 	}
 
-	memset(vertices, 0, (sizeof(VertexType) * mVertexCounts[mVertexCounts.size() - 1]));
+	//vertices[0].position = XMFLOAT3(((screenWidth / 2) - 272), (screenHeight / 2), 0.0f);
+	//vertices[0].texture = XMFLOAT2(0.0f, 0.0f);
 
-	vertices[0].position = XMFLOAT3(((screenWidth / 2) - 272), (screenHeight / 2), 0.0f);
-	vertices[0].texture = XMFLOAT2(0.0f, 0.0f);
+	//vertices[1].position = XMFLOAT3((screenWidth / 2), ((screenHeight / 2) - 63), 0.0f);
+	//vertices[1].texture = XMFLOAT2(1.0f, 1.0f);
 
-	vertices[1].position = XMFLOAT3((screenWidth / 2), ((screenHeight / 2) - 63), 0.0f);
-	vertices[1].texture = XMFLOAT2(1.0f, 1.0f);
+	//vertices[2].position = XMFLOAT3(((screenWidth / 2) - 272), ((screenHeight / 2) - 63), 0.0f);
+	//vertices[2].texture = XMFLOAT2(0.0f, 1.0f);
 
-	vertices[2].position = XMFLOAT3(((screenWidth / 2) - 272), ((screenHeight / 2) - 63), 0.0f);
-	vertices[2].texture = XMFLOAT2(0.0f, 1.0f);
+	//vertices[3].position = XMFLOAT3((screenWidth / 2), (screenHeight / 2), 0.0f);
+	//vertices[3].texture = XMFLOAT2(1.0f, 0.0f);
 
-	vertices[3].position = XMFLOAT3((screenWidth / 2), (screenHeight / 2), 0.0f);
-	vertices[3].texture = XMFLOAT2(1.0f, 0.0f);
-
-	hResult = deviceContext->Map(mVertexBuffers[mVertexBuffers.size() - 1], 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
-	if (FAILED(hResult))
-	{
-		return false;
-	}
-
-	verticesPtr = (VertexType*)mappedResource.pData;
-
-	memcpy(verticesPtr, (void*)vertices, (sizeof(VertexType) * mVertexCounts[mVertexCounts.size() - 1]));
-
-	deviceContext->Unmap(mVertexBuffers[mVertexBuffers.size() - 1], 0);
-
-	delete[] vertices;
-	vertices = 0;
-
-	delete[] indices;
-	indices = 0;
+	//hResult = deviceContext->Map(mVertexBuffers[mVertexBuffers.size() - 1], 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
+	//if (FAILED(hResult))
+	//{
+	//	return false;
+	//}
 
 	return true;
 }

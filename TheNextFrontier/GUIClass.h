@@ -4,6 +4,7 @@
 #include <WICTextureLoader.h>
 #include "ShaderManagerClass.h"
 #include <vector>
+#include "GeometryClass.h";
 using namespace std;
 
 class GUIClass

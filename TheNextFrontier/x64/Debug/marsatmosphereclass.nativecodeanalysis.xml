@@ -9,8 +9,8 @@
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>GeometryClass::VertexType3D::{ctor}</FUNCTION>
-    <DECORATED>??0VertexType3D@GeometryClass@@QEAA@XZ</DECORATED>
+    <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
+    <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>22</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
@@ -22,9 +22,9 @@
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GeometryClass::VertexType3D::uv' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>GeometryClass::VertexType3D::{ctor}</FUNCTION>
-    <DECORATED>??0VertexType3D@GeometryClass@@QEAA@XZ</DECORATED>
+    <DESCRIPTION>Variable 'GeometryClass::VertexType::pos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
+    <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>22</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
@@ -36,9 +36,9 @@
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GeometryClass::VertexType3D::pos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>GeometryClass::VertexType3D::{ctor}</FUNCTION>
-    <DECORATED>??0VertexType3D@GeometryClass@@QEAA@XZ</DECORATED>
+    <DESCRIPTION>Variable 'GeometryClass::VertexType::uv' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
+    <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>22</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
@@ -190,7 +190,7 @@
       <COLUMN>21</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsAtmosphereClass::mMarsRadius' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'MarsAtmosphereClass::mAtmosphereHeight' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsAtmosphereClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsAtmosphereClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>12</FUNCLINE>
@@ -204,7 +204,7 @@
       <COLUMN>21</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsAtmosphereClass::mAtmosphereHeight' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'MarsAtmosphereClass::mMarsRadius' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsAtmosphereClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsAtmosphereClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>12</FUNCLINE>

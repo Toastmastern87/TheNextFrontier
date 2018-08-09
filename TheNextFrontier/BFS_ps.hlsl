@@ -21,6 +21,11 @@ cbuffer LightCalculations
 float4 BFSPixelShader(PixelInputType input) : SV_TARGET
 {
 	float4 finalColor;
+	float lightIntensity, lightColor;
+
+	//lightIntensity = saturate(dot(normal, normalize(mul(lightDirection, rotationMatrix))));
+
+	//lightColor = saturate(diffuseColor * lightIntensity);
 
 	finalColor = BFSTexture.Sample(sampleType, input.tex);
 

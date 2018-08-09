@@ -9,8 +9,8 @@
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>GeometryClass::VertexType3D::{ctor}</FUNCTION>
-    <DECORATED>??0VertexType3D@GeometryClass@@QEAA@XZ</DECORATED>
+    <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
+    <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>22</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
@@ -22,9 +22,9 @@
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GeometryClass::VertexType3D::pos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>GeometryClass::VertexType3D::{ctor}</FUNCTION>
-    <DECORATED>??0VertexType3D@GeometryClass@@QEAA@XZ</DECORATED>
+    <DESCRIPTION>Variable 'GeometryClass::VertexType::pos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
+    <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>22</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
@@ -36,9 +36,9 @@
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'GeometryClass::VertexType3D::uv' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>GeometryClass::VertexType3D::{ctor}</FUNCTION>
-    <DECORATED>??0VertexType3D@GeometryClass@@QEAA@XZ</DECORATED>
+    <DESCRIPTION>Variable 'GeometryClass::VertexType::uv' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GeometryClass::VertexType::{ctor}</FUNCTION>
+    <DECORATED>??0VertexType@GeometryClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>22</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
@@ -484,20 +484,6 @@
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiMesh::mColors' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>aiMesh::{ctor}</FUNCTION>
-    <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
-    <FUNCLINE>647</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
-      <FILENAME>mesh.h</FILENAME>
-      <LINE>647</LINE>
-      <COLUMN>4</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiMesh::mTextureCoords' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiMesh::{ctor}</FUNCTION>
     <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
@@ -513,6 +499,20 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiMesh::mNumUVComponents' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>aiMesh::{ctor}</FUNCTION>
+    <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
+    <FUNCLINE>647</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
+      <FILENAME>mesh.h</FILENAME>
+      <LINE>647</LINE>
+      <COLUMN>4</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'aiMesh::mColors' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiMesh::{ctor}</FUNCTION>
     <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
     <FUNCLINE>647</FUNCLINE>
@@ -624,7 +624,7 @@
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiMeshKey::mValue' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'aiMeshKey::mTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiMeshKey::{ctor}</FUNCTION>
     <DECORATED>??0aiMeshKey@@QEAA@XZ</DECORATED>
     <FUNCLINE>164</FUNCLINE>
@@ -638,7 +638,7 @@
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiMeshKey::mTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'aiMeshKey::mValue' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiMeshKey::{ctor}</FUNCTION>
     <DECORATED>??0aiMeshKey@@QEAA@XZ</DECORATED>
     <FUNCLINE>164</FUNCLINE>
@@ -736,34 +736,6 @@
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::tangent' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
-    <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
-    <FUNCLINE>34</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>objloaderclass.h</FILENAME>
-      <LINE>34</LINE>
-      <COLUMN>2</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::biTangent' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
-    <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
-    <FUNCLINE>34</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>objloaderclass.h</FILENAME>
-      <LINE>34</LINE>
-      <COLUMN>2</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::normal' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
     <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
@@ -779,6 +751,34 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::uv' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
+    <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
+    <FUNCLINE>34</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>objloaderclass.h</FILENAME>
+      <LINE>34</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::tangent' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
+    <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
+    <FUNCLINE>34</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>objloaderclass.h</FILENAME>
+      <LINE>34</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::biTangent' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
     <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
     <FUNCLINE>34</FUNCLINE>
@@ -806,7 +806,7 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'SystemClass::mApplicationName' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'SystemClass::mHInstance' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -820,7 +820,7 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'SystemClass::mHInstance' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'SystemClass::mApplicationName' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -838,48 +838,6 @@
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>systemclass.cpp</FILENAME>
-      <LINE>8</LINE>
-      <COLUMN>13</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'SystemClass::mApplicationName' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>SystemClass::{ctor}</FUNCTION>
-    <DECORATED>??0SystemClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>8</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>systemclass.cpp</FILENAME>
-      <LINE>8</LINE>
-      <COLUMN>13</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'SystemClass::mHInstance' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>SystemClass::{ctor}</FUNCTION>
-    <DECORATED>??0SystemClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>8</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>systemclass.cpp</FILENAME>
-      <LINE>8</LINE>
-      <COLUMN>13</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'SystemClass::mHWND' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>SystemClass::{ctor}</FUNCTION>
-    <DECORATED>??0SystemClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>8</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
@@ -891,6 +849,48 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'SystemClass::mApplication' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>SystemClass::{ctor}</FUNCTION>
+    <DECORATED>??0SystemClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>8</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>systemclass.cpp</FILENAME>
+      <LINE>8</LINE>
+      <COLUMN>13</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'SystemClass::mHInstance' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>SystemClass::{ctor}</FUNCTION>
+    <DECORATED>??0SystemClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>8</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>systemclass.cpp</FILENAME>
+      <LINE>8</LINE>
+      <COLUMN>13</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'SystemClass::mApplicationName' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>SystemClass::{ctor}</FUNCTION>
+    <DECORATED>??0SystemClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>8</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>systemclass.cpp</FILENAME>
+      <LINE>8</LINE>
+      <COLUMN>13</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'SystemClass::mHWND' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>8</FUNCLINE>

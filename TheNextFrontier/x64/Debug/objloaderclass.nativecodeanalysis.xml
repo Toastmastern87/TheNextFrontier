@@ -2,576 +2,576 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>types.h</FILENAME>
-      <LINE>123</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>125</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiPlane::{ctor}</FUNCTION>
     <DECORATED>??0aiPlane@@QEAA@XZ</DECORATED>
-    <FUNCLINE>123</FUNCLINE>
+    <FUNCLINE>125</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>types.h</FILENAME>
-      <LINE>141</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>143</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiRay::{ctor}</FUNCTION>
     <DECORATED>??0aiRay@@QEAA@XZ</DECORATED>
-    <FUNCLINE>141</FUNCLINE>
+    <FUNCLINE>143</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>types.h</FILENAME>
-      <LINE>159</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>161</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiColor3D::{ctor}</FUNCTION>
     <DECORATED>??0aiColor3D@@QEAA@XZ</DECORATED>
-    <FUNCLINE>159</FUNCLINE>
+    <FUNCLINE>161</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>types.h</FILENAME>
-      <LINE>242</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>256</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiString::data' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiString::{ctor}</FUNCTION>
     <DECORATED>??0aiString@@QEAA@XZ</DECORATED>
-    <FUNCLINE>242</FUNCLINE>
+    <FUNCLINE>256</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>types.h</FILENAME>
-      <LINE>242</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>256</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiString::{ctor}</FUNCTION>
     <DECORATED>??0aiString@@QEAA@XZ</DECORATED>
-    <FUNCLINE>242</FUNCLINE>
+    <FUNCLINE>256</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>types.h</FILENAME>
-      <LINE>450</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>468</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiMemoryInfo::{ctor}</FUNCTION>
     <DECORATED>??0aiMemoryInfo@@QEAA@XZ</DECORATED>
-    <FUNCLINE>450</FUNCLINE>
+    <FUNCLINE>468</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>texture.h</FILENAME>
-      <LINE>175</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>195</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiTexture::achFormatHint' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiTexture::{ctor}</FUNCTION>
     <DECORATED>??0aiTexture@@QEAA@XZ</DECORATED>
-    <FUNCLINE>175</FUNCLINE>
+    <FUNCLINE>195</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>texture.h</FILENAME>
-      <LINE>175</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>195</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiTexture::{ctor}</FUNCTION>
     <DECORATED>??0aiTexture@@QEAA@XZ</DECORATED>
-    <FUNCLINE>175</FUNCLINE>
+    <FUNCLINE>195</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>mesh.h</FILENAME>
-      <LINE>137</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>138</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiFace::{ctor}</FUNCTION>
     <DECORATED>??0aiFace@@QEAA@XZ</DECORATED>
-    <FUNCLINE>137</FUNCLINE>
+    <FUNCLINE>138</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>mesh.h</FILENAME>
-      <LINE>149</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>151</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiFace::mNumIndices' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiFace::{ctor}</FUNCTION>
     <DECORATED>??0aiFace@@QEAA@AEBU0@@Z</DECORATED>
-    <FUNCLINE>149</FUNCLINE>
+    <FUNCLINE>151</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>mesh.h</FILENAME>
-      <LINE>207</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>214</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiVertexWeight::mWeight' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiVertexWeight::{ctor}</FUNCTION>
     <DECORATED>??0aiVertexWeight@@QEAA@XZ</DECORATED>
-    <FUNCLINE>207</FUNCLINE>
+    <FUNCLINE>214</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>mesh.h</FILENAME>
-      <LINE>207</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>214</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiVertexWeight::mVertexId' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiVertexWeight::{ctor}</FUNCTION>
     <DECORATED>??0aiVertexWeight@@QEAA@XZ</DECORATED>
-    <FUNCLINE>207</FUNCLINE>
+    <FUNCLINE>214</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>mesh.h</FILENAME>
-      <LINE>207</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>214</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiVertexWeight::{ctor}</FUNCTION>
     <DECORATED>??0aiVertexWeight@@QEAA@XZ</DECORATED>
-    <FUNCLINE>207</FUNCLINE>
+    <FUNCLINE>214</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>mesh.h</FILENAME>
-      <LINE>245</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>252</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiBone::{ctor}</FUNCTION>
     <DECORATED>??0aiBone@@QEAA@XZ</DECORATED>
-    <FUNCLINE>245</FUNCLINE>
+    <FUNCLINE>252</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>mesh.h</FILENAME>
-      <LINE>251</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>260</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiBone::mWeights' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiBone::{ctor}</FUNCTION>
     <DECORATED>??0aiBone@@QEAA@AEBU0@@Z</DECORATED>
-    <FUNCLINE>251</FUNCLINE>
+    <FUNCLINE>260</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>mesh.h</FILENAME>
-      <LINE>375</LINE>
-      <COLUMN>1</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiAnimMesh::mNumVertices' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>aiAnimMesh::{ctor}</FUNCTION>
-    <DECORATED>??0aiAnimMesh@@QEAA@XZ</DECORATED>
-    <FUNCLINE>375</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
-      <FILENAME>mesh.h</FILENAME>
-      <LINE>375</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>388</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiAnimMesh::mColors' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiAnimMesh::{ctor}</FUNCTION>
     <DECORATED>??0aiAnimMesh@@QEAA@XZ</DECORATED>
-    <FUNCLINE>375</FUNCLINE>
+    <FUNCLINE>388</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>mesh.h</FILENAME>
-      <LINE>375</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>388</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiAnimMesh::mTextureCoords' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiAnimMesh::{ctor}</FUNCTION>
     <DECORATED>??0aiAnimMesh@@QEAA@XZ</DECORATED>
-    <FUNCLINE>375</FUNCLINE>
+    <FUNCLINE>388</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>mesh.h</FILENAME>
-      <LINE>375</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>388</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiAnimMesh::{ctor}</FUNCTION>
     <DECORATED>??0aiAnimMesh@@QEAA@XZ</DECORATED>
-    <FUNCLINE>375</FUNCLINE>
+    <FUNCLINE>388</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>mesh.h</FILENAME>
-      <LINE>606</LINE>
-      <COLUMN>1</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiMesh::mTextureCoords' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>aiMesh::{ctor}</FUNCTION>
-    <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
-    <FUNCLINE>606</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
-      <FILENAME>mesh.h</FILENAME>
-      <LINE>606</LINE>
-      <COLUMN>1</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiMesh::mNumUVComponents' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>aiMesh::{ctor}</FUNCTION>
-    <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
-    <FUNCLINE>606</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
-      <FILENAME>mesh.h</FILENAME>
-      <LINE>606</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>647</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiMesh::mColors' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiMesh::{ctor}</FUNCTION>
     <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
-    <FUNCLINE>606</FUNCLINE>
+    <FUNCLINE>647</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>mesh.h</FILENAME>
-      <LINE>606</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>647</LINE>
+      <COLUMN>4</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'aiMesh::mNumUVComponents' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>aiMesh::{ctor}</FUNCTION>
+    <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
+    <FUNCLINE>647</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
+      <FILENAME>mesh.h</FILENAME>
+      <LINE>647</LINE>
+      <COLUMN>4</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'aiMesh::mTextureCoords' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>aiMesh::{ctor}</FUNCTION>
+    <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
+    <FUNCLINE>647</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
+      <FILENAME>mesh.h</FILENAME>
+      <LINE>647</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiMesh::{ctor}</FUNCTION>
     <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
-    <FUNCLINE>606</FUNCLINE>
+    <FUNCLINE>647</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>light.h</FILENAME>
-      <LINE>215</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>239</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiLight::{ctor}</FUNCTION>
     <DECORATED>??0aiLight@@QEAA@XZ</DECORATED>
-    <FUNCLINE>215</FUNCLINE>
+    <FUNCLINE>239</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>camera.h</FILENAME>
-      <LINE>174</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>176</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiCamera::{ctor}</FUNCTION>
     <DECORATED>??0aiCamera@@QEAA@XZ</DECORATED>
-    <FUNCLINE>174</FUNCLINE>
+    <FUNCLINE>176</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>material.h</FILENAME>
-      <LINE>519</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>485</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiUVTransform::{ctor}</FUNCTION>
     <DECORATED>??0aiUVTransform@@QEAA@XZ</DECORATED>
-    <FUNCLINE>519</FUNCLINE>
+    <FUNCLINE>485</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>material.h</FILENAME>
-      <LINE>634</LINE>
-      <COLUMN>1</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiMaterialProperty::mType' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>aiMaterialProperty::{ctor}</FUNCTION>
-    <DECORATED>??0aiMaterialProperty@@QEAA@XZ</DECORATED>
-    <FUNCLINE>634</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
-      <FILENAME>material.h</FILENAME>
-      <LINE>634</LINE>
-      <COLUMN>1</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiMaterialProperty::mDataLength' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>aiMaterialProperty::{ctor}</FUNCTION>
-    <DECORATED>??0aiMaterialProperty@@QEAA@XZ</DECORATED>
-    <FUNCLINE>634</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
-      <FILENAME>material.h</FILENAME>
-      <LINE>634</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>609</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiMaterialProperty::{ctor}</FUNCTION>
     <DECORATED>??0aiMaterialProperty@@QEAA@XZ</DECORATED>
-    <FUNCLINE>634</FUNCLINE>
+    <FUNCLINE>609</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>anim.h</FILENAME>
-      <LINE>69</LINE>
-      <COLUMN>1</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiVectorKey::mTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>aiVectorKey::{ctor}</FUNCTION>
-    <DECORATED>??0aiVectorKey@@QEAA@XZ</DECORATED>
-    <FUNCLINE>69</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
-      <FILENAME>anim.h</FILENAME>
-      <LINE>69</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>72</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiVectorKey::{ctor}</FUNCTION>
     <DECORATED>??0aiVectorKey@@QEAA@XZ</DECORATED>
-    <FUNCLINE>69</FUNCLINE>
+    <FUNCLINE>72</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>anim.h</FILENAME>
-      <LINE>110</LINE>
-      <COLUMN>1</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiQuatKey::mTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>aiQuatKey::{ctor}</FUNCTION>
-    <DECORATED>??0aiQuatKey@@QEAA@XZ</DECORATED>
-    <FUNCLINE>110</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
-      <FILENAME>anim.h</FILENAME>
-      <LINE>110</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>117</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiQuatKey::{ctor}</FUNCTION>
     <DECORATED>??0aiQuatKey@@QEAA@XZ</DECORATED>
-    <FUNCLINE>110</FUNCLINE>
+    <FUNCLINE>117</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>anim.h</FILENAME>
-      <LINE>154</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>164</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiMeshKey::mTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiMeshKey::{ctor}</FUNCTION>
     <DECORATED>??0aiMeshKey@@QEAA@XZ</DECORATED>
-    <FUNCLINE>154</FUNCLINE>
+    <FUNCLINE>164</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>anim.h</FILENAME>
-      <LINE>154</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>164</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiMeshKey::mValue' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiMeshKey::{ctor}</FUNCTION>
     <DECORATED>??0aiMeshKey@@QEAA@XZ</DECORATED>
-    <FUNCLINE>154</FUNCLINE>
+    <FUNCLINE>164</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>anim.h</FILENAME>
-      <LINE>154</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>164</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiMeshKey::{ctor}</FUNCTION>
     <DECORATED>??0aiMeshKey@@QEAA@XZ</DECORATED>
-    <FUNCLINE>154</FUNCLINE>
+    <FUNCLINE>164</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>anim.h</FILENAME>
-      <LINE>284</LINE>
+      <LINE>208</LINE>
       <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>aiMeshMorphKey::{ctor}</FUNCTION>
+    <DECORATED>??0aiMeshMorphKey@@QEAA@XZ</DECORATED>
+    <FUNCLINE>208</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
+      <FILENAME>anim.h</FILENAME>
+      <LINE>322</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiNodeAnim::{ctor}</FUNCTION>
     <DECORATED>??0aiNodeAnim@@QEAA@XZ</DECORATED>
-    <FUNCLINE>284</FUNCLINE>
+    <FUNCLINE>322</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>anim.h</FILENAME>
-      <LINE>324</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>364</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiMeshAnim::{ctor}</FUNCTION>
     <DECORATED>??0aiMeshAnim@@QEAA@XZ</DECORATED>
-    <FUNCLINE>324</FUNCLINE>
+    <FUNCLINE>364</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>anim.h</FILENAME>
-      <LINE>371</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>395</LINE>
+      <COLUMN>4</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>aiMeshMorphAnim::{ctor}</FUNCTION>
+    <DECORATED>??0aiMeshMorphAnim@@QEAA@XZ</DECORATED>
+    <FUNCLINE>395</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
+      <FILENAME>anim.h</FILENAME>
+      <LINE>449</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiAnimation::{ctor}</FUNCTION>
     <DECORATED>??0aiAnimation@@QEAA@XZ</DECORATED>
-    <FUNCLINE>371</FUNCLINE>
+    <FUNCLINE>449</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
-      <FILENAME>scene.h</FILENAME>
-      <LINE>107</LINE>
-      <COLUMN>1</COLUMN>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
+      <FILENAME>metadata.h</FILENAME>
+      <LINE>130</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>aiNode::{ctor}</FUNCTION>
-    <DECORATED>??0aiNode@@QEAA@XZ</DECORATED>
-    <FUNCLINE>107</FUNCLINE>
+    <FUNCTION>aiMetadata::{ctor}</FUNCTION>
+    <DECORATED>??0aiMetadata@@QEAA@XZ</DECORATED>
+    <FUNCLINE>130</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>objloaderclass.h</FILENAME>
-      <LINE>28</LINE>
+      <LINE>34</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::normal' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
+    <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
+    <FUNCLINE>34</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>objloaderclass.h</FILENAME>
+      <LINE>34</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::uv' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
     <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
-    <FUNCLINE>28</FUNCLINE>
+    <FUNCLINE>34</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>objloaderclass.h</FILENAME>
+      <LINE>34</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::tangent' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
+    <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
+    <FUNCLINE>34</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>objloaderclass.h</FILENAME>
+      <LINE>34</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::biTangent' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
+    <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
+    <FUNCLINE>34</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
@@ -590,72 +590,58 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>quaternion.h</FILENAME>
-      <LINE>58</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>62</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiQuaterniont&lt;float&gt;::{ctor}</FUNCTION>
     <DECORATED>??0?$aiQuaterniont@M@@QEAA@XZ</DECORATED>
-    <FUNCLINE>58</FUNCLINE>
+    <FUNCLINE>62</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>color4.h</FILENAME>
-      <LINE>59</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>61</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiColor4t&lt;float&gt;::{ctor}</FUNCTION>
     <DECORATED>??0?$aiColor4t@M@@QEAA@XZ</DECORATED>
-    <FUNCLINE>59</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
-      <FILENAME>vector2.h</FILENAME>
-      <LINE>61</LINE>
-      <COLUMN>1</COLUMN>
-    </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>aiVector2t&lt;float&gt;::{ctor}</FUNCTION>
-    <DECORATED>??0?$aiVector2t@M@@QEAA@XZ</DECORATED>
     <FUNCLINE>61</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>vector3.h</FILENAME>
-      <LINE>64</LINE>
-      <COLUMN>1</COLUMN>
+      <LINE>69</LINE>
+      <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiVector3t&lt;float&gt;::{ctor}</FUNCTION>
     <DECORATED>??0?$aiVector3t@M@@QEAA@XZ</DECORATED>
-    <FUNCLINE>64</FUNCLINE>
+    <FUNCLINE>69</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp.3.0.0\build\native\include\assimp\</FILEPATH>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
       <FILENAME>matrix4x4.inl</FILENAME>
-      <LINE>60</LINE>
+      <LINE>62</LINE>
       <COLUMN>22</COLUMN>
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>aiMatrix4x4t&lt;float&gt;::{ctor}</FUNCTION>
     <DECORATED>??0?$aiMatrix4x4t@M@@QEAA@XZ</DECORATED>
-    <FUNCLINE>60</FUNCLINE>
+    <FUNCLINE>62</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
 </DEFECTS>

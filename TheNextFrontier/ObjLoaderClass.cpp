@@ -23,7 +23,7 @@ ObjLoaderClass::Object ObjLoaderClass::LoadObject(char* filename)
 	int uvIndex = 0;
 	Importer imp;
 
-	const aiScene *scene = imp.ReadFile(filename, aiProcess_ConvertToLeftHanded | aiProcess_JoinIdenticalVertices);
+	const aiScene *scene = imp.ReadFile(filename, aiProcess_ConvertToLeftHanded | aiProcess_JoinIdenticalVertices | aiProcess_CalcTangentSpace);
 
 	aiMesh *mesh = scene->mMeshes[0];
 
@@ -33,7 +33,7 @@ ObjLoaderClass::Object ObjLoaderClass::LoadObject(char* filename)
 
 	for (int i = 0; i < mesh->mNumVertices; i++) 
 	{
-		obj.vertices.push_back(VertexType(XMFLOAT3(mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z), XMFLOAT2(mesh->mTextureCoords[0][i].x, mesh->mTextureCoords[0][i].y)));
+		obj.vertices.push_back(VertexType(XMFLOAT3(mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z), XMFLOAT2(mesh->mTextureCoords[0][i].x, mesh->mTextureCoords[0][i].y), XMFLOAT3(mesh->mNormals[i].x, mesh->mNormals[i].y, mesh->mNormals[i].z), XMFLOAT3(mesh->mTangents[i].x, mesh->mTangents[i].y, mesh->mTangents[i].z), XMFLOAT3(mesh->mBitangents[i].x, mesh->mBitangents[i].y, mesh->mBitangents[i].z)));
 		//fOut << "BFS.vertices[";
 		//fOut << i;
 		//fOut << "] x: ";

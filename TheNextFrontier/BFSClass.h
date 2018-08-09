@@ -23,11 +23,10 @@ public:
 	void Render(ID3D11DeviceContext*);
 
 	int GetIndicesCount();
-	XMMATRIX GetPositionMatrix();
-	XMMATRIX GetScaleMatrix();
-	XMFLOAT3 GetScale();
-	XMMATRIX GetRotationMatrix();
+	XMMATRIX GetWorldMatrix();
+	XMMATRIX GetTargetBoxWorldMatrix();
 	ID3D11ShaderResourceView* GetTexture();
+	ID3D11ShaderResourceView* GetNormalMap();
 
 	TargetBoxClass* GetTargetBox();
 	XMFLOAT3* GetBoundingOrientBoxCorners();
@@ -40,6 +39,7 @@ private:
 	void RenderBuffers(ID3D11DeviceContext*);
 
 	bool LoadTexture(ID3D11Device*);
+	bool LoadNormalMap(ID3D11Device*);
 
 private:
 	int mIndexCount;
@@ -47,8 +47,8 @@ private:
 	XMMATRIX mPositionMatrix, mScaleMatrix, mRotationMatrix;
 	XMFLOAT3 mPosition, mScale, mRotation;
 
-	ID3D11Resource *mTextureResource;
-	ID3D11ShaderResourceView *mTextureResourceView;
+	ID3D11Resource *mTextureResource, *mNormalMapResource;
+	ID3D11ShaderResourceView *mTextureResourceView, *mNormalMapResourceView;
 
 	bool mPicked;
 	TargetBoxClass* mTargetBox;

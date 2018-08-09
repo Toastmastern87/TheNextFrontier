@@ -48,7 +48,7 @@ bool UniverseClass::Initialize(D3DClass* direct3D, HWND hwnd, int screenWidth, i
 		return false;
 	}
 
-	result = mHeartOfGold->Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), XMFLOAT3(3399.0f, 0.0f, 0.0f), XMFLOAT3(5.0f, 5.0f, 5.0f), XMFLOAT3(0.0f, 0.0f, 1.0f), -(M_PI / 2.0f));
+	result = mHeartOfGold->Initialize(direct3D->GetDevice(), direct3D->GetDeviceContext(), XMFLOAT3(3399.0f, 0.0f, 0.0f), XMFLOAT3(5.0f, 5.0f, 5.0f), XMFLOAT3(0.0f, 1.0f, 0.0f), -(M_PI / 2.0f));
 	if (!result)
 	{
 		MessageBox(hwnd, L"Could not initialize the BFS object", L"Error", MB_OK);
@@ -476,7 +476,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 
 	// BFS rendering
 	mHeartOfGold->Render(direct3D->GetDeviceContext());
-	result = shaderManager->RenderBFSShader(direct3D->GetDeviceContext(), mHeartOfGold->GetIndicesCount(), worldMatrix, viewMatrix, projectionMatrix, mHeartOfGold->GetPositionMatrix(), mHeartOfGold->GetScaleMatrix(), mHeartOfGold->GetRotationMatrix(), mHeartOfGold->GetTexture());
+	result = shaderManager->RenderBFSShader(direct3D->GetDeviceContext(), mHeartOfGold->GetIndicesCount(), mHeartOfGold->GetWorldMatrix(), viewMatrix, projectionMatrix,  rotationMatrix, mSunlight->GetDiffuseColor(), mSunlight->GetDirection(), mHeartOfGold->GetTexture(), mHeartOfGold->GetNormalMap());
 	if (!result)
 	{
 		return false;
@@ -488,7 +488,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 
 		mHeartOfGold->GetTargetBox()->Render(direct3D->GetDeviceContext());
 
-		result = shaderManager->RenderTargetBoxShader(direct3D->GetDeviceContext(), mHeartOfGold->GetTargetBox()->GetIndicesCount(), worldMatrix, viewMatrix, projectionMatrix, mHeartOfGold->GetPositionMatrix(), mHeartOfGold->GetScale(), mHeartOfGold->GetRotationMatrix(), mHeartOfGold->GetTargetBox()->GetTexture());
+		result = shaderManager->RenderTargetBoxShader(direct3D->GetDeviceContext(), mHeartOfGold->GetTargetBox()->GetIndicesCount(), mHeartOfGold->GetTargetBoxWorldMatrix(), viewMatrix, projectionMatrix, mHeartOfGold->GetTargetBox()->GetTexture());
 		if (!result)
 		{
 			return false;

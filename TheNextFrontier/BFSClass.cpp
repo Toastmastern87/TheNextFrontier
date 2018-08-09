@@ -46,6 +46,12 @@ bool BFSClass::Initialize(ID3D11Device* device, ID3D11DeviceContext* deviceConte
 		return false;
 	}
 
+	result = LoadNormalMap(device);
+	if (!result)
+	{
+		return false;
+	}
+
 	result = InitializeBuffers(device);
 	if (!result)
 	{
@@ -112,7 +118,7 @@ bool BFSClass::InitializeBuffers(ID3D11Device *device)
 
 	//fOut.open("Debug.txt", ios::out | ios::app);
 
-	BFS = ObjLoaderClass::LoadObject((char*)"../TheNextFrontier/Objects/CylinderTest2Mesh.obj");
+	BFS = ObjLoaderClass::LoadObject((char*)"../TheNextFrontier/Objects/CylinderTest2Mesh.fbx");
 
 	//for (int i = 0; i < BFS.vertices.size(); i++) 
 	//{
@@ -242,34 +248,61 @@ bool BFSClass::LoadTexture(ID3D11Device* device)
 	return true;
 }
 
+bool BFSClass::LoadNormalMap(ID3D11Device* device)
+{
+	HRESULT hResult;
+	const wchar_t *fileName;
+
+	fileName = L"../TheNextFrontier/Textures/BFSNormalMap.tif";
+
+	hResult = CreateWICTextureFromFile(device, fileName, &mNormalMapResource, &mNormalMapResourceView);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
+	return true;
+}
+
 int BFSClass::GetIndicesCount() 
 {
 	return mIndexCount;
 }
 
-XMMATRIX BFSClass::GetPositionMatrix() 
+XMMATRIX BFSClass::GetWorldMatrix() 
 {
-	return mPositionMatrix;
+	XMMATRIX ret;
+
+	ret = XMMatrixIdentity();
+	ret = XMMatrixMultiply(ret, mScaleMatrix);
+	ret = XMMatrixMultiply(ret, mRotationMatrix);
+	ret = XMMatrixMultiply(ret, mPositionMatrix);
+
+	return ret; 
 }
 
-XMMATRIX BFSClass::GetScaleMatrix() 
+XMMATRIX BFSClass::GetTargetBoxWorldMatrix()
 {
-	return mScaleMatrix;
-}
+	XMMATRIX ret, targetBoxScaleMatrix;
+	
+	targetBoxScaleMatrix = XMMatrixScalingFromVector(XMLoadFloat3(&XMFLOAT3(mScale.x * 1.1f, mScale.y * 1.1f, mScale.z * 1.1)));
 
-XMFLOAT3 BFSClass::GetScale() 
-{
-	return mScale;
-}
+	ret = XMMatrixIdentity();
+	ret = XMMatrixMultiply(ret, targetBoxScaleMatrix);
+	ret = XMMatrixMultiply(ret, mRotationMatrix);
+	ret = XMMatrixMultiply(ret, mPositionMatrix);
 
-XMMATRIX BFSClass::GetRotationMatrix()
-{
-	return mRotationMatrix;
+	return ret;
 }
 
 ID3D11ShaderResourceView* BFSClass::GetTexture()
 {
 	return mTextureResourceView;
+}
+
+ID3D11ShaderResourceView* BFSClass::GetNormalMap()
+{
+	return mNormalMapResourceView;
 }
 
 TargetBoxClass* BFSClass::GetTargetBox()

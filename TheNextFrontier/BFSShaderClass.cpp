@@ -36,11 +36,11 @@ void BFSShaderClass::Shutdown()
 	return;
 }
 
-bool BFSShaderClass::Render(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX positionMatrix, XMMATRIX scaleMatrix, XMMATRIX rotationMatrix, ID3D11ShaderResourceView* texture)
+bool BFSShaderClass::Render(ID3D11DeviceContext *deviceContext, int indexCount, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX lightRotationMatrix, XMFLOAT4 diffuseColor, XMFLOAT3 lightDirection, ID3D11ShaderResourceView* texture, ID3D11ShaderResourceView* normalMap)
 {
 	bool result;
 
-	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, positionMatrix, scaleMatrix, rotationMatrix, texture);
+	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, lightRotationMatrix, diffuseColor, lightDirection, texture, normalMap);
 	if (!result)
 	{
 		return false;
@@ -58,7 +58,7 @@ bool BFSShaderClass::InitializeShader(ID3D11Device *device, HWND hwnd)
 	ID3D10Blob *pixelShaderBuffer;
 	D3D11_INPUT_ELEMENT_DESC polygonLayout[5];
 	unsigned int numElements;
-	D3D11_BUFFER_DESC constantBufferDesc;
+	D3D11_BUFFER_DESC constantBufferDesc, lightBufferDesc;
 	D3D11_BUFFER_DESC pixelBufferDesc;
 	D3D11_SAMPLER_DESC samplerDesc;
 
@@ -156,6 +156,19 @@ bool BFSShaderClass::InitializeShader(ID3D11Device *device, HWND hwnd)
 		return false;
 	}
 
+	lightBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+	lightBufferDesc.ByteWidth = sizeof(LightBufferType);
+	lightBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	lightBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	lightBufferDesc.MiscFlags = 0;
+	lightBufferDesc.StructureByteStride = 0;
+
+	hResult = device->CreateBuffer(&lightBufferDesc, NULL, &mLightBuffer);
+	if (FAILED(hResult))
+	{
+		return false;
+	}
+
 	samplerDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
 	samplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
 	samplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
@@ -181,6 +194,12 @@ bool BFSShaderClass::InitializeShader(ID3D11Device *device, HWND hwnd)
 
 void BFSShaderClass::ShutdownShader()
 {
+	if (mLightBuffer)
+	{
+		mLightBuffer->Release();
+		mLightBuffer = 0;
+	}
+
 	if (mConstantBuffer)
 	{
 		mConstantBuffer->Release();
@@ -208,11 +227,12 @@ void BFSShaderClass::ShutdownShader()
 	return;
 }
 
-bool BFSShaderClass::SetShaderParameters(ID3D11DeviceContext *deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX positionMatrix, XMMATRIX scaleMatrix, XMMATRIX rotationMatrix, ID3D11ShaderResourceView* texture)
+bool BFSShaderClass::SetShaderParameters(ID3D11DeviceContext *deviceContext, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMMATRIX lightRotationMatrix, XMFLOAT4 diffuseColor, XMFLOAT3 lightDirection, ID3D11ShaderResourceView* texture, ID3D11ShaderResourceView* normalMap)
 {
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
 	ConstantBufferType *dataPtr;
+	LightBufferType *lightDataPtr;
 	unsigned int bufferNumber;
 
 	result = deviceContext->Map(mConstantBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
@@ -226,24 +246,40 @@ bool BFSShaderClass::SetShaderParameters(ID3D11DeviceContext *deviceContext, XMM
 	worldMatrix = XMMatrixTranspose(worldMatrix);
 	viewMatrix = XMMatrixTranspose(viewMatrix);
 	projectionMatrix = XMMatrixTranspose(projectionMatrix);
-	positionMatrix = XMMatrixTranspose(positionMatrix);
-	scaleMatrix = XMMatrixTranspose(scaleMatrix);
-	rotationMatrix = XMMatrixTranspose(rotationMatrix);
 
 	dataPtr->world = worldMatrix;
 	dataPtr->view = viewMatrix;
 	dataPtr->projection = projectionMatrix;
-	dataPtr->position = positionMatrix;
-	dataPtr->scale = scaleMatrix;
-	dataPtr->rotation = rotationMatrix;
 
 	deviceContext->Unmap(mConstantBuffer, 0);
+
+	ZeroMemory(&mappedResource, sizeof(mappedResource));
+
+	result = deviceContext->Map(mLightBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	lightDataPtr = (LightBufferType*)mappedResource.pData;
+
+	lightDataPtr->lightDirection = XMFLOAT4(lightDirection.x, lightDirection.y, lightDirection.z, 1.0f);
+	lightDataPtr->diffuseColor = diffuseColor;
+	lightDataPtr->rotationMatrix = lightRotationMatrix;
+
+	deviceContext->Unmap(mLightBuffer, 0);
 
 	bufferNumber = 0;
 
 	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mConstantBuffer);
 
+	bufferNumber = 1;
+
+	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mLightBuffer);
+
 	deviceContext->PSSetShaderResources(0, 1, &texture);
+
+	deviceContext->PSSetShaderResources(1, 1, &normalMap);
 
 	return true;
 }

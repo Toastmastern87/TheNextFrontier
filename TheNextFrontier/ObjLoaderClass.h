@@ -20,12 +20,15 @@ public:
 		XMFLOAT2 uv;
 		XMFLOAT3 normal;
 		XMFLOAT3 tangent;
-		XMFLOAT3 bitangent;
+		XMFLOAT3 biTangent;
 
-		VertexType(XMFLOAT3 position, XMFLOAT2 uvCoords)
+		VertexType(XMFLOAT3 position, XMFLOAT2 uvCoords, XMFLOAT3 nor, XMFLOAT3 tan, XMFLOAT3 biTan)
 		{
 			pos = position;
 			uv = uvCoords;
+			normal = nor;
+			tangent = tan;
+			biTangent = biTan;
 		}
 
 		VertexType(XMFLOAT3 position) 

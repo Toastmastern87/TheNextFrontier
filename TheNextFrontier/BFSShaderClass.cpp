@@ -246,6 +246,7 @@ bool BFSShaderClass::SetShaderParameters(ID3D11DeviceContext *deviceContext, XMM
 	worldMatrix = XMMatrixTranspose(worldMatrix);
 	viewMatrix = XMMatrixTranspose(viewMatrix);
 	projectionMatrix = XMMatrixTranspose(projectionMatrix);
+	lightRotationMatrix = XMMatrixTranspose(lightRotationMatrix);
 
 	dataPtr->world = worldMatrix;
 	dataPtr->view = viewMatrix;
@@ -273,9 +274,9 @@ bool BFSShaderClass::SetShaderParameters(ID3D11DeviceContext *deviceContext, XMM
 
 	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mConstantBuffer);
 
-	bufferNumber = 1;
+	bufferNumber = 0;
 
-	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &mLightBuffer);
+	deviceContext->PSSetConstantBuffers(bufferNumber, 1, &mLightBuffer);
 
 	deviceContext->PSSetShaderResources(0, 1, &texture);
 

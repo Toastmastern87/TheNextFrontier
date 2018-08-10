@@ -22,12 +22,20 @@ float4 BFSPixelShader(PixelInputType input) : SV_TARGET
 {
 	float4 finalColor;
 	float lightIntensity, lightColor;
+	float3x3 TBNMatrix;
+	float3 normal;
 
-	//lightIntensity = saturate(dot(normal, normalize(mul(lightDirection, rotationMatrix))));
+	TBNMatrix = float3x3(input.tangent, input.bitangent, input.normal);
 
-	//lightColor = saturate(diffuseColor * lightIntensity);
+	normal = normalize(BFSNormalTexture.Sample(sampleType, input.tex));
+
+	normal = normalize(mul(normal, TBNMatrix));
+
+	lightIntensity = saturate(dot(normal, normalize(mul(lightDirection, rotationMatrix))));
+
+	lightColor = saturate(diffuseColor * lightIntensity);
 
 	finalColor = BFSTexture.Sample(sampleType, input.tex);
 
-	return finalColor;
+	return finalColor * lightColor;
 }

@@ -248,7 +248,6 @@
     <Image Include="Textures\MarsHeightMap8K.tif" />
     <Image Include="Textures\MousePointer.tif" />
     <Image Include="Textures\PopUpBaseTexture.tif" />
-    <Image Include="Textures\PopUpConnector.tif" />
     <Image Include="Textures\StarBox.tif" />
     <Image Include="Textures\TestTexture.tif" />
   </ItemGroup>

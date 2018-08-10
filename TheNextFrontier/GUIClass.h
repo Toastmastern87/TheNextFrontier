@@ -24,22 +24,23 @@ public:
 
 	bool Initialize(ID3D11Device*, int, int);
 	void Shutdown();
-	bool Render(D3DClass*, ShaderManagerClass*, XMMATRIX, XMMATRIX, XMMATRIX);
+	bool Render(D3DClass*, ShaderManagerClass*, XMMATRIX, XMMATRIX);
 
 	void AddBFSPopUpGUI(ID3D11Device*, float, float, float, float);
 
 private:
 	bool InitializeBaseGUI(ID3D11Device*, int, int);
 	void ShutdownBuffers();
-	bool RenderGUI(D3DClass*, ShaderManagerClass*, XMMATRIX, XMMATRIX, XMMATRIX);
+	bool RenderGUI(D3DClass*, ShaderManagerClass*, XMMATRIX, XMMATRIX);
 
 	bool LoadGameTimeTexture(ID3D11Device*);
 	bool LoadPopUpBaseTexture(ID3D11Device*);
-	bool LoadPopUpConnectorTexture(ID3D11Device*);
 
 private:
 	vector<ID3D11Buffer*> mVertexBuffers, mIndexBuffers;
 	vector<unsigned long> mVertexCounts, mIndexCounts;
 	vector<ID3D11Resource*> mResources;
 	vector<ID3D11ShaderResourceView*> mResourceViews;
+
+	XMMATRIX mWorldMatrix;
 };

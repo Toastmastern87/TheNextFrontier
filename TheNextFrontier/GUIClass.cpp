@@ -32,11 +32,11 @@ void GUIClass::Shutdown()
 	return;
 }
 
-bool GUIClass::Render(D3DClass *direct3D, ShaderManagerClass *shaderManager, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX orthoMatrix)
+bool GUIClass::Render(D3DClass *direct3D, ShaderManagerClass *shaderManager, XMMATRIX viewMatrix, XMMATRIX orthoMatrix)
 {
 	bool result;
 
-	result = RenderGUI(direct3D, shaderManager, worldMatrix, viewMatrix, orthoMatrix);
+	result = RenderGUI(direct3D, shaderManager, viewMatrix, orthoMatrix);
 	if (!result)
 	{
 		return false;
@@ -131,12 +131,14 @@ void GUIClass::ShutdownBuffers()
 	return;
 }
 
-bool GUIClass::RenderGUI(D3DClass *direct3D, ShaderManagerClass *shaderManager, XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX orthoMatrix)
+bool GUIClass::RenderGUI(D3DClass *direct3D, ShaderManagerClass *shaderManager, XMMATRIX viewMatrix, XMMATRIX orthoMatrix)
 {
 	unsigned int stride, offset;
 
 	stride = sizeof(VertexType);
 	offset = 0;
+
+	mWorldMatrix = XMMatrixIdentity();
 
 	for (int i = 0; i < mVertexBuffers.size(); i++) 
 	{
@@ -144,7 +146,7 @@ bool GUIClass::RenderGUI(D3DClass *direct3D, ShaderManagerClass *shaderManager, 
 		direct3D->GetDeviceContext()->IASetIndexBuffer(mIndexBuffers[i], DXGI_FORMAT_R32_UINT, 0);
 		direct3D->GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
 
-		shaderManager->RenderGUIShader(direct3D->GetDeviceContext(), mIndexCounts[i], worldMatrix, viewMatrix, orthoMatrix, mResourceViews[i]);
+		shaderManager->RenderGUIShader(direct3D->GetDeviceContext(), mIndexCounts[i], mWorldMatrix, viewMatrix, orthoMatrix, mResourceViews[i]);
 	}
 
 	return true;
@@ -175,25 +177,6 @@ bool GUIClass::LoadPopUpBaseTexture(ID3D11Device* device)
 	const wchar_t *fileName;
 
 	fileName = L"../TheNextFrontier/Textures/PopUpBaseTexture.tif";
-
-	mResources.push_back(nullptr);
-	mResourceViews.push_back(nullptr);
-
-	hResult = CreateWICTextureFromFile(device, fileName, &mResources[mResources.size() - 1], &mResourceViews[mResourceViews.size() - 1]);
-	if (FAILED(hResult))
-	{
-		return false;
-	}
-
-	return true;
-}
-
-bool GUIClass::LoadPopUpConnectorTexture(ID3D11Device* device)
-{
-	HRESULT hResult;
-	const wchar_t *fileName;
-
-	fileName = L"../TheNextFrontier/Textures/PopUpConnector.tif";
 
 	mResources.push_back(nullptr);
 	mResourceViews.push_back(nullptr);

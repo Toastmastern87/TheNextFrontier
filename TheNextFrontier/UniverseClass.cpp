@@ -493,7 +493,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 
 	// BFS rendering
 	mHeartOfGold->Render(direct3D->GetDeviceContext());
-	result = shaderManager->RenderBFSShader(direct3D->GetDeviceContext(), mHeartOfGold->GetIndicesCount(), mHeartOfGold->GetWorldMatrix(), viewMatrix, projectionMatrix,  rotationMatrix, mSunlight->GetDiffuseColor(), mSunlight->GetDirection(), mHeartOfGold->GetTexture(), mHeartOfGold->GetNormalMap());
+	result = shaderManager->RenderBFSShader(direct3D->GetDeviceContext(), mHeartOfGold->GetIndicesCount(), mHeartOfGold->GetWorldMatrix(), viewMatrix, projectionMatrix, rotationMatrix, mSunlight->GetDiffuseColor(), mSunlight->GetDirection(), mHeartOfGold->GetTexture(), mHeartOfGold->GetNormalMap());
 	if (!result)
 	{
 		return false;
@@ -570,7 +570,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 
 	if (mDisplayUI)
 	{
-		result = mGUI->Render(direct3D, shaderManager, worldMatrix, baseViewMatrix, orthoMatrix);
+		result = mGUI->Render(direct3D, shaderManager, baseViewMatrix, orthoMatrix);
 		if (!result)
 		{
 			return false;

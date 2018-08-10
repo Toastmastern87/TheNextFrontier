@@ -606,8 +606,8 @@
       <LINE>3</LINE>
       <COLUMN>16</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'BFSShaderClass::mLightBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>BFSShaderClass::{ctor}</FUNCTION>
     <DECORATED>??0BFSShaderClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -619,8 +619,8 @@
       <LINE>3</LINE>
       <COLUMN>16</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'BFSShaderClass::mLightBuffer' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>BFSShaderClass::{ctor}</FUNCTION>
     <DECORATED>??0BFSShaderClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -819,6 +819,32 @@
     <FUNCTION>GUIClass::{ctor}</FUNCTION>
     <DECORATED>??0GUIClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>guiclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GUIClass::mWorldMatrix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GUIClass::{ctor}</FUNCTION>
+    <DECORATED>??0GUIClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>guiclass.cpp</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GUIClass::mWorldMatrix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GUIClass::{ctor}</FUNCTION>
+    <DECORATED>??0GUIClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
@@ -2296,8 +2322,8 @@
       <LINE>61</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>61</FUNCLINE>
@@ -2309,8 +2335,8 @@
       <LINE>61</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>61</FUNCLINE>

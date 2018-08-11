@@ -22,6 +22,8 @@ bool ApplicationClass::Initialize(HINSTANCE hInstance, HWND hwnd, int screenWidt
 {
 	bool result;
 
+	mKeys.fill(0);
+
 	mInput = new InputClass;
 	if (!mInput) 
 	{
@@ -150,7 +152,7 @@ bool ApplicationClass::Frame(HWND hwnd)
 	mFPS->Frame();
 	mTimer->Frame();
 
-	result = mInput->Frame();
+	result = mInput->Frame(mKeys);
 	if (!result) 
 	{
 		return false;

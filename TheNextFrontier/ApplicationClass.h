@@ -12,9 +12,13 @@ const float SCREENEAR = 0.1f;
 #include "FPSClass.h"
 #include "UniverseClass.h"
 #include "tiffio.h"
+#include <array>
 
 class ApplicationClass
 {
+public:
+	std::array<char,1024> mKeys;
+
 public:
 	ApplicationClass();
 	ApplicationClass(const ApplicationClass&);

@@ -2322,8 +2322,8 @@
       <LINE>61</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>61</FUNCLINE>
@@ -2335,11 +2335,24 @@
       <LINE>61</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>61</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>applicationclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>18</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ApplicationClass::mKeys' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ApplicationClass::{ctor}</FUNCTION>
+    <DECORATED>??0ApplicationClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
@@ -4834,13 +4847,13 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>universeclass.cpp</FILENAME>
-      <LINE>29</LINE>
+      <LINE>30</LINE>
       <COLUMN>15</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'UniverseClass::mUI' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>UniverseClass::{ctor}</FUNCTION>
     <DECORATED>??0UniverseClass@@QEAA@AEBV0@@Z</DECORATED>
-    <FUNCLINE>29</FUNCLINE>
+    <FUNCLINE>30</FUNCLINE>
     <PATH></PATH>
   </DEFECT></DEFECTS>

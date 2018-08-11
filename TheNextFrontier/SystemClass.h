@@ -1,9 +1,9 @@
-#ifndef _SYSTEMCLASS_H_
+#pragma once
 
-#define _SYSTEMCLASS_H_
 #define WIN32_LEAN_AND_MEAN
 
 #include "ApplicationClass.h"
+#include <fstream>
 
 class SystemClass
 {
@@ -29,9 +29,10 @@ private:
 	HWND mHWND;
 
 	ApplicationClass* mApplication;
+
+	RAWINPUTDEVICE mNewKeyboard;
 };
 
 static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
 static SystemClass* applicationHandle = 0;
-#endif 

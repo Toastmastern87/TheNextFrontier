@@ -834,6 +834,20 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'SystemClass::mNewKeyboard' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>SystemClass::{ctor}</FUNCTION>
+    <DECORATED>??0SystemClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>systemclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>13</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'SystemClass::mHWND' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@XZ</DECORATED>
@@ -876,7 +890,7 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'SystemClass::mHWND' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'SystemClass::mApplication' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>8</FUNCLINE>
@@ -890,7 +904,21 @@
       <COLUMN>13</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'SystemClass::mApplication' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'SystemClass::mNewKeyboard' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>SystemClass::{ctor}</FUNCTION>
+    <DECORATED>??0SystemClass@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>8</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>systemclass.cpp</FILENAME>
+      <LINE>8</LINE>
+      <COLUMN>13</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'SystemClass::mHWND' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>SystemClass::{ctor}</FUNCTION>
     <DECORATED>??0SystemClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>8</FUNCLINE>

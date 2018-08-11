@@ -21,6 +21,7 @@ UniverseClass::UniverseClass()
 	mDisplayUI = true;
 	mRenderAtmosphere = true;
 	mRenderMars = true;
+	mRenderStarBox = true;
 
 	mLeftMouseButtonClicked = false;
 	mRightMouseButtonClicked = false;
@@ -347,12 +348,6 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime, D3DC
 	input->GetMouseWheelLocation();
 	mouseDelta = input->GetMouseWheelDelta();
 
-	//keyDown = input->IsLeftPressed();
-	//mPosition->OrbitLeft(keyDown);
-
-	//keyDown = input->IsRightPressed();
-	//mPosition->OrbitRight(keyDown);
-
 	input->OrbitMovement(mPosition, frameTime);
 	mPosition->UpdateOrbit();
 
@@ -426,6 +421,7 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime, D3DC
 
 	if (input->IsF5Toggled())
 	{
+		mRenderStarBox = !mRenderStarBox;
 	}
 
 	// Check if anything got picked by the mouse
@@ -504,11 +500,14 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 	}
 
 	// Star box rendering
-	mStarBox->Render(direct3D->GetDeviceContext());
-	result = shaderManager->RenderStarBoxShader(direct3D->GetDeviceContext(), mStarBox->GetIndexCount(), worldMatrix, baseViewMatrix, projectionMatrix, rotationMatrix, mStarBox->GetStarBoxTexture());
-	if (!result)
+	if (mRenderStarBox) 
 	{
-		return false;
+		mStarBox->Render(direct3D->GetDeviceContext());
+		result = shaderManager->RenderStarBoxShader(direct3D->GetDeviceContext(), mStarBox->GetIndexCount(), worldMatrix, baseViewMatrix, projectionMatrix, rotationMatrix, mStarBox->GetStarBoxTexture());
+		if (!result)
+		{
+			return false;
+		}
 	}
 
 	if (mRenderMars)

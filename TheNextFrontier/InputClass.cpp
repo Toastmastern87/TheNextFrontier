@@ -27,6 +27,8 @@ bool InputClass::Initialize(HINSTANCE hInstance, HWND hwnd, int screenWidth, int
 	mMouseWheel = 0;
 	mOldMouseWheel = 0;
 
+	mKeys.fill(0);
+
 	result = DirectInput8Create(hInstance, DIRECTINPUT_VERSION, IID_IDirectInput8, (void**)&mDirectInput, NULL);
 	if (FAILED(result)) 
 	{
@@ -115,9 +117,11 @@ void InputClass::Shutdown()
 	}
 }
 
-bool InputClass::Frame() 
+bool InputClass::Frame(array<char, 1024> &keys)
 {
 	bool result;
+
+	mKeys = keys;
 
 	result = ReadKeyboard();
 	if (!result) 
@@ -452,6 +456,12 @@ bool InputClass::IsRightMouseButtonClicked()
 
 void InputClass::OrbitMovement(PositionClass *position, float frameTime) 
 {
+	if (mKeys['W'])
+	{
+		position->mOrbitalAngleY += 1.0f * frameTime * (position->GetDistanceFromOrigo() / 100000.0f);
+		
+	}
+
 	switch (mKey) 
 	{
 	case DIK_UP:

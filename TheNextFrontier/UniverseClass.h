@@ -40,7 +40,7 @@ private:
 	MarsAtmosphereClass* mMarsAtmosphere;
 	FrustumClass* mFrustum;
 	LightClass* mSunlight;
-	bool mDisplayUI, mWireframe, mSpeedIncreased, mSpeedDecreased, mRenderAtmosphere, mRenderMars, mLeftMouseButtonClicked, mRightMouseButtonClicked;
+	bool mDisplayUI, mWireframe, mSpeedIncreased, mSpeedDecreased, mRenderAtmosphere, mRenderMars, mLeftMouseButtonClicked, mRightMouseButtonClicked, mRenderStarBox;
 	float mScreenDepth, mScreenNear;
 	int  mScreenWidth, mScreenHeight;
 	MousePointerClass *mMousePointer;

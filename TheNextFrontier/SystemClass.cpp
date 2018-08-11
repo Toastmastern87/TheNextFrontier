@@ -35,6 +35,13 @@ bool SystemClass::Initialize()
 		return false;
 	}
 
+	//mNewKeyboard.usUsagePage = 0x01;
+	//mNewKeyboard.usUsage = 0x06;
+	//mNewKeyboard.dwFlags = RIDEV_NOLEGACY;
+	//mNewKeyboard.hwndTarget = mHWND;
+
+	//RegisterRawInputDevices(&mNewKeyboard, 1, sizeof(mNewKeyboard));
+
 	return true;
 }
 
@@ -62,23 +69,31 @@ void SystemClass::Run()
 	done = false;
 	while (!done) 
 	{
-		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) 
+		while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) 
 		{
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
-		}
 
-		if (msg.message == WM_QUIT) 
-		{
-			done = true;
-		}
-		else 
-		{
-			result = Frame();
-			if (!result)
+			if (msg.message == WM_QUIT)
 			{
 				done = true;
 			}
+
+			if (msg.message == WM_KEYDOWN) 
+			{
+				mApplication->mKeys[msg.wParam] = 1;
+			}
+
+			if (msg.message == WM_KEYUP) 
+			{
+				mApplication->mKeys[msg.wParam] = 0;
+			}
+		}
+
+		result = Frame();
+		if (!result)
+		{
+			done = true;
 		}
 	}
 		

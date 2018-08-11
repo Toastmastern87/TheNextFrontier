@@ -45,7 +45,7 @@ bool InputClass::Initialize(HINSTANCE hInstance, HWND hwnd, int screenWidth, int
 		return false;
 	}
 
-	result = mKeyboard->SetCooperativeLevel(hwnd, DISCL_FOREGROUND | DISCL_EXCLUSIVE);
+	result = mKeyboard->SetCooperativeLevel(hwnd, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE);
 	if (FAILED(result))
 	{
 		return false;
@@ -161,10 +161,19 @@ bool InputClass::ReadKeyboard()
 	{
 		mKey = DIK_DOWN;
 	}
+	else if (mKeyboardState[DIK_RIGHT] & 0x80)
+	{
+		mKey = DIK_RIGHT;
+	}
+	else if (mKeyboardState[DIK_LEFT] & 0x80)
+	{
+		mKey = DIK_LEFT;
+	}
 	else 
 	{
 		mKey = 0;
 	}
+
 
 	return true;
 }
@@ -252,26 +261,6 @@ int InputClass::GetMouseWheelDelta()
 	mOldMouseWheel = mMouseWheel;
 
 	return ret;
-}
-
-bool InputClass::IsLeftPressed()
-{
-	if (mKeyboardState[DIK_LEFT] & 0x80)
-	{
-		return true;
-	}
-
-	return false;
-}
-
-bool InputClass::IsRightPressed()
-{
-	if (mKeyboardState[DIK_RIGHT] & 0x80)
-	{
-		return true;
-	}
-	
-	return false;
 }
 
 bool InputClass::IsAPressed()
@@ -461,18 +450,22 @@ bool InputClass::IsRightMouseButtonClicked()
 	return false;
 }
 
-void InputClass::OrbitMovement() 
+void InputClass::OrbitMovement(PositionClass *position, float frameTime) 
 {
 	switch (mKey) 
 	{
 	case DIK_UP:
-		orbitDirY = 1.0f;
+		position->mOrbitalAngleY += 1.0f * frameTime * (position->GetDistanceFromOrigo() / 100000.0f);
 		break;
 	case DIK_DOWN:
-		orbitDirY = -1.0f;
+		position->mOrbitalAngleY -= 1.0f * frameTime * (position->GetDistanceFromOrigo() / 100000.0f);
 		break;
-	case 0:
-		orbitDirY = 0.0f;
+	case DIK_RIGHT:
+		position->mOrbitalAngleXZ += 1.0f * frameTime * (position->GetDistanceFromOrigo() / 100000.0f);
+		break;
+	case DIK_LEFT:
+		position->mOrbitalAngleXZ -= 1.0f * frameTime * (position->GetDistanceFromOrigo() / 100000.0f);
+		break;
 	}
 
 	return;

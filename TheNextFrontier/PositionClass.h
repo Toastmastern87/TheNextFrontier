@@ -17,6 +17,8 @@ public:
 	const float MINDISTANCEFROMORIGO = 3399.5f;
 	const float ONEMOUSEWHEELTURN = 120.0f;
 
+	float mOrbitalAngleY{ 0.0f }, mOrbitalAngleXZ{ 0.0f };
+
 public:
 	PositionClass();
 	PositionClass(const PositionClass&);
@@ -27,7 +29,7 @@ public:
 
 	void GetPosition(float&, float&, float&);
 	XMFLOAT3 GetPositionXMFLOAT3();
-	XMVECTOR GetPositionXMVECTOR();
+	XMVECTOR GetPosition();
 	void GetRotation(float&, float&, float&);
 	float GetDistanceFromOrigo();
 	void CheckAltitude(float);
@@ -37,16 +39,17 @@ public:
 
 	void ZoomOut(int, float);
 	void ZoomIn(int, float, float);
-	void OrbitLeft(bool);
-	void OrbitRight(bool);
 	void LookUpward(bool);
 	void LookDownward(bool);
 
-	bool CheckIfInsideAtmosphere(float, float, float);
+	bool InsideAtmosphere(float, float, float);
 
-	void PolarOrbit(float);
+	void UpdateOrbit();
+	void CheckOrbitalAngles();
 
 private:
+	XMVECTOR mPosition, mRotation;
+
 	float mPositionX, mPositionY, mPositionZ;
 	float mRotationX, mRotationY, mRotationZ;
 
@@ -54,7 +57,6 @@ private:
 
 	float mForwardSpeed, mBackwardSpeed;
 	float mZoomInSpeed, mZoomOutSpeed;
-	float mOrbitAngleXZ, mOrbitAngleY;
 	float mAltitude;
 	float mLookUpSpeed, mLookDownSpeed, mMaxZoomSpeed, mOrbitSpeed;
 

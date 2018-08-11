@@ -7,13 +7,11 @@
 
 #include <dinput.h>
 #include <fstream>
+#include "PositionClass.h"
 using namespace std;
 
 class InputClass
 {
-public:
-	float orbitDirY{ 0.0f };
-
 public:
 	InputClass();
 	InputClass(const InputClass&);
@@ -28,8 +26,6 @@ public:
 	int GetMouseWheelLocation();
 	int GetMouseWheelDelta();
 
-	bool IsLeftPressed();
-	bool IsRightPressed();
 	bool IsAPressed();
 	bool IsZPressed();
 	bool IsPlusNmpPressed();
@@ -46,7 +42,7 @@ public:
 	bool IsLeftMouseButtonClicked();
 	bool IsRightMouseButtonClicked();
 
-	void OrbitMovement();
+	void OrbitMovement(PositionClass*, float);
 
 private:
 	bool ReadKeyboard();

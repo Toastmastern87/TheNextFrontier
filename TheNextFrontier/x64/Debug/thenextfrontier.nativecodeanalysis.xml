@@ -372,7 +372,7 @@
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiVertexWeight::mWeight' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'aiVertexWeight::mVertexId' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiVertexWeight::{ctor}</FUNCTION>
     <DECORATED>??0aiVertexWeight@@QEAA@XZ</DECORATED>
     <FUNCLINE>214</FUNCLINE>
@@ -386,7 +386,7 @@
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiVertexWeight::mVertexId' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'aiVertexWeight::mWeight' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiVertexWeight::{ctor}</FUNCTION>
     <DECORATED>??0aiVertexWeight@@QEAA@XZ</DECORATED>
     <FUNCLINE>214</FUNCLINE>
@@ -442,7 +442,7 @@
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiAnimMesh::mColors' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'aiAnimMesh::mTextureCoords' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiAnimMesh::{ctor}</FUNCTION>
     <DECORATED>??0aiAnimMesh@@QEAA@XZ</DECORATED>
     <FUNCLINE>388</FUNCLINE>
@@ -456,7 +456,7 @@
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiAnimMesh::mTextureCoords' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'aiAnimMesh::mColors' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiAnimMesh::{ctor}</FUNCTION>
     <DECORATED>??0aiAnimMesh@@QEAA@XZ</DECORATED>
     <FUNCLINE>388</FUNCLINE>
@@ -471,6 +471,20 @@
     </SFA>
     <DEFECTCODE>26439</DEFECTCODE>
     <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>aiMesh::{ctor}</FUNCTION>
+    <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
+    <FUNCLINE>647</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
+      <FILENAME>mesh.h</FILENAME>
+      <LINE>647</LINE>
+      <COLUMN>4</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'aiMesh::mTextureCoords' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiMesh::{ctor}</FUNCTION>
     <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
     <FUNCLINE>647</FUNCLINE>
@@ -499,20 +513,6 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'aiMesh::mNumUVComponents' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>aiMesh::{ctor}</FUNCTION>
-    <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
-    <FUNCLINE>647</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\packages\assimp_native.4.0.1\build\native\include\assimp\</FILEPATH>
-      <FILENAME>mesh.h</FILENAME>
-      <LINE>647</LINE>
-      <COLUMN>4</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiMesh::mTextureCoords' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiMesh::{ctor}</FUNCTION>
     <DECORATED>??0aiMesh@@QEAA@XZ</DECORATED>
     <FUNCLINE>647</FUNCLINE>
@@ -736,7 +736,7 @@
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::uv' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::tangent' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
     <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
     <FUNCLINE>34</FUNCLINE>
@@ -764,7 +764,7 @@
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::biTangent' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::uv' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
     <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
     <FUNCLINE>34</FUNCLINE>
@@ -778,7 +778,7 @@
       <COLUMN>2</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::tangent' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'ObjLoaderClass::VertexType::biTangent' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
     <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
     <FUNCLINE>34</FUNCLINE>

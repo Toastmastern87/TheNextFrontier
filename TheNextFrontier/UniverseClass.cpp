@@ -288,6 +288,7 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 
 	HandleMovementInput(input, frameTime, direct3D);
 
+	mPosition->CheckOrbitalAngles();
 	mPosition->GetPosition(posX, posY, posZ);
 	mPosition->GetRotation(rotX, rotY, rotZ);
 
@@ -346,20 +347,14 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime, D3DC
 	input->GetMouseWheelLocation();
 	mouseDelta = input->GetMouseWheelDelta();
 
-	keyDown = input->IsLeftPressed();
-	mPosition->OrbitLeft(keyDown);
+	//keyDown = input->IsLeftPressed();
+	//mPosition->OrbitLeft(keyDown);
 
-	keyDown = input->IsRightPressed();
-	mPosition->OrbitRight(keyDown);
+	//keyDown = input->IsRightPressed();
+	//mPosition->OrbitRight(keyDown);
 
-	//keyDown = input->IsUpPressed();
-	//mPosition->OrbitNorth(keyDown);
-
-	//keyDown = input->IsDownPressed();
-	//mPosition->OrbitSouth(keyDown);
-
-	input->OrbitMovement();
-	mPosition->PolarOrbit(input->orbitDirY * frameTime * (mPosition->GetDistanceFromOrigo() / 100000.0f));
+	input->OrbitMovement(mPosition, frameTime);
+	mPosition->UpdateOrbit();
 
 	keyDown = input->IsPlusNmpPressed();
 	if (keyDown && !mSpeedIncreased)
@@ -431,15 +426,6 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime, D3DC
 
 	if (input->IsF5Toggled())
 	{
-		ofstream fOut;
-
-		fOut.open("Debug.txt", ios::out | ios::app);
-
-		fOut << "F5 Click!";
-		fOut << "\r\n";
-
-		fOut.close();
-
 	}
 
 	// Check if anything got picked by the mouse
@@ -528,7 +514,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 	if (mRenderMars)
 	{
 		mMars->Render(direct3D->GetDeviceContext());
-		result = shaderManager->RenderMarsShader(direct3D->GetDeviceContext(), mMars->GetIndexCount(), mMars->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, inverseWorldMatrix, rotationMatrix, mMars->GetMarsRadius(), mMars->GetMarsMaxHeight(), mMars->GetMarsMinHeight(), mMars->GetDistanceLUT(), mPosition->GetPositionXMFLOAT3(), mMars->GetHeightMap(), mMars->GetHeightMapDetail2(), mMars->GetColorMap(), mMars->GetDetailAreaMapX(), mMars->GetDetailAreaMapY(), mMars->GetDetailAreaMapWH(), mMars->GetCraterHeightMap(), mMars->GetCrater2HeightMap(), mSunlight->GetDirection(), mSunlight->GetDiffuseColor(), mMars->GetMarsPatchDelta(), mPosition->CheckIfInsideAtmosphere(mMarsAtmosphere->GetAtmosphereHeight(), mMars->GetMarsRadius(), mPosition->GetDistanceFromOrigo()), mPosition->GetDistanceFromOrigo());
+		result = shaderManager->RenderMarsShader(direct3D->GetDeviceContext(), mMars->GetIndexCount(), mMars->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, inverseWorldMatrix, rotationMatrix, mMars->GetMarsRadius(), mMars->GetMarsMaxHeight(), mMars->GetMarsMinHeight(), mMars->GetDistanceLUT(), mPosition->GetPositionXMFLOAT3(), mMars->GetHeightMap(), mMars->GetHeightMapDetail2(), mMars->GetColorMap(), mMars->GetDetailAreaMapX(), mMars->GetDetailAreaMapY(), mMars->GetDetailAreaMapWH(), mMars->GetCraterHeightMap(), mMars->GetCrater2HeightMap(), mSunlight->GetDirection(), mSunlight->GetDiffuseColor(), mMars->GetMarsPatchDelta(), mPosition->InsideAtmosphere(mMarsAtmosphere->GetAtmosphereHeight(), mMars->GetMarsRadius(), mPosition->GetDistanceFromOrigo()), mPosition->GetDistanceFromOrigo());
 		if (!result)
 		{
 			return false;
@@ -547,7 +533,7 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 		}
 
 		mMarsAtmosphere->Render(direct3D->GetDeviceContext());
-		result = shaderManager->RenderMarsAtmosphereShader(direct3D->GetDeviceContext(), mMarsAtmosphere->GetIndexCount(), mMarsAtmosphere->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, rotationMatrix, (mMarsAtmosphere->GetAtmosphereHeight() + mMars->GetMarsRadius()), mPosition->CheckIfInsideAtmosphere(mMarsAtmosphere->GetAtmosphereHeight(), mMars->GetMarsRadius(), mPosition->GetDistanceFromOrigo()), mMars->GetMarsRadius(), mPosition->GetDistanceFromOrigo(), mCamera->GetPosition(), mSunlight->GetDirection());
+		result = shaderManager->RenderMarsAtmosphereShader(direct3D->GetDeviceContext(), mMarsAtmosphere->GetIndexCount(), mMarsAtmosphere->GetInstanceCount(), worldMatrix, viewMatrix, projectionMatrix, rotationMatrix, (mMarsAtmosphere->GetAtmosphereHeight() + mMars->GetMarsRadius()), mPosition->InsideAtmosphere(mMarsAtmosphere->GetAtmosphereHeight(), mMars->GetMarsRadius(), mPosition->GetDistanceFromOrigo()), mMars->GetMarsRadius(), mPosition->GetDistanceFromOrigo(), mCamera->GetPosition(), mSunlight->GetDirection());
 		if (!result)
 		{
 			return false;

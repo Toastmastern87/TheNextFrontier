@@ -16,8 +16,6 @@ PositionClass::PositionClass()
 	mBackwardSpeed = 0.0f;
 	mZoomInSpeed = 0.0f;
 	mZoomOutSpeed = 0.0f;
-	mOrbitAngleXZ = 0.0f;
-	mOrbitAngleY = 0.0f;
 	mLookUpSpeed = 0.0f;
 	mLookDownSpeed = 0.0f;
 	mMaxZoomSpeed = 0.0f;
@@ -45,7 +43,7 @@ void PositionClass::SetPosition(float x, float y, float z)
 	hypXZ = sqrtf(mPositionX * mPositionX + mPositionZ * mPositionZ);
 	hypXY = sqrtf(mPositionX * mPositionX + mPositionY * mPositionY);
 
-	mOrbitAngleXZ = asinf(mPositionZ / hypXZ);
+	mOrbitalAngleXZ = asinf(mPositionZ / hypXZ);
 
 	return;
 }
@@ -66,6 +64,16 @@ void PositionClass::GetPosition(float& x, float& y, float& z)
 	z = mPositionZ;
 
 	return;
+}
+
+XMVECTOR PositionClass::GetPosition()
+{
+	return mPosition;
+}
+
+XMFLOAT3 PositionClass::GetPositionXMFLOAT3() 
+{
+	return XMFLOAT3(mPositionX, mPositionY, mPositionZ);
 }
 
 void PositionClass::GetRotation(float& x, float& y, float& z)
@@ -121,6 +129,7 @@ void PositionClass::ZoomOut(int mouseWheelDelta, float marsRadius)
 	{
 		XMVECTOR movementDelta = posVectorNorm * mFrameTime * mZoomOutSpeed;
 
+		mPosition += movementDelta;
 		mPositionX += XMVectorGetX(movementDelta);
 		mPositionY += XMVectorGetY(movementDelta);
 		mPositionZ += XMVectorGetZ(movementDelta);
@@ -131,6 +140,7 @@ void PositionClass::ZoomOut(int mouseWheelDelta, float marsRadius)
 	{
 		XMVECTOR maxPosVector = posVectorNorm * MAXDISTANCEFROMORIGO;
 
+		mPosition = maxPosVector;
 		mPositionX = XMVectorGetX(maxPosVector);
 		mPositionY = XMVectorGetY(maxPosVector);
 		mPositionZ = XMVectorGetZ(maxPosVector);
@@ -179,6 +189,7 @@ void PositionClass::ZoomIn(int mouseWheelDelta, float marsRadius, float heightAt
 		mPositionX -= XMVectorGetX(movementDelta);
 		mPositionY -= XMVectorGetY(movementDelta);
 		mPositionZ -= XMVectorGetZ(movementDelta);
+		mPosition -= movementDelta;
 
 		// Rechecking altitude after update
 		mAltitude = XMVectorGetX(XMVector3Length(XMLoadFloat3(new XMFLOAT3(mPositionX, mPositionY, mPositionZ)))) - heightAtPos;
@@ -196,6 +207,7 @@ void PositionClass::ZoomIn(int mouseWheelDelta, float marsRadius, float heightAt
 		mPositionX += XMVectorGetX(deltaPosVector);
 		mPositionY += XMVectorGetY(deltaPosVector);
 		mPositionZ += XMVectorGetZ(deltaPosVector);
+		mPosition += deltaPosVector;
 
 		// Rechecking altitude after update
 		mAltitude = XMVectorGetX(XMVector3Length(XMLoadFloat3(new XMFLOAT3(mPositionX, mPositionY, mPositionZ)))) - heightAtPos;
@@ -203,50 +215,6 @@ void PositionClass::ZoomIn(int mouseWheelDelta, float marsRadius, float heightAt
 		mZoomInSpeed = 0;
 
 		mMaxZoom = true;
-	}
-
-	return;
-}
-
-void PositionClass::OrbitLeft(bool keyDown)
-{
-	float distanceFromOrigoXZPlane = sqrt(mPositionX * mPositionX + mPositionZ * mPositionZ);
-
-	if (keyDown)
-	{
-		mOrbitSpeed = GetDistanceFromOrigo() / 100000.0f;
-
-		mOrbitAngleXZ -= mFrameTime * mOrbitSpeed;
-
-		if (mOrbitAngleXZ < 0.0f)
-		{
-			mOrbitAngleXZ += (2 * XM_PI);
-		}
-
-		mPositionX += (cosf(mOrbitAngleXZ) * distanceFromOrigoXZPlane) - mPositionX;
-		mPositionZ += (sinf(mOrbitAngleXZ) * distanceFromOrigoXZPlane) - mPositionZ;
-	}
-
-	return;
-}
-
-void PositionClass::OrbitRight(bool keyDown)
-{
-	float distanceFromOrigoXZPlane = sqrt(mPositionX * mPositionX + mPositionZ * mPositionZ);
-
-	if (keyDown)
-	{
-		mOrbitSpeed = GetDistanceFromOrigo() / 100000.0f;
-
-		mOrbitAngleXZ += mFrameTime * mOrbitSpeed;
-
-		if (mOrbitAngleXZ > (2 * XM_PI))
-		{
-			mOrbitAngleXZ -= (2 * XM_PI);
-		}
-
-		mPositionX += (cosf(mOrbitAngleXZ) * distanceFromOrigoXZPlane) - mPositionX;
-		mPositionZ += (sinf(mOrbitAngleXZ) * distanceFromOrigoXZPlane) - mPositionZ;
 	}
 
 	return;
@@ -314,16 +282,6 @@ void PositionClass::LookDownward(bool keyDown)
 	return;
 }
 
-XMFLOAT3 PositionClass::GetPositionXMFLOAT3() 
-{
-	return XMFLOAT3(mPositionX, mPositionY, mPositionZ);
-}
-
-XMVECTOR PositionClass::GetPositionXMVECTOR()
-{
-	return XMLoadFloat3(new XMFLOAT3(mPositionX, mPositionY, mPositionZ));
-}
-
 float PositionClass::GetDistanceFromOrigo()
 {
 	return (sqrtf((mPositionX * mPositionX) + (mPositionY * mPositionY) + (mPositionZ * mPositionZ)));
@@ -349,6 +307,7 @@ void PositionClass::CheckAltitude(float heightAtPos)
 
 			deltaPosVector = posVectorNorm * deltaAlt;
 
+			mPosition -= deltaPosVector;
 			mPositionX -= XMVectorGetX(deltaPosVector);
 			mPositionY -= XMVectorGetY(deltaPosVector);
 			mPositionZ -= XMVectorGetZ(deltaPosVector);
@@ -361,6 +320,7 @@ void PositionClass::CheckAltitude(float heightAtPos)
 
 			deltaPosVector = posVectorNorm * deltaAlt;
 
+			mPosition += deltaPosVector;
 			mPositionX += XMVectorGetX(deltaPosVector);
 			mPositionY += XMVectorGetY(deltaPosVector);
 			mPositionZ += XMVectorGetZ(deltaPosVector);
@@ -373,7 +333,7 @@ bool PositionClass::MaxZoom()
 	return mMaxZoom;
 }
 
-bool PositionClass::CheckIfInsideAtmosphere(float atmosphereHeight, float marsRadius, float altitude)
+bool PositionClass::InsideAtmosphere(float atmosphereHeight, float marsRadius, float altitude)
 {
 	if (altitude < (marsRadius + atmosphereHeight)) 
 	{
@@ -383,24 +343,41 @@ bool PositionClass::CheckIfInsideAtmosphere(float atmosphereHeight, float marsRa
 	return false;
 }
 
-void PositionClass::PolarOrbit(float orbitY) 
+void PositionClass::UpdateOrbit() 
 {
+	XMVECTOR newPosition;
 	float altitude = GetDistanceFromOrigo();
 
-	mOrbitAngleY += orbitY;
+	newPosition = XMLoadFloat3(&XMFLOAT3((cosf(mOrbitalAngleXZ) * altitude * cosf(mOrbitalAngleY)), (sinf(mOrbitalAngleY) * altitude), (sinf(mOrbitalAngleXZ) * altitude * cosf(mOrbitalAngleY))));
 
-	if (mOrbitAngleY < 0.0f)
-	{
-		mOrbitAngleY += (2 * M_PI);
-	}
-	else if (mOrbitAngleY > (2 * M_PI))
-	{
-		mOrbitAngleY -= (2 * M_PI);
-	}
+	mPositionX += (cosf(mOrbitalAngleXZ) * altitude * cosf(mOrbitalAngleY)) - mPositionX;
+	mPositionY += (sinf(mOrbitalAngleY) * altitude) - mPositionY;
+	mPositionZ += (sinf(mOrbitalAngleXZ) * altitude * cosf(mOrbitalAngleY)) - mPositionZ;
 
-	mPositionX += (cosf(mOrbitAngleXZ) * altitude * cosf(mOrbitAngleY)) - mPositionX;
-	mPositionY += (sinf(mOrbitAngleY) * altitude) - mPositionY;
-	mPositionZ += (sinf(mOrbitAngleXZ) * altitude * cosf(mOrbitAngleY)) - mPositionZ;
+	mRotationY = -1 * (mOrbitalAngleXZ * (180.0f / M_PI)) + 270.0f;
+
+	mPosition += newPosition - mPosition;
 
 	return;
+}
+
+void PositionClass::CheckOrbitalAngles() 
+{
+	if (mOrbitalAngleY < 0.0f)
+	{
+		mOrbitalAngleY += (2 * M_PI);
+	}
+	else if (mOrbitalAngleY > (2 * M_PI))
+	{
+		mOrbitalAngleY -= (2 * M_PI);
+	}
+
+	if (mOrbitalAngleXZ < 0.0f)
+	{
+		mOrbitalAngleXZ += (2 * M_PI);
+	}
+	else if (mOrbitalAngleXZ > (2 * M_PI))
+	{
+		mOrbitalAngleXZ -= (2 * M_PI);
+	}
 }

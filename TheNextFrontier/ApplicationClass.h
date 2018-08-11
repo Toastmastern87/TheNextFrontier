@@ -1,5 +1,4 @@
-#ifndef _APPLICATIONCLASS_H_
-#define _APPLICATIONCLASS_H_
+#pragma once
 
 const bool FULLSCREEN = false;
 const bool VSYNCENABLED = false;
@@ -33,5 +32,3 @@ private:
 	FPSClass* mFPS;
 	UniverseClass* mUniverse;
 };
-
-#endif

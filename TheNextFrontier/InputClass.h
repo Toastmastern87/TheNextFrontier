@@ -1,6 +1,4 @@
-#ifndef _INPUTCLASS_H_
-
-#define _INPUTCLASS_H_
+#pragma once
 
 #define DIRECTINPUT_VERSION 0x0800
 
@@ -13,6 +11,9 @@ using namespace std;
 
 class InputClass
 {
+public:
+	float orbitDirY{ 0.0f };
+
 public:
 	InputClass();
 	InputClass(const InputClass&);
@@ -29,8 +30,6 @@ public:
 
 	bool IsLeftPressed();
 	bool IsRightPressed();
-	bool IsUpPressed();
-	bool IsDownPressed();
 	bool IsAPressed();
 	bool IsZPressed();
 	bool IsPlusNmpPressed();
@@ -46,6 +45,8 @@ public:
 
 	bool IsLeftMouseButtonClicked();
 	bool IsRightMouseButtonClicked();
+
+	void OrbitMovement();
 
 private:
 	bool ReadKeyboard();
@@ -64,6 +65,6 @@ private:
 	int mMouseX, mMouseY, mMouseWheel, mOldMouseWheel;
 
 	bool mF1Released, mF2Released, mF3Released, mF4Released, mF5Released, mLeftMouseButtonReleased, mRightMouseButtonReleased;
-};
 
-#endif
+	int mKey;
+};

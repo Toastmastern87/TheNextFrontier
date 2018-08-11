@@ -918,8 +918,8 @@
       <LINE>48</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsAtmosphereClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsAtmosphereClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsAtmosphereClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>48</FUNCLINE>
@@ -931,24 +931,11 @@
       <LINE>48</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsAtmosphereClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MarsAtmosphereClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsAtmosphereClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>48</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT><DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>marsatmosphereclass.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>21</COLUMN>
-    </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
-    <FUNCTION>MarsAtmosphereClass::{ctor}</FUNCTION>
-    <DECORATED>??0MarsAtmosphereClass@@QEAA@XZ</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
@@ -967,11 +954,24 @@
     <SFA>
       <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
       <FILENAME>marsatmosphereclass.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>21</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>MarsAtmosphereClass::{ctor}</FUNCTION>
+    <DECORATED>??0MarsAtmosphereClass@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
+      <FILENAME>marsatmosphereclass.cpp</FILENAME>
       <LINE>12</LINE>
       <COLUMN>21</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsAtmosphereClass::mAtmosphereHeight' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'MarsAtmosphereClass::mMarsRadius' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsAtmosphereClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsAtmosphereClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>12</FUNCLINE>
@@ -2322,8 +2322,8 @@
       <LINE>61</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>61</FUNCLINE>
@@ -2335,8 +2335,8 @@
       <LINE>61</LINE>
       <COLUMN>2</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::TriangleType::a' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MarsClass::TriangleType::{ctor}</FUNCTION>
     <DECORATED>??0TriangleType@MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>61</FUNCLINE>
@@ -2362,7 +2362,7 @@
       <COLUMN>18</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ApplicationClass::mUniverse' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'ApplicationClass::mInput' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ApplicationClass::{ctor}</FUNCTION>
     <DECORATED>??0ApplicationClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>13</FUNCLINE>
@@ -2374,8 +2374,8 @@
       <LINE>16</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'FrustumClass::mPlane' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>FrustumClass::{ctor}</FUNCTION>
     <DECORATED>??0FrustumClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>16</FUNCLINE>
@@ -2387,8 +2387,8 @@
       <LINE>16</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'FrustumClass::mPlane' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>FrustumClass::{ctor}</FUNCTION>
     <DECORATED>??0FrustumClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>16</FUNCLINE>
@@ -2453,7 +2453,7 @@
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'InputClass::mDirectInput' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'InputClass::mKeyboard' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>InputClass::{ctor}</FUNCTION>
     <DECORATED>??0InputClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>10</FUNCLINE>
@@ -2465,8 +2465,8 @@
       <LINE>3</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'MarsClass::mMarsRadius' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2478,8 +2478,8 @@
       <LINE>3</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
-    <DEFECTCODE>26439</DEFECTCODE>
-    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MarsClass::mMarsRadius' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>MarsClass::{ctor}</FUNCTION>
     <DECORATED>??0MarsClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2680,7 +2680,7 @@
       <COLUMN>15</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'PositionClass::mOrbitSpeed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'PositionClass::mAltitude' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>PositionClass::{ctor}</FUNCTION>
     <DECORATED>??0PositionClass@@QEAA@XZ</DECORATED>
     <FUNCLINE>3</FUNCLINE>
@@ -2706,7 +2706,7 @@
       <COLUMN>15</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'PositionClass::mRotationZ' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'PositionClass::mPositionX' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>PositionClass::{ctor}</FUNCTION>
     <DECORATED>??0PositionClass@@QEAA@AEBV0@@Z</DECORATED>
     <FUNCLINE>28</FUNCLINE>

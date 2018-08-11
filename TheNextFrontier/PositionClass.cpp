@@ -83,52 +83,6 @@ void PositionClass::SetFrameTime(float time)
 	return;
 }
 
-void PositionClass::OrbitNorth(bool keyDown)
-{
-	float altitude = GetDistanceFromOrigo();
-
-	if (keyDown) 
-	{
-		mOrbitSpeed = GetDistanceFromOrigo() / 100000.0f;
-
-		mOrbitAngleY += mFrameTime * mOrbitSpeed;
-
-		if (mOrbitAngleY > (2 * XM_PI))
-		{
-			mOrbitAngleY -= (2 * XM_PI);
-		}
-
-		mPositionX += (cosf(mOrbitAngleXZ) * altitude * cosf(mOrbitAngleY)) - mPositionX;
-		mPositionY += (sinf(mOrbitAngleY) * altitude) - mPositionY;
-		mPositionZ += (sinf(mOrbitAngleXZ) * altitude * cosf(mOrbitAngleY)) - mPositionZ;
-	}
-
-	return;
-}
-
-void PositionClass::OrbitSouth(bool keyDown)
-{
-	float altitude = GetDistanceFromOrigo();
-
-	if (keyDown)
-	{
-		mOrbitSpeed = GetDistanceFromOrigo() / 100000.0f;
-
-		mOrbitAngleY -= mFrameTime * mOrbitSpeed;
-
-		if (mOrbitAngleY < 0.0f)
-		{
-			mOrbitAngleY += (2 * XM_PI);
-		}
-
-		mPositionX += (cosf(mOrbitAngleXZ) * altitude * cosf(mOrbitAngleY)) - mPositionX;
-		mPositionY += (sinf(mOrbitAngleY) * altitude) - mPositionY;
-		mPositionZ += (sinf(mOrbitAngleXZ) * altitude * cosf(mOrbitAngleY)) - mPositionZ;
-	}
-
-	return;
-}
-
 void PositionClass::ZoomOut(int mouseWheelDelta, float marsRadius)
 {
 	float maxSpeed; 
@@ -427,4 +381,26 @@ bool PositionClass::CheckIfInsideAtmosphere(float atmosphereHeight, float marsRa
 	}
 
 	return false;
+}
+
+void PositionClass::PolarOrbit(float orbitY) 
+{
+	float altitude = GetDistanceFromOrigo();
+
+	mOrbitAngleY += orbitY;
+
+	if (mOrbitAngleY < 0.0f)
+	{
+		mOrbitAngleY += (2 * M_PI);
+	}
+	else if (mOrbitAngleY > (2 * M_PI))
+	{
+		mOrbitAngleY -= (2 * M_PI);
+	}
+
+	mPositionX += (cosf(mOrbitAngleXZ) * altitude * cosf(mOrbitAngleY)) - mPositionX;
+	mPositionY += (sinf(mOrbitAngleY) * altitude) - mPositionY;
+	mPositionZ += (sinf(mOrbitAngleXZ) * altitude * cosf(mOrbitAngleY)) - mPositionZ;
+
+	return;
 }

@@ -1,5 +1,6 @@
 #pragma once
 
+#define _USE_MATH_DEFINES
 
 #include <math.h>
 #include <DirectXMath.h>
@@ -34,8 +35,6 @@ public:
 
 	void SetFrameTime(float);
 
-	void OrbitNorth(bool);
-	void OrbitSouth(bool);
 	void ZoomOut(int, float);
 	void ZoomIn(int, float, float);
 	void OrbitLeft(bool);
@@ -44,6 +43,8 @@ public:
 	void LookDownward(bool);
 
 	bool CheckIfInsideAtmosphere(float, float, float);
+
+	void PolarOrbit(float);
 
 private:
 	float mPositionX, mPositionY, mPositionZ;

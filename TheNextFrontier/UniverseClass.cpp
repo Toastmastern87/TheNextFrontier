@@ -352,11 +352,14 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime, D3DC
 	keyDown = input->IsRightPressed();
 	mPosition->OrbitRight(keyDown);
 
-	keyDown = input->IsUpPressed();
-	mPosition->OrbitNorth(keyDown);
+	//keyDown = input->IsUpPressed();
+	//mPosition->OrbitNorth(keyDown);
 
-	keyDown = input->IsDownPressed();
-	mPosition->OrbitSouth(keyDown);
+	//keyDown = input->IsDownPressed();
+	//mPosition->OrbitSouth(keyDown);
+
+	input->OrbitMovement();
+	mPosition->PolarOrbit(input->orbitDirY * frameTime * (mPosition->GetDistanceFromOrigo() / 100000.0f));
 
 	keyDown = input->IsPlusNmpPressed();
 	if (keyDown && !mSpeedIncreased)

@@ -45,7 +45,7 @@ bool InputClass::Initialize(HINSTANCE hInstance, HWND hwnd, int screenWidth, int
 		return false;
 	}
 
-	result = mKeyboard->SetCooperativeLevel(hwnd, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE);
+	result = mKeyboard->SetCooperativeLevel(hwnd, DISCL_FOREGROUND | DISCL_EXCLUSIVE);
 	if (FAILED(result))
 	{
 		return false;
@@ -139,7 +139,7 @@ bool InputClass::Frame()
 bool InputClass::ReadKeyboard() 
 {
 	HRESULT result;
-
+	
 	result = mKeyboard->GetDeviceState(sizeof(mKeyboardState), (LPVOID)&mKeyboardState);
 	if (FAILED(result)) 
 	{
@@ -151,6 +151,19 @@ bool InputClass::ReadKeyboard()
 		{
 			return false;
 		}
+	}
+
+	if (mKeyboardState[DIK_UP] & 0x80)
+	{
+		mKey = DIK_UP;
+	}
+	else if(mKeyboardState[DIK_DOWN] & 0x80)
+	{
+		mKey = DIK_DOWN;
+	}
+	else 
+	{
+		mKey = 0;
 	}
 
 	return true;
@@ -203,6 +216,8 @@ void InputClass::ProcessInput()
 	{
 		mMouseY = ((mScreenHeight / 2) - 40);
 	}
+
+
 }
 
 bool InputClass::IsEscapePressed() 
@@ -255,27 +270,7 @@ bool InputClass::IsRightPressed()
 	{
 		return true;
 	}
-
-	return false;
-}
-
-bool InputClass::IsUpPressed()
-{
-	if (mKeyboardState[DIK_UP] & 0x80)
-	{
-		return true;
-	}
-
-	return false;
-}
-
-bool InputClass::IsDownPressed()
-{
-	if (mKeyboardState[DIK_DOWN] & 0x80)
-	{
-		return true;
-	}
-
+	
 	return false;
 }
 
@@ -464,4 +459,21 @@ bool InputClass::IsRightMouseButtonClicked()
 	}
 
 	return false;
+}
+
+void InputClass::OrbitMovement() 
+{
+	switch (mKey) 
+	{
+	case DIK_UP:
+		orbitDirY = 1.0f;
+		break;
+	case DIK_DOWN:
+		orbitDirY = -1.0f;
+		break;
+	case 0:
+		orbitDirY = 0.0f;
+	}
+
+	return;
 }

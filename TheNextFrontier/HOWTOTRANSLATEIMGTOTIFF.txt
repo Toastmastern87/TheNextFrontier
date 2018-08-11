@@ -1,0 +1,1 @@
+gdal_translate.exe DTEEC_010492_1510_045278_1510_A01.IMG -of gtiff -ot uint16 -scale 889 1089 0 65535 test.tif

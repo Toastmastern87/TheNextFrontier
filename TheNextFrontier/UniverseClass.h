@@ -28,6 +28,8 @@ public:
 	void Shutdown();
 	bool Frame(HWND, D3DClass*, InputClass*, ShaderManagerClass*, float, int);
 
+	PositionClass* GetPosition();
+
 private:
 	void HandleMovementInput(InputClass*, float, D3DClass*);
 	bool Render(D3DClass*, ShaderManagerClass*);

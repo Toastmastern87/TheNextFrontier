@@ -15,9 +15,12 @@ InputClass::~InputClass()
 {
 }
 
-bool InputClass::Initialize(HINSTANCE hInstance, HWND hwnd, int screenWidth, int screenHeight)
+bool InputClass::Initialize(HINSTANCE hInstance, HWND hwnd, int screenWidth, int screenHeight, PositionClass *position, float frameTime)
 {
 	HRESULT result;
+
+	mPosition = position;
+	mFrameTime = frameTime;
 
 	mScreenWidth = screenWidth;
 	mScreenHeight = screenHeight;
@@ -26,8 +29,6 @@ bool InputClass::Initialize(HINSTANCE hInstance, HWND hwnd, int screenWidth, int
 	mMouseY = 0;
 	mMouseWheel = 0;
 	mOldMouseWheel = 0;
-
-	mKeys.fill(0);
 
 	result = DirectInput8Create(hInstance, DIRECTINPUT_VERSION, IID_IDirectInput8, (void**)&mDirectInput, NULL);
 	if (FAILED(result)) 
@@ -117,11 +118,11 @@ void InputClass::Shutdown()
 	}
 }
 
-bool InputClass::Frame(array<char, 1024> &keys)
+bool InputClass::Frame(float frameTime)
 {
 	bool result;
 
-	mKeys = keys;
+	mFrameTime = frameTime;
 
 	result = ReadKeyboard();
 	if (!result) 
@@ -157,28 +158,6 @@ bool InputClass::ReadKeyboard()
 		}
 	}
 
-	if (mKeyboardState[DIK_UP] & 0x80)
-	{
-		mKey = DIK_UP;
-	}
-	else if(mKeyboardState[DIK_DOWN] & 0x80)
-	{
-		mKey = DIK_DOWN;
-	}
-	else if (mKeyboardState[DIK_RIGHT] & 0x80)
-	{
-		mKey = DIK_RIGHT;
-	}
-	else if (mKeyboardState[DIK_LEFT] & 0x80)
-	{
-		mKey = DIK_LEFT;
-	}
-	else 
-	{
-		mKey = 0;
-	}
-
-
 	return true;
 }
 
@@ -204,6 +183,26 @@ bool InputClass::ReadMouse()
 
 void InputClass::ProcessInput() 
 {
+	if (mKeyboardState[DIK_UP] & 0x80)
+	{
+		ProcessKey(DIK_UP);
+	}
+
+	if (mKeyboardState[DIK_DOWN] & 0x80)
+	{
+		ProcessKey(DIK_DOWN);
+	}
+
+	if (mKeyboardState[DIK_RIGHT] & 0x80)
+	{
+		ProcessKey(DIK_RIGHT);
+	}
+
+	if (mKeyboardState[DIK_LEFT] & 0x80)
+	{
+		ProcessKey(DIK_LEFT);
+	}
+
 	mMouseX += mMouseState.lX;
 	mMouseY += mMouseState.lY;
 	mMouseWheel += mMouseState.lZ;
@@ -229,8 +228,6 @@ void InputClass::ProcessInput()
 	{
 		mMouseY = ((mScreenHeight / 2) - 40);
 	}
-
-
 }
 
 bool InputClass::IsEscapePressed() 
@@ -265,46 +262,6 @@ int InputClass::GetMouseWheelDelta()
 	mOldMouseWheel = mMouseWheel;
 
 	return ret;
-}
-
-bool InputClass::IsAPressed()
-{
-	if (mKeyboardState[DIK_A] & 0x80)
-	{
-		return true;
-	}
-
-	return false;
-}
-
-bool InputClass::IsZPressed()
-{
-	if (mKeyboardState[DIK_Z] & 0x80)
-	{
-		return true;
-	}
-
-	return false;
-}
-
-bool InputClass::IsPgUpPressed()
-{
-	if (mKeyboardState[DIK_PGUP] & 0x80)
-	{
-		return true;
-	}
-
-	return false;
-}
-
-bool InputClass::IsPgDownPressed()
-{
-	if (mKeyboardState[DIK_PGDN] & 0x80)
-	{
-		return true;
-	}
-
-	return false;
 }
 
 bool InputClass::IsF1Toggled()
@@ -454,27 +411,12 @@ bool InputClass::IsRightMouseButtonClicked()
 	return false;
 }
 
-void InputClass::OrbitMovement(PositionClass *position, float frameTime) 
+void InputClass::ProcessKey(int key) 
 {
-	if (mKeys['W'])
-	{
-		position->mOrbitalAngleY += 1.0f * frameTime * (position->GetDistanceFromOrigo() / 100000.0f);
-		
-	}
-
-	switch (mKey) 
+	switch (key)
 	{
 	case DIK_UP:
-		position->mOrbitalAngleY += 1.0f * frameTime * (position->GetDistanceFromOrigo() / 100000.0f);
-		break;
-	case DIK_DOWN:
-		position->mOrbitalAngleY -= 1.0f * frameTime * (position->GetDistanceFromOrigo() / 100000.0f);
-		break;
-	case DIK_RIGHT:
-		position->mOrbitalAngleXZ += 1.0f * frameTime * (position->GetDistanceFromOrigo() / 100000.0f);
-		break;
-	case DIK_LEFT:
-		position->mOrbitalAngleXZ -= 1.0f * frameTime * (position->GetDistanceFromOrigo() / 100000.0f);
+		mPosition->mOrbitalAngleY += 1.0f * mFrameTime * (mPosition->GetDistanceFromOrigo() / 100000.0f);
 		break;
 	}
 

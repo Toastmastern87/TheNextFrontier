@@ -610,7 +610,7 @@
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiMeshKey::mValue' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'aiMeshKey::mTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiMeshKey::{ctor}</FUNCTION>
     <DECORATED>??0aiMeshKey@@QEAA@XZ</DECORATED>
     <FUNCLINE>164</FUNCLINE>
@@ -624,7 +624,7 @@
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'aiMeshKey::mTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'aiMeshKey::mValue' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>aiMeshKey::{ctor}</FUNCTION>
     <DECORATED>??0aiMeshKey@@QEAA@XZ</DECORATED>
     <FUNCLINE>164</FUNCLINE>
@@ -782,20 +782,6 @@
     <FUNCTION>ObjLoaderClass::VertexType::{ctor}</FUNCTION>
     <DECORATED>??0VertexType@ObjLoaderClass@@QEAA@UXMFLOAT3@DirectX@@@Z</DECORATED>
     <FUNCLINE>34</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\joka8837\onedrive\c++ projects\thenextfrontier\thenextfrontier\thenextfrontier\</FILEPATH>
-      <FILENAME>thenextfrontier.cpp</FILENAME>
-      <LINE>3</LINE>
-      <COLUMN>11</COLUMN>
-    </SFA>
-    <DEFECTCODE>28251</DEFECTCODE>
-    <DESCRIPTION>Inconsistent annotation for 'WinMain': this instance has no annotations. See c:\program files (x86)\windows kits\10\include\10.0.17134.0\um\winbase.h(912). </DESCRIPTION>
-    <FUNCTION>WinMain</FUNCTION>
-    <DECORATED>WinMain</DECORATED>
-    <FUNCLINE>3</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>

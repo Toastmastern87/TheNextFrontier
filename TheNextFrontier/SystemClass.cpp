@@ -35,13 +35,6 @@ bool SystemClass::Initialize()
 		return false;
 	}
 
-	//mNewKeyboard.usUsagePage = 0x01;
-	//mNewKeyboard.usUsage = 0x06;
-	//mNewKeyboard.dwFlags = RIDEV_NOLEGACY;
-	//mNewKeyboard.hwndTarget = mHWND;
-
-	//RegisterRawInputDevices(&mNewKeyboard, 1, sizeof(mNewKeyboard));
-
 	return true;
 }
 
@@ -77,16 +70,6 @@ void SystemClass::Run()
 			if (msg.message == WM_QUIT)
 			{
 				done = true;
-			}
-
-			if (msg.message == WM_KEYDOWN) 
-			{
-				mApplication->mKeys[msg.wParam] = 1;
-			}
-
-			if (msg.message == WM_KEYUP) 
-			{
-				mApplication->mKeys[msg.wParam] = 0;
 			}
 		}
 

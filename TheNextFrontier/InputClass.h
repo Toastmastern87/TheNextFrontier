@@ -20,21 +20,17 @@ public:
 	InputClass(const InputClass&);
 	~InputClass();
 
-	bool Initialize(HINSTANCE, HWND, int, int);
+	bool Initialize(HINSTANCE, HWND, int, int, PositionClass*, float);
 	void Shutdown();
-	bool Frame(array<char, 1024>&);
+	bool Frame(float);
 
 	bool IsEscapePressed();
 	void GetMouseLocation(int&, int&);
 	int GetMouseWheelLocation();
 	int GetMouseWheelDelta();
 
-	bool IsAPressed();
-	bool IsZPressed();
 	bool IsPlusNmpPressed();
 	bool IsMinusNmpPressed();
-	bool IsPgUpPressed();
-	bool IsPgDownPressed();
 
 	bool IsF1Toggled();
 	bool IsF2Toggled();
@@ -45,7 +41,7 @@ public:
 	bool IsLeftMouseButtonClicked();
 	bool IsRightMouseButtonClicked();
 
-	void OrbitMovement(PositionClass*, float);
+	void ProcessKey(int);
 
 private:
 	bool ReadKeyboard();
@@ -65,6 +61,6 @@ private:
 
 	bool mF1Released, mF2Released, mF3Released, mF4Released, mF5Released, mLeftMouseButtonReleased, mRightMouseButtonReleased;
 
-	int mKey;
-	array<char, 1024> mKeys;
+	PositionClass* mPosition;
+	float mFrameTime;
 };

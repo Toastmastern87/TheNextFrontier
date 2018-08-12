@@ -1,6 +1,6 @@
 #include "SystemClass.h"
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdLine, int iCmdshow)
+int main()
 {
 	SystemClass* system;
 	bool result;

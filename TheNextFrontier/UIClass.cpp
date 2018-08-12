@@ -11,6 +11,7 @@ UIClass::UIClass()
 	mDistFromOrigoString = 0;
 	mMarsHeightString = 0;
 	mGameTimeString = 0;
+	mOrbitalAngleYString = 0;
 }
 
 UIClass::UIClass(const UIClass& other) 
@@ -31,6 +32,7 @@ bool UIClass::Initialize(HWND hwnd, D3DClass* direct3D, int screenHeight, int sc
 	char altitudeString[32];
 	char distFromOrigoString[60];
 	char marsHeightString[32];
+	char orbitalAngleYString[40];
 	char tempString[16];
 	int i;
 
@@ -187,6 +189,14 @@ bool UIClass::Initialize(HWND hwnd, D3DClass* direct3D, int screenHeight, int sc
 		return false;
 	}
 
+	mOrbitalAngleYString = new TextClass;
+
+	result = mOrbitalAngleYString->Initialize(hwnd, direct3D->GetDevice(), direct3D->GetDeviceContext(), screenWidth, screenHeight, 40, false, mFont1, (char*)"Orbital Angle Y: ", 10, 520, 1.0f, 1.0f, 1.0f);
+	if (!result)
+	{
+		return false;
+	}
+
 	return true;
 }
 
@@ -244,7 +254,7 @@ void UIClass::Shutdown()
 	return;
 }
 
-bool UIClass::Frame(HWND hwnd, ID3D11DeviceContext* deviceContext, int fps, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, int verticesNr, float altitude, float distFromOrigo, float marsHeight, int gameTimeSecs, int gameTimeMins, int gameTimeHours, int gameTimeDays, int gameTimeMarsYears)
+bool UIClass::Frame(HWND hwnd, ID3D11DeviceContext* deviceContext, int fps, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, int verticesNr, float altitude, float distFromOrigo, float marsHeight, int gameTimeSecs, int gameTimeMins, int gameTimeHours, int gameTimeDays, int gameTimeMarsYears, float orbitalAngleY)
 {
 	bool result;
 
@@ -290,6 +300,12 @@ bool UIClass::Frame(HWND hwnd, ID3D11DeviceContext* deviceContext, int fps, floa
 		return false;
 	}
 
+	result = UpdateOrbitalAngleYString(hwnd, deviceContext, orbitalAngleY);
+	if (!result)
+	{
+		return false;
+	}
+
 	return true;
 }
 
@@ -311,6 +327,8 @@ bool UIClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager, XMMA
 	mMarsHeightString->Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
 
 	mGameTimeString->Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
+
+	mOrbitalAngleYString->Render(direct3D->GetDeviceContext(), shaderManager, worldMatrix, viewMatrix, orthoMatrix, mFont1->GetTexture());
 
 	return true;
 }
@@ -618,6 +636,28 @@ bool UIClass::UpdateGameTimeString(HWND hwnd, ID3D11DeviceContext *deviceContext
 		{
 			return false;
 		}
+	}
+
+	return true;
+}
+
+bool UIClass::UpdateOrbitalAngleYString(HWND hwnd, ID3D11DeviceContext* deviceContext, float orbitalAngleY)
+{
+	bool result;
+	char tempString[40];
+	char finalString[40];
+
+	int orbitalAngleYDegree = orbitalAngleY * (180.0f / M_PI);
+
+	_itoa_s(orbitalAngleYDegree, tempString, 10);
+
+	strcpy_s(finalString, "Orbital Angle Y: ");
+	strcat_s(finalString, tempString);
+
+	result = mOrbitalAngleYString->UpdateSentence(hwnd, deviceContext, mFont1, finalString, 10, 360, 1.0f, 1.0f, 1.0f);
+	if (!result)
+	{
+		return false;
 	}
 
 	return true;

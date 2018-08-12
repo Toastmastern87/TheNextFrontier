@@ -17,9 +17,6 @@ const float SCREENEAR = 0.1f;
 class ApplicationClass
 {
 public:
-	std::array<char,1024> mKeys;
-
-public:
 	ApplicationClass();
 	ApplicationClass(const ApplicationClass&);
 	~ApplicationClass();

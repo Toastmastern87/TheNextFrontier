@@ -307,7 +307,7 @@ bool UniverseClass::Frame(HWND hwnd, D3DClass* direct3D, InputClass* input, Shad
 	{
 		altitude = mPosition->GetDistanceFromOrigo() - mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3());
 
-		result = mUI->Frame(hwnd, direct3D->GetDeviceContext(), fps, posX, posY, posZ, rotX, rotY, rotZ, numberOfVertices, altitude, mPosition->GetDistanceFromOrigo(), mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()), mGameTime->GetGameTimeSecs(), mGameTime->GetGameTimeMins(), mGameTime->GetGameTimeHours(), mGameTime->GetGameTimeDays(), mGameTime->GetGameTimeMarsYears());
+		result = mUI->Frame(hwnd, direct3D->GetDeviceContext(), fps, posX, posY, posZ, rotX, rotY, rotZ, numberOfVertices, altitude, mPosition->GetDistanceFromOrigo(), mMars->GetHeightAtPos(mPosition->GetPositionXMFLOAT3()), mGameTime->GetGameTimeSecs(), mGameTime->GetGameTimeMins(), mGameTime->GetGameTimeHours(), mGameTime->GetGameTimeDays(), mGameTime->GetGameTimeMarsYears(), mPosition->mOrbitalAngleY);
 		if (!result)
 		{
 			return false;
@@ -348,7 +348,6 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime, D3DC
 	input->GetMouseWheelLocation();
 	mouseDelta = input->GetMouseWheelDelta();
 
-	input->OrbitMovement(mPosition, frameTime);
 	mPosition->UpdateOrbit();
 
 	keyDown = input->IsPlusNmpPressed();
@@ -583,4 +582,9 @@ bool UniverseClass::Render(D3DClass* direct3D, ShaderManagerClass* shaderManager
 	direct3D->EndScene();
 
 	return true;
+}
+
+PositionClass* UniverseClass::GetPosition() 
+{
+	return mPosition;
 }

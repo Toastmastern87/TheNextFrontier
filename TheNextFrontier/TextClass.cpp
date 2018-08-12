@@ -182,7 +182,7 @@ bool TextClass::UpdateSentence(HWND hwnd, ID3D11DeviceContext* deviceContext, Fo
 
 	if (numLetters > mMaxLength) 
 	{
-		MessageBox(hwnd, L"VideoString3", L"Error!", MB_OK);
+		MessageBox(hwnd, L"String to big you fucker!", L"Error!", MB_OK);
 		return false;
 	}
 

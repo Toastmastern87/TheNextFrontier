@@ -22,21 +22,6 @@ bool ApplicationClass::Initialize(HINSTANCE hInstance, HWND hwnd, int screenWidt
 {
 	bool result;
 
-	mKeys.fill(0);
-
-	mInput = new InputClass;
-	if (!mInput) 
-	{
-		return false;
-	}
-
-	result = mInput->Initialize(hInstance, hwnd, screenWidth, screenHeight);
-	if (!result)
-	{
-		MessageBox(hwnd, L"Couldn't initiate the input object", L"Error", MB_OK);
-		return false;
-	}
-
 	mDirect3D = new D3DClass;
 	if (!mDirect3D)
 	{
@@ -97,6 +82,19 @@ bool ApplicationClass::Initialize(HINSTANCE hInstance, HWND hwnd, int screenWidt
 		return false;
 	}
 
+	mInput = new InputClass;
+	if (!mInput)
+	{
+		return false;
+	}
+
+	result = mInput->Initialize(hInstance, hwnd, screenWidth, screenHeight, mUniverse->GetPosition(), mTimer->GetTime());
+	if (!result)
+	{
+		MessageBox(hwnd, L"Couldn't initiate the input object", L"Error", MB_OK);
+		return false;
+	}
+
 	return true;
 }
 
@@ -152,7 +150,7 @@ bool ApplicationClass::Frame(HWND hwnd)
 	mFPS->Frame();
 	mTimer->Frame();
 
-	result = mInput->Frame(mKeys);
+	result = mInput->Frame(mTimer->GetTime());
 	if (!result) 
 	{
 		return false;

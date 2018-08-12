@@ -28,11 +28,11 @@ private:
 	HINSTANCE mHInstance;
 	HWND mHWND;
 
-	ApplicationClass* mApplication;
-
 	RAWINPUTDEVICE mNewKeyboard;
 };
 
 static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
 static SystemClass* applicationHandle = 0;
+
+static ApplicationClass* mApplication;

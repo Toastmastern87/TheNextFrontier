@@ -2,8 +2,6 @@
 
 #define DIRECTINPUT_VERSION 0x0800
 
-#define KEY_W 2
-
 #pragma comment(lib, "dinput8.lib")
 #pragma comment(lib, "dxguid.lib")
 
@@ -21,7 +19,7 @@ public:
 
 	bool Initialize(HINSTANCE, HWND, int, int, PositionClass*, float);
 	void Shutdown();
-	bool Frame(float);
+	bool Frame(float, std::array<char, 1024>);
 
 	bool IsEscapePressed();
 	void GetMouseLocation(int&, int&);
@@ -62,4 +60,7 @@ private:
 
 	PositionClass* mPosition;
 	float mFrameTime;
+
+	std::array<char, 1024> mKeys;
+	bool mEscapedPressed;
 };

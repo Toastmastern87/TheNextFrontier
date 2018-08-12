@@ -35,6 +35,12 @@ bool SystemClass::Initialize()
 		return false;
 	}
 
+	mNewKeyboard.usUsagePage = 0x01;
+	mNewKeyboard.usUsage = 0x06;
+	mNewKeyboard.dwFlags = RIDEV_NOLEGACY;
+	mNewKeyboard.hwndTarget = mHWND;
+	RegisterRawInputDevices(&mNewKeyboard, 1, sizeof(mNewKeyboard));
+
 	return true;
 }
 
@@ -198,6 +204,30 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT umessage, WPARAM wparam, LPARAM lparam)
 		{
 			PostQuitMessage(0);
 			return 0;
+		}
+
+		case WM_INPUT:
+		{
+			char buffer[sizeof(RAWINPUT)] = {};
+			UINT size = sizeof(RAWINPUT);
+			GetRawInputData(reinterpret_cast<HRAWINPUT>(lparam), RID_INPUT, buffer, &size, sizeof(RAWINPUTHEADER));
+
+			// extract keyboard raw input data
+			RAWINPUT* rawInput = reinterpret_cast<RAWINPUT*>(buffer);
+			if (rawInput->header.dwType == RIM_TYPEKEYBOARD)
+			{
+				const RAWKEYBOARD& rawKB = rawInput->data.keyboard;
+				// do something with the data here
+
+				UINT virtualKey = rawKB.VKey;
+
+				switch(virtualKey) 
+				{
+					case VK_ESCAPE:
+						mApplication->mKeys[VK_ESCAPE] = 1;
+						break;
+				}
+			}
 		}
 
 		default:

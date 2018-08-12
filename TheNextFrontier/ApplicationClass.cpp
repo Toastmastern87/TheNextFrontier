@@ -95,6 +95,8 @@ bool ApplicationClass::Initialize(HINSTANCE hInstance, HWND hwnd, int screenWidt
 		return false;
 	}
 
+	mKeys.fill(0);
+
 	return true;
 }
 
@@ -150,7 +152,7 @@ bool ApplicationClass::Frame(HWND hwnd)
 	mFPS->Frame();
 	mTimer->Frame();
 
-	result = mInput->Frame(mTimer->GetTime());
+	result = mInput->Frame(mTimer->GetTime(), mKeys);
 	if (!result) 
 	{
 		return false;

@@ -36,29 +36,29 @@ bool InputClass::Initialize(HINSTANCE hInstance, HWND hwnd, int screenWidth, int
 		return false;
 	}
 
-	result = mDirectInput->CreateDevice(GUID_SysKeyboard, &mKeyboard, NULL);
-	if (FAILED(result))
-	{
-		return false;
-	}
+	//result = mDirectInput->CreateDevice(GUID_SysKeyboard, &mKeyboard, NULL);
+	//if (FAILED(result))
+	//{
+	//	return false;
+	//}
 
-	result = mKeyboard->SetDataFormat(&c_dfDIKeyboard);
-	if (FAILED(result))
-	{
-		return false;
-	}
+	//result = mKeyboard->SetDataFormat(&c_dfDIKeyboard);
+	//if (FAILED(result))
+	//{
+	//	return false;
+	//}
 
-	result = mKeyboard->SetCooperativeLevel(hwnd, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE);
-	if (FAILED(result))
-	{
-		return false;
-	}
+	//result = mKeyboard->SetCooperativeLevel(hwnd, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE);
+	//if (FAILED(result))
+	//{
+	//	return false;
+	//}
 
-	result = mKeyboard->Acquire();
-	if (FAILED(result))
-	{
-		return false;
-	}
+	//result = mKeyboard->Acquire();
+	//if (FAILED(result))
+	//{
+	//	return false;
+	//}
 
 	result = mDirectInput->CreateDevice(GUID_SysMouse, &mMouse, NULL);
 	if (FAILED(result))
@@ -92,6 +92,9 @@ bool InputClass::Initialize(HINSTANCE hInstance, HWND hwnd, int screenWidth, int
 	mLeftMouseButtonReleased = true;
 	mRightMouseButtonReleased = true;
 
+	mEscapedPressed = false;
+	mKeys.fill(0);
+
 	return true;
 }
 
@@ -118,17 +121,19 @@ void InputClass::Shutdown()
 	}
 }
 
-bool InputClass::Frame(float frameTime)
+bool InputClass::Frame(float frameTime, std::array<char, 1024> keys)
 {
 	bool result;
 
+	mKeys = keys;
+
 	mFrameTime = frameTime;
 
-	result = ReadKeyboard();
-	if (!result) 
-	{
-		return false;
-	}
+	//result = ReadKeyboard();
+	//if (!result) 
+	//{
+	//	return false;
+	//}
 
 	result = ReadMouse();
 	if (!result)
@@ -186,26 +191,31 @@ bool InputClass::ReadMouse()
 
 void InputClass::ProcessInput() 
 {
-	if (mKeyboardState[DIK_UP] & 0x80)
-	{
-		printf("DIK_UP IS PRESSED!\r\n");
-		ProcessKey(DIK_UP);
-	}
+	//if (mKeyboardState[DIK_UP] & 0x80)
+	//{
+	//	printf("DIK_UP IS PRESSED!\r\n");
+	//	ProcessKey(DIK_UP);
+	//}
 
-	if (mKeyboardState[DIK_DOWN] & 0x80)
-	{
-		printf("DIK_DOWN IS PRESSED!\r\n");
-		ProcessKey(DIK_DOWN);
-	}
+	//if (mKeyboardState[DIK_DOWN] & 0x80)
+	//{
+	//	printf("DIK_DOWN IS PRESSED!\r\n");
+	//	ProcessKey(DIK_DOWN);
+	//}
 
-	if (mKeyboardState[DIK_RIGHT] & 0x80)
-	{
-		ProcessKey(DIK_RIGHT);
-	}
+	//if (mKeyboardState[DIK_RIGHT] & 0x80)
+	//{
+	//	ProcessKey(DIK_RIGHT);
+	//}
 
-	if (mKeyboardState[DIK_LEFT] & 0x80)
+	//if (mKeyboardState[DIK_LEFT] & 0x80)
+	//{
+	//	ProcessKey(DIK_LEFT);
+	//}
+
+	if (mKeys[VK_ESCAPE])
 	{
-		ProcessKey(DIK_LEFT);
+		ProcessKey(VK_ESCAPE);
 	}
 
 	mMouseX += mMouseState.lX;
@@ -237,12 +247,7 @@ void InputClass::ProcessInput()
 
 bool InputClass::IsEscapePressed() 
 {
-	if (mKeyboardState[DIK_ESCAPE] & 0x80) 
-	{
-		return true;
-	}
-
-	return false;
+	return mEscapedPressed;
 }
 
 void InputClass::GetMouseLocation(int& mouseX, int& mouseY) 
@@ -425,6 +430,9 @@ void InputClass::ProcessKey(int key)
 		break;
 	case DIK_DOWN:
 		mPosition->mOrbitalAngleY -= 1.0f * mFrameTime * (mPosition->GetDistanceFromOrigo() / 100000.0f);
+		break;
+	case VK_ESCAPE:
+		mEscapedPressed = true;
 		break;
 	}
 

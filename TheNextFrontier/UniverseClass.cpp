@@ -398,30 +398,30 @@ void UniverseClass::HandleMovementInput(InputClass* input, float frameTime, D3DC
 	mCamera->SetPosition(posX, posY, posZ);
 	mCamera->SetRotation(rotX, rotY, rotZ);
 
-	if (input->IsF1Toggled())
-	{
-		mDisplayUI = !mDisplayUI;
-	}
+	//if (input->IsF1Toggled())
+	//{
+	//	mDisplayUI = !mDisplayUI;
+	//}
 
-	if (input->IsF2Toggled())
-	{
-		mWireframe = !mWireframe;
-	}
+	//if (input->IsF2Toggled())
+	//{
+	//	mWireframe = !mWireframe;
+	//}
 
-	if(input->IsF3Toggled())
-	{
-		mRenderAtmosphere = !mRenderAtmosphere;
-	}
+	//if(input->IsF3Toggled())
+	//{
+	//	mRenderAtmosphere = !mRenderAtmosphere;
+	//}
 
-	if (input->IsF4Toggled())
-	{
-		mRenderMars = !mRenderMars;
-	}
+	//if (input->IsF4Toggled())
+	//{
+	//	mRenderMars = !mRenderMars;
+	//}
 
-	if (input->IsF5Toggled())
-	{
-		mRenderStarBox = !mRenderStarBox;
-	}
+	//if (input->IsF5Toggled())
+	//{
+	//	mRenderStarBox = !mRenderStarBox;
+	//}
 
 	// Check if anything got picked by the mouse
 	if (input->IsLeftMouseButtonClicked())

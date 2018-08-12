@@ -145,9 +145,12 @@ bool InputClass::ReadKeyboard()
 {
 	HRESULT result;
 	
+	ZeroMemory(mKeyboardState, sizeof(mKeyboardState));
+
 	result = mKeyboard->GetDeviceState(sizeof(mKeyboardState), (LPVOID)&mKeyboardState);
 	if (FAILED(result)) 
 	{
+		printf("LOST KEYBOARD!\r\n");
 		if((result == DIERR_INPUTLOST) || (result == DIERR_NOTACQUIRED))
 		{
 			mKeyboard->Acquire();
@@ -185,11 +188,13 @@ void InputClass::ProcessInput()
 {
 	if (mKeyboardState[DIK_UP] & 0x80)
 	{
+		printf("DIK_UP IS PRESSED!\r\n");
 		ProcessKey(DIK_UP);
 	}
 
 	if (mKeyboardState[DIK_DOWN] & 0x80)
 	{
+		printf("DIK_DOWN IS PRESSED!\r\n");
 		ProcessKey(DIK_DOWN);
 	}
 
@@ -417,6 +422,9 @@ void InputClass::ProcessKey(int key)
 	{
 	case DIK_UP:
 		mPosition->mOrbitalAngleY += 1.0f * mFrameTime * (mPosition->GetDistanceFromOrigo() / 100000.0f);
+		break;
+	case DIK_DOWN:
+		mPosition->mOrbitalAngleY -= 1.0f * mFrameTime * (mPosition->GetDistanceFromOrigo() / 100000.0f);
 		break;
 	}
 

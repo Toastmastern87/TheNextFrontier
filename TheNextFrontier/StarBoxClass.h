@@ -6,7 +6,6 @@
 #include <WICTextureLoader.h>
 #include "GeometryClass.h"
 using namespace DirectX;
-using namespace std;
 
 class StarBoxClass
 {
@@ -31,8 +30,8 @@ private:
 
 private:
 	ID3D11Buffer *mVertexBuffer, *mIndexBuffer;
-	vector<GeometryClass::VertexType> mVertices;
-	vector<int> mIndices;
+	std::vector<GeometryClass::VertexType> mVertices;
+	std::vector<int> mIndices;
 
 	ID3D11Resource *mStarBoxResource;
 	ID3D11ShaderResourceView *mStarBoxResourceView;

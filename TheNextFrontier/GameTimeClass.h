@@ -6,7 +6,6 @@
 #include <Windows.h>
 #include <mmsystem.h>
 #include <fstream>
-using namespace std;
 
 class GameTimeClass
 {

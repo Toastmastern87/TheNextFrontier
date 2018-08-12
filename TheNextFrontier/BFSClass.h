@@ -9,7 +9,6 @@
 #include "TargetBoxClass.h"
 #include <DirectXCollision.h>
 using namespace DirectX;
-using namespace std;
 
 class BFSClass
 {

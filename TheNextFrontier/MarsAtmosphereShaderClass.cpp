@@ -310,7 +310,7 @@ void MarsAtmosphereShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessag
 {
 	char* compileErrors;
 	unsigned long long bufferSize, i;
-	ofstream fout;
+	std::ofstream fout;
 
 	compileErrors = (char*)(errorMessage->GetBufferPointer());
 

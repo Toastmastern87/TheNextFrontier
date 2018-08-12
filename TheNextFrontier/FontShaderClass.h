@@ -8,7 +8,6 @@
 #include <fstream>
 
 using namespace DirectX;
-using namespace std;
 
 class FontShaderClass
 {

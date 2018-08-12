@@ -8,7 +8,6 @@
 #include "PositionClass.h"
 #include "GeometryClass.h"
 using namespace DirectX;
-using namespace std;
 
 class MarsAtmosphereClass
 {
@@ -94,10 +93,10 @@ private:
 	float mAtmosphereHeight, mMarsRadius;
 	ID3D11Buffer * mVertexBuffer, *mIndexBuffer, *mInstanceBuffer;
 
-	vector<MarsAtmosphereVertexType> mMarsAtmosphereCellVertices;
-	vector<long int> mMarsAtmosphereCellIndices;
-	vector<TriangleType> mIcosphere;
-	vector<MarsAtmosphereCellType> mMarsAtmosphereCells;
+	std::vector<MarsAtmosphereVertexType> mMarsAtmosphereCellVertices;
+	std::vector<long int> mMarsAtmosphereCellIndices;
+	std::vector<TriangleType> mIcosphere;
+	std::vector<MarsAtmosphereCellType> mMarsAtmosphereCells;
 
 	int mMaxSubdivisionLevel, mMaxCellLevel;
 

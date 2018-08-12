@@ -11,7 +11,6 @@
 #include <fstream>
 #include "PositionClass.h"
 #include <array>
-using namespace std;
 
 class InputClass
 {

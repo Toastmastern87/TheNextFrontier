@@ -54,7 +54,7 @@ public:
 
 private:
 	XMFLOAT4 mPlane[6];
-	vector<Plane> mPlanes;
+	std::vector<Plane> mPlanes;
 	CameraClass* mCamera;
 	PositionClass* mPosition;
 	FrustumCorners mCorners;

@@ -6,7 +6,6 @@
 #include "GeometryClass.h"
 #include <WICTextureLoader.h>
 using namespace DirectX;
-using namespace std;
 
 class TargetBoxClass
 {
@@ -32,8 +31,8 @@ private:
 
 private:
 	ID3D11Buffer * mVertexBuffer, *mIndexBuffer;
-	vector<GeometryClass::VertexType> mVertices;
-	vector<int> mIndices;
+	std::vector<GeometryClass::VertexType> mVertices;
+	std::vector<int> mIndices;
 
 	ID3D11Resource *mTextureResource;
 	ID3D11ShaderResourceView *mTextureResourceView;

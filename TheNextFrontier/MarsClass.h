@@ -19,7 +19,6 @@ const float MARSROTATESPEED = (2.0f * 3.141592f) / 88775000.0f;
 #include <thread>
 #include "GeometryClass.h"
 using namespace DirectX;
-using namespace std;
 
 class MarsClass
 {
@@ -139,8 +138,8 @@ private:
 private:
 	ID3D11Buffer *mVertexBuffer, *mIndexBuffer, *mInstanceBuffer;
 
-	vector<MarsVertexType> mMarsCellVertices;
-	vector<long int> mMarsCellIndices;
+	std::vector<MarsVertexType> mMarsCellVertices;
+	std::vector<long int> mMarsCellIndices;
 
 	FrustumClass* mFrustum;
 
@@ -149,13 +148,13 @@ private:
 	float mMarsMinHeight;
 	int screenWidth;
 
-	vector<TriangleType> mIcosphere;
-	vector<MarsCellType> mMarsCells;
+	std::vector<TriangleType> mIcosphere;
+	std::vector<MarsCellType> mMarsCells;
 	float mHeightData[8192][4096];
 
-	vector<float> mDistanceLUT;
-	vector<float> mTriLevelDotLUT;
-	vector<float> mHeightMultiLUT;
+	std::vector<float> mDistanceLUT;
+	std::vector<float> mTriLevelDotLUT;
+	std::vector<float> mHeightMultiLUT;
 
 	int mMaxSubdivisionLevel;
 	int mMaxCellLevel;

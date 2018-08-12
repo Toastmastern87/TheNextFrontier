@@ -8,7 +8,6 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 using namespace DirectX;
-using namespace std;
 using namespace Assimp;
 
 class ObjLoaderClass
@@ -39,8 +38,8 @@ public:
 
 	struct Object
 	{
-		vector<VertexType> vertices;
-		vector<unsigned long> indices;
+		std::vector<VertexType> vertices;
+		std::vector<unsigned long> indices;
 	};
 
 public:

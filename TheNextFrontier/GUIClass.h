@@ -5,7 +5,6 @@
 #include "ShaderManagerClass.h"
 #include <vector>
 #include "GeometryClass.h";
-using namespace std;
 
 class GUIClass
 {
@@ -37,10 +36,10 @@ private:
 	bool LoadPopUpBaseTexture(ID3D11Device*);
 
 private:
-	vector<ID3D11Buffer*> mVertexBuffers, mIndexBuffers;
-	vector<unsigned long> mVertexCounts, mIndexCounts;
-	vector<ID3D11Resource*> mResources;
-	vector<ID3D11ShaderResourceView*> mResourceViews;
+	std::vector<ID3D11Buffer*> mVertexBuffers, mIndexBuffers;
+	std::vector<unsigned long> mVertexCounts, mIndexCounts;
+	std::vector<ID3D11Resource*> mResources;
+	std::vector<ID3D11ShaderResourceView*> mResourceViews;
 
 	XMMATRIX mWorldMatrix;
 };

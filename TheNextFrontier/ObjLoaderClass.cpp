@@ -14,13 +14,7 @@ ObjLoaderClass::~ObjLoaderClass()
 
 ObjLoaderClass::Object ObjLoaderClass::LoadObject(char* filename)
 {
-	char input;
-	unsigned long tempLong;
 	Object obj;
-	ifstream objFileStream;
-	XMFLOAT3 tempXMFLOAT3;
-	XMFLOAT2 tempXMFLOAT2;
-	int uvIndex = 0;
 	Importer imp;
 
 	const aiScene *scene = imp.ReadFile(filename, aiProcess_ConvertToLeftHanded | aiProcess_JoinIdenticalVertices | aiProcess_CalcTangentSpace);

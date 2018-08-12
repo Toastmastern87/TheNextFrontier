@@ -51,28 +51,6 @@ bool FrustumClass::ConstructFrustum(float farPlane, float nearPlane, float aspec
 	nearCenter = XMLoadFloat3(&mPosition->GetPositionXMFLOAT3()) + mCamera->GetLookAtVector() * nearPlane;
 	farCenter = XMLoadFloat3(&mPosition->GetPositionXMFLOAT3()) + mCamera->GetLookAtVector() * farPlane * 0.5f;
 
-	//ofstream fOut;
-
-	//fOut.open(Debug.txt, iosout  iosapp);
-	//fOut  normHalfWidth;
-	//fOut  normHalfWidth;
-	//fOut  rn;
-	//fOut  nearPlaneWidth;
-	//fOut  nearPlaneWidth;
-	//fOut  rn;
-	//fOut  nearPlaneHeight;
-	//fOut  nearPlaneHeight;
-	//fOut  rn;
-	//fOut  farPlaneWidth;
-	//fOut  farPlaneWidth;
-	//fOut  rn;
-	//fOut  farPlaneHeight;
-	//fOut  farPlaneHeight;
-	//fOut  rn;
-	//fOut  rn;
-
-	//fOut.close();
-
 	mCorners.nearA = nearCenter + mCamera->GetUpVector() * nearPlaneHeight - mCamera->GetRightVector() * nearPlaneWidth;
 	mCorners.nearB = nearCenter + mCamera->GetUpVector() * nearPlaneHeight + mCamera->GetRightVector() * nearPlaneWidth;
 	mCorners.nearC = nearCenter - mCamera->GetUpVector() * nearPlaneHeight - mCamera->GetRightVector() * nearPlaneWidth;

@@ -8,7 +8,6 @@
 #include <fstream>
 #include <vector>
 using namespace DirectX;
-using namespace std;
 
 class MarsAtmosphereShaderClass
 {
